@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: netload.c,v 1.7 2003/08/31 12:54:36 bwalle Exp $
+ *  Id: $Id: netload.c,v 1.8 2003/09/06 12:37:20 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -43,7 +43,6 @@ extern xmlDocPtr xmlconfig;
 
 /* Defaults */
 #define DEFAULT_TEXT "Net"
-#define DEFAULT_DEVICE "eth0"
 
 #define INIT_MAX 4096
 #define MINIMAL_MAX 1024
@@ -61,6 +60,14 @@ static gchar* DEFAULT_COLOR[] = { "#FF4F00", "#FFE500" };
 #define OUT 1
 #define TOT 2
 #define SUM 2
+
+#define APP_NAME N_("Xfce4-Netload-Plugin")
+
+static char *errormessages[] = {
+    N_("Unknown error."),
+    N_("Linux proc device '/proc/net/dev' not found."),
+    N_("Interface was not found.")
+};
 
 typedef struct
 {
@@ -256,7 +263,7 @@ static t_global_monitor * monitor_new(void)
 
     global->monitor = g_new(t_monitor, 1);
     global->monitor->options.label_text = g_strdup(DEFAULT_TEXT);
-    global->monitor->options.network_device = g_strdup(DEFAULT_DEVICE);
+    global->monitor->options.network_device = g_strdup("");
     global->monitor->options.old_network_device = g_strdup("");
     global->monitor->options.use_label = TRUE;
     global->monitor->options.auto_max = TRUE;
@@ -509,7 +516,16 @@ static void setup_monitor(t_global_monitor *global)
     if (!strcmp(global->monitor->options.network_device, 
             global->monitor->options.old_network_device) == 0)
     {
-        init_netload( &(global->monitor->data), global->monitor->options.network_device);
+        if (!init_netload( &(global->monitor->data), global->monitor->options.network_device))
+        {
+            xfce_err (_("%s: Error in initalizing:\n%s"),
+                _(APP_NAME),
+                _(errormessages[
+                    global->monitor->data.errorcode == 0 
+                  ? INTERFACE_NOT_FOUND
+                  : global->monitor->data.errorcode ]));
+        }
+        
         if (global->monitor->options.old_network_device)
         {
             g_free(global->monitor->options.old_network_device);
@@ -629,18 +645,10 @@ static void monitor_write_config(Control *ctrl, xmlNodePtr parent)
         xmlSetProp(root, "Text",
                    global->monitor->options.label_text);
     }
-    else 
-    {
-        xmlSetProp(root, "Text", DEFAULT_TEXT);
-    }
 
     if (global->monitor->options.network_device)
     {
         xmlSetProp(root, "Network_Device", global->monitor->options.network_device);
-    }
-    else
-    {
-        xmlSetProp(root, "Network_Device", DEFAULT_DEVICE);
     }
     
     g_snprintf(value, 20, "%lu", global->monitor->options.max[IN]);
@@ -981,7 +989,7 @@ static void monitor_create_options(Control *control, GtkContainer *container, Gt
     gtk_box_pack_start(GTK_BOX(update_hbox), GTK_WIDGET(global->monitor->update_spinner), 
         FALSE, FALSE, 0);
         
-    update_unit_label = gtk_label_new(_("ms"));
+    update_unit_label = gtk_label_new(_("s"));
     gtk_box_pack_start(GTK_BOX(update_hbox), GTK_WIDGET(update_unit_label), 
         FALSE, FALSE, 0);
     

@@ -1,6 +1,6 @@
-/* $Id: linux.c,v 1.3 2003/08/31 12:54:36 bwalle Exp $ */
+/* $Id: linux.c,v 1.4 2003/09/06 12:37:20 bwalle Exp $ */
 
-
+#include "linux.h"
 
 /*****************************************************************************
  *
@@ -49,6 +49,13 @@ int checkinterface(netdata* data)
 			break;
 		}
 	}
+    
+    /* check if the /proc/net/dev exists */
+    if (access(PATH_NET_DEV, R_OK) != 0)
+    {
+        data->errorcode = PROC_DEVICE_NOT_FOUND;
+        return FALSE;
+    }
 
 	return interfacefound;
 }

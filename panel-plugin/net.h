@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: net.h,v 1.5 2003/08/31 12:54:36 bwalle Exp $
+ *  Id: $Id: net.h,v 1.6 2003/09/06 12:37:20 bwalle Exp $
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -31,6 +31,19 @@
 #include "os.h"
 #include "slurm.h"
 
+#define MSGSIZE 1024
+
+#ifndef gettext_noop
+#define gettext_noop(String) String
+#endif
+
+/** errorcodes */
+typedef enum {
+    UNKNOWN_ERROR,          /* 0 */
+    PROC_DEVICE_NOT_FOUND,  /* 1 */
+    INTERFACE_NOT_FOUND     /* 2 */
+} errorcode_t;
+
 
 /*
  * We need this because we cannot use static variables. Using of static variables allows
@@ -43,6 +56,7 @@ typedef struct
 {
     char            old_interface[9];
     double          backup_in;
+    errorcode_t     errorcode;
     double          backup_out;
     double          cur_in;
     double          cur_out;
@@ -80,13 +94,14 @@ typedef struct
 } netdata;
 
 
-
 /**
  * Initializes the netload plugin. Used to set up inital values. This function must
  * be called after each change of the network interface.
  * @param   device      The network device, e.g. <code>ippp0</code> for ISDN on Linux.
+ * @return  <code>true</code> if no error occurs, <code>false</code> otherwise. If there's
+ *          an error, the error message may be set
  */
-void init_netload(netdata* data, const char* device);
+int init_netload(netdata* data, const char* device);
 
 /**
  * Gets the current netload. You must call init_netload() once before you use this function!

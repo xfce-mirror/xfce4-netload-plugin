@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: net.c,v 1.4 2003/08/31 12:54:36 bwalle Exp $
+ *  Id: $Id: net.c,v 1.5 2003/09/06 12:37:20 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -65,11 +65,15 @@
 #endif
 
 
-
-
-void init_netload(netdata* data, const char* device)
+int init_netload(netdata* data, const char* device)
 {
     memset( data, 0, sizeof(netdata) );
+    
+    if (device == NULL || strlen(device) == 0)
+    {
+        return TRUE;
+    }
+    
     strncpy( data->ifdata.if_name, device, 9 );
     data->ifdata.if_name[9] = '\0';
     
@@ -78,7 +82,7 @@ void init_netload(netdata* data, const char* device)
     if (checkinterface(data) != TRUE)
 	{
         data->correct_interface = FALSE;
-		return;
+		return FALSE;
 	}
     
     /* init in a sane state */
@@ -91,6 +95,8 @@ void init_netload(netdata* data, const char* device)
 #ifdef DEBUG
     fprintf( stderr, "The netload plugin was initialized for '%s'.\n", device );
 #endif /* DEBUG */
+    
+    return TRUE;
 }
 
 

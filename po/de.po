@@ -3,15 +3,31 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
-"POT-Creation-Date: 2003-08-31 14:41+0200\n"
-"PO-Revision-Date: 2003-08-10 19:35+0200\n"
+"POT-Creation-Date: 2003-09-06 14:31+0200\n"
+"PO-Revision-Date: 2003-09-06 14:25+0200\n"
 "Last-Translator: Bernhard Walle <bernhard.walle@gmx.de>\n"
 "Language-Team: Deutsch <www.xfce.org>\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.2\n"
 
-#: panel-plugin/netload.c:216
+#: panel-plugin/netload.c:64
+msgid "Xfce4-Netload-Plugin"
+msgstr "Xfce4-Netzlast-Plugin"
+
+#: panel-plugin/netload.c:67
+msgid "Unknown error."
+msgstr "Unbekannter Fehler."
+
+#: panel-plugin/netload.c:68
+msgid "Linux proc device '/proc/net/dev' not found."
+msgstr "Linux Prozessdatei '/proc/net/dev' nicht gefunden."
+
+#: panel-plugin/netload.c:69
+msgid "Interface was not found."
+msgstr "Schnittstelle nicht gefunden."
+
+#: panel-plugin/netload.c:223
 #, c-format
 msgid ""
 "Average of last %d measures:\n"
@@ -24,50 +40,59 @@ msgstr ""
 "Ausgehend: %s kByte/s\n"
 "Gesamt: %s kByte/s"
 
-#: panel-plugin/netload.c:834
+#: panel-plugin/netload.c:521
+#, c-format
+msgid ""
+"%s: Error in initalizing:\n"
+"%s"
+msgstr ""
+"%s: Fehler beim Initialisieren:\n"
+"%s"
+
+#: panel-plugin/netload.c:842
 msgid "Select color"
 msgstr "Farbe auswählen"
 
-#: panel-plugin/netload.c:887
+#: panel-plugin/netload.c:895
 msgid "Bar color (incoming):"
 msgstr "Balkenfarbe (eingehend):"
 
-#: panel-plugin/netload.c:888
+#: panel-plugin/netload.c:896
 msgid "Bar color (outgoing):"
 msgstr "Balkenfarbe (ausgehend):"
 
-#: panel-plugin/netload.c:891
+#: panel-plugin/netload.c:899
 msgid "Maximum (incoming):"
 msgstr "Maximum (eingehend):"
 
-#: panel-plugin/netload.c:892
+#: panel-plugin/netload.c:900
 msgid "Maximum (outgoing):"
 msgstr "Maximum (ausgehend):"
 
-#: panel-plugin/netload.c:916
+#: panel-plugin/netload.c:924
 msgid "Text to display:"
 msgstr "Angezeigter Text:"
 
-#: panel-plugin/netload.c:947
+#: panel-plugin/netload.c:955
 msgid "Network device:"
 msgstr "Netzwerkschnittstelle:"
 
-#: panel-plugin/netload.c:973
+#: panel-plugin/netload.c:981
 msgid "Update interval:"
 msgstr "Aktualisierungsintervall:"
 
-#: panel-plugin/netload.c:984
-msgid "ms"
-msgstr "ms"
+#: panel-plugin/netload.c:992
+msgid "s"
+msgstr "s"
 
-#: panel-plugin/netload.c:997
+#: panel-plugin/netload.c:1005
 msgid "Automatic maximum"
 msgstr "Automatisches Maximum"
 
-#: panel-plugin/netload.c:1029
+#: panel-plugin/netload.c:1037
 msgid "kByte/s"
 msgstr "kByte/s"
 
-#: panel-plugin/netload.c:1117
+#: panel-plugin/netload.c:1125
 msgid "Netload"
 msgstr "Netzlast"
