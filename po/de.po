@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
-"POT-Creation-Date: 2003-09-06 14:31+0200\n"
+"POT-Creation-Date: 2003-09-13 13:57+0200\n"
 "PO-Revision-Date: 2003-09-06 14:25+0200\n"
 "Last-Translator: Bernhard Walle <bernhard.walle@gmx.de>\n"
 "Language-Team: Deutsch <www.xfce.org>\n"
@@ -13,7 +13,7 @@ msgstr ""
 
 #: panel-plugin/netload.c:64
 msgid "Xfce4-Netload-Plugin"
-msgstr "Xfce4-Netzlast-Plugin"
+msgstr "Xfce4-Netload-Plugin"
 
 #: panel-plugin/netload.c:67
 msgid "Unknown error."
