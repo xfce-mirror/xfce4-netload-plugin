@@ -56,7 +56,7 @@ modename="$progname"
 PROGRAM=ltmain.sh
 PACKAGE=libtool
 VERSION=1.5
-TIMESTAMP=" (1.1220 2003/04/05 19:32:58)"
+TIMESTAMP=" (1.1220.2.1 2003/04/14 22:48:00)"
 
 default_mode=
 help="Try \`$progname --help' for more information."
@@ -3783,18 +3783,7 @@ EOF
 	  if test -n "$export_symbols" && test -n "$archive_expsym_cmds"; then
 	    eval cmds=\"$archive_expsym_cmds\"
 	  else
-	    save_deplibs="$deplibs"
-	    for conv in $convenience; do
-	      tmp_deplibs=
-	      for test_deplib in $deplibs; do
-		if test "$test_deplib" != "$conv"; then
-		  tmp_deplibs="$tmp_deplibs $test_deplib"
-		fi
-	      done
-	      deplibs="$tmp_deplibs"
-	    done
 	    eval cmds=\"$archive_cmds\"
-	    deplibs="$save_deplibs"
 	  fi
 
 	  # Append the command to remove the reloadable object files
@@ -5580,7 +5569,8 @@ relink_command=\"$relink_command\""
 	    if test "$finalize" = yes && test -z "$run"; then
 	      tmpdir="/tmp"
 	      test -n "$TMPDIR" && tmpdir="$TMPDIR"
-	      tmpdir="$tmpdir/libtool-$$"
+              tmpdir=`mktemp -d $tmpdir/libtool-XXXXXX 2> /dev/null` ||
+                tmpdir="$tmpdir/libtool-$$"
 	      if $mkdir -p "$tmpdir" && chmod 700 "$tmpdir"; then :
 	      else
 		$echo "$modename: error: cannot create temporary directory \`$tmpdir'" 1>&2
@@ -5871,14 +5861,14 @@ relink_command=\"$relink_command\""
       fi
 
       # Now prepare to actually exec the command.
-      exec_cmd="\$cmd$args"
+      exec_cmd="\"\$cmd\"$args"
     else
       # Display what would be done.
       if test -n "$shlibpath_var"; then
 	eval "\$echo \"\$shlibpath_var=\$$shlibpath_var\""
 	$echo "export $shlibpath_var"
       fi
-      $echo "$cmd$args"
+      eval \$echo \"\$cmd\"$args
       exit 0
     fi
     ;;

@@ -4,7 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce-netload 2.1\n"
-"POT-Creation-Date: 2003-10-01 21:17+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-08-01 11:07+0200\n"
 "PO-Revision-Date: 2003-10-19 10:34+0200\n"
 "Last-Translator: Michał Chruszcz <troll@troll.one.pl>\n"
 "Language-Team: pl <LL@li.org>\n"
@@ -28,7 +29,7 @@ msgstr "Nie znaleziono urządzenia '/proc/net/dev'."
 msgid "Interface was not found."
 msgstr "Interfejs nie został odnaleziony."
 
-#: panel-plugin/netload.c:223
+#: panel-plugin/netload.c:225
 #, c-format
 msgid ""
 "Average of last %d measures:\n"
@@ -41,7 +42,7 @@ msgstr ""
 "Wychodzące: %s kB/s\n"
 "Łącznie: %s kB/s"
 
-#: panel-plugin/netload.c:522
+#: panel-plugin/netload.c:526
 #, c-format
 msgid ""
 "%s: Error in initalizing:\n"
@@ -50,50 +51,50 @@ msgstr ""
 "%s: Błąd inicjalizacji:\n"
 "%s"
 
-#: panel-plugin/netload.c:867
+#: panel-plugin/netload.c:871
 msgid "Select color"
 msgstr "Wybierz kolor"
 
-#: panel-plugin/netload.c:922
+#: panel-plugin/netload.c:926
 msgid "Bar color (incoming):"
 msgstr "Kolor słupka (przychodzące):"
 
-#: panel-plugin/netload.c:923
+#: panel-plugin/netload.c:927
 msgid "Bar color (outgoing):"
 msgstr "Kolor słupka (wychodzące):"
 
-#: panel-plugin/netload.c:926
+#: panel-plugin/netload.c:930
 msgid "Maximum (incoming):"
 msgstr "Maksimum (przychodzące):"
 
-#: panel-plugin/netload.c:927
+#: panel-plugin/netload.c:931
 msgid "Maximum (outgoing):"
 msgstr "Maksimum (wychodzące):"
 
-#: panel-plugin/netload.c:951
+#: panel-plugin/netload.c:955
 msgid "Text to display:"
 msgstr "Tekst do wyświetlenia:"
 
-#: panel-plugin/netload.c:982
+#: panel-plugin/netload.c:986
 msgid "Network device:"
 msgstr "Urządzenie sieciowe:"
 
-#: panel-plugin/netload.c:1008
+#: panel-plugin/netload.c:1012
 msgid "Update interval:"
 msgstr "Interwał odświeżania:"
 
-#: panel-plugin/netload.c:1019
+#: panel-plugin/netload.c:1023
 msgid "s"
 msgstr ""
 
-#: panel-plugin/netload.c:1032
+#: panel-plugin/netload.c:1036
 msgid "Automatic maximum"
 msgstr "Automatyczne maksimum"
 
-#: panel-plugin/netload.c:1064
+#: panel-plugin/netload.c:1068
 msgid "kByte/s"
 msgstr "kB/s"
 
-#: panel-plugin/netload.c:1152
+#: panel-plugin/netload.c:1156
 msgid "Netload"
 msgstr "Obciążenie sieci"

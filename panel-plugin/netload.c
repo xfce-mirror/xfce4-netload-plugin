@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: netload.c,v 1.9 2003/10/01 19:16:03 bwalle Exp $
+ *  Id: $Id: netload.c,v 1.10 2004/08/01 09:16:58 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -144,6 +144,8 @@ static gboolean update_monitors(t_global_monitor *global)
     double temp;
     gint i, j;
 
+    XFCE_PANEL_LOCK();
+
     get_current_netload( &(global->monitor->data), &(net[IN]), &(net[OUT]), &(net[TOT]) );
     
 
@@ -224,6 +226,8 @@ static gboolean update_monitors(t_global_monitor *global)
                 "Incoming: %s kByte/s\nOutgoing: %s kByte/s\nTotal: %s kByte/s"),
                 HISTSIZE_CALCULATE, buffer[IN], buffer[OUT], buffer[TOT]);
     gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor->ebox), caption, NULL);
+
+    XFCE_PANEL_UNLOCK();
 
     return TRUE;
 }
