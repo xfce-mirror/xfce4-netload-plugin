@@ -1,4 +1,20 @@
-/* $Id: linux.c,v 1.1 2003/08/24 20:01:48 bwalle Exp $ */
+/* $Id: linux.c,v 1.2 2003/08/25 21:08:58 bwalle Exp $ */
+
+
+
+/*****************************************************************************
+ *
+ * init_osspecific()
+ *
+ * Init function
+ *
+ ****************************************************************************/
+
+void init_osspecific(netdata* data)
+{
+    /* nothing */
+}
+
 
 /*****************************************************************************
  *
@@ -9,7 +25,7 @@
  *
  ****************************************************************************/
 
-int checkinterface(void)
+int checkinterface(netdata* data)
 {
 	int interfacefound = FALSE;
 	unsigned int i;
@@ -20,7 +36,7 @@ int checkinterface(void)
 
 	for (i = 0; ifs[i].if_index; i++)
 	{
-		if (strcmp(ifs[i].if_name, ifdata.if_name) == 0)
+		if (strcmp(ifs[i].if_name, data->ifdata.if_name) == 0)
 		{
 			interfacefound = TRUE;
 			break;
@@ -42,29 +58,29 @@ int checkinterface(void)
  *
  *****************************************************************************/
 
-int get_stat(void)
+int get_stat(netdata* data)
 {
-    static int opened = 0;
+    /* bwalle: Instead of the original code we open the file each time new. The
+     * performance difference is _very_ minimal. But I don't think that it's a good
+     * idea to keep the file open for a very long time for _each_ plugin instance.
+     */
     char buffer[BUFSIZE];
     char *ptr;
     char *devname;
     int dump;
     int interfacefound;
+    FILE* proc_net_dev;
     unsigned long rx_o, tx_o;
 
-    if (opened != 1)
+    if ((proc_net_dev = fopen(PATH_NET_DEV, "r")) == NULL)
     {
-        if ((proc_net_dev = fopen(PATH_NET_DEV, "r")) == NULL)
-        {
-            fprintf(stderr, "cannot open %s!\nnot running Linux?\n",
-                PATH_NET_DEV);
-            exit(1);
-        }
-        opened++;
+        fprintf(stderr, "cannot open %s!\nnot running Linux?\n",
+            PATH_NET_DEV);
+        return 1;
     }
 
     /* backup old rx/tx values */
-    rx_o = stats.rx_bytes; tx_o = stats.tx_bytes;
+    rx_o = data->stats.rx_bytes; tx_o = data->stats.tx_bytes;
 
     /* do not parse the first two lines as they only contain static garbage */
     fseek(proc_net_dev, 0, SEEK_SET);
@@ -83,24 +99,25 @@ int get_stat(void)
             ptr++;
         *ptr = '\0';
         ptr++;
-        if (!strcmp(devname, (char *) ifdata.if_name))
+        if (!strcmp(devname, (char *) data->ifdata.if_name))
         {
             /* read stats and fill struct */
             sscanf(ptr, "%lg %lu %lu %d %d %d %d %d %lg %lu %lu %d %d %d %d %d",
-                &stats.rx_bytes, &stats.rx_packets, &stats.rx_errors,
+                &(data->stats.rx_bytes), &(data->stats.rx_packets), &(data->stats.rx_errors),
                 &dump, &dump, &dump, &dump, &dump,
-                &stats.tx_bytes, &stats.tx_packets, &stats.tx_errors,
+                &(data->stats.tx_bytes), &(data->stats.tx_packets), &(data->stats.tx_errors),
                 &dump, &dump, &dump, &dump, &dump);
             interfacefound = 1;
             continue; /* break, as we won't get any new information */
         }
     }
+    fclose( proc_net_dev );
     if (interfacefound)
     {
-        if (rx_o > stats.rx_bytes)
-            stats.rx_over++;
-        if (tx_o > stats.tx_bytes)
-            stats.tx_over++;
+        if (rx_o > data->stats.rx_bytes)
+            data->stats.rx_over++;
+        if (tx_o > data->stats.tx_bytes)
+            data->stats.tx_over++;
     }
     return (interfacefound == 1)? 0 : 1;
 }

@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: net.c,v 1.1 2003/08/24 20:02:29 bwalle Exp $
+ *  Id: $Id: net.c,v 1.2 2003/08/25 21:08:58 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -36,6 +36,7 @@
 #endif
 
 /* From Wormulon */
+#include "net.h"
 #include "os.h"
 #include "wormulon.h"
 #include "slurm.h"	/* slurm structs */
@@ -65,39 +66,25 @@
 
 
 
-#ifndef FALSE
-#define FALSE 0
-#endif
-#ifndef TRUE
-#define TRUE 1
-#endif
 
-static double backup_in, backup_out;
-static double cur_in, cur_out;
-static char dim_in[4], dim_out[4];
-static struct timeval prev_time;
-int correct_interface;
-
-
-void init_netload(const char* device)
+void init_netload(netdata* data, const char* device)
 {
-    strncpy( ifdata.if_name, device, 9 );
-    ifdata.if_name[9] = '\0';
+    memset( data, 0, sizeof(netdata) );
+    strncpy( data->ifdata.if_name, device, 9 );
+    data->ifdata.if_name[9] = '\0';
     
-    if (checkinterface() != TRUE)
+    if (checkinterface(data) != TRUE)
 	{
-        correct_interface = FALSE;
+        data->correct_interface = FALSE;
 		return;
 	}
     
     /* init in a sane state */
-    get_stat();
-    backup_in  = stats.rx_bytes;
-    backup_out = stats.tx_bytes;
-    memset(dim_in, 0, sizeof(dim_in));
-    memset(dim_out, 0, sizeof(dim_out));
+    get_stat(data);
+    data->backup_in  = data->stats.rx_bytes;
+    data->backup_out = data->stats.tx_bytes;
     
-    correct_interface = TRUE;
+    data->correct_interface = TRUE;
 }
 
 
@@ -107,12 +94,12 @@ void init_netload(const char* device)
  * @param   out         Will be filled with the "out"-load.
  * @param   tot         Will be filled with the "total"-load.
  */
-void get_current_netload(unsigned long *in, unsigned long *out, unsigned long *tot) 
+void get_current_netload(netdata* data, unsigned long *in, unsigned long *out, unsigned long *tot) 
 {
     struct timeval curr_time;
     double delta_t;
     
-    if( !correct_interface )
+    if( ! data->correct_interface )
     {
         if( in != NULL && out != NULL && tot != NULL )
         {
@@ -122,46 +109,46 @@ void get_current_netload(unsigned long *in, unsigned long *out, unsigned long *t
     
     gettimeofday(&curr_time, NULL);
     
-    delta_t = (double) ((curr_time.tv_sec  - prev_time.tv_sec) * 1000000L
-                             + (curr_time.tv_usec - prev_time.tv_usec)) / 1000000.0;
+    delta_t = (double) ((curr_time.tv_sec  - data->prev_time.tv_sec) * 1000000L
+                             + (curr_time.tv_usec - data->prev_time.tv_usec)) / 1000000.0;
     
     /* update */
-    get_stat();
-    if (backup_in > stats.rx_bytes)
+    get_stat(data);
+    if (data->backup_in > data->stats.rx_bytes)
     {
-        cur_in = (int) stats.rx_bytes / delta_t;
+        data->cur_in = (int) data->stats.rx_bytes / delta_t;
     }
     else
     {
-        cur_in = (int) (stats.rx_bytes - backup_in) / delta_t;
+        data->cur_in = (int) (data->stats.rx_bytes - data->backup_in) / delta_t;
     }
 	
-    if (backup_out > stats.tx_bytes)
+    if (data->backup_out > data->stats.tx_bytes)
     {
-        cur_out = (int) stats.tx_bytes / delta_t;
+        data->cur_out = (int) data->stats.tx_bytes / delta_t;
     }
     else
     {
-        cur_out = (int) (stats.tx_bytes - backup_out) / delta_t;
+        data->cur_out = (int) (data->stats.tx_bytes - data->backup_out) / delta_t;
     }
 
     if( in != NULL && out != NULL && tot != NULL )
     {
-        *in = cur_in;
-        *out = cur_out;
+        *in = data->cur_in;
+        *out = data->cur_out;
         *tot = *in + *out;
     }
     
     /* save 'new old' values */
-    backup_in = stats.rx_bytes;
-    backup_out = stats.tx_bytes;
+    data->backup_in = data->stats.rx_bytes;
+    data->backup_out = data->stats.tx_bytes;
     
     /* do the same with time */
-    prev_time.tv_sec = curr_time.tv_sec;
-    prev_time.tv_usec = curr_time.tv_usec;
+    data->prev_time.tv_sec = curr_time.tv_sec;
+    data->prev_time.tv_usec = curr_time.tv_usec;
 }
 
-void close_netload()
+void close_netload(netdata* data)
 {
     /* We need not code here */
 }

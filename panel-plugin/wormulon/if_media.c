@@ -6,7 +6,7 @@
  * operating systems.
  *
  *****************************************************************************
- * $Id: if_media.c,v 1.1 2003/08/24 20:01:48 bwalle Exp $
+ * $Id: if_media.c,v 1.2 2003/08/25 21:08:58 bwalle Exp $
  *****************************************************************************/
 
 #if defined (__FreeBSD__) || (__OpenBSD__) || (__NetBSD__) || (__MicroBSD__)
@@ -260,7 +260,7 @@ int get_if_speed(char *ifstring)
     struct nmparms params;
     mib_ifEntry * if_buf;
 
-    for (i=0; i <= ifdata.if_amount; i++)
+    for (i=0; i <= data->ifdata.if_amount; i++)
     {
         if ((fd = open_mib("/dev/lan", O_RDWR, i, 0)) >= 0)
         {
@@ -273,7 +273,7 @@ int get_if_speed(char *ifstring)
                 if_buf->ifIndex = i+1;
                 if ((ret = get_mib_info(fd, &params)) == 0)
                 {
-                    if ( i+1 == ifdata.if_id)
+                    if ( i+1 == data->ifdata.if_id)
                         if (if_buf->ifOper == 1)
                             speed = if_buf->ifSpeed/1000;                         
                         else

@@ -9,7 +9,7 @@ AC_INIT([panel-plugin/netload.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-netload-plugin], [0.2.0pre1])
+AM_INIT_AUTOMAKE([xfce4-netload-plugin], [0.2.0pre2])
 
 AM_MAINTAINER_MODE
 
@@ -45,9 +45,6 @@ AC_TYPE_SIZE_T
 
 AC_CHECK_LIB(kstat, kstat_open, SOLLIBS="-lkstat -lsocket", SOLLIBS="")
 AC_SUBST(SOLLIBS)
-
-AC_CHECK_LIB(fridge, vanilla_coke, echo "WTF?!", 
-    echo "Warning: No vanilla coke found in fridge.";echo "We highly suggest that you rectify this situation immediatly.")
 
 dnl Check for i18n support
 BM_I18N([xfce4-netload], [de lt ca])

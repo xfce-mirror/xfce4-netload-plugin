@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: netload.c,v 1.3 2003/08/24 20:05:10 bwalle Exp $
+ *  Id: $Id: netload.c,v 1.4 2003/08/25 21:08:58 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -22,6 +22,9 @@
 #include <config.h>
 #endif
 
+#include "net.h"
+#include "utils.h"
+
 #include <gtk/gtk.h>
 
 #include <libxfce4util/i18n.h>
@@ -29,8 +32,6 @@
 #include <panel/plugins.h>
 #include <panel/xfce.h>
 
-#include "net.h"
-#include "utils.h"
 
 /* for xml: */
 #define MONITOR_ROOT "Netload"
@@ -77,6 +78,9 @@ typedef struct
     gulong     net_max[SUM];
     
     t_monitor_options options;
+    
+    /* for the network part */
+    netdata    data;
 
     /* Displayed text */
     GtkBox    *opt_vbox;
@@ -120,7 +124,7 @@ static gint update_monitors(t_global_monitor *global)
     double temp;
     gint i;
 
-    get_current_netload( &(net[IN]), &(net[OUT]), &(net[TOT]) );
+    get_current_netload( &(global->monitor->data), &(net[IN]), &(net[OUT]), &(net[TOT]) );
     
 
     for (i = 0; i < SUM; i++)
@@ -397,7 +401,7 @@ static void monitor_free(Control *ctrl)
     }
     g_free(global);
     
-    close_netload();
+    close_netload( &(global->monitor->data) );
 }
 
 static void setup_monitor(t_global_monitor *global)
@@ -443,7 +447,7 @@ static void setup_monitor(t_global_monitor *global)
         gtk_widget_show(global->monitor->label);
     }
     
-    init_netload(global->monitor->options.network_device);
+    init_netload( &(global->monitor->data), global->monitor->options.network_device);
 
 }
 

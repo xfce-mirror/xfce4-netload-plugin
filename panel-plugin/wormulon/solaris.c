@@ -1,4 +1,18 @@
-/* $Id: solaris.c,v 1.1 2003/08/24 20:01:48 bwalle Exp $ */
+/* $Id: solaris.c,v 1.2 2003/08/25 21:08:58 bwalle Exp $ */
+
+
+/*****************************************************************************
+ *
+ * init_osspecific()
+ *
+ * Init function
+ *
+ ****************************************************************************/
+
+void init_osspecific(netdata* data)
+{
+    /* nothing */
+}
 
 /*****************************************************************************
  *
@@ -8,7 +22,7 @@
  *
  ****************************************************************************/
 
-int checkinterface()
+int checkinterface(netdata* data)
 {
     int validinterface = FALSE;
     int sockfd, i, numifs, numifreqs;
@@ -64,7 +78,7 @@ int checkinterface()
             perror("SIOCGIFFLAGS");
             continue;
         }
-        if (!strcmp(ifdata.if_name, ifr.ifr_name) && (ifr.ifr_flags & IFF_UP))
+        if (!strcmp(data->ifdata.if_name, ifr.ifr_name) && (ifr.ifr_flags & IFF_UP))
         {
             validinterface = TRUE;
             break;
@@ -85,7 +99,7 @@ int checkinterface()
  *
  ****************************************************************************/
 
-int get_stat(void)
+int get_stat(netdata* data)
 {
     kstat_t *ksp;
     kstat_named_t *knp;
@@ -98,38 +112,38 @@ int get_stat(void)
         return 1;
     }
 
-    rx_o = stats.rx_bytes; tx_o = stats.tx_bytes;
+    rx_o = data->stats.rx_bytes; tx_o = data->stats.tx_bytes;
 
-    ksp = kstat_lookup(kc, NULL, -1, ifdata.if_name);
+    ksp = kstat_lookup(kc, NULL, -1, data->ifdata.if_name);
     if (ksp && kstat_read(kc, ksp, NULL) >= 0)
     {   
         knp = (kstat_named_t *)kstat_data_lookup(ksp, "opackets");
         if (knp)
-            stats.tx_packets = knp->value.ui32;
+            data->stats.tx_packets = knp->value.ui32;
         knp = (kstat_named_t *)kstat_data_lookup(ksp, "ipackets");
         if (knp)
-            stats.rx_packets = knp->value.ui32;
+            data->stats.rx_packets = knp->value.ui32;
         knp = (kstat_named_t *)kstat_data_lookup(ksp, "obytes");
         if (knp)
-            stats.tx_bytes = knp->value.ui32;
+            data->stats.tx_bytes = knp->value.ui32;
         knp = (kstat_named_t *)kstat_data_lookup(ksp, "rbytes");
         if (knp)
-            stats.rx_bytes = knp->value.ui32;
+            data->stats.rx_bytes = knp->value.ui32;
         knp = (kstat_named_t *)kstat_data_lookup(ksp, "oerrors");
         if (knp)
-            stats.tx_errors = knp->value.ui32;
+            data->stats.tx_errors = knp->value.ui32;
         knp = (kstat_named_t *)kstat_data_lookup(ksp, "ierrors");
         if (knp)
-            stats.rx_errors = knp->value.ui32;
+            data->stats.rx_errors = knp->value.ui32;
     }
 
     kstat_close(kc);
 
     /* check for overflows */
-    if (rx_o > stats.rx_bytes)
-        stats.rx_over++;
-    if (tx_o > stats.tx_bytes)
-        stats.tx_over++;
+    if (rx_o > data->stats.rx_bytes)
+        data->stats.rx_over++;
+    if (tx_o > data->stats.tx_bytes)
+        data->stats.tx_over++;
 
     return 0;
 }

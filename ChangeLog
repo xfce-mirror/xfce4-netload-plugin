@@ -1,3 +1,8 @@
+2003-08-25 Bernhard Walle
+    * Changed all static variables to a structure which is given the function
+      as a parameter. This makes more than one instance of the plugin possible.
+    * Released 0.2.0pre2 which is the next test version for 0.2.0.
+
 2003-08-24 Bernhard Walle
     * Using the last four measures in history so it's easier to read.
     * Automatic maximum now really works.

@@ -1,4 +1,4 @@
-/* $Id: unsupported.c,v 1.1 2003/08/24 20:01:48 bwalle Exp $ */
+/* $Id: unsupported.c,v 1.2 2003/08/25 21:08:58 bwalle Exp $ */
 
 /******************************************************************************
  *
@@ -8,7 +8,18 @@
  *
  *****************************************************************************/
 
-int get_stat(void)
+int get_stat(netdata* data)
+{
+    return 0;
+}
+
+void init_osspecific(netdata* data)
+{
+    /* do nothgin */
+}
+
+
+int checkinterface(netdata* data)
 {
     return 0;
 }

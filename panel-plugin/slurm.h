@@ -7,6 +7,7 @@
  *****************************************************************************/
 
 #ifndef _SLURM_H_
+#define _SLURM_H_
 
 typedef struct IfData{
     char if_name[10];       /* The device name given as start parameter*/
@@ -17,7 +18,7 @@ typedef struct IfData{
     int  if_valid;          /* 1 = selected interface exists
                              * 0 = interfaces does not exists */
 } IfData;
-IfData ifdata;
+
 
 /* This structure stays the INFO variables */
 typedef struct DataStats {
@@ -51,6 +52,5 @@ typedef struct DataStats {
     double rx_bytes_comp_off;
     double tx_bytes_comp_off;
 } DataStats;
-DataStats stats;
 
 #endif

@@ -5,7 +5,7 @@
  * application specific defines. You should never need to tune anything here
  *
  ******************************************************************************
- * $Id: wormulon.h,v 1.1 2003/08/24 20:02:29 bwalle Exp $
+ * $Id: wormulon.h,v 1.2 2003/08/25 21:08:58 bwalle Exp $
  *****************************************************************************/
 
 #ifndef _WORMULON_H
@@ -17,11 +17,8 @@
 #define FALSE 0
 #endif
 
-#define SAMPLE_TIME 1	/* one second default sample time */
-
 #ifdef __linux__
 #define PATH_NET_DEV "/proc/net/dev"
-static FILE *proc_net_dev;
 #endif
 
 /* define possible options */
