@@ -1,3 +1,7 @@
+2003-10-19 Bernhard Walle
+    * Polish translation was now added
+	* Released 0.2.2
+
 2003-10-01 Bernhard Walle
     * Fixed bug #972: The total value in the tooltip is now displayed with
       fractional portion

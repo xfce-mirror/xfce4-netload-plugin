@@ -9,7 +9,7 @@ AC_INIT([panel-plugin/netload.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-netload-plugin], [0.2.1])
+AM_INIT_AUTOMAKE([xfce4-netload-plugin], [0.2.2])
 
 AM_MAINTAINER_MODE
 
@@ -47,7 +47,7 @@ AC_CHECK_LIB(kstat, kstat_open, SOLLIBS="-lkstat -lsocket", SOLLIBS="")
 AC_SUBST(SOLLIBS)
 
 dnl Check for i18n support
-BM_I18N([xfce4-netload], [de lt ca])
+BM_I18N([xfce4-netload], [de lt ca pl])
 
 dnl configure the panel plugin
 XFCE_PANEL_PLUGIN([XFCE4_PANEL], [3.99.2])
