@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
-"POT-Creation-Date: 2003-08-25 22:58+0200\n"
+"POT-Creation-Date: 2003-08-26 22:25+0200\n"
 "PO-Revision-Date: 2003-08-10 19:35+0200\n"
 "Last-Translator: Bernhard Walle <bernhard.walle@gmx.de>\n"
 "Language-Team: Deutsch <www.xfce.org>\n"
@@ -11,55 +11,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.2\n"
 
-#: panel-plugin/netload.c:170
+#: panel-plugin/netload.c:202
 #, c-format
 msgid ""
-"Average of last 4 measures:\n"
+"Average of last %d measures:\n"
 "Incoming: %s kByte/s\n"
 "Outgoing: %s kByte/s\n"
 "Total: %s kByte/s"
 msgstr ""
-"Durchschnitt der letzten 4 Messungen:\n"
+"Durchschnitt der letzten %d Messungen:\n"
 "Eingehend: %s kByte/s\n"
 "Ausgehend: %s kByte/s\n"
 "Gesamt: %s kByte/s"
 
-#: panel-plugin/netload.c:752
+#: panel-plugin/netload.c:813
 msgid "Select color"
 msgstr "Farbe auswählen"
 
-#: panel-plugin/netload.c:803
+#: panel-plugin/netload.c:866
 msgid "Bar color (incoming):"
 msgstr "Balkenfarbe (eingehend):"
 
-#: panel-plugin/netload.c:804
+#: panel-plugin/netload.c:867
 msgid "Bar color (outgoing):"
 msgstr "Balkenfarbe (ausgehend):"
 
-#: panel-plugin/netload.c:807
+#: panel-plugin/netload.c:870
 msgid "Maximum (incoming):"
 msgstr "Maximum (eingehend):"
 
-#: panel-plugin/netload.c:808
+#: panel-plugin/netload.c:871
 msgid "Maximum (outgoing):"
 msgstr "Maximum (ausgehend):"
 
-#: panel-plugin/netload.c:831
+#: panel-plugin/netload.c:895
 msgid "Text to display:"
 msgstr "Angezeigter Text:"
 
-#: panel-plugin/netload.c:861
+#: panel-plugin/netload.c:926
 msgid "Network device:"
 msgstr "Netzwerkschnittstelle:"
 
-#: panel-plugin/netload.c:888
+#: panel-plugin/netload.c:952
+msgid "Update interval:"
+msgstr "Aktualisierungsintervall:"
+
+#: panel-plugin/netload.c:963
+msgid "ms"
+msgstr "ms"
+
+#: panel-plugin/netload.c:976
 msgid "Automatic maximum"
 msgstr "Automatisches Maximum"
 
-#: panel-plugin/netload.c:920
+#: panel-plugin/netload.c:1008
 msgid "kByte/s"
 msgstr "kByte/s"
 
-#: panel-plugin/netload.c:1010
+#: panel-plugin/netload.c:1096
 msgid "Netload"
 msgstr "Netzlast"

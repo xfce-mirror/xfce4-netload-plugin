@@ -14,4 +14,22 @@
  */
 char* format_with_thousandssep( char* string, int stringsize, double number, int digits );
 
+/**
+ * Returns the minimum of the array. The array must contain at least one element.
+ * @param   array       the array which must contain at least one element. 
+ *                      <code>NULL</code> is not allowed
+ * @param   size        the size of the array
+ * @return  the minimum
+ */
+unsigned long min_array( unsigned long array[], int size );
+
+/**
+ * Returns the maximum of the array. The array must contain at least one element.
+ * @param   array       the array which must contain at least one element. 
+ *                      <code>NULL</code> is not allowed
+ * @param   size        the size of the array
+ * @return  the minimum
+ */
+unsigned long max_array( unsigned long array[], int size );
+
 #endif /* UTILS_H */

@@ -30,6 +30,36 @@
 #define BUFSIZ 512
 #endif
 
+unsigned long min_array( unsigned long array[], int size )
+{
+    int i;
+    unsigned long min = array[0];
+    
+    for( i = 1; i < size; i++ )
+    {
+        if( array[i] < min )
+        {
+            min = array[i];
+        }
+    }
+    return min;
+}
+
+
+unsigned long max_array( unsigned long array[], int size )
+{
+    int i;
+    unsigned long max = array[0];
+    
+    for( i = 1; i < size; i++ )
+    {
+        if( array[i] > max )
+        {
+            max = array[i];
+        }
+    }
+    return max;
+}
 
 char* format_with_thousandssep( char* string, int stringsize, double number, int digits )
 {

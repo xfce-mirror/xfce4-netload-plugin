@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-08-25 22:58+0200\n"
+"POT-Creation-Date: 2003-08-26 22:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,51 +15,59 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/netload.c:170
+#: panel-plugin/netload.c:202
 #, c-format
 msgid ""
-"Average of last 4 measures:\n"
+"Average of last %d measures:\n"
 "Incoming: %s kByte/s\n"
 "Outgoing: %s kByte/s\n"
 "Total: %s kByte/s"
 msgstr ""
 
-#: panel-plugin/netload.c:752
+#: panel-plugin/netload.c:813
 msgid "Select color"
 msgstr ""
 
-#: panel-plugin/netload.c:803
+#: panel-plugin/netload.c:866
 msgid "Bar color (incoming):"
 msgstr ""
 
-#: panel-plugin/netload.c:804
+#: panel-plugin/netload.c:867
 msgid "Bar color (outgoing):"
 msgstr ""
 
-#: panel-plugin/netload.c:807
+#: panel-plugin/netload.c:870
 msgid "Maximum (incoming):"
 msgstr ""
 
-#: panel-plugin/netload.c:808
+#: panel-plugin/netload.c:871
 msgid "Maximum (outgoing):"
 msgstr ""
 
-#: panel-plugin/netload.c:831
+#: panel-plugin/netload.c:895
 msgid "Text to display:"
 msgstr ""
 
-#: panel-plugin/netload.c:861
+#: panel-plugin/netload.c:926
 msgid "Network device:"
 msgstr ""
 
-#: panel-plugin/netload.c:888
+#: panel-plugin/netload.c:952
+msgid "Update interval:"
+msgstr ""
+
+#: panel-plugin/netload.c:963
+msgid "ms"
+msgstr ""
+
+#: panel-plugin/netload.c:976
 msgid "Automatic maximum"
 msgstr ""
 
-#: panel-plugin/netload.c:920
+#: panel-plugin/netload.c:1008
 msgid "kByte/s"
 msgstr ""
 
-#: panel-plugin/netload.c:1010
+#: panel-plugin/netload.c:1096
 msgid "Netload"
 msgstr ""

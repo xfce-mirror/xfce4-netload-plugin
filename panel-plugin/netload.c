@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: netload.c,v 1.4 2003/08/25 21:08:58 bwalle Exp $
+ *  Id: $Id: netload.c,v 1.5 2003/08/26 20:34:46 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -44,7 +44,13 @@ extern xmlDocPtr xmlconfig;
 /* Defaults */
 #define DEFAULT_TEXT "Net"
 #define DEFAULT_DEVICE "eth0"
-#define DEFAULT_MAX 4096
+
+#define INIT_MAX 4096
+#define MINIMAL_MAX 1024
+#define SHRINK_MAX 0.75
+
+#define HISTSIZE_CALCULATE 4
+#define HISTSIZE_STORE 20
 
 static gchar* DEFAULT_COLOR[] = { "#FF4F00", "#FFE500" };
 
@@ -61,6 +67,7 @@ typedef struct
     gboolean use_label;
     gboolean auto_max;
     gulong   max[SUM];
+    gint     update_interval;
     GdkColor color[SUM];
     gchar    *label_text;
     gchar    *network_device;
@@ -74,7 +81,7 @@ typedef struct
     GtkWidget  *status[SUM];
     GtkWidget  *ebox;
 
-    gulong     history[SUM][4];
+    gulong     history[SUM][HISTSIZE_STORE];
     gulong     net_max[SUM];
     
     t_monitor_options options;
@@ -87,6 +94,9 @@ typedef struct
     GtkWidget *opt_entry;
     GtkBox    *opt_hbox;
     GtkWidget *opt_use_label;
+    
+    /* Update interval */
+    GtkWidget *update_spinner;
     
     /* Network device */
     GtkWidget *net_entry;
@@ -115,14 +125,16 @@ typedef struct
 } t_global_monitor;
 
 
-static gint update_monitors(t_global_monitor *global)
+
+static gboolean update_monitors(t_global_monitor *global)
 {
     char buffer[SUM+1][BUFSIZ];
     gchar caption[BUFSIZ];
     gulong net[SUM+1];
-    gulong display[SUM+1];
+    gulong display[SUM+1], max;
+    guint64 histcalculate;
     double temp;
-    gint i;
+    gint i, j;
 
     get_current_netload( &(global->monitor->data), &(net[IN]), &(net[OUT]), &(net[TOT]) );
     
@@ -137,13 +149,39 @@ static gint update_monitors(t_global_monitor *global)
             global->monitor->history[i][0] = 0;
         }
 
-        display[i] = 
-            (global->monitor->history[i][0] + global->monitor->history[i][1] +
-             global->monitor->history[i][2] + global->monitor->history[i][3]) / 4;
-        global->monitor->history[i][3] = global->monitor->history[i][2];
-        global->monitor->history[i][2] = global->monitor->history[i][1];
-        global->monitor->history[i][1] = global->monitor->history[i][0];
-
+        histcalculate = 0;
+        for( j = 0; j < HISTSIZE_CALCULATE; j++ )
+        {
+            histcalculate += global->monitor->history[i][j];
+        }
+        display[i] = histcalculate / HISTSIZE_CALCULATE;
+        
+        /* shift for next run */
+        for( j = HISTSIZE_STORE - 1; j > 0; j-- )
+        {
+            global->monitor->history[i][j] = global->monitor->history[i][j-1];
+        }
+        
+        /* update maximum */
+        if( global->monitor->options.auto_max )
+        {
+            max = max_array( global->monitor->history[i], HISTSIZE_STORE );
+            if( display[i] > global->monitor->net_max[i] )
+            {
+                global->monitor->net_max[i] = display[i];
+            }
+            else if( max < global->monitor->net_max[i] * SHRINK_MAX 
+                    && global->monitor->net_max[i] * SHRINK_MAX >= MINIMAL_MAX )
+            {
+                global->monitor->net_max[i] *= SHRINK_MAX;
+            }
+        }
+        
+        if( i == IN )
+        {
+            fprintf( stderr, "Max = %lu\n", global->monitor->net_max[i] );
+        }
+        
         temp = (double)display[i] / global->monitor->net_max[i];
         if( temp > 1 )
         {
@@ -155,24 +193,33 @@ static gint update_monitors(t_global_monitor *global)
         }
         gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor->status[i]), temp);
 
-        /* update maximum */
-        if( global->monitor->options.auto_max && display[i] > global->monitor->net_max[i])
-        {
-                 global->monitor->net_max[i] = display[i];
-        }
-        
         format_with_thousandssep( buffer[i], BUFSIZ, display[i] / 1024.0, 2 );
     }
     
     format_with_thousandssep( buffer[TOT], BUFSIZ, (display[IN]+display[OUT])  / 1024, 2 );
     
     g_snprintf(caption, sizeof(caption), 
-            _("Average of last 4 measures:"
-                "\nIncoming: %s kByte/s\nOutgoing: %s kByte/s\nTotal: %s kByte/s"),
-            buffer[IN], buffer[OUT], buffer[TOT]);
+            _("Average of last %d measures:\n"
+                "Incoming: %s kByte/s\nOutgoing: %s kByte/s\nTotal: %s kByte/s"),
+                HISTSIZE_CALCULATE, buffer[IN], buffer[OUT], buffer[TOT]);
     gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor->ebox), caption, NULL);
 
     return TRUE;
+}
+
+static void run_update (t_global_monitor *global)
+{
+    if( global->timeout_id > 0 )
+    {
+        g_source_remove (global->timeout_id);
+        global->timeout_id = 0;
+    }
+
+    if (global->monitor->options.update_interval > 0)
+    {
+        global->timeout_id =  g_timeout_add( global->monitor->options.update_interval, 
+            (GtkFunction)update_monitors, global);
+    }
 }
 
 static t_global_monitor * monitor_new(void)
@@ -198,6 +245,7 @@ static t_global_monitor * monitor_new(void)
     global->monitor->options.network_device = g_strdup(DEFAULT_DEVICE);
     global->monitor->options.use_label = TRUE;
     global->monitor->options.auto_max = TRUE;
+    global->monitor->options.update_interval = UPDATE_TIMEOUT;
     
     for (i = 0; i < SUM; i++)
     {
@@ -207,9 +255,9 @@ static t_global_monitor * monitor_new(void)
         global->monitor->history[i][1] = 0;
         global->monitor->history[i][2] = 0;
         global->monitor->history[i][3] = 0;
-        global->monitor->net_max[i]    = DEFAULT_MAX;
+        global->monitor->net_max[i]    = INIT_MAX;
         
-        global->monitor->options.max[i] = DEFAULT_MAX;
+        global->monitor->options.max[i] = INIT_MAX;
     }
 
     global->monitor->ebox = gtk_event_box_new();
@@ -353,10 +401,8 @@ static void monitor_set_orientation (Control * ctrl, int orientation)
     gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
     gtk_widget_show(GTK_WIDGET(global->ebox));
 
-    global->timeout_id = g_timeout_add(UPDATE_TIMEOUT, 
-            (GtkFunction)update_monitors, global);
+    run_update( global );
 }
-
 
 static gboolean monitor_control_new(Control *ctrl)
 {
@@ -433,7 +479,7 @@ static void setup_monitor(t_global_monitor *global)
         /* Maximum */
         if( global->monitor->options.auto_max )
         {
-            global->monitor->net_max[i] = DEFAULT_MAX;
+            global->monitor->net_max[i] = INIT_MAX;
         }
         else
         {
@@ -448,6 +494,8 @@ static void setup_monitor(t_global_monitor *global)
     }
     
     init_netload( &(global->monitor->data), global->monitor->options.network_device);
+    
+    run_update( global );
 
 }
 
@@ -515,6 +563,11 @@ static void monitor_read_config(Control *ctrl, xmlNodePtr node)
                 global->monitor->options.auto_max = atol(value);
                 g_free(value);
             }
+            if ((value = xmlGetProp(node, (const xmlChar *) "Update_Interval")))
+            {
+                global->monitor->options.update_interval = atoi(value);
+                g_free(value);
+            }
             break;
         }
     }
@@ -576,6 +629,9 @@ static void monitor_write_config(Control *ctrl, xmlNodePtr parent)
     
     g_snprintf(value, 2, "%d", global->monitor->options.auto_max);
     xmlSetProp(root, "Auto_Max", value);
+    
+    g_snprintf(value, 20, "%d", global->monitor->options.update_interval);
+    xmlSetProp(root, "Update_Interval", value);
     
     root = xmlNewTextChild(parent, NULL, MONITOR_ROOT, NULL);
 }
@@ -643,6 +699,11 @@ static void monitor_apply_options_cb(GtkWidget *button, t_global_monitor *global
             g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->max_entry[i]))),
             NULL ) * 1024;
     }
+    
+    global->monitor->options.update_interval = 
+        (gint)(gtk_spin_button_get_value( 
+            GTK_SPIN_BUTTON(global->monitor->update_spinner) ) * 1000 + 0.5);
+    
     setup_monitor(global);
 }
 
@@ -716,7 +777,7 @@ static void max_label_toggled(GtkWidget *check_button, t_global_monitor *global)
         /* reset maximum if necessary */
         if( global->monitor->options.auto_max )
         {
-            global->monitor->net_max[i] = DEFAULT_MAX;
+            global->monitor->net_max[i] = INIT_MAX;
         }
     }
     
@@ -793,6 +854,8 @@ static void monitor_create_options(Control *control, GtkContainer *container, Gt
     GtkBox           *vbox, *global_vbox, *net_hbox;
     GtkWidget        *device_label, *unit_label[SUM], *max_label[SUM];
     GtkWidget        *sep1, *sep2;
+    GtkBox           *update_hbox;
+    GtkWidget        *update_label, *update_unit_label;
     GtkWidget        *color_label[SUM];
     GtkWidget        *align;
     GtkBox           *color_hbox[SUM];
@@ -808,6 +871,7 @@ static void monitor_create_options(Control *control, GtkContainer *container, Gt
                         N_("Maximum (outgoing):")
                      };
     
+    sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
     
     global = (t_global_monitor *)control->data;
     global->opt_dialog = gtk_widget_get_toplevel(done);
@@ -833,6 +897,7 @@ static void monitor_create_options(Control *control, GtkContainer *container, Gt
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_hbox),
                        GTK_WIDGET(global->monitor->opt_use_label),
                        FALSE, FALSE, 0);
+    gtk_size_group_add_widget(sg, global->monitor->opt_use_label);
 
     global->monitor->opt_entry = gtk_entry_new();
     gtk_entry_set_max_length(GTK_ENTRY(global->monitor->opt_entry),
@@ -852,7 +917,7 @@ static void monitor_create_options(Control *control, GtkContainer *container, Gt
                                  global->monitor->options.use_label);
     gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_entry),
                              global->monitor->options.use_label);
-
+                             
     /* Network device */
     net_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
@@ -874,11 +939,34 @@ static void monitor_create_options(Control *control, GtkContainer *container, Gt
     gtk_box_pack_start(GTK_BOX(net_hbox), GTK_WIDGET(global->monitor->net_entry),
                        FALSE, FALSE, 0);
     
-    sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
-    gtk_size_group_add_widget(sg, global->monitor->opt_use_label);
     gtk_size_group_add_widget(sg, device_label);
 
     gtk_widget_show_all(GTK_WIDGET(net_hbox));
+    
+    
+    /* Update timevalue */
+    update_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
+                        GTK_WIDGET(update_hbox), FALSE, FALSE, 0);
+    
+    update_label = gtk_label_new(_("Update interval:"));
+    gtk_misc_set_alignment(GTK_MISC(update_label), 0, 0.5);
+    gtk_box_pack_start(GTK_BOX(update_hbox), GTK_WIDGET(update_label), FALSE, FALSE, 0);
+    
+    global->monitor->update_spinner = gtk_spin_button_new_with_range (0.1, 10.0, 0.05);
+    gtk_spin_button_set_digits( GTK_SPIN_BUTTON(global->monitor->update_spinner), 2 );
+    gtk_spin_button_set_value( GTK_SPIN_BUTTON(global->monitor->update_spinner), 
+            global->monitor->options.update_interval / 1000.0 );
+    gtk_box_pack_start(GTK_BOX(update_hbox), GTK_WIDGET(global->monitor->update_spinner), 
+        FALSE, FALSE, 0);
+        
+    update_unit_label = gtk_label_new(_("ms"));
+    gtk_box_pack_start(GTK_BOX(update_hbox), GTK_WIDGET(update_unit_label), 
+        FALSE, FALSE, 0);
+    
+    gtk_widget_show_all(GTK_WIDGET(update_hbox));
+    gtk_size_group_add_widget(sg, update_label);
+    
     
     sep1 = gtk_hseparator_new();
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep1), FALSE, FALSE, 0);
@@ -911,7 +999,7 @@ static void monitor_create_options(Control *control, GtkContainer *container, Gt
         g_snprintf( buffer, BUFSIZ, "%.2f", global->monitor->options.max[i] / 1024.0 );
         gtk_entry_set_text(GTK_ENTRY(global->monitor->max_entry[i]), buffer);
         
-        gtk_entry_set_width_chars(GTK_ENTRY(global->monitor->max_entry[i]), 10);
+        gtk_entry_set_width_chars(GTK_ENTRY(global->monitor->max_entry[i]), 7);
         gtk_widget_show(global->monitor->max_entry[i]);
         
         gtk_box_pack_start(GTK_BOX(global->monitor->max_hbox[i]), GTK_WIDGET(global->monitor->max_entry[i]),
@@ -920,8 +1008,6 @@ static void monitor_create_options(Control *control, GtkContainer *container, Gt
         unit_label[i] = gtk_label_new(_("kByte/s"));
         gtk_box_pack_start(GTK_BOX(global->monitor->max_hbox[i]), GTK_WIDGET(unit_label[i]), FALSE, FALSE, 0);
         
-        sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
-        gtk_size_group_add_widget(sg, global->monitor->opt_use_label);
         gtk_size_group_add_widget(sg, max_label[i]);
         
         gtk_widget_show_all(GTK_WIDGET(global->monitor->max_hbox[i]));

@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: net.c,v 1.2 2003/08/25 21:08:58 bwalle Exp $
+ *  Id: $Id: net.c,v 1.3 2003/08/26 20:34:46 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -85,6 +85,8 @@ void init_netload(netdata* data, const char* device)
     data->backup_out = data->stats.tx_bytes;
     
     data->correct_interface = TRUE;
+    
+    init_osspecific( data );
 }
 
 

@@ -1,3 +1,9 @@
+2003-08-26 Bernhard Walle
+    * Implemented configurable update interval.
+    * Fixed small bug with operating system specific data initialization.
+    * Improved the automatic maximum function.
+    * Released 0.2.0pre3 which is the next test version for 0.2.0.
+
 2003-08-25 Bernhard Walle
     * Changed all static variables to a structure which is given the function
       as a parameter. This makes more than one instance of the plugin possible.
