@@ -1,3 +1,13 @@
+2003-08-17 Bernhard Walle
+    * Added support for other operating systems via libgtop2. Linux and FreeBSD code is still
+      implemented without libgtop2 but this may change in future.
+    * Changed "bit/s" string to "byte/s" since the value *is* in byte/s. Translators may update
+      their translated strings, for the German translation I did this already.
+    * Changed license to GNU General Public License since linking to the libgtop2 library
+      requires this. (libgtop2 is *not* LGPL)
+    * See also i18n changes in po/ChangeLog
+    * released 0.1.9 which is a test version for 0.2.0
+
 2003-08-12 Bernhard Walle
 	* released 0.1.2
 	* corrected Linux code which was broken by the last fix
