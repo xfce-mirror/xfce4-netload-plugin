@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XFce 4\n"
 "POT-Creation-Date: 2003-08-26 22:25+0200\n"
-"PO-Revision-Date: 2003-08-15 15:38+0100\n"
+"PO-Revision-Date: 2003-08-26 23:58+0100\n"
 "Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: ca <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -15,16 +15,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: panel-plugin/netload.c:202
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Average of last %d measures:\n"
 "Incoming: %s kByte/s\n"
 "Outgoing: %s kByte/s\n"
 "Total: %s kByte/s"
 msgstr ""
-"Entrant: %lld bit/s\n"
-"Sortint: %lld bit/s\n"
-"Total: %lld bit/s"
+"Mitja dels &d últims mesuraments:\n"
+"Entrant: %s kBytes/s\n"
+"Sortint: %s kBytes/s\n"
+"Total: %s kBytes/s"
 
 #: panel-plugin/netload.c:813
 msgid "Select color"
@@ -32,21 +33,19 @@ msgstr "Seleccioneu el color"
 
 #: panel-plugin/netload.c:866
 msgid "Bar color (incoming):"
-msgstr "Color de la barra (sortint):"
+msgstr "Color de la barra (entrant):"
 
 #: panel-plugin/netload.c:867
 msgid "Bar color (outgoing):"
-msgstr "Color de la barra (entrant):"
-
-#: panel-plugin/netload.c:870
-#, fuzzy
-msgid "Maximum (incoming):"
 msgstr "Color de la barra (sortint):"
 
+#: panel-plugin/netload.c:870
+msgid "Maximum (incoming):"
+msgstr "Màxim (entrant):"
+
 #: panel-plugin/netload.c:871
-#, fuzzy
 msgid "Maximum (outgoing):"
-msgstr "Color de la barra (entrant):"
+msgstr "Màxim (sortint):"
 
 #: panel-plugin/netload.c:895
 msgid "Text to display:"
@@ -54,24 +53,25 @@ msgstr "Text a mostrar:"
 
 #: panel-plugin/netload.c:926
 msgid "Network device:"
-msgstr "Dispositiu de xarxa"
+msgstr "Dispositiu de xarxa:"
 
 #: panel-plugin/netload.c:952
 msgid "Update interval:"
-msgstr ""
+msgstr "Interval d'actualització:"
 
 #: panel-plugin/netload.c:963
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 #: panel-plugin/netload.c:976
 msgid "Automatic maximum"
-msgstr ""
+msgstr "Màxim automatitzat"
 
 #: panel-plugin/netload.c:1008
 msgid "kByte/s"
-msgstr ""
+msgstr "kBytes/s"
 
 #: panel-plugin/netload.c:1096
 msgid "Netload"
 msgstr "Càrrega de red"
+
