@@ -2,24 +2,27 @@ XFce4 Netload plugin
 --------------------
 
 
-This plugin should work on all operating systems supported by Xfce4. On Linux and FreeBSD the code
-for reading the netload is integrated. The code for this is based on IceWM from Marko Macek
-(http://www.icewm.org). Other operating systems such as NetBSD, OpenBSD or Sun Solaris are supported
-by libgtop2 from the GNOME desktop (but GNOME is not required by this library). This is because I
-have no testing machines for all this operating systems and some systems require a Client/Server
-model, i.e. there are root permissions needed to get out system load and the Xfce4 panel is not
-running suid root. The library made this easier to implement (it's implemented by the library and I
-didn't have to do that).
+This plugin should work on all operating systems supported by Xfce4. On Linux
+and FreeBSD the code for reading the netload is integrated. The code for this is
+based on IceWM from Marko Macek (http://www.icewm.org). Other operating systems
+such as NetBSD, OpenBSD or Sun Solaris are supported by libgtop2 from the GNOME
+desktop (but GNOME is not required by this library). This is because I have no
+testing machines for all this operating systems and some systems require a
+Client/Server model, i.e. there are root permissions needed to get out system
+load and the Xfce4 panel is not running suid root. The library made this easier
+to implement (it's implemented by the library and I didn't have to do that).
 
 The panel plugin is based on the sample-plugin from Benedikt Meurer and on the
-xfce4-systemload-plugin from Riccardo Persichetti. The layout is the same as the systemload-plugin.
-This made programming very easy and looks good, too.
+xfce4-systemload-plugin from Riccardo Persichetti. The layout is the same as the
+systemload-plugin. This made programming very easy and looks good, too.
 
-I'm not planning making much improvements in the future so if you want to take over developement,
-just drop me a note. I just programmed it because I needed it but I plan to maintain it so that it's
-running with the most current stable release of Xfce.
+I'm not planning making much improvements in the future so if you want to take
+over developement, just drop me a note. I just programmed it because I needed it
+but I plan to maintain it so that it's running with the most current stable
+release of Xfce.
 
-If you have translations for your language, please mail me. I'll include it in the distribution!
+If you have translations for your language, please mail me. I'll include it in
+the distribution!
 
 
 -Bernhard
