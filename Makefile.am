@@ -1,6 +1,6 @@
 @SET_MAKE@
 
-SUBDIRS = panel-plugin po
+SUBDIRS = panel-plugin po 
 
 EXTRA_DIST =								\
 	README
@@ -8,6 +8,3 @@ EXTRA_DIST =								\
 distclean-local:
 	rm -rf *.cache *~
 
-rpm: dist
-	rpmbuild -ta $(PACKAGE)-$(VERSION).tar.gz
-	@rm -f $(PACKAGE)-$(VERSION).tar.gz

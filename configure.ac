@@ -9,7 +9,7 @@ AC_INIT([panel-plugin/netload.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-netload-plugin], [0.1.9])
+AM_INIT_AUTOMAKE([xfce4-netload-plugin], [0.2.0pre1])
 
 AM_MAINTAINER_MODE
 
@@ -24,39 +24,36 @@ AC_HEADER_STDC
 dnl Substitute in Makefiles
 AC_SUBST(OS)
 
+AC_CHECK_FUNCS([gethostname])
+AC_CHECK_FUNCS([memset])
+AC_CHECK_FUNCS([socket])
+AC_CHECK_FUNCS([strstr])
+AC_CHECK_FUNCS([malloc])
+AC_CHECK_FUNCS([bzero])
+AC_CHECK_HEADERS([arpa/inet.h])
+AC_CHECK_HEADERS([netinet/in.h])
+AC_CHECK_HEADERS([stdlib.h])
+AC_CHECK_HEADERS([string.h])
+AC_CHECK_HEADERS([sys/ioctl.h])
+AC_CHECK_HEADERS([sys/param.h])
+AC_CHECK_HEADERS([sys/socket.h])
+AC_CHECK_HEADERS([sys/time.h])
+AC_CHECK_HEADERS([unistd.h])
+AC_HEADER_SYS_WAIT
+AC_PROG_GCC_TRADITIONAL
+AC_TYPE_SIZE_T
 
-AC_CHECK_HEADERS(	[sys/time.h time.h],
-					[],
-					[AC_MSG_ERROR([We need sys/time.h and time.h])]
-				)
+AC_CHECK_LIB(kstat, kstat_open, SOLLIBS="-lkstat -lsocket", SOLLIBS="")
+AC_SUBST(SOLLIBS)
 
+AC_CHECK_LIB(fridge, vanilla_coke, echo "WTF?!", 
+    echo "Warning: No vanilla coke found in fridge.";echo "We highly suggest that you rectify this situation immediatly.")
 
 dnl Check for i18n support
 BM_I18N([xfce4-netload], [de lt ca])
 
 dnl configure the panel plugin
 XFCE_PANEL_PLUGIN([XFCE4_PANEL], [3.99.2])
-
-dnl dnl Determine operating system
-case $host_os in
-*linux*)
-	OS=linux
-	;;
-*freebsd*)
-	OS=freebsd
-	AC_CHECK_HEADERS(	
-		[fcntl.h sys/socket.h sys/sysctl.h net/if.h net/if_mib.h],
-		[],
-		[AC_MSG_ERROR([You must have fcntl.h sys/socket.h sys/sysctl.h net/if.h net/if_mib.h])]
-	)
-	;;
-*)
-    OS=libgtop2
-    
-    dnl Check if libgtop2 is available
-    INIT_LIBGTOP(2.0.0)
-	;;
-esac
 
 dnl Check for debugging support
 BM_DEBUG_SUPPORT

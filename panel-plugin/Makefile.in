@@ -78,10 +78,8 @@ INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
 INSTOBJEXT = @INSTOBJEXT@
 INTLLIBS = @INTLLIBS@
 LDFLAGS = @LDFLAGS@
-LIBGTOP_INCS = @LIBGTOP_INCS@
-LIBGTOP_LIBS = @LIBGTOP_LIBS@
 LIBOBJS = @LIBOBJS@
-LIBS = @LIBS@
+LIBS = @LIBS@ @SOLLIBS@
 LIBTOOL = @LIBTOOL@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
@@ -108,6 +106,7 @@ PO_IN_DATADIR_TRUE = @PO_IN_DATADIR_TRUE@
 RANLIB = @RANLIB@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
+SOLLIBS = @SOLLIBS@
 STRIP = @STRIP@
 USE_NLS = @USE_NLS@
 VERSION = @VERSION@
@@ -159,30 +158,39 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 plugindir = @XFCE4_PANEL_PLUGINSDIR@
 
+EXTRA_DIST = \
+	wormulon
+
+
 plugin_LTLIBRARIES = \
 	libnetload.la
 
 
 libnetload_la_LDFLAGS = \
-	-avoid-version							\
-	-export-dynamic							\
+	-avoid-version							    \
+	-export-dynamic							    \
 	-module
 
 
 libnetload_la_SOURCES = \
-	netload.c							\
-	net.h								\
-	net_@OS@.c
+	netload.c							        \
+    utils.c                                     \
+    utils.h                                     \
+	net.h								        \
+	net.c                                       \
+    os.h                                        \
+    wormulon.h                                  \
+    slurm.h                                     
 
 
 libnetload_la_CFLAGS = \
-	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
-	@LIBGTOP_INCS@							\
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"		\
 	@XFCE4_PANEL_CFLAGS@
 
 
 libnetload_la_LIBADD = \
-	@LIBGTOP_LIBS@							\
+	@LIBGTOP_LIBS@							    \
+    @SOLLIBS@                                   \
 	@XFCE4_PANEL_LIBS@
 
 subdir = panel-plugin
@@ -194,14 +202,15 @@ LTLIBRARIES = $(plugin_LTLIBRARIES)
 
 libnetload_la_DEPENDENCIES =
 am_libnetload_la_OBJECTS = libnetload_la-netload.lo \
-	libnetload_la-net_@OS@.lo
+	libnetload_la-utils.lo libnetload_la-net.lo
 libnetload_la_OBJECTS = $(am_libnetload_la_OBJECTS)
 
 DEFAULT_INCLUDES =  -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
-@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/libnetload_la-net_@OS@.Plo \
-@AMDEP_TRUE@	./$(DEPDIR)/libnetload_la-netload.Plo
+@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/libnetload_la-net.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/libnetload_la-netload.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/libnetload_la-utils.Plo
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) \
@@ -259,8 +268,9 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libnetload_la-net_@OS@.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libnetload_la-net.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libnetload_la-netload.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libnetload_la-utils.Plo@am__quote@
 
 distclean-depend:
 	-rm -rf ./$(DEPDIR)
@@ -331,38 +341,71 @@ libnetload_la-netload.lo: netload.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -c -o libnetload_la-netload.lo `test -f 'netload.c' || echo '$(srcdir)/'`netload.c
 
-libnetload_la-net_@OS@.o: net_@OS@.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -MT libnetload_la-net_@OS@.o -MD -MP -MF "$(DEPDIR)/libnetload_la-net_@OS@.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o libnetload_la-net_@OS@.o `test -f 'net_@OS@.c' || echo '$(srcdir)/'`net_@OS@.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libnetload_la-net_@OS@.Tpo" "$(DEPDIR)/libnetload_la-net_@OS@.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libnetload_la-net_@OS@.Tpo"; exit 1; \
+libnetload_la-utils.o: utils.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -MT libnetload_la-utils.o -MD -MP -MF "$(DEPDIR)/libnetload_la-utils.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libnetload_la-utils.o `test -f 'utils.c' || echo '$(srcdir)/'`utils.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libnetload_la-utils.Tpo" "$(DEPDIR)/libnetload_la-utils.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libnetload_la-utils.Tpo"; exit 1; \
 @am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='net_@OS@.c' object='libnetload_la-net_@OS@.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libnetload_la-net_@OS@.Po' tmpdepfile='$(DEPDIR)/libnetload_la-net_@OS@.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='utils.c' object='libnetload_la-utils.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libnetload_la-utils.Po' tmpdepfile='$(DEPDIR)/libnetload_la-utils.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -c -o libnetload_la-net_@OS@.o `test -f 'net_@OS@.c' || echo '$(srcdir)/'`net_@OS@.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -c -o libnetload_la-utils.o `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
 
-libnetload_la-net_@OS@.obj: net_@OS@.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -MT libnetload_la-net_@OS@.obj -MD -MP -MF "$(DEPDIR)/libnetload_la-net_@OS@.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o libnetload_la-net_@OS@.obj `if test -f 'net_@OS@.c'; then $(CYGPATH_W) 'net_@OS@.c'; else $(CYGPATH_W) '$(srcdir)/net_@OS@.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libnetload_la-net_@OS@.Tpo" "$(DEPDIR)/libnetload_la-net_@OS@.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libnetload_la-net_@OS@.Tpo"; exit 1; \
+libnetload_la-utils.obj: utils.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -MT libnetload_la-utils.obj -MD -MP -MF "$(DEPDIR)/libnetload_la-utils.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libnetload_la-utils.obj `if test -f 'utils.c'; then $(CYGPATH_W) 'utils.c'; else $(CYGPATH_W) '$(srcdir)/utils.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libnetload_la-utils.Tpo" "$(DEPDIR)/libnetload_la-utils.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libnetload_la-utils.Tpo"; exit 1; \
 @am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='net_@OS@.c' object='libnetload_la-net_@OS@.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libnetload_la-net_@OS@.Po' tmpdepfile='$(DEPDIR)/libnetload_la-net_@OS@.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='utils.c' object='libnetload_la-utils.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libnetload_la-utils.Po' tmpdepfile='$(DEPDIR)/libnetload_la-utils.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -c -o libnetload_la-net_@OS@.obj `if test -f 'net_@OS@.c'; then $(CYGPATH_W) 'net_@OS@.c'; else $(CYGPATH_W) '$(srcdir)/net_@OS@.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -c -o libnetload_la-utils.obj `if test -f 'utils.c'; then $(CYGPATH_W) 'utils.c'; else $(CYGPATH_W) '$(srcdir)/utils.c'; fi`
 
-libnetload_la-net_@OS@.lo: net_@OS@.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -MT libnetload_la-net_@OS@.lo -MD -MP -MF "$(DEPDIR)/libnetload_la-net_@OS@.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o libnetload_la-net_@OS@.lo `test -f 'net_@OS@.c' || echo '$(srcdir)/'`net_@OS@.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libnetload_la-net_@OS@.Tpo" "$(DEPDIR)/libnetload_la-net_@OS@.Plo"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libnetload_la-net_@OS@.Tpo"; exit 1; \
+libnetload_la-utils.lo: utils.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -MT libnetload_la-utils.lo -MD -MP -MF "$(DEPDIR)/libnetload_la-utils.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libnetload_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libnetload_la-utils.Tpo" "$(DEPDIR)/libnetload_la-utils.Plo"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libnetload_la-utils.Tpo"; exit 1; \
 @am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='net_@OS@.c' object='libnetload_la-net_@OS@.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libnetload_la-net_@OS@.Plo' tmpdepfile='$(DEPDIR)/libnetload_la-net_@OS@.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='utils.c' object='libnetload_la-utils.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libnetload_la-utils.Plo' tmpdepfile='$(DEPDIR)/libnetload_la-utils.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -c -o libnetload_la-net_@OS@.lo `test -f 'net_@OS@.c' || echo '$(srcdir)/'`net_@OS@.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -c -o libnetload_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
+
+libnetload_la-net.o: net.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -MT libnetload_la-net.o -MD -MP -MF "$(DEPDIR)/libnetload_la-net.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libnetload_la-net.o `test -f 'net.c' || echo '$(srcdir)/'`net.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libnetload_la-net.Tpo" "$(DEPDIR)/libnetload_la-net.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libnetload_la-net.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='net.c' object='libnetload_la-net.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libnetload_la-net.Po' tmpdepfile='$(DEPDIR)/libnetload_la-net.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -c -o libnetload_la-net.o `test -f 'net.c' || echo '$(srcdir)/'`net.c
+
+libnetload_la-net.obj: net.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -MT libnetload_la-net.obj -MD -MP -MF "$(DEPDIR)/libnetload_la-net.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libnetload_la-net.obj `if test -f 'net.c'; then $(CYGPATH_W) 'net.c'; else $(CYGPATH_W) '$(srcdir)/net.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libnetload_la-net.Tpo" "$(DEPDIR)/libnetload_la-net.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libnetload_la-net.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='net.c' object='libnetload_la-net.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libnetload_la-net.Po' tmpdepfile='$(DEPDIR)/libnetload_la-net.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -c -o libnetload_la-net.obj `if test -f 'net.c'; then $(CYGPATH_W) 'net.c'; else $(CYGPATH_W) '$(srcdir)/net.c'; fi`
+
+libnetload_la-net.lo: net.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -MT libnetload_la-net.lo -MD -MP -MF "$(DEPDIR)/libnetload_la-net.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libnetload_la-net.lo `test -f 'net.c' || echo '$(srcdir)/'`net.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libnetload_la-net.Tpo" "$(DEPDIR)/libnetload_la-net.Plo"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libnetload_la-net.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='net.c' object='libnetload_la-net.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libnetload_la-net.Plo' tmpdepfile='$(DEPDIR)/libnetload_la-net.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnetload_la_CFLAGS) $(CFLAGS) -c -o libnetload_la-net.lo `test -f 'net.c' || echo '$(srcdir)/'`net.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

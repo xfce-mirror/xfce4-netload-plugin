@@ -1,23 +1,32 @@
 plugindir = @XFCE4_PANEL_PLUGINSDIR@
+LIBS = @LIBS@ @SOLLIBS@
+
+EXTRA_DIST =								    \
+	wormulon
 
 plugin_LTLIBRARIES =							\
 	libnetload.la
 
 libnetload_la_LDFLAGS =							\
-	-avoid-version							\
-	-export-dynamic							\
+	-avoid-version							    \
+	-export-dynamic							    \
 	-module
 
 libnetload_la_SOURCES =							\
-	netload.c							\
-	net.h								\
-	net_@OS@.c
+	netload.c							        \
+    utils.c                                     \
+    utils.h                                     \
+	net.h								        \
+	net.c                                       \
+    os.h                                        \
+    wormulon.h                                  \
+    slurm.h                                     
 
 libnetload_la_CFLAGS =							\
-	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
-	@LIBGTOP_INCS@							\
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"		\
 	@XFCE4_PANEL_CFLAGS@
 
 libnetload_la_LIBADD = 							\
-	@LIBGTOP_LIBS@							\
+	@LIBGTOP_LIBS@							    \
+    @SOLLIBS@                                   \
 	@XFCE4_PANEL_LIBS@

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
-"POT-Creation-Date: 2003-08-17 16:30+0200\n"
+"POT-Creation-Date: 2003-08-24 16:31+0200\n"
 "PO-Revision-Date: 2003-08-10 19:35+0200\n"
 "Last-Translator: Bernhard Walle <bernhard.walle@gmx.de>\n"
 "Language-Team: Deutsch <www.xfce.org>\n"
@@ -11,37 +11,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.2\n"
 
-#: panel-plugin/netload.c:149
+#: panel-plugin/netload.c:166
 #, c-format
 msgid ""
-"Incoming: %lld byte/s\n"
-"Outgoing: %lld byte/s\n"
-"Total: %lld byte/s"
+"Average of last 4 measures:\n"
+"Incoming: %s kByte/s\n"
+"Outgoing: %s kByte/s\n"
+"Total: %s kByte/s"
 msgstr ""
-"Eingehend: %lld byte/s\n"
-"Ausgehend: %lld byte/s\n"
-"Gesamt: %lld byte/s"
+"Durchschnitt der letzten 4 Messungen:\n"
+"Eingehend: %s kByte/s\n"
+"Ausgehend: %s kByte/s\n"
+"Gesamt: %s kByte/s"
 
-#: panel-plugin/netload.c:652
+#: panel-plugin/netload.c:748
 msgid "Select color"
 msgstr "Farbe auswählen"
 
-#: panel-plugin/netload.c:701
+#: panel-plugin/netload.c:799
 msgid "Bar color (incoming):"
 msgstr "Balkenfarbe (eingehend):"
 
-#: panel-plugin/netload.c:702
+#: panel-plugin/netload.c:800
 msgid "Bar color (outgoing):"
 msgstr "Balkenfarbe (ausgehend):"
 
-#: panel-plugin/netload.c:723
+#: panel-plugin/netload.c:803
+msgid "Maximum (incoming):"
+msgstr "Maximum (eingehend):"
+
+#: panel-plugin/netload.c:804
+msgid "Maximum (outgoing):"
+msgstr "Maximum (ausgehend):"
+
+#: panel-plugin/netload.c:827
 msgid "Text to display:"
 msgstr "Angezeigter Text:"
 
-#: panel-plugin/netload.c:754
+#: panel-plugin/netload.c:857
 msgid "Network device:"
 msgstr "Netzwerkschnittstelle:"
 
-#: panel-plugin/netload.c:842
+#: panel-plugin/netload.c:884
+msgid "Automatic maximum"
+msgstr "Automatisches Maximum"
+
+#: panel-plugin/netload.c:916
+msgid "kByte/s"
+msgstr "kByte/s"
+
+#: panel-plugin/netload.c:1006
 msgid "Netload"
 msgstr "Netzlast"
