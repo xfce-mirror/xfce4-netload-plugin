@@ -1,13 +1,20 @@
-/******************************************************************************
+/*
+ * Id: $Id: os.h,v 1.4 2005/02/04 18:12:01 bwalle Exp $
+ * -------------------------------------------------------------------------------------------------
+ * 
+ * This program is free software; you can redistribute it and/or modify it under the terms of the 
+ * GNU General Public License as published by the Free Software Foundation; You may only use 
+ * version 2 of the License, you have no option to use any other version.
  *
- * os.h
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See 
+ * the GNU General Public License for more details.
  *
- * include OS-dependent headers
+ * You should have received a copy of the GNU General Public License along with this program; if 
+ * not, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
- ******************************************************************************
- * This file is from Wormulon. Id: os.h,v 1.3 2003/08/14 10:58:30 hscholz Exp 
- *****************************************************************************/
-
+ * ------------------------------------------------------------------------------------------------- 
+ */
 #ifndef _OS_H
 #define _OS_H
 
@@ -39,32 +46,32 @@
 #include <sys/mib.h>
 #include <arpa/inet.h>
 #include <net/if.h>
-+#elif __APPLE__             /* Mac OS X */
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <stdarg.h>
-+#include <unistd.h>
-+#include <string.h>
-+#include <time.h>
-+#include <ctype.h>
-+#include <signal.h>
-+#include <curses.h>
-+#include <ifaddrs.h>
-+#include <sys/param.h>
-+#include <sys/sysctl.h>
-+#include <sys/wait.h>
-+#include <sys/stat.h>
-+#include <sys/ioctl.h>
-+#include <sys/types.h>
-+#include <sys/socket.h>
-+#include <sys/time.h>
-+#include <netinet/in.h>
-+#include <net/route.h>
-+#include <net/if_dl.h>
-+#include <net/if.h>
-+#include <net/if_media.h>
-+#include <net/if_mib.h>
-+#include <arpa/inet.h>
+#elif __APPLE__             /* Mac OS X */
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include <unistd.h>
+#include <string.h>
+#include <time.h>
+#include <ctype.h>
+#include <signal.h>
+#include <curses.h>
+#include <ifaddrs.h>
+#include <sys/param.h>
+#include <sys/sysctl.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+#include <sys/ioctl.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/time.h>
+#include <netinet/in.h>
+#include <net/route.h>
+#include <net/if_dl.h>
+#include <net/if.h>
+#include <net/if_media.h>
+#include <net/if_mib.h>
+#include <arpa/inet.h>
 #elif __FreeBSD__           /* F R E E B S D */
 #include <stdio.h>
 #include <stdlib.h>

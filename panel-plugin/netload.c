@@ -1,23 +1,20 @@
-/*  XFce 4 - Netload Plugin
- *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
- *  
- *  Id: $Id: netload.c,v 1.11 2005/01/10 13:43:01 bwalle Exp $
- *  
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
+/*
+ * Id: $Id: netload.c,v 1.12 2005/02/04 18:12:01 bwalle Exp $
+ * -------------------------------------------------------------------------------------------------
+ * 
+ * This program is free software; you can redistribute it and/or modify it under the terms of the 
+ * GNU General Public License as published by the Free Software Foundation; You may only use 
+ * version 2 of the License, you have no option to use any other version.
  *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See 
+ * the GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * You should have received a copy of the GNU General Public License along with this program; if 
+ * not, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *
+ * ------------------------------------------------------------------------------------------------- 
  */
-
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -133,7 +130,7 @@ typedef struct
 } t_global_monitor;
 
 
-
+/* ---------------------------------------------------------------------------------------------- */
 static gboolean update_monitors(t_global_monitor *global)
 {
     char buffer[SUM+1][BUFSIZ];
@@ -188,29 +185,28 @@ static gboolean update_monitors(t_global_monitor *global)
         }
 
 #ifdef DEBUG        
-        switch( i ) 
+        switch (i) 
         {
             case IN:
-                fprintf( stderr, "input: Max = %lu\n", global->monitor->net_max[i] );
+                fprintf(stderr, "input: Max = %lu\n", global->monitor->net_max[i]);
                 break;
                 
             case OUT:
-                fprintf( stderr, "output: Max = %lu\n", global->monitor->net_max[i] );
+                fprintf(stderr, "output: Max = %lu\n", global->monitor->net_max[i]);
                 break;
                 
             case TOT:
-                fprintf( stderr, "total: Max = %lu\n", global->monitor->net_max[i] );
+                fprintf(stderr, "total: Max = %lu\n", global->monitor->net_max[i]);
                 break;
         }
 #endif /* DEBUG */
         
-        
         temp = (double)display[i] / global->monitor->net_max[i];
-        if( temp > 1 )
+        if (temp > 1)
         {
             temp = 1.0;
         }
-        else if( temp < 0 )
+        else if (temp < 0)
         {
             temp = 0.0;
         }
@@ -221,22 +217,28 @@ static gboolean update_monitors(t_global_monitor *global)
     
     format_with_thousandssep( buffer[TOT], BUFSIZ, (display[IN]+display[OUT])  / 1024.0, 2 );
     
-    g_snprintf(caption, sizeof(caption), 
-            _("Average of last %d measures:\n"
-                "Incoming: %s kByte/s\nOutgoing: %s kByte/s\nTotal: %s kByte/s"),
-                HISTSIZE_CALCULATE, buffer[IN], buffer[OUT], buffer[TOT]);
-    gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor->ebox), caption, NULL);
+    {
+        char* ip = get_ip_address(&(global->monitor->data));
+        g_snprintf(caption, sizeof(caption), 
+                _("<< %s >> (%s)\nAverage of last %d measures:\n"
+                    "Incoming: %s kByte/s\nOutgoing: %s kByte/s\nTotal: %s kByte/s"),
+                    get_name(&(global->monitor->data)), ip ? ip : _("no IP address"),
+                    HISTSIZE_CALCULATE, buffer[IN], buffer[OUT], buffer[TOT]);
+        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor->ebox), caption, NULL);
+    }
 
     XFCE_PANEL_UNLOCK();
 
     return TRUE;
 }
 
+
+/* ---------------------------------------------------------------------------------------------- */
 static void run_update (t_global_monitor *global)
 {
-    if( global->timeout_id > 0 )
+    if (global->timeout_id > 0)
     {
-        g_source_remove (global->timeout_id);
+        g_source_remove(global->timeout_id);
         global->timeout_id = 0;
     }
 
@@ -247,6 +249,8 @@ static void run_update (t_global_monitor *global)
     }
 }
 
+
+/* ---------------------------------------------------------------------------------------------- */
 static t_global_monitor * monitor_new(void)
 {
     t_global_monitor *global;
@@ -339,6 +343,8 @@ static t_global_monitor * monitor_new(void)
     return global;
 }
 
+
+/* ---------------------------------------------------------------------------------------------- */
 static void monitor_set_orientation (Control * ctrl, int orientation)
 {
     t_global_monitor *global = ctrl->data;
@@ -432,6 +438,8 @@ static void monitor_set_orientation (Control * ctrl, int orientation)
     run_update( global );
 }
 
+
+/* ---------------------------------------------------------------------------------------------- */
 static gboolean monitor_control_new(Control *ctrl)
 {
     t_global_monitor *global;
@@ -451,6 +459,7 @@ static gboolean monitor_control_new(Control *ctrl)
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static void monitor_free(Control *ctrl)
 {
     t_global_monitor *global;
@@ -474,6 +483,8 @@ static void monitor_free(Control *ctrl)
     close_netload( &(global->monitor->data) );
 }
 
+
+/* ---------------------------------------------------------------------------------------------- */
 static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
 {
     GtkRcStyle *rc;
@@ -542,6 +553,8 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
 
 }
 
+
+/* ---------------------------------------------------------------------------------------------- */
 static void monitor_read_config(Control *ctrl, xmlNodePtr node)
 {
     xmlChar *value;
@@ -621,6 +634,7 @@ static void monitor_read_config(Control *ctrl, xmlNodePtr node)
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static void monitor_write_config(Control *ctrl, xmlNodePtr parent)
 {
     xmlNodePtr root;
@@ -674,6 +688,8 @@ static void monitor_write_config(Control *ctrl, xmlNodePtr parent)
     root = xmlNewTextChild(parent, NULL, MONITOR_ROOT, NULL);
 }
 
+
+/* ---------------------------------------------------------------------------------------------- */
 static void monitor_attach_callback(Control *ctrl, const gchar *signal, GCallback cb, gpointer data)
 {
     t_global_monitor *global;
@@ -683,6 +699,7 @@ static void monitor_attach_callback(Control *ctrl, const gchar *signal, GCallbac
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static void monitor_set_size(Control *ctrl, int size)
 {
     /* do the resize */
@@ -712,6 +729,7 @@ static void monitor_set_size(Control *ctrl, int size)
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static void monitor_apply_options_cb(GtkWidget *button, t_global_monitor *global)
 {
     gint i;
@@ -752,8 +770,9 @@ static void monitor_apply_options_cb(GtkWidget *button, t_global_monitor *global
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static void label_changed(GtkWidget *button, t_global_monitor *global)
-{ 
+{
     if (global->monitor->options.label_text)
     {
         g_free(global->monitor->options.label_text);
@@ -769,8 +788,9 @@ static void label_changed(GtkWidget *button, t_global_monitor *global)
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static void max_label_changed(GtkWidget *button, t_global_monitor *global)
-{ 
+{
     gint i;
     for( i = 0; i < SUM; i++ )
     {
@@ -786,6 +806,7 @@ static void max_label_changed(GtkWidget *button, t_global_monitor *global)
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static void network_changed(GtkWidget *button, t_global_monitor *global)
 {
     if (global->monitor->options.network_device)
@@ -803,6 +824,7 @@ static void network_changed(GtkWidget *button, t_global_monitor *global)
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static void label_toggled(GtkWidget *check_button, t_global_monitor *global)
 {
     global->monitor->options.use_label =
@@ -818,6 +840,8 @@ static void label_toggled(GtkWidget *check_button, t_global_monitor *global)
 #endif
 }
 
+
+/* ---------------------------------------------------------------------------------------------- */
 static void max_label_toggled(GtkWidget *check_button, t_global_monitor *global)
 {
     gint i;
@@ -843,6 +867,7 @@ static void max_label_toggled(GtkWidget *check_button, t_global_monitor *global)
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static gboolean expose_event_cb(GtkWidget *widget, GdkEventExpose *event)
 {
     if (widget->window)
@@ -862,6 +887,7 @@ static gboolean expose_event_cb(GtkWidget *widget, GdkEventExpose *event)
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static void change_color(GtkWidget *button, t_global_monitor *global, gint type)
 {
     GtkWidget *dialog;
@@ -896,18 +922,21 @@ static void change_color(GtkWidget *button, t_global_monitor *global, gint type)
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static void change_color_in(GtkWidget *button, t_global_monitor *global)
 {
     change_color(button, global, IN);
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static void change_color_out(GtkWidget *button, t_global_monitor *global)
 {
     change_color(button, global, OUT);
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 static void monitor_create_options(Control *control, GtkContainer *container, GtkWidget *done)
 {
     t_global_monitor *global;
@@ -1148,6 +1177,7 @@ static void monitor_create_options(Control *control, GtkContainer *container, Gt
 }
 
 
+/* ---------------------------------------------------------------------------------------------- */
 G_MODULE_EXPORT void xfce_control_class_init(ControlClass *cc)
 {
     xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");

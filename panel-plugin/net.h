@@ -1,60 +1,53 @@
-/*  XFce 4 - Netload Plugin
- *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
- *  
- *  Id: $Id: net.h,v 1.7 2003/09/13 12:30:49 bwalle Exp $
+/*
+ * Id: $Id: net.h,v 1.8 2005/02/04 18:12:01 bwalle Exp $
+ * -------------------------------------------------------------------------------------------------
+ * 
+ * This program is free software; you can redistribute it and/or modify it under the terms of the 
+ * GNU General Public License as published by the Free Software Foundation; You may only use 
+ * version 2 of the License, you have no option to use any other version.
  *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See 
+ * the GNU General Public License for more details.
  *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License along with this program; if 
+ * not, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * ------------------------------------------------------------------------------------------------- 
  */
-
-
 #ifndef NET_H
 #define NET_H
-
-/* ----------------------- Some defines here ------------------------------- */
-
-#if defined (__sun__)
-#define __Solaris__ 1
-#endif
 
 #include "os.h"
 #include "slurm.h"
 
 #define MSGSIZE 1024
+#define IP_UPDATE_INTERVAL 20
+#define IP_ADDRESS_LENGTH 64
+#define INTERFACE_NAME_LENGTH 9
 
 #ifndef gettext_noop
 #define gettext_noop(String) String
 #endif
 
 /** errorcodes */
-typedef enum {
-    UNKNOWN_ERROR,          /* 0 */
-    PROC_DEVICE_NOT_FOUND,  /* 1 */
-    INTERFACE_NOT_FOUND     /* 2 */
+typedef enum 
+{
+    UNKNOWN_ERROR,
+    PROC_DEVICE_NOT_FOUND,
+    INTERFACE_NOT_FOUND
 } errorcode_t;
 
 
-/*
+/**
  * We need this because we cannot use static variables. Using of static variables allows
  * us not to use several instances of the plugin.
  * I know that this change makes it a bit incompatible with wormulon, but that's the
  * price to pay ...
  */
-
 typedef struct
 {
-    char            old_interface[9];
+    char            old_interface[INTERFACE_NAME_LENGTH];
     double          backup_in;
     errorcode_t     errorcode;
     double          backup_out;
@@ -63,6 +56,8 @@ typedef struct
     struct timeval  prev_time;
     int             correct_interface;          /* treated as boolean */
     IfData          ifdata;
+    char            ip_address[IP_ADDRESS_LENGTH];
+    int             ip_update_count;
     DataStats       stats;
 #ifdef __HPUX__
     int             wait_pcks_counter;
@@ -110,6 +105,21 @@ int init_netload(netdata* data, const char* device);
  * @param tot       Total load in byte/s.
  */
 void get_current_netload(netdata* data, unsigned long *in, unsigned long *out, unsigned long *tot);
+
+/**
+ * Returns the name of the network interface.
+ * @param data      object
+ * @return The name. String resides in data and you don't have to free the string.
+ *         On error, returns NULL.
+ */
+char* get_name(netdata* data);
+
+/**
+ * Returns the IP address of the network interface
+ * @param data     object
+ * @return the IP address as string, NULL on error.
+ */
+char* get_ip_address(netdata* data);
 
 /**
  * Should be called to do cleanup work.
