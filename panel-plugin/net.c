@@ -1,5 +1,5 @@
 /*
- * Id: $Id: net.c,v 1.7 2005/02/04 18:12:01 bwalle Exp $
+ * Id: $Id: net.c,v 1.8 2005/02/04 18:14:41 bwalle Exp $
  * -------------------------------------------------------------------------------------------------
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -191,9 +191,11 @@ char* get_ip_address(netdata* data)
     snprintf(ifr.ifr_name, IF_NAMESIZE, data->ifdata.if_name);
     if (ioctl(sockfd, SIOCGIFADDR, &ifr) != 0)
     {
+        close(sockfd);
         perror("Error in ictl(sockfd)");
         return NULL;
     }
+    close(sockfd);
     
     p_sa = (struct sockaddr_in*) &ifr.ifr_addr;
     
