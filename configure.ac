@@ -47,7 +47,7 @@ AC_CHECK_LIB(kstat, kstat_open, SOLLIBS="-lkstat -lsocket", SOLLIBS="")
 AC_SUBST(SOLLIBS)
 
 dnl Check for i18n support
-BM_I18N([xfce4-netload], [de lt ca pl uk])
+BM_I18N([xfce4-netload], [ca de ko lt pl uk])
 
 dnl configure the panel plugin
 XFCE_PANEL_PLUGIN([XFCE4_PANEL], [3.99.2])
