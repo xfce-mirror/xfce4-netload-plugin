@@ -1,3 +1,6 @@
+2003-08-27 Bernhard Walle
+    * Fixed compile problem on NetBSD and OpenBSD.
+
 2003-08-26 Bernhard Walle
     * Implemented configurable update interval.
     * Fixed small bug with operating system specific data initialization.

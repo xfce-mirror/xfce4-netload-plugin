@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload 1.0\n"
-"POT-Creation-Date: 2003-08-26 22:25+0200\n"
+"POT-Creation-Date: 2003-08-27 20:23+0200\n"
 "PO-Revision-Date: 2003-08-15 11:08+0300\n"
 "Last-Translator: Mantas <zaz@xxx.lt>\n"
 "Language-Team:  <komp_lt@konferencijos.lt>\n"

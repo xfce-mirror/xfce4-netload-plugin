@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XFce 4\n"
-"POT-Creation-Date: 2003-08-26 22:25+0200\n"
+"POT-Creation-Date: 2003-08-27 20:23+0200\n"
 "PO-Revision-Date: 2003-08-26 23:58+0100\n"
 "Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: ca <LL@li.org>\n"
@@ -74,4 +74,3 @@ msgstr "kBytes/s"
 #: panel-plugin/netload.c:1096
 msgid "Netload"
 msgstr "Càrrega de red"
-

@@ -1,4 +1,4 @@
-/* $Id: netbsd.c,v 1.2 2003/08/25 21:08:58 bwalle Exp $ */
+/* $Id: netbsd.c,v 1.3 2003/08/27 18:26:50 bwalle Exp $ */
 
 
 /*****************************************************************************
@@ -11,19 +11,19 @@
 
 void init_osspecific(netdata* data)
 {
-    mib_name1[0] = CTL_NET;
-    mib_name1[1] = PF_ROUTE;
-    mib_name1[2] = 0;
-    mib_name1[3] = 0;
-    mib_name1[4] = NET_RT_IFLIST;
-    mib_name1[5] = 0;
+    data->mib_name1[0] = CTL_NET;
+    data->mib_name1[1] = PF_ROUTE;
+    data->mib_name1[2] = 0;
+    data->mib_name1[3] = 0;
+    data->mib_name1[4] = NET_RT_IFLIST;
+    data->mib_name1[5] = 0;
     
-    mib_name2[0] = CTL_NET;
-    mib_name2[1] = PF_ROUTE;
-    mib_name2[2] = 0;
-    mib_name2[3] = 0;
-    mib_name2[4] = NET_RT_IFLIST;
-    mib_name2[5] = 0;
+    data->mib_name2[0] = CTL_NET;
+    data->mib_name2[1] = PF_ROUTE;
+    data->mib_name2[2] = 0;
+    data->mib_name2[3] = 0;
+    data->mib_name2[4] = NET_RT_IFLIST;
+    data->mib_name2[5] = 0;
 }
 
 
