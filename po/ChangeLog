@@ -1,4 +1,8 @@
-2003-08-15 Carles Muñoz Gorriz
+2003-08-17 Bernhard Walle
+    * Changed string from "bit/s" to "byte/s" and updated German translation.
+      (The value has always been "byte/s", only the string was wrong.)
+
+2003-08-15 Carles Muï¿½oz Gorriz
 	* Added Catalan translation
 
 2003-08-15 Mantas

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload 1.0\n"
-"POT-Creation-Date: 2003-08-10 19:33+0200\n"
+"POT-Creation-Date: 2003-08-17 16:30+0200\n"
 "PO-Revision-Date: 2003-08-15 11:08+0300\n"
 "Last-Translator: Mantas <zaz@xxx.lt>\n"
 "Language-Team:  <komp_lt@konferencijos.lt>\n"
@@ -14,38 +14,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/netload.c:147
-#, c-format
+#: panel-plugin/netload.c:149
+#, fuzzy, c-format
 msgid ""
-"Incoming: %lld bit/s\n"
-"Outgoing: %lld bit/s\n"
-"Total: %lld bit/s"
+"Incoming: %lld byte/s\n"
+"Outgoing: %lld byte/s\n"
+"Total: %lld byte/s"
 msgstr ""
 "Gaunami: %lld bitų/s\n"
 "Siunčiami: %lld bitų/s\n"
 "Viso: %lld bitų/s"
 
-#: panel-plugin/netload.c:649
+#: panel-plugin/netload.c:652
 msgid "Select color"
 msgstr "Pasirinkite spalvą"
 
-#: panel-plugin/netload.c:698
+#: panel-plugin/netload.c:701
 msgid "Bar color (incoming):"
 msgstr "Juostos spalva (gaunami duomenys)"
 
-#: panel-plugin/netload.c:699
+#: panel-plugin/netload.c:702
 msgid "Bar color (outgoing):"
 msgstr "Juostos spalva (siunčiami duomenys)"
 
-#: panel-plugin/netload.c:720
+#: panel-plugin/netload.c:723
 msgid "Text to display:"
 msgstr "Rodomas tekstas:"
 
-#: panel-plugin/netload.c:751
+#: panel-plugin/netload.c:754
 msgid "Network device:"
 msgstr "Tinklo įrenginys"
 
-#: panel-plugin/netload.c:839
+#: panel-plugin/netload.c:842
 msgid "Netload"
 msgstr "Tinklo apkrovimas"
-

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XFce 4\n"
-"POT-Creation-Date: 2003-08-12 22:49+0200\n"
+"POT-Creation-Date: 2003-08-17 16:30+0200\n"
 "PO-Revision-Date: 2003-08-15 15:38+0100\n"
 "Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: ca <LL@li.org>\n"
@@ -15,37 +15,36 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: panel-plugin/netload.c:149
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Incoming: %lld bit/s\n"
-"Outgoing: %lld bit/s\n"
-"Total: %lld bit/s"
+"Incoming: %lld byte/s\n"
+"Outgoing: %lld byte/s\n"
+"Total: %lld byte/s"
 msgstr ""
 "Entrant: %lld bit/s\n"
 "Sortint: %lld bit/s\n"
 "Total: %lld bit/s"
 
-#: panel-plugin/netload.c:648
+#: panel-plugin/netload.c:652
 msgid "Select color"
 msgstr "Seleccioneu el color"
 
-#: panel-plugin/netload.c:697
+#: panel-plugin/netload.c:701
 msgid "Bar color (incoming):"
 msgstr "Color de la barra (sortint):"
 
-#: panel-plugin/netload.c:698
+#: panel-plugin/netload.c:702
 msgid "Bar color (outgoing):"
 msgstr "Color de la barra (entrant):"
 
-#: panel-plugin/netload.c:719
+#: panel-plugin/netload.c:723
 msgid "Text to display:"
 msgstr "Text a mostrar:"
 
-#: panel-plugin/netload.c:750
+#: panel-plugin/netload.c:754
 msgid "Network device:"
 msgstr "Dispositiu de xarxa"
 
-#: panel-plugin/netload.c:838
+#: panel-plugin/netload.c:842
 msgid "Netload"
 msgstr "Càrrega de red"
-

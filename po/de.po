@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
-"POT-Creation-Date: 2003-08-12 22:49+0200\n"
+"POT-Creation-Date: 2003-08-17 16:30+0200\n"
 "PO-Revision-Date: 2003-08-10 19:35+0200\n"
 "Last-Translator: Bernhard Walle <bernhard.walle@gmx.de>\n"
 "Language-Team: Deutsch <www.xfce.org>\n"
@@ -14,34 +14,34 @@ msgstr ""
 #: panel-plugin/netload.c:149
 #, c-format
 msgid ""
-"Incoming: %lld bit/s\n"
-"Outgoing: %lld bit/s\n"
-"Total: %lld bit/s"
+"Incoming: %lld byte/s\n"
+"Outgoing: %lld byte/s\n"
+"Total: %lld byte/s"
 msgstr ""
-"Eingehend: %lld bit/s\n"
-"Ausgehend: %lld bit/s\n"
-"Gesamt: %lld bit/s"
+"Eingehend: %lld byte/s\n"
+"Ausgehend: %lld byte/s\n"
+"Gesamt: %lld byte/s"
 
-#: panel-plugin/netload.c:648
+#: panel-plugin/netload.c:652
 msgid "Select color"
 msgstr "Farbe auswählen"
 
-#: panel-plugin/netload.c:697
+#: panel-plugin/netload.c:701
 msgid "Bar color (incoming):"
 msgstr "Balkenfarbe (eingehend):"
 
-#: panel-plugin/netload.c:698
+#: panel-plugin/netload.c:702
 msgid "Bar color (outgoing):"
 msgstr "Balkenfarbe (ausgehend):"
 
-#: panel-plugin/netload.c:719
+#: panel-plugin/netload.c:723
 msgid "Text to display:"
 msgstr "Angezeigter Text:"
 
-#: panel-plugin/netload.c:750
+#: panel-plugin/netload.c:754
 msgid "Network device:"
 msgstr "Netzwerkschnittstelle:"
 
-#: panel-plugin/netload.c:838
+#: panel-plugin/netload.c:842
 msgid "Netload"
 msgstr "Netzlast"
