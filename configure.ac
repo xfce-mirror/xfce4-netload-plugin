@@ -9,7 +9,7 @@ AC_INIT([panel-plugin/netload.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-netload-plugin], [0.1.3])
+AM_INIT_AUTOMAKE([xfce4-netload-plugin], [0.1.9])
 
 AM_MAINTAINER_MODE
 
@@ -21,7 +21,23 @@ AC_PROG_LIBTOOL
 dnl Check for standard header files
 AC_HEADER_STDC
 
-dnl Determine operating system
+dnl Substitute in Makefiles
+AC_SUBST(OS)
+
+
+AC_CHECK_HEADERS(	[sys/time.h time.h],
+					[],
+					[AC_MSG_ERROR([We need sys/time.h and time.h])]
+				)
+
+
+dnl Check for i18n support
+BM_I18N([xfce4-netload], [de lt ca])
+
+dnl configure the panel plugin
+XFCE_PANEL_PLUGIN([XFCE4_PANEL], [3.99.2])
+
+dnl dnl Determine operating system
 case $host_os in
 *linux*)
 	OS=linux
@@ -35,28 +51,12 @@ case $host_os in
 	)
 	;;
 *)
-	echo ""
-	echo "Sorry, $host_os is not supported yet."
-	echo ""
-	exit 1
+    OS=libgtop2
+    
+    dnl Check if libgtop2 is available
+    INIT_LIBGTOP(2.0.0)
 	;;
 esac
-
-dnl Substitute in Makefiles
-AC_SUBST(OS)
-
-
-AC_CHECK_HEADERS(	[sys/time.h time.h],
-					[],
-					[AC_MSG_ERROR([We need sys/time.h and time.h])]
-				)
-
-
-dnl Check for i18n support
-BM_I18N([xfce4-netload], [de])
-
-dnl configure the panel plugin
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [3.99.2])
 
 dnl Check for debugging support
 BM_DEBUG_SUPPORT
