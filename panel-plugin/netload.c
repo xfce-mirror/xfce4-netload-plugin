@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: netload.c,v 1.8 2003/09/06 12:37:20 bwalle Exp $
+ *  Id: $Id: netload.c,v 1.9 2003/10/01 19:16:03 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -217,7 +217,7 @@ static gboolean update_monitors(t_global_monitor *global)
         format_with_thousandssep( buffer[i], BUFSIZ, display[i] / 1024.0, 2 );
     }
     
-    format_with_thousandssep( buffer[TOT], BUFSIZ, (display[IN]+display[OUT])  / 1024, 2 );
+    format_with_thousandssep( buffer[TOT], BUFSIZ, (display[IN]+display[OUT])  / 1024.0, 2 );
     
     g_snprintf(caption, sizeof(caption), 
             _("Average of last %d measures:\n"
@@ -470,7 +470,7 @@ static void monitor_free(Control *ctrl)
     close_netload( &(global->monitor->data) );
 }
 
-static void setup_monitor(t_global_monitor *global)
+static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
 {
     GtkRcStyle *rc;
     gint i;
@@ -516,7 +516,8 @@ static void setup_monitor(t_global_monitor *global)
     if (!strcmp(global->monitor->options.network_device, 
             global->monitor->options.old_network_device) == 0)
     {
-        if (!init_netload( &(global->monitor->data), global->monitor->options.network_device))
+        if (!init_netload( &(global->monitor->data), global->monitor->options.network_device)
+                && !supress_warnings)
         {
             xfce_err (_("%s: Error in initalizing:\n%s"),
                 _(APP_NAME),
@@ -609,7 +610,10 @@ static void monitor_read_config(Control *ctrl, xmlNodePtr node)
             break;
         }
     }
-    setup_monitor(global);
+#ifdef DEBUG
+    printf("monitor_read_config\n");
+#endif
+    setup_monitor(global, TRUE);
 }
 
 
@@ -697,7 +701,10 @@ static void monitor_set_size(Control *ctrl, int size)
         }
         gtk_widget_queue_resize(GTK_WIDGET(global->monitor->status[i]));
     }
-    setup_monitor(global);
+#ifdef DEBUG
+    printf("monitor_set_size\n");
+#endif
+    setup_monitor(global, TRUE);
 }
 
 
@@ -712,7 +719,7 @@ static void monitor_apply_options_cb(GtkWidget *button, t_global_monitor *global
 
     global->monitor->options.label_text =
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->opt_entry)));
-    setup_monitor(global);
+    setup_monitor(global, FALSE);
 
 
     if (global->monitor->options.network_device)
@@ -721,7 +728,7 @@ static void monitor_apply_options_cb(GtkWidget *button, t_global_monitor *global
     }
     global->monitor->options.network_device =
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->net_entry)));
-    setup_monitor(global);
+    setup_monitor(global, FALSE);
     
     for( i = 0; i < SUM; i++ )
     {
@@ -734,7 +741,10 @@ static void monitor_apply_options_cb(GtkWidget *button, t_global_monitor *global
         (gint)(gtk_spin_button_get_value( 
             GTK_SPIN_BUTTON(global->monitor->update_spinner) ) * 1000 + 0.5);
     
-    setup_monitor(global);
+    setup_monitor(global, FALSE);
+#ifdef DEBUG
+    printf("monitor_apply_options_cb\n");
+#endif
 }
 
 
@@ -748,7 +758,10 @@ static void label_changed(GtkWidget *button, t_global_monitor *global)
     global->monitor->options.label_text =
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->opt_entry)));
 
-    setup_monitor(global);
+    setup_monitor(global, FALSE);
+#ifdef DEBUG
+    printf("label_changed\n");
+#endif
 }
 
 
@@ -762,7 +775,10 @@ static void max_label_changed(GtkWidget *button, t_global_monitor *global)
             NULL ) * 1024;
     }
 
-    setup_monitor(global);
+    setup_monitor(global, FALSE);
+#ifdef DEBUG
+    printf("max_label_changed\n");
+#endif
 }
 
 
@@ -776,7 +792,10 @@ static void network_changed(GtkWidget *button, t_global_monitor *global)
     global->monitor->options.network_device =
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->net_entry)));
 
-    setup_monitor(global);
+    setup_monitor(global, FALSE);
+#ifdef DEBUG
+    printf("network_changed\n");
+#endif
 }
 
 
@@ -789,7 +808,10 @@ static void label_toggled(GtkWidget *check_button, t_global_monitor *global)
     gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_entry),
                              global->monitor->options.use_label);
 
-    setup_monitor(global);
+    setup_monitor(global, FALSE);
+#ifdef DEBUG
+    printf("label_toggled\n");
+#endif
 }
 
 static void max_label_toggled(GtkWidget *check_button, t_global_monitor *global)
@@ -809,8 +831,11 @@ static void max_label_toggled(GtkWidget *check_button, t_global_monitor *global)
             global->monitor->net_max[i] = INIT_MAX;
         }
     }
-    
-    setup_monitor(global);
+    setup_monitor(global, FALSE);
+#ifdef DEBUG
+    printf("max_label_toggled\n");
+#endif
+
 }
 
 
@@ -858,9 +883,11 @@ static void change_color(GtkWidget *button, t_global_monitor *global, gint type)
         gtk_widget_modify_bg(global->monitor->opt_da[type],
                              GTK_STATE_NORMAL,
                              &global->monitor->options.color[type]);
-        setup_monitor(global);
+        setup_monitor(global, FALSE);
     }
-
+#ifdef DEBUG
+    printf("change_color\n");
+#endif
     gtk_widget_destroy(dialog);
 }
 
