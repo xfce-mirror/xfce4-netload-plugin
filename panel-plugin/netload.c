@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: netload.c,v 1.5 2003/08/26 20:34:46 bwalle Exp $
+ *  Id: $Id: netload.c,v 1.6 2003/08/28 19:38:38 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -176,11 +176,24 @@ static gboolean update_monitors(t_global_monitor *global)
                 global->monitor->net_max[i] *= SHRINK_MAX;
             }
         }
-        
-        if( i == IN )
+
+#ifdef DEBUG        
+        switch( in ) 
         {
-            fprintf( stderr, "Max = %lu\n", global->monitor->net_max[i] );
+            case IN:
+                fprintf( stderr, "input: Max = %lu\n", global->monitor->net_max[i] );
+                break;
+                
+            case OUT:
+                fprintf( stderr, "output: Max = %lu\n", global->monitor->net_max[i] );
+                break;
+                
+            case TOT:
+                fprintf( stderr, "total: Max = %lu\n", global->monitor->net_max[i] );
+                break;
         }
+#endif /* DEBUG */
+        
         
         temp = (double)display[i] / global->monitor->net_max[i];
         if( temp > 1 )
@@ -412,11 +425,7 @@ static gboolean monitor_control_new(Control *ctrl)
 
     gtk_container_add(GTK_CONTAINER(ctrl->base), GTK_WIDGET(global->ebox));
 
-    if (!global->timeout_id) 
-    {
-        global->timeout_id = g_timeout_add(UPDATE_TIMEOUT,
-                                           (GtkFunction)update_monitors, global);
-    }
+    run_update( global );
 
     ctrl->data = (gpointer)global;
     ctrl->with_popup = FALSE;
