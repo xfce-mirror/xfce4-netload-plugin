@@ -1,0 +1,19 @@
+2003-08-12 Bernhard Walle
+	* released 0.1.2
+	* corrected Linux code which was broken by the last fix
+	* added configure macros for testing the operating system
+	  and the critical header files
+	* separated implementation for different operating system
+	* released 0.1.3
+	* small fixes for --enable-debug=full (unused variable, 
+	  forgotten import)
+
+2003-08-11 Bernhard Walle
+	* released 0.1.1
+	* corrected FreeBSD code.
+	  Thanks to Shadoe <shadoe@shadoegrounds.com>
+
+2003-08-10 Bernhard Walle
+	* initial release 0.1.0
+	
+

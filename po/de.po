@@ -1,0 +1,47 @@
+# translation of de.po to Deutsch
+# Bernhard Walle <bernhard.walle@gmx.de>, 2003.
+msgid ""
+msgstr ""
+"Project-Id-Version: de\n"
+"POT-Creation-Date: 2003-08-12 22:49+0200\n"
+"PO-Revision-Date: 2003-08-10 19:35+0200\n"
+"Last-Translator: Bernhard Walle <bernhard.walle@gmx.de>\n"
+"Language-Team: Deutsch <www.xfce.org>\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0.2\n"
+
+#: panel-plugin/netload.c:149
+#, c-format
+msgid ""
+"Incoming: %lld bit/s\n"
+"Outgoing: %lld bit/s\n"
+"Total: %lld bit/s"
+msgstr ""
+"Eingehend: %lld bit/s\n"
+"Ausgehend: %lld bit/s\n"
+"Gesamt: %lld bit/s"
+
+#: panel-plugin/netload.c:648
+msgid "Select color"
+msgstr "Farbe auswählen"
+
+#: panel-plugin/netload.c:697
+msgid "Bar color (incoming):"
+msgstr "Balkenfarbe (eingehend):"
+
+#: panel-plugin/netload.c:698
+msgid "Bar color (outgoing):"
+msgstr "Balkenfarbe (ausgehend):"
+
+#: panel-plugin/netload.c:719
+msgid "Text to display:"
+msgstr "Angezeigter Text:"
+
+#: panel-plugin/netload.c:750
+msgid "Network device:"
+msgstr "Netzwerkschnittstelle:"
+
+#: panel-plugin/netload.c:838
+msgid "Netload"
+msgstr "Netzlast"

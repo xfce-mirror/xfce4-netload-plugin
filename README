@@ -1,0 +1,27 @@
+XFce4 Netload plugin
+--------------------
+
+
+Works only on Linux and FreeBSD. The panel plugin is based on the sample-plugin
+from Benedikt Meurer and on the xfce4-systemload-plugin from Riccardo
+Persichetti.  The layout is the same as the systemload-plugin. This made
+programming very easy and looks good, too.
+
+The code for getting the netload is based on IceWM from Marko Macek. If you
+have code for other operating systems than Linux or FreeBSD please mail to me
+and if you can mail also Marko Macek (see at http://www.icewm.org) so that he
+can include it in IceWM, too, if he wants.
+
+I'm not planning making much improvements in the future so if you want to take
+over developement, just drop me a note. I just programmed it because I needed
+it but I plan to maintain it so that it's running with the most current stable
+release of Xfce.
+
+If you have translations for your language, please mail me. I'll include it
+in the distribution!
+
+
+-Bernhard
+<bernhard.walle@gmx.de>
+
+
