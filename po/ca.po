@@ -1,0 +1,51 @@
+# xfce4-netload for the XFce desktop environment.
+# Copyright (C) 2003 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-netload package.
+# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: XFce 4\n"
+"POT-Creation-Date: 2003-08-12 22:49+0200\n"
+"PO-Revision-Date: 2003-08-15 15:38+0100\n"
+"Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
+"Language-Team: ca <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: panel-plugin/netload.c:149
+#, c-format
+msgid ""
+"Incoming: %lld bit/s\n"
+"Outgoing: %lld bit/s\n"
+"Total: %lld bit/s"
+msgstr ""
+"Entrant: %lld bit/s\n"
+"Sortint: %lld bit/s\n"
+"Total: %lld bit/s"
+
+#: panel-plugin/netload.c:648
+msgid "Select color"
+msgstr "Seleccioneu el color"
+
+#: panel-plugin/netload.c:697
+msgid "Bar color (incoming):"
+msgstr "Color de la barra (sortint):"
+
+#: panel-plugin/netload.c:698
+msgid "Bar color (outgoing):"
+msgstr "Color de la barra (entrant):"
+
+#: panel-plugin/netload.c:719
+msgid "Text to display:"
+msgstr "Text a mostrar:"
+
+#: panel-plugin/netload.c:750
+msgid "Network device:"
+msgstr "Dispositiu de xarxa"
+
+#: panel-plugin/netload.c:838
+msgid "Netload"
+msgstr "Càrrega de red"
+
