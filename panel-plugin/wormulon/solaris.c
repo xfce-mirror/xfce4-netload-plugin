@@ -1,4 +1,4 @@
-/* $Id: solaris.c,v 1.2 2003/08/25 21:08:58 bwalle Exp $ */
+/* $Id: solaris.c,v 1.3 2003/08/31 12:54:36 bwalle Exp $ */
 
 
 /*****************************************************************************
@@ -12,6 +12,11 @@
 void init_osspecific(netdata* data)
 {
     /* nothing */
+    
+#ifdef DEBUG
+    fprintf( stderr, "The netload plugin was initialized for Sun Solaris.\n" );
+#endif
+
 }
 
 /*****************************************************************************

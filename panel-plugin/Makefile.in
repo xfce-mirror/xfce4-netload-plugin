@@ -159,7 +159,7 @@ target_alias = @target_alias@
 plugindir = @XFCE4_PANEL_PLUGINSDIR@
 
 EXTRA_DIST = \
-	wormulon
+	wormulon commandline.c
 
 
 plugin_LTLIBRARIES = \

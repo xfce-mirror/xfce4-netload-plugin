@@ -1,4 +1,4 @@
-/* $Id: freebsd.c,v 1.2 2003/08/25 21:08:58 bwalle Exp $ */
+/* $Id: freebsd.c,v 1.3 2003/08/31 12:54:36 bwalle Exp $ */
 
 
 /*****************************************************************************
@@ -12,6 +12,10 @@
 void init_osspecific(netdata* data)
 {
     data->watchif = -1;
+    
+#ifdef DEBUG
+    fprintf( stderr, "The netload plugin was initialized for FreeBSD.\n" );
+#endif
 }
 
 
@@ -33,6 +37,11 @@ int checkinterface(netdata* data)
     int name[6];
     struct ifmibdata ifmd;
 
+#ifdef DEBUG
+    fprintf( stderr, "Checking the interface '%s' now ...\n", data->ifdata.if_name );
+#endif
+    
+    
     len = sizeof(num_iface);
     sysctlbyname("net.link.generic.system.ifcount", &num_iface, &len, NULL, 0);
     for (i=1; i <= num_iface; i++)
@@ -103,8 +112,17 @@ int get_stat(netdata* data)
             if (strcmp(ifmd.ifmd_name, (char *)data->ifdata.if_name) == 0)
             {   
                 /* got the right interface */
+#ifdef DEBUG
+                fprintf( stderr, "Got the right interface.\n");
+#endif
                 data->watchif = i;
                 data->dev_opened++;
+            }
+            else
+            {
+#ifdef DEBUG
+                fprintf( stderr, "Got NOT the right interface.\n");
+#endif
             }
         }
     }

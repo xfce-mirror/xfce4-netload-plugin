@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload 1.0\n"
-"POT-Creation-Date: 2003-08-27 20:23+0200\n"
+"POT-Creation-Date: 2003-08-31 14:41+0200\n"
 "PO-Revision-Date: 2003-08-15 11:08+0300\n"
 "Last-Translator: Mantas <zaz@xxx.lt>\n"
 "Language-Team:  <komp_lt@konferencijos.lt>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/netload.c:202
+#: panel-plugin/netload.c:216
 #, fuzzy, c-format
 msgid ""
 "Average of last %d measures:\n"
@@ -26,52 +26,52 @@ msgstr ""
 "Siunčiami: %lld bitų/s\n"
 "Viso: %lld bitų/s"
 
-#: panel-plugin/netload.c:813
+#: panel-plugin/netload.c:834
 msgid "Select color"
 msgstr "Pasirinkite spalvą"
 
-#: panel-plugin/netload.c:866
+#: panel-plugin/netload.c:887
 msgid "Bar color (incoming):"
 msgstr "Juostos spalva (gaunami duomenys)"
 
-#: panel-plugin/netload.c:867
+#: panel-plugin/netload.c:888
 msgid "Bar color (outgoing):"
 msgstr "Juostos spalva (siunčiami duomenys)"
 
-#: panel-plugin/netload.c:870
+#: panel-plugin/netload.c:891
 #, fuzzy
 msgid "Maximum (incoming):"
 msgstr "Juostos spalva (gaunami duomenys)"
 
-#: panel-plugin/netload.c:871
+#: panel-plugin/netload.c:892
 #, fuzzy
 msgid "Maximum (outgoing):"
 msgstr "Juostos spalva (siunčiami duomenys)"
 
-#: panel-plugin/netload.c:895
+#: panel-plugin/netload.c:916
 msgid "Text to display:"
 msgstr "Rodomas tekstas:"
 
-#: panel-plugin/netload.c:926
+#: panel-plugin/netload.c:947
 msgid "Network device:"
 msgstr "Tinklo įrenginys"
 
-#: panel-plugin/netload.c:952
+#: panel-plugin/netload.c:973
 msgid "Update interval:"
 msgstr ""
 
-#: panel-plugin/netload.c:963
+#: panel-plugin/netload.c:984
 msgid "ms"
 msgstr ""
 
-#: panel-plugin/netload.c:976
+#: panel-plugin/netload.c:997
 msgid "Automatic maximum"
 msgstr ""
 
-#: panel-plugin/netload.c:1008
+#: panel-plugin/netload.c:1029
 msgid "kByte/s"
 msgstr ""
 
-#: panel-plugin/netload.c:1096
+#: panel-plugin/netload.c:1117
 msgid "Netload"
 msgstr "Tinklo apkrovimas"

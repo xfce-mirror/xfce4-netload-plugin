@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: net.h,v 1.4 2003/08/25 21:08:58 bwalle Exp $
+ *  Id: $Id: net.h,v 1.5 2003/08/31 12:54:36 bwalle Exp $
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -41,6 +41,7 @@
 
 typedef struct
 {
+    char            old_interface[9];
     double          backup_in;
     double          backup_out;
     double          cur_in;

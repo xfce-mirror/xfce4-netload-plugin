@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: net.c,v 1.3 2003/08/26 20:34:46 bwalle Exp $
+ *  Id: $Id: net.c,v 1.4 2003/08/31 12:54:36 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -73,6 +73,8 @@ void init_netload(netdata* data, const char* device)
     strncpy( data->ifdata.if_name, device, 9 );
     data->ifdata.if_name[9] = '\0';
     
+    init_osspecific( data );
+    
     if (checkinterface(data) != TRUE)
 	{
         data->correct_interface = FALSE;
@@ -86,7 +88,9 @@ void init_netload(netdata* data, const char* device)
     
     data->correct_interface = TRUE;
     
-    init_osspecific( data );
+#ifdef DEBUG
+    fprintf( stderr, "The netload plugin was initialized for '%s'.\n", device );
+#endif /* DEBUG */
 }
 
 
@@ -118,20 +122,20 @@ void get_current_netload(netdata* data, unsigned long *in, unsigned long *out, u
     get_stat(data);
     if (data->backup_in > data->stats.rx_bytes)
     {
-        data->cur_in = (int) data->stats.rx_bytes / delta_t;
+        data->cur_in = (int)( data->stats.rx_bytes / delta_t + 0.5);
     }
     else
     {
-        data->cur_in = (int) (data->stats.rx_bytes - data->backup_in) / delta_t;
+        data->cur_in = (int)( (data->stats.rx_bytes - data->backup_in) / delta_t + 0.5);
     }
 	
     if (data->backup_out > data->stats.tx_bytes)
     {
-        data->cur_out = (int) data->stats.tx_bytes / delta_t;
+        data->cur_out = (int)( data->stats.tx_bytes / delta_t + 0.5);
     }
     else
     {
-        data->cur_out = (int) (data->stats.tx_bytes - data->backup_out) / delta_t;
+        data->cur_out = (int)( (data->stats.tx_bytes - data->backup_out) / delta_t + 0.5);
     }
 
     if( in != NULL && out != NULL && tot != NULL )

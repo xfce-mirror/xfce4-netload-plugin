@@ -2,7 +2,7 @@ plugindir = @XFCE4_PANEL_PLUGINSDIR@
 LIBS = @LIBS@ @SOLLIBS@
 
 EXTRA_DIST =								    \
-	wormulon
+	wormulon commandline.c
 
 plugin_LTLIBRARIES =							\
 	libnetload.la

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XFce 4\n"
-"POT-Creation-Date: 2003-08-27 20:23+0200\n"
+"POT-Creation-Date: 2003-08-31 14:41+0200\n"
 "PO-Revision-Date: 2003-08-26 23:58+0100\n"
 "Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: ca <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/netload.c:202
+#: panel-plugin/netload.c:216
 #, c-format
 msgid ""
 "Average of last %d measures:\n"
@@ -27,50 +27,50 @@ msgstr ""
 "Sortint: %s kBytes/s\n"
 "Total: %s kBytes/s"
 
-#: panel-plugin/netload.c:813
+#: panel-plugin/netload.c:834
 msgid "Select color"
 msgstr "Seleccioneu el color"
 
-#: panel-plugin/netload.c:866
+#: panel-plugin/netload.c:887
 msgid "Bar color (incoming):"
 msgstr "Color de la barra (entrant):"
 
-#: panel-plugin/netload.c:867
+#: panel-plugin/netload.c:888
 msgid "Bar color (outgoing):"
 msgstr "Color de la barra (sortint):"
 
-#: panel-plugin/netload.c:870
+#: panel-plugin/netload.c:891
 msgid "Maximum (incoming):"
 msgstr "Màxim (entrant):"
 
-#: panel-plugin/netload.c:871
+#: panel-plugin/netload.c:892
 msgid "Maximum (outgoing):"
 msgstr "Màxim (sortint):"
 
-#: panel-plugin/netload.c:895
+#: panel-plugin/netload.c:916
 msgid "Text to display:"
 msgstr "Text a mostrar:"
 
-#: panel-plugin/netload.c:926
+#: panel-plugin/netload.c:947
 msgid "Network device:"
 msgstr "Dispositiu de xarxa:"
 
-#: panel-plugin/netload.c:952
+#: panel-plugin/netload.c:973
 msgid "Update interval:"
 msgstr "Interval d'actualització:"
 
-#: panel-plugin/netload.c:963
+#: panel-plugin/netload.c:984
 msgid "ms"
 msgstr "ms"
 
-#: panel-plugin/netload.c:976
+#: panel-plugin/netload.c:997
 msgid "Automatic maximum"
 msgstr "Màxim automatitzat"
 
-#: panel-plugin/netload.c:1008
+#: panel-plugin/netload.c:1029
 msgid "kByte/s"
 msgstr "kBytes/s"
 
-#: panel-plugin/netload.c:1096
+#: panel-plugin/netload.c:1117
 msgid "Netload"
 msgstr "Càrrega de red"

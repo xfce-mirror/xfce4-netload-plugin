@@ -1,7 +1,7 @@
 #include <netio.h>
 #define WAIT_PCKS_COUNTER   15
 
-/* $Id: hpux.c,v 1.2 2003/08/25 21:08:58 bwalle Exp $ */
+/* $Id: hpux.c,v 1.3 2003/08/31 12:54:36 bwalle Exp $ */
 
 
 /*****************************************************************************
@@ -15,6 +15,11 @@
 void init_osspecific(netdata* data)
 {
     wait_pcks_counter = WAIT_PCKS_COUNTER+1;
+    
+#ifdef DEBUG
+    fprintf( stderr, "The netload plugin was initialized for HP_UX.\n" );
+#endif
+
 }
 
 

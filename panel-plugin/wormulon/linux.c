@@ -1,4 +1,4 @@
-/* $Id: linux.c,v 1.2 2003/08/25 21:08:58 bwalle Exp $ */
+/* $Id: linux.c,v 1.3 2003/08/31 12:54:36 bwalle Exp $ */
 
 
 
@@ -12,7 +12,9 @@
 
 void init_osspecific(netdata* data)
 {
-    /* nothing */
+#ifdef DEBUG
+    fprintf( stderr, "The netload plugin was initialized for Linux.\n" );
+#endif
 }
 
 
@@ -31,6 +33,11 @@ int checkinterface(netdata* data)
 	unsigned int i;
 	struct if_nameindex *ifs;
 
+#ifdef DEBUG
+    fprintf( stderr, "Checking the interface '%s' now ...\n", data->ifdata.if_name );
+#endif
+
+    
 	if ((ifs = if_nameindex()) == NULL)
 		return FALSE;
 

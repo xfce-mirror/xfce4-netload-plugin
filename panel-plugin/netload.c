@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: netload.c,v 1.6 2003/08/28 19:38:38 bwalle Exp $
+ *  Id: $Id: netload.c,v 1.7 2003/08/31 12:54:36 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -71,6 +71,7 @@ typedef struct
     GdkColor color[SUM];
     gchar    *label_text;
     gchar    *network_device;
+    gchar    *old_network_device;
 } t_monitor_options;
 
 
@@ -178,7 +179,7 @@ static gboolean update_monitors(t_global_monitor *global)
         }
 
 #ifdef DEBUG        
-        switch( in ) 
+        switch( i ) 
         {
             case IN:
                 fprintf( stderr, "input: Max = %lu\n", global->monitor->net_max[i] );
@@ -256,6 +257,7 @@ static t_global_monitor * monitor_new(void)
     global->monitor = g_new(t_monitor, 1);
     global->monitor->options.label_text = g_strdup(DEFAULT_TEXT);
     global->monitor->options.network_device = g_strdup(DEFAULT_DEVICE);
+    global->monitor->options.old_network_device = g_strdup("");
     global->monitor->options.use_label = TRUE;
     global->monitor->options.auto_max = TRUE;
     global->monitor->options.update_interval = UPDATE_TIMEOUT;
@@ -392,10 +394,12 @@ static void monitor_set_orientation (Control * ctrl, int orientation)
     for (i = 0; i < SUM; i++)
     {
         rc = gtk_widget_get_modifier_style(GTK_WIDGET(global->monitor->status[i]));
-        if (!rc) {
+        if (!rc) 
+        {
             rc = gtk_rc_style_new();
         }
-        if (rc) {
+        else
+        {
             rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
             rc->bg[GTK_STATE_PRELIGHT] =
                 global->monitor->options.color[i];
@@ -502,7 +506,16 @@ static void setup_monitor(t_global_monitor *global)
         gtk_widget_show(global->monitor->label);
     }
     
-    init_netload( &(global->monitor->data), global->monitor->options.network_device);
+    if (!strcmp(global->monitor->options.network_device, 
+            global->monitor->options.old_network_device) == 0)
+    {
+        init_netload( &(global->monitor->data), global->monitor->options.network_device);
+        if (global->monitor->options.old_network_device)
+        {
+            g_free(global->monitor->options.old_network_device);
+        }
+        global->monitor->options.old_network_device = g_strdup(global->monitor->options.network_device);
+    }
     
     run_update( global );
 
@@ -759,8 +772,7 @@ static void network_changed(GtkWidget *button, t_global_monitor *global)
 }
 
 
-static void
-label_toggled(GtkWidget *check_button, t_global_monitor *global)
+static void label_toggled(GtkWidget *check_button, t_global_monitor *global)
 {
     global->monitor->options.use_label =
         !global->monitor->options.use_label;

@@ -1748,7 +1748,7 @@ fi
 
 # Define the identity of the package.
  PACKAGE=xfce4-netload-plugin
- VERSION=0.2.0pre4
+ VERSION=0.2.0pre5
 
 
 cat >>confdefs.h <<_ACEOF

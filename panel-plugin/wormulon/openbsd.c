@@ -1,4 +1,4 @@
-/* $Id: openbsd.c,v 1.3 2003/08/27 18:26:50 bwalle Exp $ */
+/* $Id: openbsd.c,v 1.4 2003/08/31 12:54:36 bwalle Exp $ */
 
 
 /*****************************************************************************
@@ -24,6 +24,10 @@ void init_osspecific(netdata* data)
     data->mib_name2[3] = 0;
     data->mib_name2[4] = NET_RT_IFLIST;
     data->mib_name2[5] = 0;
+    
+#ifdef DEBUG
+    fprintf( stderr, "The netload plugin was initialized for OpenBSD.\n" );
+#endif
 }
 
 /*****************************************************************************
