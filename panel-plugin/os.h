@@ -39,6 +39,32 @@
 #include <sys/mib.h>
 #include <arpa/inet.h>
 #include <net/if.h>
++#elif __APPLE__             /* Mac OS X */
++#include <stdio.h>
++#include <stdlib.h>
++#include <stdarg.h>
++#include <unistd.h>
++#include <string.h>
++#include <time.h>
++#include <ctype.h>
++#include <signal.h>
++#include <curses.h>
++#include <ifaddrs.h>
++#include <sys/param.h>
++#include <sys/sysctl.h>
++#include <sys/wait.h>
++#include <sys/stat.h>
++#include <sys/ioctl.h>
++#include <sys/types.h>
++#include <sys/socket.h>
++#include <sys/time.h>
++#include <netinet/in.h>
++#include <net/route.h>
++#include <net/if_dl.h>
++#include <net/if.h>
++#include <net/if_media.h>
++#include <net/if_mib.h>
++#include <arpa/inet.h>
 #elif __FreeBSD__           /* F R E E B S D */
 #include <stdio.h>
 #include <stdlib.h>

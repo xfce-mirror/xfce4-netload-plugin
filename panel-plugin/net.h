@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: net.h,v 1.6 2003/09/06 12:37:20 bwalle Exp $
+ *  Id: $Id: net.h,v 1.7 2003/09/13 12:30:49 bwalle Exp $
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -77,7 +77,7 @@ typedef struct
     char*           buf2;
     int             alloc1;
     int             alloc2;
-#elif __OpenBSD__ || __MicroBSD__
+#elif __OpenBSD__ || __MicroBSD__ || __APPLE__
     int             mib_name1[6];
     int             mib_name2[6];
     char*           buf1;

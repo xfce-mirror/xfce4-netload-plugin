@@ -6,10 +6,11 @@
  * operating systems.
  *
  *****************************************************************************
- * $Id: if_media.c,v 1.2 2003/08/25 21:08:58 bwalle Exp $
+ * $Id: if_media.c,v 1.3 2003/09/13 12:30:10 bwalle Exp $
  *****************************************************************************/
 
-#if defined (__FreeBSD__) || (__OpenBSD__) || (__NetBSD__) || (__MicroBSD__)
+#if defined (__FreeBSD__) || (__OpenBSD__) || (__NetBSD__) || (__MicroBSD__) || (__APPLE__)
+
 #define MEDIA_H_SUPPORTED
 #endif
 
@@ -27,6 +28,7 @@
  *  - OpenBSD
  *  - NetBSD
  *  - MicroBSD (99% OpenBSD)
+ *  - Mac OS X
  *
  *****************************************************************************/
 
@@ -127,7 +129,7 @@ int get_if_speed (char *ifstring)
                 case IFM_10_STP:
                     speed = 10 * 1000;
                     break;
-#if defined(__OpenBSD__) || (__MicroBSD__) || (__NetBSD__)
+#if defined(__OpenBSD__) || (__MicroBSD__) || (__NetBSD__) || (__APPLE__)
         case IFM_HPNA_1:
 #else
 #if __FreeBSD__ <= 4

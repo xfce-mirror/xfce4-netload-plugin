@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: net.c,v 1.5 2003/09/06 12:37:20 bwalle Exp $
+ *  Id: $Id: net.c,v 1.6 2003/09/13 12:30:49 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -44,6 +44,9 @@
 #ifdef __HPUX__
 #include "wormulon/hpux.h"
 #include "wormulon/hpux.c"
+#elif __APPLE__
+#include "src/macos.h"
+#include "src/macos.c"
 #elif __FreeBSD__
 #include "wormulon/freebsd.h"
 #include "wormulon/freebsd.c"
