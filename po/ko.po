@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-02-04 19:20+0100\n"
-"PO-Revision-Date: 2005-01-19 16:16+0900\n"
+"PO-Revision-Date: 2005-03-05 02:42+0900\n"
 "Last-Translator: ByungHyun Choi<byunghyun.choi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgid "Interface was not found."
 msgstr "네트웍 장치를 못 찾겠습니다."
 
 #: panel-plugin/netload.c:223
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
@@ -41,6 +41,7 @@ msgid ""
 "Outgoing: %s kByte/s\n"
 "Total: %s kByte/s"
 msgstr ""
+"<< %s >> (%s)\n"
 "최근 %d 회 측정 평균:\n"
 "들어오는 것: %s kByte/s\n"
 "나가는 것: %s kByte/s\n"
@@ -48,7 +49,7 @@ msgstr ""
 
 #: panel-plugin/netload.c:225
 msgid "no IP address"
-msgstr ""
+msgstr "IP 주소가 없습니다."
 
 #: panel-plugin/netload.c:537
 #, c-format
