@@ -1,7 +1,7 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
  *  
- *  Id: $Id: netload.c,v 1.10 2004/08/01 09:16:58 bwalle Exp $
+ *  Id: $Id: netload.c,v 1.11 2005/01/10 13:43:01 bwalle Exp $
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -696,12 +696,12 @@ static void monitor_set_size(Control *ctrl, int size)
         if (settings.orientation == HORIZONTAL)
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]),
-                    6 + 2 * size, icon_size[size]);
+                    6 + 2 * size, icon_size[size] - 4);
         }
         else
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]),
-                    icon_size[size], 6 + 2 * size);
+                    icon_size[size] - 4, 6 + 2 * size);
         }
         gtk_widget_queue_resize(GTK_WIDGET(global->monitor->status[i]));
     }

@@ -1,3 +1,9 @@
+2005-01-10 Bernhard Walle
+
+    * Changed size so that in Xfce 4.2 the panel height does not increase
+      because of the plugin
+    * Released 0.2.4.
+
 2004-08-01 Bernhard Walle
     * Made the plugin thread-safe and so compatible with recent developement
       versions of Xfce
