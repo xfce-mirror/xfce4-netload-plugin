@@ -1,6 +1,8 @@
 /*  XFce 4 - Netload Plugin
  *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
- * 
+ *  
+ *  Id: $Id: netload.c,v 1.3 2003/08/24 20:05:10 bwalle Exp $
+ *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation; either version 2 of the License, or
@@ -28,6 +30,7 @@
 #include <panel/xfce.h>
 
 #include "net.h"
+#include "utils.h"
 
 /* for xml: */
 #define MONITOR_ROOT "Netload"
@@ -40,6 +43,7 @@ extern xmlDocPtr xmlconfig;
 /* Defaults */
 #define DEFAULT_TEXT "Net"
 #define DEFAULT_DEVICE "eth0"
+#define DEFAULT_MAX 4096
 
 static gchar* DEFAULT_COLOR[] = { "#FF4F00", "#FFE500" };
 
@@ -48,12 +52,14 @@ static gchar* DEFAULT_COLOR[] = { "#FF4F00", "#FFE500" };
 
 #define IN 0
 #define OUT 1
-#define SUM 2
 #define TOT 2
+#define SUM 2
 
 typedef struct
 {
     gboolean use_label;
+    gboolean auto_max;
+    gulong   max[SUM];
     GdkColor color[SUM];
     gchar    *label_text;
     gchar    *network_device;
@@ -68,18 +74,28 @@ typedef struct
     GtkWidget  *ebox;
 
     gulong     history[SUM][4];
-    gulong     value_read[SUM];
-
+    gulong     net_max[SUM];
+    
     t_monitor_options options;
 
-    /*options*/
+    /* Displayed text */
     GtkBox    *opt_vbox;
     GtkWidget *opt_entry;
     GtkBox    *opt_hbox;
-    GtkWidget *net_entry;
     GtkWidget *opt_use_label;
+    
+    /* Network device */
+    GtkWidget *net_entry;
+    
+    /* Maximum */
+    GtkWidget *max_use_label;
+    GtkWidget *max_entry[SUM];
+    GtkBox    *max_hbox[SUM];
+    
+    /* Color */
     GtkWidget *opt_button[SUM];
     GtkWidget *opt_da[SUM];
+    
 } t_monitor;
 
 
@@ -95,52 +111,61 @@ typedef struct
 } t_global_monitor;
 
 
-
 static gint update_monitors(t_global_monitor *global)
 {
-    static guint64 net_max[SUM] = { 2000, 2000 };
+    char buffer[SUM+1][BUFSIZ];
     gchar caption[BUFSIZ];
-    guint64 net[SUM+1];
+    gulong net[SUM+1];
+    gulong display[SUM+1];
+    double temp;
     gint i;
 
-    get_current_netload( global->monitor->options.network_device, 
-            &(net[IN]), &(net[OUT]), &(net[TOT]) );
+    get_current_netload( &(net[IN]), &(net[OUT]), &(net[TOT]) );
     
 
     for (i = 0; i < SUM; i++)
     {
         /* correct value to be from 1 ... 100 */
-        global->monitor->history[i][0] = (int)((double)net[i] / net_max[i] * 100);
+        global->monitor->history[i][0] = net[i];
 
-        if (global->monitor->history[i][0] > 100)
-        {
-            global->monitor->history[i][0] = 100;
-        }
-        else if (global->monitor->history[i][0] < 0)
+        if (global->monitor->history[i][0] < 0)
         {
             global->monitor->history[i][0] = 0;
         }
 
-        global->monitor->value_read[i] = 
+        display[i] = 
             (global->monitor->history[i][0] + global->monitor->history[i][1] +
              global->monitor->history[i][2] + global->monitor->history[i][3]) / 4;
         global->monitor->history[i][3] = global->monitor->history[i][2];
         global->monitor->history[i][2] = global->monitor->history[i][1];
         global->monitor->history[i][1] = global->monitor->history[i][0];
 
-        gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor->status[i]),
-                global->monitor->value_read[i] / 100.0);
+        temp = (double)display[i] / global->monitor->net_max[i];
+        if( temp > 1 )
+        {
+            temp = 1.0;
+        }
+        else if( temp < 0 )
+        {
+            temp = 0.0;
+        }
+        gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor->status[i]), temp);
 
         /* update maximum */
-        if (global->monitor->value_read[i] > net_max[i])
+        if( global->monitor->options.auto_max && display[i] > global->monitor->net_max[i])
         {
-            net_max[i] = net[i];
+                 global->monitor->net_max[i] = display[i];
         }
+        
+        format_with_thousandssep( buffer[i], BUFSIZ, display[i] / 1024.0, 2 );
     }
     
+    format_with_thousandssep( buffer[TOT], BUFSIZ, (display[IN]+display[OUT])  / 1024, 2 );
+    
     g_snprintf(caption, sizeof(caption), 
-            _("Incoming: %lld byte/s\nOutgoing: %lld byte/s\nTotal: %lld byte/s"),
-            net[IN], net[OUT], net[TOT]);
+            _("Average of last 4 measures:"
+                "\nIncoming: %s kByte/s\nOutgoing: %s kByte/s\nTotal: %s kByte/s"),
+            buffer[IN], buffer[OUT], buffer[TOT]);
     gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor->ebox), caption, NULL);
 
     return TRUE;
@@ -168,7 +193,8 @@ static t_global_monitor * monitor_new(void)
     global->monitor->options.label_text = g_strdup(DEFAULT_TEXT);
     global->monitor->options.network_device = g_strdup(DEFAULT_DEVICE);
     global->monitor->options.use_label = TRUE;
-
+    global->monitor->options.auto_max = TRUE;
+    
     for (i = 0; i < SUM; i++)
     {
         gdk_color_parse(DEFAULT_COLOR[i], &global->monitor->options.color[i]);
@@ -177,6 +203,9 @@ static t_global_monitor * monitor_new(void)
         global->monitor->history[i][1] = 0;
         global->monitor->history[i][2] = 0;
         global->monitor->history[i][3] = 0;
+        global->monitor->net_max[i]    = DEFAULT_MAX;
+        
+        global->monitor->options.max[i] = DEFAULT_MAX;
     }
 
     global->monitor->ebox = gtk_event_box_new();
@@ -229,8 +258,6 @@ static t_global_monitor * monitor_new(void)
 
     gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
     
-    init_netload();
-
     return global;
 }
 
@@ -350,8 +377,7 @@ static gboolean monitor_control_new(Control *ctrl)
 }
 
 
-static void
-monitor_free(Control *ctrl)
+static void monitor_free(Control *ctrl)
 {
     t_global_monitor *global;
 
@@ -399,6 +425,16 @@ static void setup_monitor(t_global_monitor *global)
 
         gtk_widget_modify_style(GTK_WIDGET(global->monitor->status[i]), rc);
         gtk_widget_show(GTK_WIDGET(global->monitor->status[i]));
+        
+        /* Maximum */
+        if( global->monitor->options.auto_max )
+        {
+            global->monitor->net_max[i] = DEFAULT_MAX;
+        }
+        else
+        {
+            global->monitor->net_max[i] = global->monitor->options.max[i];
+        }
     }
 
     gtk_widget_show(GTK_WIDGET(global->monitor->ebox));
@@ -406,6 +442,8 @@ static void setup_monitor(t_global_monitor *global)
     {
         gtk_widget_show(global->monitor->label);
     }
+    
+    init_netload(global->monitor->options.network_device);
 
 }
 
@@ -458,6 +496,21 @@ static void monitor_read_config(Control *ctrl, xmlNodePtr node)
                     g_strdup((gchar *)value);
                 g_free(value);
             }
+            if ((value = xmlGetProp(node, (const xmlChar *) "Max_In")))
+            {
+                global->monitor->options.max[IN] = atoi( value );
+                g_free(value);
+            }
+            if ((value = xmlGetProp(node, (const xmlChar *) "Max_Out")))
+            {
+                global->monitor->options.max[OUT] = atol( value );
+                g_free(value);
+            }
+            if ((value = xmlGetProp(node, (const xmlChar *) "Auto_Max")))
+            {
+                global->monitor->options.auto_max = atol(value);
+                g_free(value);
+            }
             break;
         }
     }
@@ -465,12 +518,10 @@ static void monitor_read_config(Control *ctrl, xmlNodePtr node)
 }
 
 
-
-
 static void monitor_write_config(Control *ctrl, xmlNodePtr parent)
 {
     xmlNodePtr root;
-    char value[10];
+    char value[20];
     t_global_monitor *global;
 
     global = (t_global_monitor *)ctrl->data;
@@ -506,28 +557,32 @@ static void monitor_write_config(Control *ctrl, xmlNodePtr parent)
 
     if (global->monitor->options.network_device)
     {
-        xmlSetProp(root, "Network_Device",
-                   global->monitor->options.network_device);
+        xmlSetProp(root, "Network_Device", global->monitor->options.network_device);
     }
     else
     {
         xmlSetProp(root, "Network_Device", DEFAULT_DEVICE);
     }
-
+    
+    g_snprintf(value, 20, "%lu", global->monitor->options.max[IN]);
+    xmlSetProp(root, "Max_In", value);
+    
+    g_snprintf(value, 20, "%lu", global->monitor->options.max[OUT]);
+    xmlSetProp(root, "Max_Out", value);
+    
+    g_snprintf(value, 2, "%d", global->monitor->options.auto_max);
+    xmlSetProp(root, "Auto_Max", value);
+    
     root = xmlNewTextChild(parent, NULL, MONITOR_ROOT, NULL);
-
-
 }
 
-static void monitor_attach_callback(Control *ctrl, const gchar *signal, GCallback cb,
-    gpointer data)
+static void monitor_attach_callback(Control *ctrl, const gchar *signal, GCallback cb, gpointer data)
 {
     t_global_monitor *global;
 
     global = (t_global_monitor *)ctrl->data;
     g_signal_connect(global->ebox, signal, cb, data);
 }
-
 
 
 static void monitor_set_size(Control *ctrl, int size)
@@ -555,8 +610,11 @@ static void monitor_set_size(Control *ctrl, int size)
     setup_monitor(global);
 }
 
+
 static void monitor_apply_options_cb(GtkWidget *button, t_global_monitor *global)
 {
+    gint i;
+    
     if (global->monitor->options.label_text)
     {
         g_free(global->monitor->options.label_text);
@@ -574,6 +632,14 @@ static void monitor_apply_options_cb(GtkWidget *button, t_global_monitor *global
     global->monitor->options.network_device =
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->net_entry)));
     setup_monitor(global);
+    
+    for( i = 0; i < SUM; i++ )
+    {
+        global->monitor->options.max[i] = strtod(
+            g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->max_entry[i]))),
+            NULL ) * 1024;
+    }
+    setup_monitor(global);
 }
 
 
@@ -589,6 +655,21 @@ static void label_changed(GtkWidget *button, t_global_monitor *global)
 
     setup_monitor(global);
 }
+
+
+static void max_label_changed(GtkWidget *button, t_global_monitor *global)
+{ 
+    gint i;
+    for( i = 0; i < SUM; i++ )
+    {
+        global->monitor->options.max[i] = strtod(
+            g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->max_entry[i]))), 
+            NULL ) * 1024;
+    }
+
+    setup_monitor(global);
+}
+
 
 static void network_changed(GtkWidget *button, t_global_monitor *global)
 {
@@ -616,6 +697,28 @@ label_toggled(GtkWidget *check_button, t_global_monitor *global)
 
     setup_monitor(global);
 }
+
+static void max_label_toggled(GtkWidget *check_button, t_global_monitor *global)
+{
+    gint i;
+    
+    global->monitor->options.auto_max = !global->monitor->options.auto_max;
+    
+    for( i = 0; i < SUM; i++ )
+    {
+        gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->max_hbox[i]),
+                                     !(global->monitor->options.auto_max));
+        
+        /* reset maximum if necessary */
+        if( global->monitor->options.auto_max )
+        {
+            global->monitor->net_max[i] = DEFAULT_MAX;
+        }
+    }
+    
+    setup_monitor(global);
+}
+
 
 static gboolean expose_event_cb(GtkWidget *widget, GdkEventExpose *event)
 {
@@ -673,159 +776,227 @@ static void change_color_in(GtkWidget *button, t_global_monitor *global)
     change_color(button, global, IN);
 }
 
+
 static void change_color_out(GtkWidget *button, t_global_monitor *global)
 {
     change_color(button, global, OUT);
 }
 
 
-static void
-monitor_create_options(Control *control, GtkContainer *container, GtkWidget *done)
+static void monitor_create_options(Control *control, GtkContainer *container, GtkWidget *done)
 {
     t_global_monitor *global;
-    GtkBox           *vbox, *global_vbox;
-    GtkBox           *hbox[SUM+1];
-    GtkWidget        *device_label;
+    GtkBox           *vbox, *global_vbox, *net_hbox;
+    GtkWidget        *device_label, *unit_label[SUM], *max_label[SUM];
+    GtkWidget        *sep1, *sep2;
     GtkWidget        *color_label[SUM];
     GtkWidget        *align;
+    GtkBox           *color_hbox[SUM];
     GtkSizeGroup     *sg;
     gint             i;
+    gchar            buffer[BUFSIZ];
     gchar            *color_text[] = { 
                         N_("Bar color (incoming):"), 
                         N_("Bar color (outgoing):") 
                      };
-
+    gchar            *maximum_text_label[] = {
+                        N_("Maximum (incoming):"),
+                        N_("Maximum (outgoing):")
+                     };
+    
+    
     global = (t_global_monitor *)control->data;
     global->opt_dialog = gtk_widget_get_toplevel(done);
-
+    
     global_vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
     gtk_container_add(GTK_CONTAINER(container), GTK_WIDGET(global_vbox));
 
     gtk_widget_show_all(GTK_WIDGET(global_vbox));
 
-        vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
-        gtk_widget_show(GTK_WIDGET(vbox));
+    vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
+    gtk_widget_show(GTK_WIDGET(vbox));
 
-        global->monitor->opt_vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
-        gtk_widget_show(GTK_WIDGET(global->monitor->opt_vbox));
+    global->monitor->opt_vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
+    gtk_widget_show(GTK_WIDGET(global->monitor->opt_vbox));
 
-        global->monitor->opt_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
-        gtk_widget_show(GTK_WIDGET(global->monitor->opt_hbox));
+    /* Displayed text */
+    global->monitor->opt_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
+    gtk_widget_show(GTK_WIDGET(global->monitor->opt_hbox));
+    
+    global->monitor->opt_use_label =
+        gtk_check_button_new_with_mnemonic(_("Text to display:"));
+    gtk_widget_show(global->monitor->opt_use_label);
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_hbox),
+                       GTK_WIDGET(global->monitor->opt_use_label),
+                       FALSE, FALSE, 0);
 
-        global->monitor->opt_use_label =
-            gtk_check_button_new_with_mnemonic(_("Text to display:"));
-        gtk_widget_show(global->monitor->opt_use_label);
-        gtk_box_pack_start(GTK_BOX(global->monitor->opt_hbox),
-                           GTK_WIDGET(global->monitor->opt_use_label),
-                           FALSE, FALSE, 0);
+    global->monitor->opt_entry = gtk_entry_new();
+    gtk_entry_set_max_length(GTK_ENTRY(global->monitor->opt_entry),
+                             MAX_LENGTH);
+    gtk_entry_set_text(GTK_ENTRY(global->monitor->opt_entry),
+                       global->monitor->options.label_text);
+    gtk_widget_show(global->monitor->opt_entry);
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_hbox),
+                       GTK_WIDGET(global->monitor->opt_entry),
+                   FALSE, FALSE, 0);
 
-        global->monitor->opt_entry = gtk_entry_new();
-        gtk_entry_set_max_length(GTK_ENTRY(global->monitor->opt_entry),
-                                 MAX_LENGTH);
-        gtk_entry_set_text(GTK_ENTRY(global->monitor->opt_entry),
-                           global->monitor->options.label_text);
-        gtk_widget_show(global->monitor->opt_entry);
-        gtk_box_pack_start(GTK_BOX(global->monitor->opt_hbox),
-                           GTK_WIDGET(global->monitor->opt_entry),
-                           FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
+                       GTK_WIDGET(global->monitor->opt_hbox),
+                       FALSE, FALSE, 0);
 
-        gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
-                           GTK_WIDGET(global->monitor->opt_hbox),
-                           FALSE, FALSE, 0);
-
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_use_label),
-                                     global->monitor->options.use_label);
-        gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_entry),
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_use_label),
                                  global->monitor->options.use_label);
+    gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_entry),
+                             global->monitor->options.use_label);
 
+    /* Network device */
+    net_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
+                        GTK_WIDGET(net_hbox), FALSE, FALSE, 0);
+
+    device_label = gtk_label_new(_("Network device:"));
+    gtk_misc_set_alignment(GTK_MISC(device_label), 0, 0.5);
+    gtk_widget_show(GTK_WIDGET(device_label));
+    gtk_box_pack_start(GTK_BOX(net_hbox), GTK_WIDGET(device_label),
+                       FALSE, FALSE, 0);
+
+    global->monitor->net_entry = gtk_entry_new();
+    gtk_entry_set_max_length(GTK_ENTRY(global->monitor->net_entry),
+                             MAX_LENGTH);
+    gtk_entry_set_text(GTK_ENTRY(global->monitor->net_entry),
+                       global->monitor->options.network_device);
+    gtk_widget_show(global->monitor->opt_entry);
+
+    gtk_box_pack_start(GTK_BOX(net_hbox), GTK_WIDGET(global->monitor->net_entry),
+                       FALSE, FALSE, 0);
+    
+    sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
+    gtk_size_group_add_widget(sg, global->monitor->opt_use_label);
+    gtk_size_group_add_widget(sg, device_label);
+
+    gtk_widget_show_all(GTK_WIDGET(net_hbox));
+    
+    sep1 = gtk_hseparator_new();
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep1), FALSE, FALSE, 0);
+    gtk_widget_show(sep1);
+    
+    global->monitor->max_use_label = 
+                gtk_check_button_new_with_mnemonic(_("Automatic maximum"));
+    gtk_widget_show(global->monitor->max_use_label);
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
+                GTK_WIDGET(global->monitor->max_use_label), FALSE, FALSE, 0);
+    
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->max_use_label),
+                                 global->monitor->options.auto_max);
+    
+    /* Input maximum */
+    for( i = 0; i < SUM; i++)
+    {
+        global->monitor->max_hbox[i] = GTK_BOX(gtk_hbox_new(FALSE, 5));
+        gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), 
+                    GTK_WIDGET(global->monitor->max_hbox[i]), FALSE, FALSE, 0);
         
-        /* Network device */
-        hbox[0] = GTK_BOX(gtk_hbox_new(FALSE, 5));
-        gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
-                            GTK_WIDGET(hbox[0]), FALSE, FALSE, 0);
-
-        device_label = gtk_label_new(_("Network device:"));
-        gtk_misc_set_alignment(GTK_MISC(device_label), 0, 0.5);
-        gtk_widget_show(GTK_WIDGET(device_label));
-        gtk_box_pack_start(GTK_BOX(hbox[0]), GTK_WIDGET(device_label),
-                           FALSE, FALSE, 0);
-
-        global->monitor->net_entry = gtk_entry_new();
-        gtk_entry_set_max_length(GTK_ENTRY(global->monitor->net_entry),
-                                 MAX_LENGTH);
-        gtk_entry_set_text(GTK_ENTRY(global->monitor->net_entry),
-                           global->monitor->options.network_device);
-        gtk_widget_show(global->monitor->opt_entry);
-
-        gtk_box_pack_start(GTK_BOX(hbox[0]), GTK_WIDGET(global->monitor->net_entry),
-                           FALSE, FALSE, 0);
+        max_label[i] = gtk_label_new(_(maximum_text_label[i]));
+        gtk_misc_set_alignment(GTK_MISC(max_label[i]), 0, 0.5);
+        gtk_widget_show(GTK_WIDGET(max_label[i]));
+        gtk_box_pack_start(GTK_BOX(global->monitor->max_hbox[i]), GTK_WIDGET(max_label[i]), FALSE, FALSE, 0);
+        
+        global->monitor->max_entry[i] = gtk_entry_new();
+        gtk_entry_set_max_length(GTK_ENTRY(global->monitor->max_entry[i]), MAX_LENGTH);
+        
+        g_snprintf( buffer, BUFSIZ, "%.2f", global->monitor->options.max[i] / 1024.0 );
+        gtk_entry_set_text(GTK_ENTRY(global->monitor->max_entry[i]), buffer);
+        
+        gtk_entry_set_width_chars(GTK_ENTRY(global->monitor->max_entry[i]), 10);
+        gtk_widget_show(global->monitor->max_entry[i]);
+        
+        gtk_box_pack_start(GTK_BOX(global->monitor->max_hbox[i]), GTK_WIDGET(global->monitor->max_entry[i]),
+                       FALSE, FALSE, 0);
+        
+        unit_label[i] = gtk_label_new(_("kByte/s"));
+        gtk_box_pack_start(GTK_BOX(global->monitor->max_hbox[i]), GTK_WIDGET(unit_label[i]), FALSE, FALSE, 0);
         
         sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
         gtk_size_group_add_widget(sg, global->monitor->opt_use_label);
-        gtk_size_group_add_widget(sg, device_label);
+        gtk_size_group_add_widget(sg, max_label[i]);
+        
+        gtk_widget_show_all(GTK_WIDGET(global->monitor->max_hbox[i]));
+        
+        gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->max_hbox[i]),
+                                 !(global->monitor->options.auto_max) );
+                                 
+        g_signal_connect(GTK_WIDGET(global->monitor->max_entry[i]), "activate",
+            G_CALLBACK(max_label_changed), global);
 
-        gtk_widget_show_all(GTK_WIDGET(hbox[0]));
+    } 
+    
+    sep2 = gtk_hseparator_new();
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep2), FALSE, FALSE, 0);
+    gtk_widget_show(sep2);
+    
+    /* Color 1 */
+    for (i = 0; i < SUM; i++)
+    {
+        color_hbox[i] = GTK_BOX(gtk_hbox_new(FALSE, 5));
+        gtk_widget_show(GTK_WIDGET(color_hbox[i]));
+        gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
+                GTK_WIDGET(color_hbox[i]), FALSE, FALSE, 0);
 
-        /* Color 1 */
-        for (i = 0; i < SUM; i++)
-        {
-            hbox[i+1] = GTK_BOX(gtk_hbox_new(FALSE, 5));
-            gtk_widget_show(GTK_WIDGET(hbox[i+1]));
-            gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
-                    GTK_WIDGET(hbox[i+1]), FALSE, FALSE, 0);
+        color_label[i] = gtk_label_new(_(color_text[i]));
+        gtk_misc_set_alignment(GTK_MISC(color_label[i]), 0, 0.5);
+        gtk_widget_show(GTK_WIDGET(color_label[i]));
+        gtk_box_pack_start(GTK_BOX(color_hbox[i]), GTK_WIDGET(color_label[i]),
+                FALSE, FALSE, 0);
 
-            color_label[i] = gtk_label_new(_(color_text[i]));
-            gtk_misc_set_alignment(GTK_MISC(color_label[i]), 0, 0.5);
-            gtk_widget_show(GTK_WIDGET(color_label[i]));
-            gtk_box_pack_start(GTK_BOX(hbox[i+1]), GTK_WIDGET(color_label[i]),
-                    FALSE, FALSE, 0);
+        global->monitor->opt_button[i] = gtk_button_new();
+        global->monitor->opt_da[i] = gtk_drawing_area_new();
+        
+        gtk_widget_modify_bg(global->monitor->opt_da[i], GTK_STATE_NORMAL,
+                &global->monitor->options.color[i]);
+        gtk_widget_set_size_request(global->monitor->opt_da[i], 64, 12);
+        gtk_container_add(GTK_CONTAINER(global->monitor->opt_button[i]),
+                global->monitor->opt_da[i]);
+        gtk_widget_show(GTK_WIDGET(global->monitor->opt_button[i]));
+        gtk_widget_show(GTK_WIDGET(global->monitor->opt_da[i]));
+        gtk_box_pack_start(GTK_BOX(color_hbox[i]),
+                GTK_WIDGET(global->monitor->opt_button[i]),
+                FALSE, FALSE, 0);
 
-            global->monitor->opt_button[i] = gtk_button_new();
-            global->monitor->opt_da[i] = gtk_drawing_area_new();
+        gtk_size_group_add_widget(sg, color_label[i]);
 
-            gtk_widget_modify_bg(global->monitor->opt_da[i], GTK_STATE_NORMAL,
-                    &global->monitor->options.color[i]);
-            gtk_widget_set_size_request(global->monitor->opt_da[i], 64, 12);
-            gtk_container_add(GTK_CONTAINER(global->monitor->opt_button[i]),
-                    global->monitor->opt_da[i]);
-            gtk_widget_show(GTK_WIDGET(global->monitor->opt_button[i]));
-            gtk_widget_show(GTK_WIDGET(global->monitor->opt_da[i]));
-            gtk_box_pack_start(GTK_BOX(hbox[i+1]),
-                    GTK_WIDGET(global->monitor->opt_button[i]),
-                    FALSE, FALSE, 0);
-
-            gtk_size_group_add_widget(sg, color_label[i]);
-
-            gtk_box_pack_start(GTK_BOX(vbox),
-                    GTK_WIDGET(global->monitor->opt_vbox),
-                    FALSE, FALSE, 0);
-        }
-
-
-        align = gtk_alignment_new(0, 0, 0, 0);
-        gtk_widget_set_size_request(align, 5, 5);
-        gtk_widget_show(GTK_WIDGET(align));
-        gtk_box_pack_start(GTK_BOX(vbox), GTK_WIDGET(align), FALSE, FALSE, 0);
-
-        gtk_box_pack_start( GTK_BOX(global_vbox), GTK_WIDGET(vbox), FALSE, FALSE, 0);
-
-        g_signal_connect(GTK_WIDGET(global->monitor->opt_da), "expose_event",
-                G_CALLBACK(expose_event_cb), NULL);
-        g_signal_connect(GTK_WIDGET(global->monitor->opt_button[IN]), "clicked",
-                G_CALLBACK(change_color_in), global);
-        g_signal_connect(GTK_WIDGET(global->monitor->opt_button[OUT]), "clicked",
-                G_CALLBACK(change_color_out), global);
-        g_signal_connect(GTK_WIDGET(global->monitor->opt_use_label), "toggled",
-                G_CALLBACK(label_toggled), global);
-        g_signal_connect(GTK_WIDGET(global->monitor->opt_entry), "activate",
-                G_CALLBACK(label_changed), global);
-        g_signal_connect(GTK_WIDGET(global->monitor->net_entry), "activate",
-                G_CALLBACK(network_changed), global);
-
-        g_signal_connect(GTK_WIDGET(done), "clicked",
-                G_CALLBACK(monitor_apply_options_cb), global);
-
+    }
+    
+    gtk_box_pack_start(GTK_BOX(vbox),
+                GTK_WIDGET(global->monitor->opt_vbox),
+                FALSE, FALSE, 0);
+    
+    align = gtk_alignment_new(0, 0, 0, 0);
+    gtk_widget_set_size_request(align, 5, 5);
+    gtk_widget_show(GTK_WIDGET(align));
+    gtk_box_pack_start(GTK_BOX(vbox), GTK_WIDGET(align), FALSE, FALSE, 0);
+    
+    gtk_box_pack_start( GTK_BOX(global_vbox), GTK_WIDGET(vbox), FALSE, FALSE, 0);
+    
+    g_signal_connect(GTK_WIDGET(global->monitor->max_use_label), "toggled",
+            G_CALLBACK(max_label_toggled), global);
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_da[0]), "expose_event",
+            G_CALLBACK(expose_event_cb), NULL);
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_da[1]), "expose_event",
+            G_CALLBACK(expose_event_cb), NULL);
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_button[IN]), "clicked",
+            G_CALLBACK(change_color_in), global);
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_button[OUT]), "clicked",
+            G_CALLBACK(change_color_out), global);
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_use_label), "toggled",
+            G_CALLBACK(label_toggled), global);
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_entry), "activate",
+            G_CALLBACK(label_changed), global);
+    g_signal_connect(GTK_WIDGET(global->monitor->net_entry), "activate",
+            G_CALLBACK(network_changed), global);
+    g_signal_connect(GTK_WIDGET(done), "clicked",
+            G_CALLBACK(monitor_apply_options_cb), global);
 }
+
 
 G_MODULE_EXPORT void xfce_control_class_init(ControlClass *cc)
 {
@@ -847,5 +1018,4 @@ G_MODULE_EXPORT void xfce_control_class_init(ControlClass *cc)
 
     cc->set_orientation = monitor_set_orientation;
 }
-
 
