@@ -1,92 +1,100 @@
 2005-02-04 Bernhard Walle
+	* BUGFIX: Close the open socket. Obsoletes version 0.3.0. Don't use 
+	  0.3.0 any more, it prevents the panel from opening new files after 
+	  a while!
+	* Released 0.3.1.
+
+2005-02-04 Bernhard Walle
 	* Added IP address and network interface name to the tooltip
 	  (thanks to Pasi Orovuo for the suggestion)
 	* Released 0.3.0
 
 2005-01-10 Bernhard Walle
-    * Changed size so that in Xfce 4.2 the panel height does not increase
-      because of the plugin
-    * Released 0.2.4.
+	* Changed size so that in Xfce 4.2 the panel height does not increase
+	  because of the plugin
+	* Released 0.2.4.
 
 2004-08-01 Bernhard Walle
-    * Made the plugin thread-safe and so compatible with recent developement
-      versions of Xfce
-    * Released 0.2.3
+	* Made the plugin thread-safe and so compatible with recent developement
+	  versions of Xfce
+	* Released 0.2.3
 
 2004-06-27 Bernhard Walle
-    * Updated Catalan translation, thanks to Carles Muñoz Gorriz
+	* Updated Catalan translation, thanks to Carles Muñoz Gorriz
 
 2003-10-19 Bernhard Walle
-    * Polish translation was now added
+	* Polish translation was now added
 	* Released 0.2.2
 
 2003-10-01 Bernhard Walle
-    * Fixed bug #972: The total value in the tooltip is now displayed with
-      fractional portion
-    * Fixed bug #962: Any errors about wrong configuration are now only
-      displayed in a dialog after changing configuration and not after
-      startup. This should help users whose network device is created after
-      dialing-in.
-    * Released 0.2.1
+	* Fixed bug #972: The total value in the tooltip is now displayed with
+	  fractional portion
+	* Fixed bug #962: Any errors about wrong configuration are now only
+	  displayed in a dialog after changing configuration and not after
+	  startup. This should help users whose network device is created after
+	  dialing-in.
+	* Released 0.2.1
 
 2003-09-13 Bernhard Walle
-    * Added MacOS X support since it was added in Wormulon. Thanks to Hendrik
-      Scholz for his work on Wormulon.
-    * Released 0.2.0
+	* Added MacOS X support since it was added in Wormulon. Thanks to 
+	  Hendrik Scholz for his work on Wormulon.
+	* Released 0.2.0
 
 2003-09-06 Bernhard Walle
-    * added error message if the network device could not be found or if
-      /proc/net/dev could not be opened
-    * changed "ms" to "s" because that was wrong
-    * Released 0.2.0pre6
+	* added error message if the network device could not be found or if
+	  /proc/net/dev could not be opened
+	* changed "ms" to "s" because that was wrong
+	* Released 0.2.0pre6
 
 2003-08-31 Bernhard Walle
-    * Fixed problem with unnecessary calls of init_netload().
-    * Call init_osspecific() on the right place. This caused the plugin not to
-      work on (at least) NetBSD.
-    * Tested successfully on NetBSD and Solaris 8 (thanks to Benedikt Meurer and
-      Sourceforge Compile Farm).
-    * Released 0.2.0pre5.
+	* Fixed problem with unnecessary calls of init_netload().
+	* Call init_osspecific() on the right place. This caused the plugin not to
+	  work on (at least) NetBSD.
+	* Tested successfully on NetBSD and Solaris 8 (thanks to Benedikt Meurer and
+	  Sourceforge Compile Farm).
+	* Released 0.2.0pre5.
 
 2003-08-27 Bernhard Walle
-    * Fixed compile problem on NetBSD and OpenBSD.
-    * Released 0.2.0pre4.
+	* Fixed compile problem on NetBSD and OpenBSD.
+	* Released 0.2.0pre4.
 
 2003-08-26 Bernhard Walle
-    * Implemented configurable update interval.
-    * Fixed small bug with operating system specific data initialization.
-    * Improved the automatic maximum function.
-    * Released 0.2.0pre3 which is the next test version for 0.2.0.
+	* Implemented configurable update interval.
+	* Fixed small bug with operating system specific data initialization.
+	* Improved the automatic maximum function.
+	* Released 0.2.0pre3 which is the next test version for 0.2.0.
 
 2003-08-25 Bernhard Walle
-    * Changed all static variables to a structure which is given the function
-      as a parameter. This makes more than one instance of the plugin possible.
-    * Released 0.2.0pre2 which is the next test version for 0.2.0.
+	* Changed all static variables to a structure which is given the function
+	  as a parameter. This makes more than one instance of the plugin possible.
+	* Released 0.2.0pre2 which is the next test version for 0.2.0.
 
 2003-08-24 Bernhard Walle
-    * Using the last four measures in history so it's easier to read.
-    * Automatic maximum now really works.
-    * Using kilobytes for displaying.
-    * Using thousands separators of the current locale for so that it's easier
-      to read. Since this feature is not available on in printf() according the
-      ISO C99 standard I implemented this myself. This code may contain bugs.
-    * Dropped use of libgtop2 library. New code is based on Wormulon 
-      (http://www.raisdorf.net/wormulon/) the operating systems Linux, FreeBSD,
-      OpenBSD, NetBSD, Sun Solaris and HP_UX (Hewlett-Packard) are directly 
-      supported. *BSD without use of kvm.
-    * Maximum is configurable.
-    * Released 0.2.0pre1 which is a test version for 0.2.0.
+	* Using the last four measures in history so it's easier to read.
+	* Automatic maximum now really works.
+	* Using kilobytes for displaying.
+	* Using thousands separators of the current locale for so that it's
+	  easier to read. Since this feature is not available on in printf()
+	  according the ISO C99 standard I implemented this myself. This code
+	  may contain bugs.
+	* Dropped use of libgtop2 library. New code is based on Wormulon 
+	  (http://www.raisdorf.net/wormulon/) the operating systems Linux,
+	  FreeBSD, OpenBSD, NetBSD, Sun Solaris and HP_UX (Hewlett-Packard) are
+	  directly  supported. *BSD without use of kvm.
+	* Maximum is configurable.
+	* Released 0.2.0pre1 which is a test version for 0.2.0.
 
 2003-08-17 Bernhard Walle
-    * Added support for other operating systems via libgtop2. Linux and FreeBSD 
-      code is still implemented without libgtop2 but this may change in future.
-    * Changed "bit/s" string to "byte/s" since the value *is* in byte/s. 
-      Translators may update their translated strings, for the German 
-      translation I did this already.
-    * Changed license to GNU General Public License since linking to the 
-      libgtop2 library requires this. (libgtop2 is *not* LGPL)
-    * See also i18n changes in po/ChangeLog
-    * released 0.1.9 which is a test version for 0.2.0
+	* Added support for other operating systems via libgtop2. Linux and 
+	  FreeBSD code is still implemented without libgtop2 but this may change
+	  in future.
+	* Changed "bit/s" string to "byte/s" since the value *is* in byte/s. 
+	  Translators may update their translated strings, for the German 
+	  translation I did this already.
+	* Changed license to GNU General Public License since linking to the 
+	  libgtop2 library requires this. (libgtop2 is *not* LGPL)
+	* See also i18n changes in po/ChangeLog
+	* released 0.1.9 which is a test version for 0.2.0
 
 2003-08-12 Bernhard Walle
 	* released 0.1.2
