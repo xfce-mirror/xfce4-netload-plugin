@@ -1,3 +1,8 @@
+2003-09-13 Bernhard Walle
+    * Added MacOS X support since it was added in Wormulon. Thanks to Hendrik
+      Scholz for his work on Wormulon.
+    * Released 0.2.0
+
 2003-09-06 Bernhard Walle
     * added error message if the network device could not be found or if
       /proc/net/dev could not be opened
