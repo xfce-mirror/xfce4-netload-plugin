@@ -1,3 +1,12 @@
+2003-10-01 Bernhard Walle
+    * Fixed bug #972: The total value in the tooltip is now displayed with
+      fractional portion
+    * Fixed bug #962: Any errors about wrong configuration are now only
+      displayed in a dialog after changing configuration and not after
+      startup. This should help users whose network device is created after
+      dialing-in.
+    * Released 0.2.1
+
 2003-09-13 Bernhard Walle
     * Added MacOS X support since it was added in Wormulon. Thanks to Hendrik
       Scholz for his work on Wormulon.
