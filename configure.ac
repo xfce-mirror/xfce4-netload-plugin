@@ -9,7 +9,7 @@ AC_INIT([panel-plugin/netload.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-netload-plugin], [0.3.0])
+AM_INIT_AUTOMAKE([xfce4-netload-plugin], [0.3.1])
 
 AM_MAINTAINER_MODE
 
