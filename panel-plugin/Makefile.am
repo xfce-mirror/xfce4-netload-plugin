@@ -15,7 +15,9 @@ libnetload_la_SOURCES =							\
 
 libnetload_la_CFLAGS =							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
+	@LIBGTOP_INCS@							\
 	@XFCE4_PANEL_CFLAGS@
 
 libnetload_la_LIBADD = 							\
+	@LIBGTOP_LIBS@							\
 	@XFCE4_PANEL_LIBS@
