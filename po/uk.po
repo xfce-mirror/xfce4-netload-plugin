@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-01 11:07+0200\n"
+"POT-Creation-Date: 2005-02-04 17:08+0100\n"
 "PO-Revision-Date: 2003-10-21 12:13+0200\n"
 "Last-Translator: Maxim Dziumanenko <mvd@mylinux.com.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -16,25 +16,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/netload.c:64
+#: panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Модуль контролю мережі для Xfce4"
 
-#: panel-plugin/netload.c:67
+#: panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Невідома помилка."
 
-#: panel-plugin/netload.c:68
+#: panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Не знайдено Linux пристрій '/proc/net/dev'."
 
-#: panel-plugin/netload.c:69
+#: panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "Інтерфейс не існує."
 
-#: panel-plugin/netload.c:225
-#, c-format
+#: panel-plugin/netload.c:223
+#, fuzzy, c-format
 msgid ""
+"<< %s >> (%s)\n"
 "Average of last %d measures:\n"
 "Incoming: %s kByte/s\n"
 "Outgoing: %s kByte/s\n"
@@ -45,7 +46,11 @@ msgstr ""
 "Трафік на виході: %s кілобайт/с\n"
 "Загальний трафік: %s кілобайт/с"
 
-#: panel-plugin/netload.c:526
+#: panel-plugin/netload.c:225
+msgid "no IP address"
+msgstr ""
+
+#: panel-plugin/netload.c:537
 #, c-format
 msgid ""
 "%s: Error in initalizing:\n"
@@ -54,50 +59,50 @@ msgstr ""
 "%s: Помилка ініціалізації:\n"
 "%s"
 
-#: panel-plugin/netload.c:871
+#: panel-plugin/netload.c:897
 msgid "Select color"
 msgstr "Вибір кольору"
 
-#: panel-plugin/netload.c:926
+#: panel-plugin/netload.c:955
 msgid "Bar color (incoming):"
 msgstr "Колір (на вхід):"
 
-#: panel-plugin/netload.c:927
+#: panel-plugin/netload.c:956
 msgid "Bar color (outgoing):"
 msgstr "Колір (на вихід):"
 
-#: panel-plugin/netload.c:930
+#: panel-plugin/netload.c:959
 msgid "Maximum (incoming):"
 msgstr "Максимум (на вхід):"
 
-#: panel-plugin/netload.c:931
+#: panel-plugin/netload.c:960
 msgid "Maximum (outgoing):"
 msgstr "Максимум (на вихід):"
 
-#: panel-plugin/netload.c:955
+#: panel-plugin/netload.c:984
 msgid "Text to display:"
 msgstr "Відображуваний текст:"
 
-#: panel-plugin/netload.c:986
+#: panel-plugin/netload.c:1015
 msgid "Network device:"
 msgstr "Мережевий пристрій:"
 
-#: panel-plugin/netload.c:1012
+#: panel-plugin/netload.c:1041
 msgid "Update interval:"
 msgstr "Інтервал оновлення:"
 
-#: panel-plugin/netload.c:1023
+#: panel-plugin/netload.c:1052
 msgid "s"
 msgstr "с"
 
-#: panel-plugin/netload.c:1036
+#: panel-plugin/netload.c:1065
 msgid "Automatic maximum"
 msgstr "Автоматичний максимум"
 
-#: panel-plugin/netload.c:1068
+#: panel-plugin/netload.c:1097
 msgid "kByte/s"
 msgstr "кілобайт/с"
 
-#: panel-plugin/netload.c:1156
+#: panel-plugin/netload.c:1186
 msgid "Netload"
 msgstr "Контроль мережі"

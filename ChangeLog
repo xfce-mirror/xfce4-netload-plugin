@@ -1,5 +1,9 @@
-2005-01-10 Bernhard Walle
+2005-02-04 Bernhard Walle
+	* Added IP address and network interface name to the tooltip
+	  (thanks to Pasi Orovuo for the suggestion)
+	* Released 0.3.0
 
+2005-01-10 Bernhard Walle
     * Changed size so that in Xfce 4.2 the panel height does not increase
       because of the plugin
     * Released 0.2.4.
