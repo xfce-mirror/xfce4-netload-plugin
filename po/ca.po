@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XFce 4\n"
 "POT-Creation-Date: 2003-09-06 14:31+0200\n"
-"PO-Revision-Date: 2003-08-26 23:58+0100\n"
+"PO-Revision-Date: 2003-09-06 16:21+0100\n"
 "Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: ca <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,19 +16,19 @@ msgstr ""
 
 #: panel-plugin/netload.c:64
 msgid "Xfce4-Netload-Plugin"
-msgstr ""
+msgstr "Xfce4-Netload-Plugin"
 
 #: panel-plugin/netload.c:67
 msgid "Unknown error."
-msgstr ""
+msgstr "Error desconegut."
 
 #: panel-plugin/netload.c:68
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr ""
+msgstr "No s'ha trobat el dispositiu linux «/proc/net/dev»."
 
 #: panel-plugin/netload.c:69
 msgid "Interface was not found."
-msgstr ""
+msgstr "No s'ha trobat la interfície."
 
 #: panel-plugin/netload.c:223
 #, c-format
@@ -49,6 +49,8 @@ msgid ""
 "%s: Error in initalizing:\n"
 "%s"
 msgstr ""
+"%s: Error inicialitzant:\n"
+"%s"
 
 #: panel-plugin/netload.c:842
 msgid "Select color"
@@ -83,9 +85,8 @@ msgid "Update interval:"
 msgstr "Interval d'actualització:"
 
 #: panel-plugin/netload.c:992
-#, fuzzy
 msgid "s"
-msgstr "ms"
+msgstr "s"
 
 #: panel-plugin/netload.c:1005
 msgid "Automatic maximum"
@@ -98,3 +99,4 @@ msgstr "kBytes/s"
 #: panel-plugin/netload.c:1125
 msgid "Netload"
 msgstr "Càrrega de red"
+
