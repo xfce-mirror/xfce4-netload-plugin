@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-01 11:07+0200\n"
+"POT-Creation-Date: 2005-02-04 19:20+0100\n"
 "PO-Revision-Date: 2005-01-19 16:16+0900\n"
 "Last-Translator: ByungHyun Choi<byunghyun.choi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,25 +16,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/netload.c:64
+#: panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4 네트웍 감시"
 
-#: panel-plugin/netload.c:67
+#: panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "알 수 없는 오류."
 
-#: panel-plugin/netload.c:68
+#: panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Linux proc 장치 '/proc/net/dev'를 못 찾겠습니다."
 
-#: panel-plugin/netload.c:69
+#: panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "네트웍 장치를 못 찾겠습니다."
 
-#: panel-plugin/netload.c:225
-#, c-format
+#: panel-plugin/netload.c:223
+#, fuzzy, c-format
 msgid ""
+"<< %s >> (%s)\n"
 "Average of last %d measures:\n"
 "Incoming: %s kByte/s\n"
 "Outgoing: %s kByte/s\n"
@@ -45,7 +46,11 @@ msgstr ""
 "나가는 것: %s kByte/s\n"
 "전부: %s kByte/s"
 
-#: panel-plugin/netload.c:526
+#: panel-plugin/netload.c:225
+msgid "no IP address"
+msgstr ""
+
+#: panel-plugin/netload.c:537
 #, c-format
 msgid ""
 "%s: Error in initalizing:\n"
@@ -54,50 +59,50 @@ msgstr ""
 "%s: 초기화 도중 오류 발생:\n"
 "%s"
 
-#: panel-plugin/netload.c:871
+#: panel-plugin/netload.c:897
 msgid "Select color"
 msgstr "색상을 선택하십시오."
 
-#: panel-plugin/netload.c:926
+#: panel-plugin/netload.c:955
 msgid "Bar color (incoming):"
 msgstr "막대 색(들어오는 것):"
 
-#: panel-plugin/netload.c:927
+#: panel-plugin/netload.c:956
 msgid "Bar color (outgoing):"
 msgstr "막대 색(나가는 것):"
 
-#: panel-plugin/netload.c:930
+#: panel-plugin/netload.c:959
 msgid "Maximum (incoming):"
 msgstr "최대 (들어오는 것):"
 
-#: panel-plugin/netload.c:931
+#: panel-plugin/netload.c:960
 msgid "Maximum (outgoing):"
 msgstr "최대 (나가는 것)"
 
-#: panel-plugin/netload.c:955
+#: panel-plugin/netload.c:984
 msgid "Text to display:"
 msgstr "표시:"
 
-#: panel-plugin/netload.c:986
+#: panel-plugin/netload.c:1015
 msgid "Network device:"
 msgstr "네트워크 장치:"
 
-#: panel-plugin/netload.c:1012
+#: panel-plugin/netload.c:1041
 msgid "Update interval:"
 msgstr "검사 간격:"
 
-#: panel-plugin/netload.c:1023
+#: panel-plugin/netload.c:1052
 msgid "s"
 msgstr "초"
 
-#: panel-plugin/netload.c:1036
+#: panel-plugin/netload.c:1065
 msgid "Automatic maximum"
 msgstr "최대치 자동 설정"
 
-#: panel-plugin/netload.c:1068
+#: panel-plugin/netload.c:1097
 msgid "kByte/s"
 msgstr ""
 
-#: panel-plugin/netload.c:1156
+#: panel-plugin/netload.c:1186
 msgid "Netload"
 msgstr "네트워크 감시"
