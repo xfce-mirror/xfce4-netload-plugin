@@ -1,4 +1,4 @@
-/* $Id: linux.c,v 1.4 2003/09/06 12:37:20 bwalle Exp $ */
+/* $Id: linux.c,v 1.5 2005/05/17 18:42:52 bwalle Exp $ */
 
 #include "linux.h"
 
@@ -49,6 +49,9 @@ int checkinterface(netdata* data)
 			break;
 		}
 	}
+    
+    /* free the nameindex structure */
+    if_freenameindex(ifs);
     
     /* check if the /proc/net/dev exists */
     if (access(PATH_NET_DEV, R_OK) != 0)

@@ -1,3 +1,8 @@
+2005-05-17 Bernhard Walle
+
+	* Fixed memory leak (#971).
+	* Released 0.3.2.
+
 2005-02-04 Bernhard Walle
 	* BUGFIX: Close the open socket. Obsoletes version 0.3.0. Don't use 
 	  0.3.0 any more, it prevents the panel from opening new files after 
