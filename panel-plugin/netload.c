@@ -1,5 +1,5 @@
 /*
- * Id: $Id: netload.c,v 1.12 2005/02/04 18:12:01 bwalle Exp $
+ * Id: $Id$
  * -------------------------------------------------------------------------------------------------
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -21,6 +21,7 @@
 
 #include "net.h"
 #include "utils.h"
+#include "global.h"
 
 #include <gtk/gtk.h>
 
@@ -188,15 +189,15 @@ static gboolean update_monitors(t_global_monitor *global)
         switch (i) 
         {
             case IN:
-                fprintf(stderr, "input: Max = %lu\n", global->monitor->net_max[i]);
+                PRINT_DBG("input: Max = %lu", global->monitor->net_max[i]);
                 break;
                 
             case OUT:
-                fprintf(stderr, "output: Max = %lu\n", global->monitor->net_max[i]);
+                PRINT_DBG("output: Max = %lu", global->monitor->net_max[i]);
                 break;
                 
             case TOT:
-                fprintf(stderr, "total: Max = %lu\n", global->monitor->net_max[i]);
+                PRINT_DBG("total: Max = %lu", global->monitor->net_max[i]);
                 break;
         }
 #endif /* DEBUG */
@@ -627,9 +628,7 @@ static void monitor_read_config(Control *ctrl, xmlNodePtr node)
             break;
         }
     }
-#ifdef DEBUG
-    printf("monitor_read_config\n");
-#endif
+    PRINT_DBG("monitor_read_config");
     setup_monitor(global, TRUE);
 }
 
@@ -722,9 +721,7 @@ static void monitor_set_size(Control *ctrl, int size)
         }
         gtk_widget_queue_resize(GTK_WIDGET(global->monitor->status[i]));
     }
-#ifdef DEBUG
-    printf("monitor_set_size\n");
-#endif
+    PRINT_DBG("monitor_set_size");
     setup_monitor(global, TRUE);
 }
 
@@ -764,9 +761,7 @@ static void monitor_apply_options_cb(GtkWidget *button, t_global_monitor *global
             GTK_SPIN_BUTTON(global->monitor->update_spinner) ) * 1000 + 0.5);
     
     setup_monitor(global, FALSE);
-#ifdef DEBUG
-    printf("monitor_apply_options_cb\n");
-#endif
+    PRINT_DBG("monitor_apply_options_cb");
 }
 
 
@@ -782,9 +777,7 @@ static void label_changed(GtkWidget *button, t_global_monitor *global)
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->opt_entry)));
 
     setup_monitor(global, FALSE);
-#ifdef DEBUG
-    printf("label_changed\n");
-#endif
+    PRINT_DBG("label_changed");
 }
 
 
@@ -800,9 +793,7 @@ static void max_label_changed(GtkWidget *button, t_global_monitor *global)
     }
 
     setup_monitor(global, FALSE);
-#ifdef DEBUG
-    printf("max_label_changed\n");
-#endif
+    PRINT_DBG("max_label_changed");
 }
 
 
@@ -818,9 +809,7 @@ static void network_changed(GtkWidget *button, t_global_monitor *global)
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->net_entry)));
 
     setup_monitor(global, FALSE);
-#ifdef DEBUG
-    printf("network_changed\n");
-#endif
+    PRINT_DBG("network_changed");
 }
 
 
@@ -835,9 +824,7 @@ static void label_toggled(GtkWidget *check_button, t_global_monitor *global)
                              global->monitor->options.use_label);
 
     setup_monitor(global, FALSE);
-#ifdef DEBUG
-    printf("label_toggled\n");
-#endif
+    PRINT_DBG("label_toggled");
 }
 
 
@@ -860,9 +847,7 @@ static void max_label_toggled(GtkWidget *check_button, t_global_monitor *global)
         }
     }
     setup_monitor(global, FALSE);
-#ifdef DEBUG
-    printf("max_label_toggled\n");
-#endif
+    PRINT_DBG("max_label_toggled");
 
 }
 
@@ -915,9 +900,7 @@ static void change_color(GtkWidget *button, t_global_monitor *global, gint type)
                              &global->monitor->options.color[type]);
         setup_monitor(global, FALSE);
     }
-#ifdef DEBUG
-    printf("change_color\n");
-#endif
+    PRINT_DBG("change_color");
     gtk_widget_destroy(dialog);
 }
 

@@ -1,5 +1,5 @@
 /*
- * Id: $Id: net.c,v 1.8 2005/02/04 18:14:41 bwalle Exp $
+ * Id: $Id$
  * -------------------------------------------------------------------------------------------------
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
@@ -36,7 +36,9 @@
 #include "slurm.h"	/* slurm structs */
 
 #include <sys/types.h>
+#include <errno.h>
 
+#include "global.h"
 
 #ifdef __HPUX__
 # include "wormulon/hpux.h"
@@ -96,9 +98,7 @@ int init_netload(netdata* data, const char* device)
     
     data->correct_interface = TRUE;
     
-#ifdef DEBUG
-    fprintf( stderr, "The netload plugin was initialized for '%s'.\n", device );
-#endif /* DEBUG */
+    PRINT_DBG("The netload plugin was initialized for '%s'.", device);
     
     return TRUE;
 }
@@ -184,7 +184,7 @@ char* get_ip_address(netdata* data)
     /* get the value from the operating system */
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
     {
-        perror("Error in socket");
+        PRINT_DBG("Error in socket: %s", strerror(errno));
         return NULL;
     }
     
@@ -192,7 +192,7 @@ char* get_ip_address(netdata* data)
     if (ioctl(sockfd, SIOCGIFADDR, &ifr) != 0)
     {
         close(sockfd);
-        perror("Error in ictl(sockfd)");
+        PRINT_DBG("Error in ictl(sockfd): %s", strerror(errno));
         return NULL;
     }
     close(sockfd);
@@ -201,7 +201,7 @@ char* get_ip_address(netdata* data)
     
     if (!inet_ntop(AF_INET, &p_sa->sin_addr, data->ip_address, IP_ADDRESS_LENGTH))
     {
-        perror("Error in inet_ntop");
+        PRINT_DBG("Error in inet_ntop: %s", strerror(errno));
         return NULL;
     }
     

@@ -20,6 +20,7 @@ libnetload_la_SOURCES =							\
 	net.c                                       \
     os.h                                        \
     wormulon.h                                  \
+    global.h                                    \
     slurm.h                                     
 
 libnetload_la_CFLAGS =							\
