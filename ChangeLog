@@ -2,6 +2,8 @@
 	* Fixed memory leak (thanks to Brian J. Tarricone)
 	* Custom bar colors now also work with special Gtk theme engine where
 	  the previous code doesn't work (thanks to Brian J. Tarricone)
+	* Fixed bug that causes an invalid displayed string if no device name
+	  was set.
 	* Released 0.3.3.
 
 2005-08-01 Bernhard Walle

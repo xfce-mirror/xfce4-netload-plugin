@@ -500,10 +500,14 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     {
         gtk_widget_hide(GTK_WIDGET(global->monitor->status[i]));
         rc = gtk_widget_get_modifier_style(GTK_WIDGET(global->monitor->status[i]));
+        
         if (!rc) {
             rc = gtk_rc_style_new();
+        } else {
+            /* to free the style safely in any case */
+            gtk_rc_style_ref(rc);
         }
-        
+                
         if (rc) {
             rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
             rc->color_flags[GTK_STATE_SELECTED] |= GTK_RC_BASE;
@@ -533,26 +537,22 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
         gtk_widget_show(global->monitor->label);
     }
     
-    if (!strcmp(global->monitor->options.network_device, 
-            global->monitor->options.old_network_device) == 0)
+    if (!init_netload( &(global->monitor->data), global->monitor->options.network_device)
+            && !supress_warnings)
     {
-        if (!init_netload( &(global->monitor->data), global->monitor->options.network_device)
-                && !supress_warnings)
-        {
-            xfce_err (_("%s: Error in initalizing:\n%s"),
-                _(APP_NAME),
-                _(errormessages[
-                    global->monitor->data.errorcode == 0 
-                  ? INTERFACE_NOT_FOUND
-                  : global->monitor->data.errorcode ]));
-        }
-        
-        if (global->monitor->options.old_network_device)
-        {
-            g_free(global->monitor->options.old_network_device);
-        }
-        global->monitor->options.old_network_device = g_strdup(global->monitor->options.network_device);
+        xfce_err (_("%s: Error in initalizing:\n%s"),
+            _(APP_NAME),
+            _(errormessages[
+                global->monitor->data.errorcode == 0 
+              ? INTERFACE_NOT_FOUND
+              : global->monitor->data.errorcode ]));
     }
+    
+    if (global->monitor->options.old_network_device)
+    {
+        g_free(global->monitor->options.old_network_device);
+    }
+    global->monitor->options.old_network_device = g_strdup(global->monitor->options.network_device);
     
     run_update( global );
 
