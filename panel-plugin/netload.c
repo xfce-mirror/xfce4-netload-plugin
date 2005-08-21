@@ -503,13 +503,17 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
         if (!rc) {
             rc = gtk_rc_style_new();
         }
-        else
-        {
+        
+        if (rc) {
             rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
+            rc->color_flags[GTK_STATE_SELECTED] |= GTK_RC_BASE;
             rc->bg[GTK_STATE_PRELIGHT] = global->monitor->options.color[i];
+            rc->base[GTK_STATE_SELECTED] = global->monitor->options.color[i];
+            
+            gtk_widget_modify_style(GTK_WIDGET(global->monitor->status[i]), rc);
+            gtk_rc_style_unref(rc);
         }
-
-        gtk_widget_modify_style(GTK_WIDGET(global->monitor->status[i]), rc);
+        
         gtk_widget_show(GTK_WIDGET(global->monitor->status[i]));
         
         /* Maximum */
@@ -1181,4 +1185,3 @@ G_MODULE_EXPORT void xfce_control_class_init(ControlClass *cc)
 
     cc->set_orientation = monitor_set_orientation;
 }
-
