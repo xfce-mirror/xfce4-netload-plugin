@@ -106,4 +106,3 @@ msgstr "kOctet/s"
 #: panel-plugin/netload.c:1186
 msgid "Netload"
 msgstr "Moniteur réseau"
-

@@ -1,3 +1,7 @@
+2005-10-04 Bernhard Walle
+	* removed generated files and use Xfce Deveopement tools
+	* added Russian translation, thanks to Fedoseev Sergey
+
 2005-08-21 Bernhard Walle
 	* Fixed memory leak (thanks to Brian J. Tarricone)
 	* Custom bar colors now also work with special Gtk theme engine where
