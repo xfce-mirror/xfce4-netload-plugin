@@ -1,3 +1,10 @@
+2005-10-18 Bernhard Walle
+	* added Spanish translation, thanks to Rudy Godoy
+	* changed some fileds in the translation files because the new tool
+	  version in SUSE 10.0 require non-standard fields (and changing them
+	  was faster than finding out the parameter to change this)
+	* replaced autogen.sh by one using Xfce Deveopement tools
+
 2005-10-04 Bernhard Walle
 	* removed generated files and use Xfce Deveopement tools
 	* added Russian translation, thanks to Fedoseev Sergey
