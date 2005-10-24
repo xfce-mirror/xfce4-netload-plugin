@@ -1,37 +1,38 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Korean translations for xfce4-netload-plugin package.
+# Copyright (C) 2003-2005 Bernhard Walle.
+# This file is distributed under the same license as the
+#   xfce4-netload-plugin package.
+# ByungHyun Choi <byunghyun.choi@gmail.com>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-netload-plugin\n"
+"Project-Id-Version: xfce4-netload-plugin 0.3.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-04 19:20+0100\n"
-"PO-Revision-Date: 2005-03-05 02:42+0900\n"
-"Last-Translator: ByungHyun Choi<byunghyun.choi@gmail.com>\n"
-"Language-Team: Ko <ko@li.org>\n"
+"POT-Creation-Date: 2005-10-24 21:50+0900\n"
+"PO-Revision-Date: 2005-10-24 22:04+0900\n"
+"Last-Translator: ByungHyun Choi <byunghyun.choi@gmail.com>\n"
+"Language-Team: Korean <translation-team-ko@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/netload.c:61
+#: panel-plugin/netload.c:62
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4 네트웍 감시"
 
-#: panel-plugin/netload.c:64
+#: panel-plugin/netload.c:65
 msgid "Unknown error."
 msgstr "알 수 없는 오류."
 
-#: panel-plugin/netload.c:65
+#: panel-plugin/netload.c:66
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Linux proc 장치 '/proc/net/dev'를 못 찾겠습니다."
 
-#: panel-plugin/netload.c:66
+#: panel-plugin/netload.c:67
 msgid "Interface was not found."
 msgstr "네트웍 장치를 못 찾겠습니다."
 
-#: panel-plugin/netload.c:223
+#: panel-plugin/netload.c:224
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -46,11 +47,11 @@ msgstr ""
 "나가는 것: %s kByte/s\n"
 "전부: %s kByte/s"
 
-#: panel-plugin/netload.c:225
+#: panel-plugin/netload.c:226
 msgid "no IP address"
 msgstr "IP 주소가 없습니다."
 
-#: panel-plugin/netload.c:537
+#: panel-plugin/netload.c:543
 #, c-format
 msgid ""
 "%s: Error in initalizing:\n"
@@ -59,50 +60,50 @@ msgstr ""
 "%s: 초기화 도중 오류 발생:\n"
 "%s"
 
-#: panel-plugin/netload.c:897
+#: panel-plugin/netload.c:886
 msgid "Select color"
 msgstr "색상을 선택하십시오."
 
-#: panel-plugin/netload.c:955
+#: panel-plugin/netload.c:942
 msgid "Bar color (incoming):"
 msgstr "막대 색(들어오는 것):"
 
-#: panel-plugin/netload.c:956
+#: panel-plugin/netload.c:943
 msgid "Bar color (outgoing):"
 msgstr "막대 색(나가는 것):"
 
-#: panel-plugin/netload.c:959
+#: panel-plugin/netload.c:946
 msgid "Maximum (incoming):"
 msgstr "최대 (들어오는 것):"
 
-#: panel-plugin/netload.c:960
+#: panel-plugin/netload.c:947
 msgid "Maximum (outgoing):"
 msgstr "최대 (나가는 것)"
 
-#: panel-plugin/netload.c:984
+#: panel-plugin/netload.c:971
 msgid "Text to display:"
 msgstr "표시:"
 
-#: panel-plugin/netload.c:1015
+#: panel-plugin/netload.c:1002
 msgid "Network device:"
 msgstr "네트워크 장치:"
 
-#: panel-plugin/netload.c:1041
+#: panel-plugin/netload.c:1028
 msgid "Update interval:"
 msgstr "검사 간격:"
 
-#: panel-plugin/netload.c:1052
+#: panel-plugin/netload.c:1039
 msgid "s"
 msgstr "초"
 
-#: panel-plugin/netload.c:1065
+#: panel-plugin/netload.c:1052
 msgid "Automatic maximum"
 msgstr "최대치 자동 설정"
 
-#: panel-plugin/netload.c:1097
+#: panel-plugin/netload.c:1084
 msgid "kByte/s"
 msgstr ""
 
-#: panel-plugin/netload.c:1186
+#: panel-plugin/netload.c:1173
 msgid "Netload"
 msgstr "네트워크 감시"
