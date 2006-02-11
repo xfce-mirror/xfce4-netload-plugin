@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2006-02-11 17:50+0100\n"
+"Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
+"Language-Team:  <hu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+
+#: panel-plugin/netload.c:61
+msgid "Xfce4-Netload-Plugin"
+msgstr "Xfce4 Hálózati forgalom"
+
+#: panel-plugin/netload.c:64
+msgid "Unknown error."
+msgstr "Ismeretlen hiba"
+
+#: panel-plugin/netload.c:65
+msgid "Linux proc device '/proc/net/dev' not found."
+msgstr "/proc/net/dev nem található"
+
+#: panel-plugin/netload.c:66
+msgid "Interface was not found."
+msgstr "Nem leltem csatolót"
+
+#: panel-plugin/netload.c:223
+#, c-format
+msgid ""
+"<< %s >> (%s)\n"
+"Average of last %d measures:\n"
+"Incoming: %s kByte/s\n"
+"Outgoing: %s kByte/s\n"
+"Total: %s kByte/s"
+msgstr ""
+"<< %s >> (%s)\n"
+"Elmúlt %d mérés átlaga:\n"
+"Bejövő: %s kByte/s\n"
+"Kimenő: %s kByte/s\n"
+"Össz: %s kByte/s"
+
+#: panel-plugin/netload.c:225
+msgid "no IP address"
+msgstr "Nincs IP cím"
+
+#: panel-plugin/netload.c:537
+#, c-format
+msgid ""
+"%s: Error in initalizing:\n"
+"%s"
+msgstr ""
+"%s: Inicializálási hiba:\n"
+"%s"
+
+#: panel-plugin/netload.c:897
+msgid "Select color"
+msgstr "Szín"
+
+#: panel-plugin/netload.c:955
+msgid "Bar color (incoming):"
+msgstr "Sáv színe (bejövő):"
+
+#: panel-plugin/netload.c:956
+msgid "Bar color (outgoing):"
+msgstr "Sáv színe (kimenő):"
+
+#: panel-plugin/netload.c:959
+msgid "Maximum (incoming):"
+msgstr "Maximum (bejövő):"
+
+#: panel-plugin/netload.c:960
+msgid "Maximum (outgoing):"
+msgstr "Maximum (kimenő):"
+
+#: panel-plugin/netload.c:984
+msgid "Text to display:"
+msgstr "Kiírandó szöveg:"
+
+#: panel-plugin/netload.c:1015
+msgid "Network device:"
+msgstr "Hálózati eszköz:"
+
+#: panel-plugin/netload.c:1041
+msgid "Update interval:"
+msgstr "Frissítési időköz:"
+
+#: panel-plugin/netload.c:1052
+msgid "s"
+msgstr "s"
+
+#: panel-plugin/netload.c:1065
+msgid "Automatic maximum"
+msgstr "Automata maximum"
+
+#: panel-plugin/netload.c:1097
+msgid "kByte/s"
+msgstr "kByte/s"
+
+#: panel-plugin/netload.c:1186
+msgid "Netload"
+msgstr "Forgalom"
+
