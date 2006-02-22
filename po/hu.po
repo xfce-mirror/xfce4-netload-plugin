@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-01-04 18:43+0900\n"
 "PO-Revision-Date: 2006-02-11 17:50+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team:  <hu>\n"
@@ -11,23 +12,23 @@ msgstr ""
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#: panel-plugin/netload.c:61
+#: panel-plugin/netload.c:62
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4 Hálózati forgalom"
 
-#: panel-plugin/netload.c:64
+#: panel-plugin/netload.c:65
 msgid "Unknown error."
 msgstr "Ismeretlen hiba"
 
-#: panel-plugin/netload.c:65
+#: panel-plugin/netload.c:66
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "/proc/net/dev nem található"
 
-#: panel-plugin/netload.c:66
+#: panel-plugin/netload.c:67
 msgid "Interface was not found."
 msgstr "Nem leltem csatolót"
 
-#: panel-plugin/netload.c:223
+#: panel-plugin/netload.c:224
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -42,11 +43,11 @@ msgstr ""
 "Kimenő: %s kByte/s\n"
 "Össz: %s kByte/s"
 
-#: panel-plugin/netload.c:225
+#: panel-plugin/netload.c:226
 msgid "no IP address"
 msgstr "Nincs IP cím"
 
-#: panel-plugin/netload.c:537
+#: panel-plugin/netload.c:543
 #, c-format
 msgid ""
 "%s: Error in initalizing:\n"
@@ -55,51 +56,50 @@ msgstr ""
 "%s: Inicializálási hiba:\n"
 "%s"
 
-#: panel-plugin/netload.c:897
+#: panel-plugin/netload.c:886
 msgid "Select color"
 msgstr "Szín"
 
-#: panel-plugin/netload.c:955
+#: panel-plugin/netload.c:942
 msgid "Bar color (incoming):"
 msgstr "Sáv színe (bejövő):"
 
-#: panel-plugin/netload.c:956
+#: panel-plugin/netload.c:943
 msgid "Bar color (outgoing):"
 msgstr "Sáv színe (kimenő):"
 
-#: panel-plugin/netload.c:959
+#: panel-plugin/netload.c:946
 msgid "Maximum (incoming):"
 msgstr "Maximum (bejövő):"
 
-#: panel-plugin/netload.c:960
+#: panel-plugin/netload.c:947
 msgid "Maximum (outgoing):"
 msgstr "Maximum (kimenő):"
 
-#: panel-plugin/netload.c:984
+#: panel-plugin/netload.c:971
 msgid "Text to display:"
 msgstr "Kiírandó szöveg:"
 
-#: panel-plugin/netload.c:1015
+#: panel-plugin/netload.c:1002
 msgid "Network device:"
 msgstr "Hálózati eszköz:"
 
-#: panel-plugin/netload.c:1041
+#: panel-plugin/netload.c:1028
 msgid "Update interval:"
 msgstr "Frissítési időköz:"
 
-#: panel-plugin/netload.c:1052
+#: panel-plugin/netload.c:1039
 msgid "s"
 msgstr "s"
 
-#: panel-plugin/netload.c:1065
+#: panel-plugin/netload.c:1052
 msgid "Automatic maximum"
 msgstr "Automata maximum"
 
-#: panel-plugin/netload.c:1097
+#: panel-plugin/netload.c:1084
 msgid "kByte/s"
 msgstr "kByte/s"
 
-#: panel-plugin/netload.c:1186
+#: panel-plugin/netload.c:1173
 msgid "Netload"
 msgstr "Forgalom"
-
