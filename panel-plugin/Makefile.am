@@ -28,6 +28,5 @@ libnetload_la_CFLAGS =							\
 	@XFCE4_PANEL_CFLAGS@
 
 libnetload_la_LIBADD = 							\
-	@LIBGTOP_LIBS@							    \
     @SOLLIBS@                                   \
 	@XFCE4_PANEL_LIBS@

@@ -1,3 +1,8 @@
+2006-03-22 Bernhard Walle
+
+	* applied patch from Debian: don't use libgtop any more, so remove it
+	  from the Makefile (thanks to Rudy Godoy and Martin Michlmayr
+
 2005-11-02 Bernhard Walle
 	* added Portuguese (Brazil) translation
 
