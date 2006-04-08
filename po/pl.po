@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the
 #   xfce4-netload-plugin package.
 # Michał Chruszcz <troll@troll.one.pl>, 2003.
-# Piotr Maliński <admin@rk.edu.pl>, 2005.
+# Piotr Maliński <admin@rk.edu.pl>, 2005-2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin 0.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-10-24 21:50+0900\n"
-"PO-Revision-Date: 2005-10-24 22:04+0900\n"
+"PO-Revision-Date: 2006-04-08 13:11+0900\n"
 "Last-Translator: Piotr Maliński <admin@rk.edu.pl>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -94,7 +94,7 @@ msgstr "Interwał odświeżania:"
 
 #: panel-plugin/netload.c:1039
 msgid "s"
-msgstr ""
+msgstr "s"
 
 #: panel-plugin/netload.c:1052
 msgid "Automatic maximum"

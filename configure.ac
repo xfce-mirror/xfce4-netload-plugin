@@ -49,7 +49,7 @@ AC_CHECK_LIB(nsl, kstat_open, SOLLIBS="$SOLLIBS -linet_ntop", SOLLIBS="$SOLLIBS"
 AC_SUBST(SOLLIBS)
 
 dnl Check for i18n support
-BM_I18N([xfce4-netload], [ca de eu fr hu ko lt pl uk ru es pt_BR vi])
+BM_I18N([xfce4-netload], [ca de es eu fr hu ko lt pl pt_BR uk ru vi])
 
 dnl configure the panel plugin
 XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.0.0])
