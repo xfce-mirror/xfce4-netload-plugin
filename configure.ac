@@ -5,18 +5,21 @@ dnl
 dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl
 
-AC_INIT([panel-plugin/netload.c])
+m4_define([netload_version],[0.4.0])
 
+AC_INIT([xfce4-netload-plugin], [netload_version()],
+	[xfce-goodies-dev@lists.berlios.de])
+
+NETLOAD_VERSION=netload_version()
+AM_INIT_AUTOMAKE([xfce4-netload-plugin], [$NETLOAD_VERSION])
 AM_CONFIG_HEADER([config.h])
-
-AM_INIT_AUTOMAKE([xfce4-netload-plugin], [0.3.3])
 
 AM_MAINTAINER_MODE
 
 dnl Check for basic programs
 AC_PROG_CC
 AC_PROG_INSTALL
-AC_PROG_LIBTOOL
+AC_PROG_INTLTOOL
 
 dnl Check for standard header files
 AC_HEADER_STDC
@@ -48,20 +51,18 @@ AC_CHECK_LIB(kstat, kstat_open, SOLLIBS="-lkstat -lsocket", SOLLIBS="")
 AC_CHECK_LIB(nsl, kstat_open, SOLLIBS="$SOLLIBS -linet_ntop", SOLLIBS="$SOLLIBS")
 AC_SUBST(SOLLIBS)
 
-dnl Check for i18n support
-BM_I18N([xfce4-netload], [ca de es eu fr hu ko lt pl pt_BR uk ru vi])
-
 dnl configure the panel plugin
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.0.0])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.20])
+
+dnl Check for i18n support
+XDT_I18N([ca de fr ko lt pl uk])
 
 dnl Check for debugging support
-BM_DEBUG_SUPPORT
+XDT_FEATURE_DEBUG()
 
 AC_OUTPUT([
 Makefile
 panel-plugin/Makefile
 po/Makefile.in
 ])
-
-
 

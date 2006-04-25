@@ -5,7 +5,7 @@
  * application specific defines. You should never need to tune anything here
  *
  ******************************************************************************
- * $Id: wormulon.h,v 1.2 2003/08/25 21:08:58 bwalle Exp $
+ * $Id$
  *****************************************************************************/
 
 #ifndef _WORMULON_H

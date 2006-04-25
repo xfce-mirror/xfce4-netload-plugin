@@ -1,0 +1,8 @@
+[Xfce Panel]
+Type=X-XFCE-PanelPlugin
+Encoding=UTF-8
+_Name=Network Monitor
+_Comment=Show network traffic
+Icon=xfce-mouse
+X-XFCE-Exec=@PLUGIN_PATH@/xfce4-netload-plugin
+

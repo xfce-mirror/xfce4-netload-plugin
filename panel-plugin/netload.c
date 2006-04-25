@@ -25,19 +25,14 @@
 
 #include <gtk/gtk.h>
 
-#include <libxfce4util/i18n.h>
-#include <libxfcegui4/dialogs.h>
-#include <panel/plugins.h>
-#include <panel/xfce.h>
+#include <libxfce4util/libxfce4util.h>
+#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4panel/xfce-panel-plugin.h>
 
-
-/* for xml: */
-#define MONITOR_ROOT "Netload"
 
 static GtkTooltips *tooltips = NULL;
 
-extern xmlDocPtr xmlconfig;
-#define MYDATA(node) xmlNodeListGetString(xmlconfig, node->children, 1)
+#define BORDER 8
 
 /* Defaults */
 #define DEFAULT_TEXT "Net"
@@ -85,7 +80,6 @@ typedef struct
     GtkWidget  *box;
     GtkWidget  *label;
     GtkWidget  *status[SUM];
-    GtkWidget  *ebox;
 
     gulong     history[SUM][HISTSIZE_STORE];
     gulong     net_max[SUM];
@@ -121,6 +115,8 @@ typedef struct
 
 typedef struct
 {
+    XfcePanelPlugin *plugin;
+
     GtkWidget         *ebox;
     GtkWidget         *box;
     guint             timeout_id;
@@ -141,8 +137,6 @@ static gboolean update_monitors(t_global_monitor *global)
     guint64 histcalculate;
     double temp;
     gint i, j;
-
-    XFCE_PANEL_LOCK();
 
     get_current_netload( &(global->monitor->data), &(net[IN]), &(net[OUT]), &(net[TOT]) );
     
@@ -225,10 +219,8 @@ static gboolean update_monitors(t_global_monitor *global)
                     "Incoming: %s kByte/s\nOutgoing: %s kByte/s\nTotal: %s kByte/s"),
                     get_name(&(global->monitor->data)), ip ? ip : _("no IP address"),
                     HISTSIZE_CALCULATE, buffer[IN], buffer[OUT], buffer[TOT]);
-        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor->ebox), caption, NULL);
+        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->ebox), caption, NULL);
     }
-
-    XFCE_PANEL_UNLOCK();
 
     return TRUE;
 }
@@ -252,18 +244,129 @@ static void run_update (t_global_monitor *global)
 
 
 /* ---------------------------------------------------------------------------------------------- */
-static t_global_monitor * monitor_new(void)
+static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation, 
+                                     t_global_monitor *global)
+{
+    GtkRcStyle *rc;
+    gint i;
+
+    if (global->timeout_id)
+    {
+        g_source_remove(global->timeout_id);
+    }
+
+    gtk_widget_hide(GTK_WIDGET(global->ebox));
+    if (global->box)
+    {
+        gtk_container_remove(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
+    }
+    if (orientation == GTK_ORIENTATION_HORIZONTAL)
+    {
+        global->box = gtk_hbox_new(FALSE, 0);
+    }
+    else
+    {
+        global->box = gtk_vbox_new(FALSE, 0);
+    }
+    gtk_widget_show(global->box);
+
+    global->monitor->label = gtk_label_new(global->monitor->options.label_text);
+    gtk_widget_show(global->monitor->label);
+
+    for (i = 0; i < SUM; i++)
+    {
+        global->monitor->status[i] = GTK_WIDGET(gtk_progress_bar_new());
+    }
+
+    if (orientation == GTK_ORIENTATION_HORIZONTAL)
+    {
+        global->monitor->box = GTK_WIDGET(gtk_hbox_new(FALSE, 0));
+        for (i = 0; i < SUM; i++)
+        {
+            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
+                    GTK_PROGRESS_BOTTOM_TO_TOP);
+        }
+    }
+    else
+    {
+        global->monitor->box = GTK_WIDGET(gtk_vbox_new(FALSE, 0));
+        for (i = 0; i < SUM; i++)
+        {
+            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]), 
+                    GTK_PROGRESS_LEFT_TO_RIGHT);
+        }
+    }
+
+    gtk_box_pack_start(GTK_BOX(global->monitor->box),
+                       GTK_WIDGET(global->monitor->label),
+                       FALSE, FALSE, 0);
+
+    gtk_container_set_border_width(GTK_CONTAINER(global->monitor->box), 4);
+    gtk_widget_show(GTK_WIDGET(global->monitor->box));
+
+    for (i = 0; i < SUM; i++)
+    {
+        rc = gtk_widget_get_modifier_style(GTK_WIDGET(global->monitor->status[i]));
+        if (!rc) 
+        {
+            rc = gtk_rc_style_new();
+        }
+        else
+        {
+            rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
+            rc->bg[GTK_STATE_PRELIGHT] =
+                global->monitor->options.color[i];
+        }
+
+        gtk_widget_modify_style(GTK_WIDGET(global->monitor->status[i]), rc);
+        gtk_widget_show(GTK_WIDGET(global->monitor->status[i]));
+
+        gtk_box_pack_start(GTK_BOX(global->monitor->box),
+                GTK_WIDGET(global->monitor->status[i]), FALSE, FALSE, 0);
+    }
+    gtk_box_pack_start(GTK_BOX(global->box),
+                       GTK_WIDGET(global->monitor->box), FALSE, FALSE, 0);
+
+
+    gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
+    gtk_widget_show(GTK_WIDGET(global->ebox));
+
+    run_update( global );
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
+static void monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
+{
+    if (global->timeout_id)
+    {
+        g_source_remove(global->timeout_id);
+    }
+
+    if (global->monitor->options.label_text)
+    {
+        g_free(global->monitor->options.label_text);
+    }
+    g_free(global);
+    
+    close_netload( &(global->monitor->data) );
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
+static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
 {
     t_global_monitor *global;
-    GtkRcStyle *rc;
     gint i;
 
     global = g_new(t_global_monitor, 1);
     global->timeout_id = 0;
     global->ebox = gtk_event_box_new();
     gtk_widget_show(global->ebox);
-    global->box = gtk_hbox_new(FALSE, 0);
-    gtk_widget_show(global->box);
+    global->box = NULL;
+
+    global->plugin = plugin;
+    xfce_panel_plugin_add_action_widget (plugin, global->ebox);
 
     if (!tooltips) 
     {
@@ -291,197 +394,9 @@ static t_global_monitor * monitor_new(void)
         global->monitor->options.max[i] = INIT_MAX;
     }
 
-    global->monitor->ebox = gtk_event_box_new();
-    gtk_widget_show(global->monitor->ebox);
-
-    global->monitor->box = GTK_WIDGET(gtk_hbox_new(FALSE, 0));
-    gtk_container_set_border_width(GTK_CONTAINER(global->monitor->box),
-                                   border_width);
-    gtk_widget_show(GTK_WIDGET(global->monitor->box));
-
-    gtk_container_add(GTK_CONTAINER(global->monitor->ebox),
-                      GTK_WIDGET(global->monitor->box));
-
-    global->monitor->label =
-        gtk_label_new(global->monitor->options.label_text);
-    gtk_widget_show(global->monitor->label);
-    gtk_box_pack_start(GTK_BOX(global->monitor->box),
-                       GTK_WIDGET(global->monitor->label),
-                       FALSE, FALSE, 0);
-
-    for (i = 0; i < SUM; i++)
-    {
-        global->monitor->status[i] = GTK_WIDGET(gtk_progress_bar_new());
-        gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
-                                     GTK_PROGRESS_BOTTOM_TO_TOP);
-
-        rc = gtk_widget_get_modifier_style(GTK_WIDGET(global->monitor->status[i]));
-        if (!rc) 
-        {
-            rc = gtk_rc_style_new();
-        }
-        else
-        {
-            rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
-            rc->bg[GTK_STATE_PRELIGHT] = global->monitor->options.color[i];
-        }
-
-        gtk_widget_modify_style(GTK_WIDGET(global->monitor->status[i]), rc);
-        gtk_widget_show(GTK_WIDGET(global->monitor->status[i]));
-
-        gtk_box_pack_start(GTK_BOX(global->monitor->box),
-                GTK_WIDGET(global->monitor->status[i]),
-                FALSE, FALSE, 0);
-    }
-
-    gtk_box_pack_start(GTK_BOX(global->box),
-                       GTK_WIDGET(global->monitor->ebox),
-                       FALSE, FALSE, 0);
-
-
-    gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
+    monitor_set_orientation (plugin, xfce_panel_plugin_get_orientation (plugin), global);
     
     return global;
-}
-
-
-/* ---------------------------------------------------------------------------------------------- */
-static void monitor_set_orientation (Control * ctrl, int orientation)
-{
-    t_global_monitor *global = ctrl->data;
-    GtkRcStyle *rc;
-    gint i;
-
-    if (global->timeout_id)
-    {
-        g_source_remove(global->timeout_id);
-    }
-
-    gtk_widget_hide(GTK_WIDGET(global->ebox));
-    gtk_container_remove(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
-    if (orientation == HORIZONTAL)
-    {
-        global->box = gtk_hbox_new(FALSE, 0);
-    }
-    else
-    {
-        global->box = gtk_vbox_new(FALSE, 0);
-    }
-    gtk_widget_show(global->box);
-
-    global->monitor->label = gtk_label_new(global->monitor->options.label_text);
-    gtk_widget_show(global->monitor->label);
-
-    for (i = 0; i < SUM; i++)
-    {
-        global->monitor->status[i] = GTK_WIDGET(gtk_progress_bar_new());
-    }
-
-    if (orientation == HORIZONTAL)
-    {
-        global->monitor->box = GTK_WIDGET(gtk_hbox_new(FALSE, 0));
-        for (i = 0; i < SUM; i++)
-        {
-            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
-                    GTK_PROGRESS_BOTTOM_TO_TOP);
-        }
-    }
-    else
-    {
-        global->monitor->box = GTK_WIDGET(gtk_vbox_new(FALSE, 0));
-        for (i = 0; i < SUM; i++)
-        {
-            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]), 
-                    GTK_PROGRESS_LEFT_TO_RIGHT);
-        }
-    }
-
-    gtk_box_pack_start(GTK_BOX(global->monitor->box),
-                       GTK_WIDGET(global->monitor->label),
-                       FALSE, FALSE, 0);
-
-    gtk_container_set_border_width(GTK_CONTAINER(global->monitor->box),
-                                   border_width);
-    gtk_widget_show(GTK_WIDGET(global->monitor->box));
-
-    global->monitor->ebox = gtk_event_box_new();
-    gtk_widget_show(global->monitor->ebox);
-    gtk_container_add(GTK_CONTAINER(global->monitor->ebox),
-                      GTK_WIDGET(global->monitor->box));
-
-    for (i = 0; i < SUM; i++)
-    {
-        rc = gtk_widget_get_modifier_style(GTK_WIDGET(global->monitor->status[i]));
-        if (!rc) 
-        {
-            rc = gtk_rc_style_new();
-        }
-        else
-        {
-            rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
-            rc->bg[GTK_STATE_PRELIGHT] =
-                global->monitor->options.color[i];
-        }
-
-        gtk_widget_modify_style(GTK_WIDGET(global->monitor->status[i]), rc);
-        gtk_widget_show(GTK_WIDGET(global->monitor->status[i]));
-
-        gtk_box_pack_start(GTK_BOX(global->monitor->box),
-                GTK_WIDGET(global->monitor->status[i]), FALSE, FALSE, 0);
-    }
-    gtk_box_pack_start(GTK_BOX(global->box),
-                       GTK_WIDGET(global->monitor->ebox), FALSE, FALSE, 0);
-
-
-    gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
-    gtk_widget_show(GTK_WIDGET(global->ebox));
-
-    run_update( global );
-}
-
-
-/* ---------------------------------------------------------------------------------------------- */
-static gboolean monitor_control_new(Control *ctrl)
-{
-    t_global_monitor *global;
-
-    global = monitor_new();
-
-    gtk_container_add(GTK_CONTAINER(ctrl->base), GTK_WIDGET(global->ebox));
-
-    run_update( global );
-
-    ctrl->data = (gpointer)global;
-    ctrl->with_popup = FALSE;
-
-    gtk_widget_set_size_request(ctrl->base, -1, -1);
-
-    return TRUE;
-}
-
-
-/* ---------------------------------------------------------------------------------------------- */
-static void monitor_free(Control *ctrl)
-{
-    t_global_monitor *global;
-
-    g_return_if_fail(ctrl != NULL);
-    g_return_if_fail(ctrl->data != NULL);
-
-    global = (t_global_monitor *)ctrl->data;
-
-    if (global->timeout_id)
-    {
-        g_source_remove(global->timeout_id);
-    }
-
-    if (global->monitor->options.label_text)
-    {
-        g_free(global->monitor->options.label_text);
-    }
-    g_free(global);
-    
-    close_netload( &(global->monitor->data) );
 }
 
 
@@ -491,7 +406,7 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     GtkRcStyle *rc;
     gint i;
 
-    gtk_widget_hide(GTK_WIDGET(global->monitor->ebox));
+    gtk_widget_hide(GTK_WIDGET(global->monitor->box));
     gtk_widget_hide(global->monitor->label);
     gtk_label_set_text(GTK_LABEL(global->monitor->label),
             global->monitor->options.label_text);
@@ -531,7 +446,7 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
         }
     }
 
-    gtk_widget_show(GTK_WIDGET(global->monitor->ebox));
+    gtk_widget_show(GTK_WIDGET(global->monitor->box));
     if (global->monitor->options.use_label)
     {
         gtk_widget_show(global->monitor->label);
@@ -560,178 +475,143 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
 
 
 /* ---------------------------------------------------------------------------------------------- */
-static void monitor_read_config(Control *ctrl, xmlNodePtr node)
+static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-    xmlChar *value;
-    t_global_monitor *global;
-
-    global = (t_global_monitor *)ctrl->data;
+    const char *value;
+    char *file;
+    XfceRc *rc;
     
-    if (node == NULL || node->children == NULL)
-    {
+    if (!(file = xfce_panel_plugin_lookup_rc_file (plugin)))
         return;
+    
+    rc = xfce_rc_simple_open (file, TRUE);
+    g_free (file);
+
+    if (!rc)
+        return;
+    
+    global->monitor->options.use_label = xfce_rc_read_bool_entry (rc, "Use_Label", TRUE);
+
+    if ((value = xfce_rc_read_entry (rc, "Color_In", NULL)) != NULL)
+    {
+        gdk_color_parse(value,
+                        &global->monitor->options.color[IN]);
+    }
+    if ((value = xfce_rc_read_entry (rc, "Color_Out", NULL)) != NULL)
+    {
+        gdk_color_parse(value,
+                        &global->monitor->options.color[OUT]);
+    }
+    if ((value = xfce_rc_read_entry (rc, "Text", NULL)) && *value)
+    {
+        if (global->monitor->options.label_text)
+            g_free(global->monitor->options.label_text);
+        global->monitor->options.label_text = g_strdup(value);
+    }
+    if ((value = xfce_rc_read_entry (rc, "Network_Device", NULL)) && *value)
+    {
+        if (global->monitor->options.network_device)
+            g_free(global->monitor->options.network_device);
+        global->monitor->options.network_device = g_strdup(value);
+    }    
+    if ((value = xfce_rc_read_entry (rc, "Max_In", NULL)) != NULL)
+    {
+        global->monitor->options.max[IN] = strtol (value, NULL, 0); 
+    }
+    if ((value = xfce_rc_read_entry (rc, "Max_Out", NULL)) != NULL)
+    {
+        global->monitor->options.max[OUT] = strtol (value, NULL, 0);
     }
     
-    for (node = node->children; node; node = node->next)
-    {
-        if (xmlStrEqual(node->name, (const xmlChar *)MONITOR_ROOT))
-        {
-            if ((value = xmlGetProp(node, (const xmlChar *)"Use_Label")))
-            {
-                global->monitor->options.use_label = atoi(value);
-                g_free(value);
-            }
-            if ((value = xmlGetProp(node, (const xmlChar *)"Color_In")))
-            {
-                gdk_color_parse(value,
-                                &global->monitor->options.color[IN]);
-                g_free(value);
-            }
-            if ((value = xmlGetProp(node, (const xmlChar *)"Color_Out")))
-            {
-                gdk_color_parse(value,
-                                &global->monitor->options.color[OUT]);
-                g_free(value);
-            }
-            if ((value = xmlGetProp(node, (const xmlChar *) "Text")))
-            {
-                if (global->monitor->options.label_text)
-                    g_free(global->monitor->options.label_text);
-                global->monitor->options.label_text =
-                    g_strdup((gchar *)value);
-                g_free(value);
-            }
-            if ((value = xmlGetProp(node, (const xmlChar *) "Network_Device")))
-            {
-                if (global->monitor->options.network_device)
-                    g_free(global->monitor->options.network_device);
-                global->monitor->options.network_device =
-                    g_strdup((gchar *)value);
-                g_free(value);
-            }
-            if ((value = xmlGetProp(node, (const xmlChar *) "Max_In")))
-            {
-                global->monitor->options.max[IN] = atoi( value );
-                g_free(value);
-            }
-            if ((value = xmlGetProp(node, (const xmlChar *) "Max_Out")))
-            {
-                global->monitor->options.max[OUT] = atol( value );
-                g_free(value);
-            }
-            if ((value = xmlGetProp(node, (const xmlChar *) "Auto_Max")))
-            {
-                global->monitor->options.auto_max = atol(value);
-                g_free(value);
-            }
-            if ((value = xmlGetProp(node, (const xmlChar *) "Update_Interval")))
-            {
-                global->monitor->options.update_interval = atoi(value);
-                g_free(value);
-            }
-            break;
-        }
-    }
+    global->monitor->options.auto_max = xfce_rc_read_bool_entry (rc, "Auto_Max", TRUE);
+    
+    global->monitor->options.update_interval = 
+        xfce_rc_read_int_entry (rc, "Update_Interval", UPDATE_TIMEOUT);
+
     PRINT_DBG("monitor_read_config");
     setup_monitor(global, TRUE);
+
+    xfce_rc_close (rc);
 }
 
 
 /* ---------------------------------------------------------------------------------------------- */
-static void monitor_write_config(Control *ctrl, xmlNodePtr parent)
+static void monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-    xmlNodePtr root;
+    XfceRc *rc;
+    char *file;
     char value[20];
-    t_global_monitor *global;
 
-    global = (t_global_monitor *)ctrl->data;
+    if (!(file = xfce_panel_plugin_save_location (plugin, TRUE)))
+        return;
+    
+    rc = xfce_rc_simple_open (file, FALSE);
+    g_free (file);
 
-    root = xmlNewTextChild(parent, NULL, MONITOR_ROOT, NULL);
-
-    g_snprintf(value, 2, "%d", global->monitor->options.use_label);
-    xmlSetProp(root, "Use_Label", value);
+    if (!rc)
+        return;
+    
+    xfce_rc_write_bool_entry (rc, "Use_Label", global->monitor->options.use_label);
 
     g_snprintf(value, 8, "#%02X%02X%02X",
                (guint)global->monitor->options.color[IN].red >> 8,
                (guint)global->monitor->options.color[IN].green >> 8,
                (guint)global->monitor->options.color[IN].blue >> 8);
-
-    xmlSetProp(root, "Color_In", value);
+    xfce_rc_write_entry (rc, "Color_In", value);
 
     g_snprintf(value, 8, "#%02X%02X%02X",
                (guint)global->monitor->options.color[OUT].red >> 8,
                (guint)global->monitor->options.color[OUT].green >> 8,
                (guint)global->monitor->options.color[OUT].blue >> 8);
+    xfce_rc_write_entry (rc, "Color_Out", value);
 
-    xmlSetProp(root, "Color_Out", value);
+    xfce_rc_write_entry (rc, "Text", global->monitor->options.label_text ?
+                                     global->monitor->options.label_text : "");
 
-    if (global->monitor->options.label_text) 
-    {
-        xmlSetProp(root, "Text",
-                   global->monitor->options.label_text);
-    }
-
-    if (global->monitor->options.network_device)
-    {
-        xmlSetProp(root, "Network_Device", global->monitor->options.network_device);
-    }
+    xfce_rc_write_entry (rc, "Network_Device", global->monitor->options.network_device ? 
+                                               global->monitor->options.network_device : "");
     
     g_snprintf(value, 20, "%lu", global->monitor->options.max[IN]);
-    xmlSetProp(root, "Max_In", value);
+    xfce_rc_write_entry (rc, "Max_In", value);
     
     g_snprintf(value, 20, "%lu", global->monitor->options.max[OUT]);
-    xmlSetProp(root, "Max_Out", value);
+    xfce_rc_write_entry (rc, "Max_Out", value);
     
-    g_snprintf(value, 2, "%d", global->monitor->options.auto_max);
-    xmlSetProp(root, "Auto_Max", value);
+    xfce_rc_write_bool_entry (rc, "Auto_Max", global->monitor->options.auto_max);
     
-    g_snprintf(value, 20, "%d", global->monitor->options.update_interval);
-    xmlSetProp(root, "Update_Interval", value);
-    
-    root = xmlNewTextChild(parent, NULL, MONITOR_ROOT, NULL);
+    xfce_rc_write_int_entry (rc, "Update_Interval", global->monitor->options.update_interval);
+
+    xfce_rc_close (rc);
 }
 
 
 /* ---------------------------------------------------------------------------------------------- */
-static void monitor_attach_callback(Control *ctrl, const gchar *signal, GCallback cb, gpointer data)
+static gboolean monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
 {
-    t_global_monitor *global;
-
-    global = (t_global_monitor *)ctrl->data;
-    g_signal_connect(global->ebox, signal, cb, data);
-}
-
-
-/* ---------------------------------------------------------------------------------------------- */
-static void monitor_set_size(Control *ctrl, int size)
-{
-    /* do the resize */
-    t_global_monitor *global;
     gint i;
-
-    global = (t_global_monitor *)ctrl->data;
 
     for (i = 0; i < SUM; i++)
     {
-        if (settings.orientation == HORIZONTAL)
+        if (xfce_panel_plugin_get_orientation (plugin) == GTK_ORIENTATION_HORIZONTAL)
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]),
-                    6 + 2 * size, icon_size[size] - 4);
+                    BORDER, size - 4);
         }
         else
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]),
-                    icon_size[size] - 4, 6 + 2 * size);
+                    size - 4, BORDER);
         }
-        gtk_widget_queue_resize(GTK_WIDGET(global->monitor->status[i]));
     }
     PRINT_DBG("monitor_set_size");
     setup_monitor(global, TRUE);
+
+    return TRUE;
 }
 
 
 /* ---------------------------------------------------------------------------------------------- */
-static void monitor_apply_options_cb(GtkWidget *button, t_global_monitor *global)
+static void monitor_apply_options(t_global_monitor *global)
 {
     gint i;
     
@@ -755,9 +635,8 @@ static void monitor_apply_options_cb(GtkWidget *button, t_global_monitor *global
     
     for( i = 0; i < SUM; i++ )
     {
-        global->monitor->options.max[i] = strtod(
-            g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->max_entry[i]))),
-            NULL ) * 1024;
+        global->monitor->options.max[i] = 
+            strtol(gtk_entry_get_text(GTK_ENTRY(global->monitor->max_entry[i])), NULL, 0) * 1024;
     }
     
     global->monitor->options.update_interval = 
@@ -791,9 +670,8 @@ static void max_label_changed(GtkWidget *button, t_global_monitor *global)
     gint i;
     for( i = 0; i < SUM; i++ )
     {
-        global->monitor->options.max[i] = strtod(
-            g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->max_entry[i]))), 
-            NULL ) * 1024;
+        global->monitor->options.max[i] = 
+            strtol(gtk_entry_get_text(GTK_ENTRY(global->monitor->max_entry[i])), NULL, 0) * 1024;
     }
 
     setup_monitor(global, FALSE);
@@ -820,8 +698,7 @@ static void network_changed(GtkWidget *button, t_global_monitor *global)
 /* ---------------------------------------------------------------------------------------------- */
 static void label_toggled(GtkWidget *check_button, t_global_monitor *global)
 {
-    global->monitor->options.use_label =
-        !global->monitor->options.use_label;
+    global->monitor->options.use_label = !global->monitor->options.use_label;
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_use_label),
                                  global->monitor->options.use_label);
     gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_entry),
@@ -924,9 +801,19 @@ static void change_color_out(GtkWidget *button, t_global_monitor *global)
 
 
 /* ---------------------------------------------------------------------------------------------- */
-static void monitor_create_options(Control *control, GtkContainer *container, GtkWidget *done)
+static void
+monitor_dialog_response (GtkWidget *dlg, int response, t_global_monitor *global)
 {
-    t_global_monitor *global;
+
+    monitor_apply_options (global);
+    gtk_widget_destroy (dlg);
+    xfce_panel_plugin_unblock_menu (global->plugin);
+    monitor_write_config (global->plugin, global);
+}
+
+static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
+{
+    GtkWidget        *dlg, *header;
     GtkBox           *vbox, *global_vbox, *net_hbox;
     GtkWidget        *device_label, *unit_label[SUM], *max_label[SUM];
     GtkWidget        *sep1, *sep2;
@@ -947,16 +834,35 @@ static void monitor_create_options(Control *control, GtkContainer *container, Gt
                         N_("Maximum (outgoing):")
                      };
     
+    xfce_panel_plugin_block_menu (plugin);
+    
+    dlg = gtk_dialog_new_with_buttons (_("Edit Properties"), 
+                GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
+                GTK_DIALOG_DESTROY_WITH_PARENT |
+                GTK_DIALOG_NO_SEPARATOR,
+                GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
+                NULL);
+    
+    g_signal_connect (dlg, "response", G_CALLBACK (monitor_dialog_response),
+                      global);
+
+    gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
+    
+    global->opt_dialog = dlg;
+    
+    header = xfce_create_header (NULL, _("Network Monitor"));
+    gtk_widget_set_size_request (GTK_BIN (header)->child, -1, 32);
+    gtk_container_set_border_width (GTK_CONTAINER (header), BORDER - 2);
+    gtk_widget_show (header);
+    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), header, FALSE, TRUE, 0);
+    
+    global_vbox = GTK_BOX (gtk_vbox_new(FALSE, BORDER));
+    gtk_container_set_border_width (GTK_CONTAINER (global_vbox), BORDER - 2);
+    gtk_widget_show(GTK_WIDGET (global_vbox));
+    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), GTK_WIDGET (global_vbox), TRUE, TRUE, 0);
+    
     sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
     
-    global = (t_global_monitor *)control->data;
-    global->opt_dialog = gtk_widget_get_toplevel(done);
-    
-    global_vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
-    gtk_container_add(GTK_CONTAINER(container), GTK_WIDGET(global_vbox));
-
-    gtk_widget_show_all(GTK_WIDGET(global_vbox));
-
     vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
     gtk_widget_show(GTK_WIDGET(vbox));
 
@@ -1159,29 +1065,36 @@ static void monitor_create_options(Control *control, GtkContainer *container, Gt
             G_CALLBACK(label_changed), global);
     g_signal_connect(GTK_WIDGET(global->monitor->net_entry), "activate",
             G_CALLBACK(network_changed), global);
-    g_signal_connect(GTK_WIDGET(done), "clicked",
-            G_CALLBACK(monitor_apply_options_cb), global);
+
+    gtk_widget_show (dlg);
 }
 
 
 /* ---------------------------------------------------------------------------------------------- */
-G_MODULE_EXPORT void xfce_control_class_init(ControlClass *cc)
+static void netload_construct (XfcePanelPlugin *plugin)
 {
+    t_global_monitor *global;
+
     xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
+
+    global = monitor_new(plugin);
+
+    monitor_read_config (plugin, global);
     
-    cc->name            = "netload";
-    cc->caption         = _("Netload");
-
-    cc->create_control  = (CreateControlFunc)monitor_control_new;
-
-    cc->free            = monitor_free;
-    cc->read_config     = monitor_read_config;
-    cc->write_config    = monitor_write_config;
-    cc->attach_callback = monitor_attach_callback;
-
-    cc->create_options  = monitor_create_options;
-
-    cc->set_size        = monitor_set_size;
-
-    cc->set_orientation = monitor_set_orientation;
+    g_signal_connect (plugin, "free-data", G_CALLBACK (monitor_free), global);
+    
+    g_signal_connect (plugin, "save", G_CALLBACK (monitor_write_config), global);
+    
+    xfce_panel_plugin_menu_show_configure (plugin);
+    g_signal_connect (plugin, "configure-plugin", G_CALLBACK (monitor_create_options), global);
+    
+    g_signal_connect (plugin, "size-changed", G_CALLBACK (monitor_set_size), global);
+    
+    g_signal_connect (plugin, "orientation-changed", G_CALLBACK (monitor_set_orientation), global);
+    
+    gtk_container_add(GTK_CONTAINER(plugin), global->ebox);
+	
+    run_update( global );
 }
+
+XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (netload_construct);

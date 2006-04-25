@@ -1,4 +1,4 @@
-/* $Id: linux.c,v 1.5 2005/05/17 18:42:52 bwalle Exp $ */
+/* $Id$ */
 
 #include "linux.h"
 

@@ -1,32 +1,50 @@
-plugindir = @XFCE4_PANEL_PLUGINSDIR@
+plugindir = $(libexecdir)/xfce4/panel-plugins
+plugin_PROGRAMS = xfce4-netload-plugin
+
 LIBS = @LIBS@ @SOLLIBS@
 
-EXTRA_DIST =								    \
-	wormulon commandline.c
+xfce4_netload_plugin_SOURCES =						\
+	netload.c							\
+	utils.c                                     			\
+	utils.h                                     			\
+	net.h								\
+	net.c                                       			\
+	os.h                                        			\
+	wormulon.h			                                \
+	global.h                                    			\
+	slurm.h
 
-plugin_LTLIBRARIES =							\
-	libnetload.la
+xfce4_netload_plugin_CFLAGS =						\
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
+	@LIBXFCE4PANEL_CFLAGS@
 
-libnetload_la_LDFLAGS =							\
-	-avoid-version							    \
-	-export-dynamic							    \
-	-module
+xfce4_netload_plugin_LDFLAGS =						\
+	@SOLLIBS@                                   			\
+	@LIBXFCE4PANEL_LIBS@
 
-libnetload_la_SOURCES =							\
-	netload.c							        \
-    utils.c                                     \
-    utils.h                                     \
-	net.h								        \
-	net.c                                       \
-    os.h                                        \
-    wormulon.h                                  \
-    global.h                                    \
-    slurm.h                                     
+# .desktop file
+#
+# Some automake trickery here. Because we cannot use $(libexecdir) in the
+# automake stage, we'll use sed to get the full path into the .desktop file.
+# We also need to let intltool merge the translated fields, so we add an
+# additional level of indirection: a <name>.desktop.in.in file.
+# 
+desktop_in_in_files = netload.desktop.in.in
+desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
+	
+desktopdir = $(datadir)/xfce4/panel-plugins
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
 
-libnetload_la_CFLAGS =							\
-	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"		\
-	@XFCE4_PANEL_CFLAGS@
+EXTRA_DIST = 								\
+	wormulon commandline.c						\
+	$(desktop_in_in_files)
 
-libnetload_la_LIBADD = 							\
-    @SOLLIBS@                                   \
-	@XFCE4_PANEL_LIBS@
+DISTCLEANFILES =							\
+	$(desktop_DATA) $(desktop_in_files)
+	
+# get full path into .desktop file
+%.desktop.in: %.desktop.in.in
+	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
+		$< > $@
+

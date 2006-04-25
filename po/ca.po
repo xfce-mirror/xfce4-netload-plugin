@@ -1,43 +1,41 @@
-# xfce4-netload-plugin for the Xfce desktop environment, Catalan
+# xfce4-netload-plugin for the Xfce desktop environment, catalan
 # translation.
-# Copyright (C) 2003-2005 Bernhard Walle.
-# This file is distributed under the same license as the
-#   xfce4-netload-plugin package.
-# Toni Vall <tests@tiscali.esg>, 2004.
-# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2003-2005.
+# Copyright (C) 2003, 2004 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the 
+# xfce4-netload-plugin package.
+# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2003, 2004.
+# Toni Vall <tests@tiscali.esg>,, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-netload-plugin 0.3.3\n"
+"Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-04 18:43+0900\n"
-"PO-Revision-Date: 2006-04-17 21:18+0100\n"
+"POT-Creation-Date: 2005-02-04 19:20+0100\n"
+"PO-Revision-Date: 2004-06-27 12:52+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
-"Language-Team: Catalan <ca@dodds.net>\n"
+"Language-Team: catal <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
-#: panel-plugin/netload.c:62
+#: panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-Netload-Plugin"
 
-#: panel-plugin/netload.c:65
+#: panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Error desconegut."
 
-#: panel-plugin/netload.c:66
+#: panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "No s'ha trobat el dispositiu linux «/proc/net/dev»."
 
-#: panel-plugin/netload.c:67
+#: panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "No s'ha trobat la interfície."
 
-#: panel-plugin/netload.c:224
-#, c-format
+#: panel-plugin/netload.c:223
+#, fuzzy, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
@@ -45,17 +43,16 @@ msgid ""
 "Outgoing: %s kByte/s\n"
 "Total: %s kByte/s"
 msgstr ""
-"«%s» (%s)\n"
 "Mitjana dels %d últims mesuraments:\n"
 "Entrada: %s kBytes/s\n"
 "Sortida: %s kBytes/s\n"
 "Total: %s kBytes/s"
 
-#: panel-plugin/netload.c:226
+#: panel-plugin/netload.c:225
 msgid "no IP address"
-msgstr "Cap adreça IP"
+msgstr ""
 
-#: panel-plugin/netload.c:543
+#: panel-plugin/netload.c:537
 #, c-format
 msgid ""
 "%s: Error in initalizing:\n"
@@ -64,50 +61,50 @@ msgstr ""
 "%s: Error d'inicialització:\n"
 "%s"
 
-#: panel-plugin/netload.c:886
+#: panel-plugin/netload.c:897
 msgid "Select color"
 msgstr "Seleccioneu el color"
 
-#: panel-plugin/netload.c:942
+#: panel-plugin/netload.c:955
 msgid "Bar color (incoming):"
 msgstr "Color de la barra (entrada):"
 
-#: panel-plugin/netload.c:943
+#: panel-plugin/netload.c:956
 msgid "Bar color (outgoing):"
 msgstr "Color de la barra (sortida):"
 
-#: panel-plugin/netload.c:946
+#: panel-plugin/netload.c:959
 msgid "Maximum (incoming):"
 msgstr "Màxim (entrada):"
 
-#: panel-plugin/netload.c:947
+#: panel-plugin/netload.c:960
 msgid "Maximum (outgoing):"
 msgstr "Màxim (sortida):"
 
-#: panel-plugin/netload.c:971
+#: panel-plugin/netload.c:984
 msgid "Text to display:"
 msgstr "Text a mostrar:"
 
-#: panel-plugin/netload.c:1002
+#: panel-plugin/netload.c:1015
 msgid "Network device:"
 msgstr "Dispositiu de xarxa:"
 
-#: panel-plugin/netload.c:1028
+#: panel-plugin/netload.c:1041
 msgid "Update interval:"
 msgstr "Interval d'actualització:"
 
-#: panel-plugin/netload.c:1039
+#: panel-plugin/netload.c:1052
 msgid "s"
 msgstr "s"
 
-#: panel-plugin/netload.c:1052
+#: panel-plugin/netload.c:1065
 msgid "Automatic maximum"
 msgstr "Màxim automàtic"
 
-#: panel-plugin/netload.c:1084
+#: panel-plugin/netload.c:1097
 msgid "kByte/s"
 msgstr "kBytes/s"
 
-#: panel-plugin/netload.c:1173
+#: panel-plugin/netload.c:1186
 msgid "Netload"
 msgstr "Càrrega de xarxa"

@@ -1,5 +1,5 @@
 /*
- * Id: $Id: utils.c,v 1.3 2005/02/04 18:12:01 bwalle Exp $
+ * Id: $Id$
  * -------------------------------------------------------------------------------------------------
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms of the 
