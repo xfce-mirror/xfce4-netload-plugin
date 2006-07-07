@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-04 18:43+0900\n"
-"PO-Revision-Date: 2006-02-11 17:50+0100\n"
+"PO-Revision-Date: 2006-07-08 01:09+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team:  <hu>\n"
 "MIME-Version: 1.0\n"
@@ -90,7 +90,7 @@ msgstr "Frissítési időköz:"
 
 #: panel-plugin/netload.c:1039
 msgid "s"
-msgstr "s"
+msgstr "mp"
 
 #: panel-plugin/netload.c:1052
 msgid "Automatic maximum"
@@ -98,8 +98,9 @@ msgstr "Automata maximum"
 
 #: panel-plugin/netload.c:1084
 msgid "kByte/s"
-msgstr "kByte/s"
+msgstr "kByte/mp"
 
 #: panel-plugin/netload.c:1173
 msgid "Netload"
 msgstr "Forgalom"
+
