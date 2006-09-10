@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin 0.3.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-24 21:50+0900\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2005-10-24 22:05+0900\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale.org <librezale@librezale.org>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.10.2\n"
 
-#: panel-plugin/netload.c:62
+#: ../panel-plugin/netload.c:57
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-SareKarga-Plugin-a"
 
-#: panel-plugin/netload.c:65
+#: ../panel-plugin/netload.c:60
 msgid "Unknown error."
 msgstr "Errore Ezezaguna."
 
-#: panel-plugin/netload.c:66
+#: ../panel-plugin/netload.c:61
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Ez da '/proc/net/dev' Linux proc gailua aurkitu."
 
-#: panel-plugin/netload.c:67
+#: ../panel-plugin/netload.c:62
 msgid "Interface was not found."
 msgstr "Ez da interfazea aurkitu."
 
-#: panel-plugin/netload.c:224
+#: ../panel-plugin/netload.c:218
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -48,11 +48,11 @@ msgstr ""
 "Irteera: %s kByte/s\n"
 "Guztira: %s kByte/s"
 
-#: panel-plugin/netload.c:226
+#: ../panel-plugin/netload.c:220
 msgid "no IP address"
 msgstr "ez dago IP helbiderik"
 
-#: panel-plugin/netload.c:543
+#: ../panel-plugin/netload.c:458
 #, c-format
 msgid ""
 "%s: Error in initalizing:\n"
@@ -61,50 +61,62 @@ msgstr ""
 "%s: Errorea abiaraztean:\n"
 "%s"
 
-#: panel-plugin/netload.c:886
+#: ../panel-plugin/netload.c:763
 msgid "Select color"
 msgstr "Hautatu kolorea"
 
-#: panel-plugin/netload.c:942
+#: ../panel-plugin/netload.c:829
 msgid "Bar color (incoming):"
 msgstr "Barra kolorea (sarrera):"
 
-#: panel-plugin/netload.c:943
+#: ../panel-plugin/netload.c:830
 msgid "Bar color (outgoing):"
 msgstr "Barra kolorea (irteera):"
 
-#: panel-plugin/netload.c:946
+#: ../panel-plugin/netload.c:833
 msgid "Maximum (incoming):"
 msgstr "Gehienezkoa (sarrera):"
 
-#: panel-plugin/netload.c:947
+#: ../panel-plugin/netload.c:834
 msgid "Maximum (outgoing):"
 msgstr "Gehienezkoa (irteera):"
 
-#: panel-plugin/netload.c:971
+#: ../panel-plugin/netload.c:839
+msgid "Edit Properties"
+msgstr ""
+
+#: ../panel-plugin/netload.c:853 ../panel-plugin/netload.desktop.in.in.h:1
+#, fuzzy
+msgid "Network Monitor"
+msgstr "Sare gailua:"
+
+#: ../panel-plugin/netload.c:877
 msgid "Text to display:"
 msgstr "Bistaratzeko Testua:"
 
-#: panel-plugin/netload.c:1002
+#: ../panel-plugin/netload.c:908
 msgid "Network device:"
 msgstr "Sare gailua:"
 
-#: panel-plugin/netload.c:1028
+#: ../panel-plugin/netload.c:934
 msgid "Update interval:"
 msgstr "Eguneratze epea:"
 
-#: panel-plugin/netload.c:1039
+#: ../panel-plugin/netload.c:945
 msgid "s"
 msgstr "s"
 
-#: panel-plugin/netload.c:1052
+#: ../panel-plugin/netload.c:958
 msgid "Automatic maximum"
 msgstr "Gehienezko automatikoa"
 
-#: panel-plugin/netload.c:1084
+#: ../panel-plugin/netload.c:990
 msgid "kByte/s"
 msgstr "kByte/s"
 
-#: panel-plugin/netload.c:1173
-msgid "Netload"
-msgstr "SareKarga"
+#: ../panel-plugin/netload.desktop.in.in.h:2
+msgid "Show network traffic"
+msgstr ""
+
+#~ msgid "Netload"
+#~ msgstr "SareKarga"
