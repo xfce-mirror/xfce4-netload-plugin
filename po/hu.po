@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-07-08 01:09+0100\n"
+"PO-Revision-Date: 2006-09-12 08:14+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team:  <hu>\n"
 "MIME-Version: 1.0\n"
@@ -78,12 +78,12 @@ msgstr "Maximum (kimenő):"
 
 #: ../panel-plugin/netload.c:839
 msgid "Edit Properties"
-msgstr ""
+msgstr "Tulajdonságok szerkesztése"
 
-#: ../panel-plugin/netload.c:853 ../panel-plugin/netload.desktop.in.in.h:1
-#, fuzzy
+#: ../panel-plugin/netload.c:853
+#: ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
-msgstr "Hálózati eszköz:"
+msgstr "Hálózati figyelő"
 
 #: ../panel-plugin/netload.c:877
 msgid "Text to display:"
@@ -111,7 +111,8 @@ msgstr "kByte/mp"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr ""
+msgstr "Hálózati forgalom mutatása"
 
 #~ msgid "Netload"
 #~ msgstr "Forgalom"
+
