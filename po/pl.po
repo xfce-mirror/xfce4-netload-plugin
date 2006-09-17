@@ -79,12 +79,11 @@ msgstr "Maksimum (wychodzące):"
 
 #: ../panel-plugin/netload.c:839
 msgid "Edit Properties"
-msgstr ""
+msgstr "Edytuj Właściwości"
 
 #: ../panel-plugin/netload.c:853 ../panel-plugin/netload.desktop.in.in.h:1
-#, fuzzy
 msgid "Network Monitor"
-msgstr "Urządzenie sieciowe:"
+msgstr "Monitor Sieci:"
 
 #: ../panel-plugin/netload.c:877
 msgid "Text to display:"
@@ -112,7 +111,7 @@ msgstr "kB/s"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr ""
+msgstr "Pokaż ruch w sieci"
 
 #~ msgid "Netload"
 #~ msgstr "Obciążenie sieci"
