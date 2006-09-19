@@ -83,12 +83,11 @@ msgstr "Gehienezkoa (irteera):"
 
 #: ../panel-plugin/netload.c:839
 msgid "Edit Properties"
-msgstr ""
+msgstr "Propietateak editatu"
 
 #: ../panel-plugin/netload.c:853 ../panel-plugin/netload.desktop.in.in.h:1
-#, fuzzy
 msgid "Network Monitor"
-msgstr "Sare gailua:"
+msgstr "Sare Monitorea"
 
 #: ../panel-plugin/netload.c:877
 msgid "Text to display:"
@@ -116,7 +115,7 @@ msgstr "kByte/s"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr ""
+msgstr "Sare trafikoa ikusi"
 
 #~ msgid "Netload"
 #~ msgstr "SareKarga"
