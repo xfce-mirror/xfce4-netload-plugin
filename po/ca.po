@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2004-06-27 12:52+0100\n"
+"PO-Revision-Date: 2006-09-20 13:34+0200\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: catal <ca@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgid "Interface was not found."
 msgstr "No s'ha trobat la interfície."
 
 #: ../panel-plugin/netload.c:218
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
@@ -43,6 +43,7 @@ msgid ""
 "Outgoing: %s kByte/s\n"
 "Total: %s kByte/s"
 msgstr ""
+"«%s» (%s)\n"
 "Mitjana dels %d últims mesuraments:\n"
 "Entrada: %s kBytes/s\n"
 "Sortida: %s kBytes/s\n"
@@ -50,7 +51,7 @@ msgstr ""
 
 #: ../panel-plugin/netload.c:220
 msgid "no IP address"
-msgstr ""
+msgstr "No hi ha adreça IP"
 
 #: ../panel-plugin/netload.c:458
 #, c-format
@@ -83,12 +84,11 @@ msgstr "Màxim (sortida):"
 
 #: ../panel-plugin/netload.c:839
 msgid "Edit Properties"
-msgstr ""
+msgstr "Edita les propietats"
 
 #: ../panel-plugin/netload.c:853 ../panel-plugin/netload.desktop.in.in.h:1
-#, fuzzy
 msgid "Network Monitor"
-msgstr "Dispositiu de xarxa:"
+msgstr "Monitoritza la xarxa"
 
 #: ../panel-plugin/netload.c:877
 msgid "Text to display:"
@@ -116,7 +116,4 @@ msgstr "kBytes/s"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr ""
-
-#~ msgid "Netload"
-#~ msgstr "Càrrega de xarxa"
+msgstr "Mostra el tràfic de xarxa"
