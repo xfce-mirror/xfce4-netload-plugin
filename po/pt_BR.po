@@ -1,14 +1,14 @@
 # Brazilian portuguese translations for xfce4-netload-plugin package.
 # Copyright (C) 2005 Adriano Winter Bess
 # This file is distributed under the same license as the xfce4-netload-plugin package.
-# Adriano Winter Bess <awbess@gmail.com>, 2005
+# Adriano Winter Bess <awbess@gmail.com>, 2005,2006
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin 0.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2005-11-01 20:55-0200\n"
+"PO-Revision-Date: 2006-10-22 15:35-0200\n"
 "Last-Translator: Adriano Winter Bess <awbess@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -81,12 +81,11 @@ msgstr "Máximo (saída):"
 
 #: ../panel-plugin/netload.c:839
 msgid "Edit Properties"
-msgstr ""
+msgstr "Editar Propriedades"
 
 #: ../panel-plugin/netload.c:853 ../panel-plugin/netload.desktop.in.in.h:1
-#, fuzzy
 msgid "Network Monitor"
-msgstr "Dispositivo de rede:"
+msgstr "Monitor da Rede"
 
 #: ../panel-plugin/netload.c:877
 msgid "Text to display:"
@@ -114,7 +113,5 @@ msgstr "kByte/s"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr ""
+msgstr "Mostra o tráfego de rede"
 
-#~ msgid "Netload"
-#~ msgstr "Tráfego de rede"
