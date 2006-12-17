@@ -62,7 +62,7 @@ typedef struct
 #ifdef __HPUX__
     int             wait_pcks_counter;
     nmapi_logstat*  if_ptr;
-#elif __FreeBSD__
+#elif __FreeBSD__ || __DragonFly__
     int             watchif;
     int             dev_opened;
 #elif __NetBSD__
