@@ -1,3 +1,10 @@
+2006-12-18 Bernhard Walle
+
+	* added code for DragonFly BSD, thanks to Bob Bagwill <bob@bagwill.com>
+	  (fixed #1456)
+	* Not reporting errors if the interface has no IP address yet,
+	  thanks to Mathy Vanvoorden <matje@lanzone.be> (fixed #1158)
+
 2005-08-21 Bernhard Walle
 	* Fixed memory leak (thanks to Brian J. Tarricone)
 	* Custom bar colors now also work with special Gtk theme engine where

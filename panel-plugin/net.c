@@ -84,6 +84,8 @@ int init_netload(netdata* data, const char* device)
     
     data->ip_address[0] = 0;
     data->ip_update_count = 0;
+    data->up = FALSE;
+    data->up_update_count = 0;
     
     if (checkinterface(data) != TRUE)
 	{
@@ -168,6 +170,43 @@ char* get_name(netdata* data)
 
 
 /* ---------------------------------------------------------------------------------------------- */
+int get_interface_up(netdata* data)
+{
+    int sockfd;
+    struct ifreq ifr;
+    struct sockaddr_in *p_sa;
+        
+    /* if the update count is non-zero */ 
+    if (data->up_update_count > 0)
+    {
+        data->up_update_count--;
+        return data->up;
+    }
+
+    /* get the value from the operating system */
+    if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
+    {
+        PRINT_DBG("Error in socket: %s", strerror(errno));
+        return FALSE;
+    }
+    
+    snprintf(ifr.ifr_name, IF_NAMESIZE, data->ifdata.if_name);
+    if (ioctl(sockfd, SIOCGIFFLAGS, &ifr) != 0)
+    {
+        PRINT_DBG("Error in ioctl(sockfd): %s", strerror(errno));
+        close(sockfd);
+        return FALSE;
+    }
+    close(sockfd);
+
+    data->up = ((ifr.ifr_flags & IFF_UP) == IFF_UP) ? TRUE : FALSE;
+    data->up_update_count = UP_UPDATE_INTERVAL;
+
+    return data->up;
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
 char* get_ip_address(netdata* data)
 {
     int sockfd;
@@ -191,8 +230,11 @@ char* get_ip_address(netdata* data)
     snprintf(ifr.ifr_name, IF_NAMESIZE, data->ifdata.if_name);
     if (ioctl(sockfd, SIOCGIFADDR, &ifr) != 0)
     {
+	    if (errno != EADDRNOTAVAIL)
+        {
+            PRINT_DBG("Error in ioctl(sockfd): %s", strerror(errno));
+        }
         close(sockfd);
-        PRINT_DBG("Error in ictl(sockfd): %s", strerror(errno));
         return NULL;
     }
     close(sockfd);

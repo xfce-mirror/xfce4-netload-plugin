@@ -138,6 +138,16 @@ static gboolean update_monitors(t_global_monitor *global)
     double temp;
     gint i, j;
 
+    if (!get_interface_up(&(global->monitor->data)))
+    {
+        g_snprintf(caption, sizeof(caption), 
+                _("<< %s >> (Interface down)"),
+                    get_name(&(global->monitor->data)));
+        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->ebox), caption, NULL);
+
+        return TRUE;
+    }
+
     get_current_netload( &(global->monitor->data), &(net[IN]), &(net[OUT]), &(net[TOT]) );
     
 
