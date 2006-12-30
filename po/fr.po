@@ -86,7 +86,7 @@ msgstr "Éditer les propriétés"
 #: ../panel-plugin/netload.c:853
 #: ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
-msgstr "Moniteur réseau :"
+msgstr "Moniteur réseau"
 
 #: ../panel-plugin/netload.c:877
 msgid "Text to display:"
