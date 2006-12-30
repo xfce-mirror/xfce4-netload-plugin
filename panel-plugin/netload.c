@@ -605,12 +605,12 @@ static gboolean monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_mon
         if (xfce_panel_plugin_get_orientation (plugin) == GTK_ORIENTATION_HORIZONTAL)
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]),
-                    BORDER, size - 4);
+                    BORDER, size - BORDER);
         }
         else
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]),
-                    size - 4, BORDER);
+                    size - BORDER, BORDER);
         }
     }
     PRINT_DBG("monitor_set_size");

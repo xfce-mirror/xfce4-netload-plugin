@@ -1,3 +1,8 @@
+2006-12-30 Mike Massonnet
+
+	* panel-plugin/netload.c(monitor_set_size): avoid the plugin to enlarge
+	  the panel.
+
 2006-12-18 Bernhard Walle
 
 	* added code for DragonFly BSD, thanks to Bob Bagwill <bob@bagwill.com>
