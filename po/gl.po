@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.01\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2007-01-05 02:01+0100\n"
 "PO-Revision-Date: 2006-08-21 16:48+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <trasno@trasno.net>\n"
@@ -31,7 +31,12 @@ msgstr "Non se atopou o dispositivo no proc de Linux '/proc/net/dev'."
 msgid "Interface was not found."
 msgstr "Non se atopou a interface."
 
-#: ../panel-plugin/netload.c:218
+#: ../panel-plugin/netload.c:144
+#, c-format
+msgid "<< %s >> (Interface down)"
+msgstr ""
+
+#: ../panel-plugin/netload.c:228
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -41,11 +46,11 @@ msgid ""
 "Total: %s kByte/s"
 msgstr ""
 
-#: ../panel-plugin/netload.c:220
+#: ../panel-plugin/netload.c:230
 msgid "no IP address"
 msgstr "sen enderezo IP"
 
-#: ../panel-plugin/netload.c:458
+#: ../panel-plugin/netload.c:468
 #, c-format
 msgid ""
 "%s: Error in initalizing:\n"
@@ -54,56 +59,52 @@ msgstr ""
 "%s: Erro ó inicializar:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:763
+#: ../panel-plugin/netload.c:773
 msgid "Select color"
 msgstr "Seleccionar cor"
 
-#: ../panel-plugin/netload.c:829
+#: ../panel-plugin/netload.c:839
 msgid "Bar color (incoming):"
 msgstr ""
 
-#: ../panel-plugin/netload.c:830
+#: ../panel-plugin/netload.c:840
 msgid "Bar color (outgoing):"
 msgstr ""
 
-#: ../panel-plugin/netload.c:833
+#: ../panel-plugin/netload.c:843
 msgid "Maximum (incoming):"
 msgstr ""
 
-#: ../panel-plugin/netload.c:834
+#: ../panel-plugin/netload.c:844
 msgid "Maximum (outgoing):"
 msgstr ""
 
-#: ../panel-plugin/netload.c:839
-msgid "Edit Properties"
-msgstr ""
-
-#: ../panel-plugin/netload.c:853 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:849 ../panel-plugin/netload.desktop.in.in.h:1
 #, fuzzy
 msgid "Network Monitor"
 msgstr "Dispositivo de rede:"
 
-#: ../panel-plugin/netload.c:877
+#: ../panel-plugin/netload.c:878
 msgid "Text to display:"
 msgstr ""
 
-#: ../panel-plugin/netload.c:908
+#: ../panel-plugin/netload.c:909
 msgid "Network device:"
 msgstr "Dispositivo de rede:"
 
-#: ../panel-plugin/netload.c:934
+#: ../panel-plugin/netload.c:935
 msgid "Update interval:"
 msgstr "Intervalo de actualización:"
 
-#: ../panel-plugin/netload.c:945
+#: ../panel-plugin/netload.c:946
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:958
+#: ../panel-plugin/netload.c:959
 msgid "Automatic maximum"
 msgstr ""
 
-#: ../panel-plugin/netload.c:990
+#: ../panel-plugin/netload.c:991
 msgid "kByte/s"
 msgstr "kByte/s"
 

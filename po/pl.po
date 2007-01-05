@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce-netload 2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2007-01-05 02:01+0100\n"
 "PO-Revision-Date: 2003-10-19 10:34+0200\n"
 "Last-Translator: Piotr Maliński <riklaunim@gmail.com>\n"
 "Language-Team: pl <LL@li.org>\n"
@@ -29,7 +29,12 @@ msgstr "Nie znaleziono urządzenia '/proc/net/dev'."
 msgid "Interface was not found."
 msgstr "Interfejs nie został odnaleziony."
 
-#: ../panel-plugin/netload.c:218
+#: ../panel-plugin/netload.c:144
+#, c-format
+msgid "<< %s >> (Interface down)"
+msgstr ""
+
+#: ../panel-plugin/netload.c:228
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -44,11 +49,11 @@ msgstr ""
 "Wychodzące: %s kB/s\n"
 "Łącznie: %s kB/s"
 
-#: ../panel-plugin/netload.c:220
+#: ../panel-plugin/netload.c:230
 msgid "no IP address"
 msgstr "brak adresu IP"
 
-#: ../panel-plugin/netload.c:458
+#: ../panel-plugin/netload.c:468
 #, c-format
 msgid ""
 "%s: Error in initalizing:\n"
@@ -57,61 +62,60 @@ msgstr ""
 "%s: Błąd inicjalizacji:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:763
+#: ../panel-plugin/netload.c:773
 msgid "Select color"
 msgstr "Wybierz kolor"
 
-#: ../panel-plugin/netload.c:829
+#: ../panel-plugin/netload.c:839
 msgid "Bar color (incoming):"
 msgstr "Kolor słupka (przychodzące):"
 
-#: ../panel-plugin/netload.c:830
+#: ../panel-plugin/netload.c:840
 msgid "Bar color (outgoing):"
 msgstr "Kolor słupka (wychodzące):"
 
-#: ../panel-plugin/netload.c:833
+#: ../panel-plugin/netload.c:843
 msgid "Maximum (incoming):"
 msgstr "Maksimum (przychodzące):"
 
-#: ../panel-plugin/netload.c:834
+#: ../panel-plugin/netload.c:844
 msgid "Maximum (outgoing):"
 msgstr "Maksimum (wychodzące):"
 
-#: ../panel-plugin/netload.c:839
-msgid "Edit Properties"
-msgstr "Edytuj Właściwości"
-
-#: ../panel-plugin/netload.c:853 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:849 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Monitor Sieci:"
 
-#: ../panel-plugin/netload.c:877
+#: ../panel-plugin/netload.c:878
 msgid "Text to display:"
 msgstr "Tekst do wyświetlenia:"
 
-#: ../panel-plugin/netload.c:908
+#: ../panel-plugin/netload.c:909
 msgid "Network device:"
 msgstr "Urządzenie sieciowe:"
 
-#: ../panel-plugin/netload.c:934
+#: ../panel-plugin/netload.c:935
 msgid "Update interval:"
 msgstr "Interwał odświeżania:"
 
-#: ../panel-plugin/netload.c:945
+#: ../panel-plugin/netload.c:946
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:958
+#: ../panel-plugin/netload.c:959
 msgid "Automatic maximum"
 msgstr "Automatyczne maksimum"
 
-#: ../panel-plugin/netload.c:990
+#: ../panel-plugin/netload.c:991
 msgid "kByte/s"
 msgstr "kB/s"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
 msgstr "Pokaż ruch w sieci"
+
+#~ msgid "Edit Properties"
+#~ msgstr "Edytuj Właściwości"
 
 #~ msgid "Netload"
 #~ msgstr "Obciążenie sieci"

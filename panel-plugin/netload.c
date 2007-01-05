@@ -846,25 +846,16 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     
     xfce_panel_plugin_block_menu (plugin);
     
-    dlg = gtk_dialog_new_with_buttons (_("Edit Properties"), 
-                GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
-                GTK_DIALOG_DESTROY_WITH_PARENT |
-                GTK_DIALOG_NO_SEPARATOR,
-                GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
-                NULL);
+    dlg = xfce_titled_dialog_new_with_buttons (_("Network Monitor"), NULL,
+                                               GTK_DIALOG_NO_SEPARATOR,
+                                               GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
+                                               NULL);
     
+    gtk_window_set_icon_name (GTK_WINDOW (dlg), "xfce4-settings");
     g_signal_connect (dlg, "response", G_CALLBACK (monitor_dialog_response),
                       global);
 
-    gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
-    
     global->opt_dialog = dlg;
-    
-    header = xfce_create_header (NULL, _("Network Monitor"));
-    gtk_widget_set_size_request (GTK_BIN (header)->child, -1, 32);
-    gtk_container_set_border_width (GTK_CONTAINER (header), BORDER - 2);
-    gtk_widget_show (header);
-    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), header, FALSE, TRUE, 0);
     
     global_vbox = GTK_BOX (gtk_vbox_new(FALSE, BORDER));
     gtk_container_set_border_width (GTK_CONTAINER (global_vbox), BORDER - 2);
