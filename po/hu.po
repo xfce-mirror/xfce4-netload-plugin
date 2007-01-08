@@ -3,13 +3,12 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-09-12 08:14+0100\n"
+"PO-Revision-Date: 2007-01-08 09:12+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team:  <hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
 #: ../panel-plugin/netload.c:57
@@ -22,11 +21,11 @@ msgstr "Ismeretlen hiba"
 
 #: ../panel-plugin/netload.c:61
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "/proc/net/dev nem található"
+msgstr "A '/proc/net/dev' eszköz nem található."
 
 #: ../panel-plugin/netload.c:62
 msgid "Interface was not found."
-msgstr "Nem leltem csatolót"
+msgstr "Nem leltem csatolót."
 
 #: ../panel-plugin/netload.c:218
 #, c-format
@@ -39,9 +38,9 @@ msgid ""
 msgstr ""
 "<< %s >> (%s)\n"
 "Elmúlt %d mérés átlaga:\n"
-"Bejövő: %s kByte/s\n"
-"Kimenő: %s kByte/s\n"
-"Össz: %s kByte/s"
+"Bejövő: %s kBájt/s\n"
+"Kimenő: %s kBájt/s\n"
+"Összes: %s kBájt/s"
 
 #: ../panel-plugin/netload.c:220
 msgid "no IP address"
@@ -107,7 +106,7 @@ msgstr "Automata maximum"
 
 #: ../panel-plugin/netload.c:990
 msgid "kByte/s"
-msgstr "kByte/mp"
+msgstr "kBájt/mp"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
