@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-netload-plugin 0.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-05 02:01+0100\n"
-"PO-Revision-Date: 2006-08-27 01:24+0100\n"
+"PO-Revision-Date: 2007-01-08 00:55+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgstr "Rozhraní nebylo nalezeno."
 #: ../panel-plugin/netload.c:144
 #, c-format
 msgid "<< %s >> (Interface down)"
-msgstr ""
+msgstr "<< %s >> (Zařízení neběží)"
 
 #: ../panel-plugin/netload.c:228
 #, c-format
@@ -85,7 +85,8 @@ msgstr "Maximum (příchozí):"
 msgid "Maximum (outgoing):"
 msgstr "Maximum (odchozí):"
 
-#: ../panel-plugin/netload.c:849 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:849
+#: ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Sledování sítě"
 
@@ -119,3 +120,4 @@ msgstr "Zobrazuje provoz sítě"
 
 #~ msgid "Edit Properties"
 #~ msgstr "Upravit vlastnosti"
+
