@@ -32,7 +32,7 @@ msgstr "Interfejs nie został odnaleziony."
 #: ../panel-plugin/netload.c:144
 #, c-format
 msgid "<< %s >> (Interface down)"
-msgstr ""
+msgstr "<< %s >> (Interfejs wyłączony)"
 
 #: ../panel-plugin/netload.c:228
 #, c-format
