@@ -3,10 +3,11 @@
 # This file is distributed under the same license 
 # as the xfce4-netload-plugin package.
 # Antono Vasiljev <antono.vasiljev@gmail.com>, 2006
+# Sylvain Vedrenne <gnu_sylvain@xfce.org>, 2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-netload-plugin 0.4.0\n"
+"Project-Id-Version: xfce4-netload-plugin 0.2.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 01:36+0200\n"
 "PO-Revision-Date: 2006-09-23 03:23+0300\n"
@@ -34,7 +35,12 @@ msgstr "Linuksa disponaĵo '/proc/net/dev' ne estas trovita."
 msgid "Interface was not found."
 msgstr "Interfaco ne estas trovita."
 
-#: ../panel-plugin/netload.c:218
+#: ../panel-plugin/netload.c:144
+#, c-format
+msgid "<< %s >> (Interface down)"
+msgstr "<< %s >> (interface inactive)"
+
+#: ../panel-plugin/netload.c:228
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -44,16 +50,16 @@ msgid ""
 "Total: %s kByte/s"
 msgstr ""
 "<< %s >> (%s)\n"
-"Mezonombro de lastaj %d mezuroj:\n"
+"Mezonombro de lastaj %d mezuroj :\n"
 "Eniranta: %s kilobitokoj\n"
 "Eliranta: %s kilobitokoj\n"
 "Entute: %s kilobitoko(j)"
 
-#: ../panel-plugin/netload.c:220
+#: ../panel-plugin/netload.c:230
 msgid "no IP address"
 msgstr "mankas IP adreso"
 
-#: ../panel-plugin/netload.c:458
+#: ../panel-plugin/netload.c:468
 #, c-format
 msgid ""
 "%s: Error in initalizing:\n"
@@ -62,56 +68,52 @@ msgstr ""
 "%s: Eraro dum lanĉo:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:763
+#: ../panel-plugin/netload.c:773
 msgid "Select color"
 msgstr "Elektu koloron"
 
-#: ../panel-plugin/netload.c:829
+#: ../panel-plugin/netload.c:839
 msgid "Bar color (incoming):"
 msgstr "Koloro de mezurilo (eniranta):"
 
-#: ../panel-plugin/netload.c:830
+#: ../panel-plugin/netload.c:840
 msgid "Bar color (outgoing):"
 msgstr "Koloro de mezurilo (eliranta):"
 
-#: ../panel-plugin/netload.c:833
+#: ../panel-plugin/netload.c:843
 msgid "Maximum (incoming):"
 msgstr "Maksimumo (eniranta):"
 
-#: ../panel-plugin/netload.c:834
+#: ../panel-plugin/netload.c:844
 msgid "Maximum (outgoing):"
-msgstr "Maksimumo (eliranta):"
+msgstr "Maximum (sortant) :"
 
-#: ../panel-plugin/netload.c:839
-msgid "Edit Properties"
-msgstr "Redaktu agordojn"
-
-#: ../panel-plugin/netload.c:853
+#: ../panel-plugin/netload.c:849
 #: ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Ret-ekrano"
 
-#: ../panel-plugin/netload.c:877
+#: ../panel-plugin/netload.c:878
 msgid "Text to display:"
 msgstr "Teksto por montri:"
 
-#: ../panel-plugin/netload.c:908
+#: ../panel-plugin/netload.c:909
 msgid "Network device:"
 msgstr "Reta disponaĵo:"
 
-#: ../panel-plugin/netload.c:934
+#: ../panel-plugin/netload.c:935
 msgid "Update interval:"
 msgstr "Intervalo de renovigo:"
 
-#: ../panel-plugin/netload.c:945
+#: ../panel-plugin/netload.c:946
 msgid "s"
 msgstr ""
 
-#: ../panel-plugin/netload.c:958
+#: ../panel-plugin/netload.c:959
 msgid "Automatic maximum"
 msgstr "Aŭtomata maksimumo"
 
-#: ../panel-plugin/netload.c:990
+#: ../panel-plugin/netload.c:991
 msgid "kByte/s"
 msgstr "kBitoko(j)"
 
