@@ -1,11 +1,10 @@
-# translation of sq.po to Albanian
-# Besnik Bleta <besnik@programeshqip.org>, 2007.
 # Albanian translation of the xfce4-netload-plugin package.
 # Copyright (C) 2003-2006 Bernhard Walle.
 # This file is distributed under the same license as the xfce4-netload-plugin package.
+# Besnik Bleta <besnik@programeshqip.org>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: sq\n"
+"Project-Id-Version: xfce4-netload-plugin 0.2.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-05 02:01+0100\n"
 "PO-Revision-Date: 2007-01-30 21:18+0200\n"
