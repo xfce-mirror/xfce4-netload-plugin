@@ -1,24 +1,27 @@
-# Uktainian translation of xfce4-netload-plugin.
+# Ukrainian translation of xfce4-netload-plugin
 # Copyright (C) Free Software Foundation
 # This file is distributed under the same license as the xfce4-netload-plugin package.
-# Maxim Dziumanenko <mvd@mylinux.com.ua>, 2003.
 #
-#, fuzzy
+# Maxim Dziumanenko <mvd@mylinux.com.ua>, 2003.
+# Dmitry Nikitin <luckas_fb@mail.ru>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-05 02:01+0100\n"
-"PO-Revision-Date: 2003-10-21 12:13+0200\n"
-"Last-Translator: Maxim Dziumanenko <mvd@mylinux.com.ua>\n"
-"Language-Team: Ukrainian <uk@li.org>\n"
+"POT-Creation-Date: 2007-04-03 17:41+0300\n"
+"PO-Revision-Date: 2007-03-14 16:59+0200\n"
+"Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
+"Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../panel-plugin/netload.c:57
 msgid "Xfce4-Netload-Plugin"
-msgstr "Модуль контролю мережі для Xfce4"
+msgstr "Модуль контролю з'єднаннями мережі для Xfce4"
 
 #: ../panel-plugin/netload.c:60
 msgid "Unknown error."
@@ -35,10 +38,10 @@ msgstr "Інтерфейс не існує."
 #: ../panel-plugin/netload.c:144
 #, c-format
 msgid "<< %s >> (Interface down)"
-msgstr ""
+msgstr "<< %s >> (Інтерфейс відключено)"
 
 #: ../panel-plugin/netload.c:228
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
@@ -46,14 +49,15 @@ msgid ""
 "Outgoing: %s kByte/s\n"
 "Total: %s kByte/s"
 msgstr ""
+"<< %s >> (%s)\n"
 "Середнє значення за останні %d періоди:\n"
-"Трафік на вході: %s кілобайт/с\n"
-"Трафік на виході: %s кілобайт/с\n"
-"Загальний трафік: %s кілобайт/с"
+"Вхідний: %s кБайт/с\n"
+"Вихідний: %s кБайт/с\n"
+"Загалом: %s кБайт/с "
 
 #: ../panel-plugin/netload.c:230
 msgid "no IP address"
-msgstr ""
+msgstr "немає IP адреси"
 
 #: ../panel-plugin/netload.c:468
 #, c-format
@@ -66,28 +70,27 @@ msgstr ""
 
 #: ../panel-plugin/netload.c:773
 msgid "Select color"
-msgstr "Вибір кольору"
+msgstr "Колір індикатора"
 
 #: ../panel-plugin/netload.c:839
 msgid "Bar color (incoming):"
-msgstr "Колір (на вхід):"
+msgstr "Колір (вхідний):"
 
 #: ../panel-plugin/netload.c:840
 msgid "Bar color (outgoing):"
-msgstr "Колір (на вихід):"
+msgstr "Колір (вихідний):"
 
 #: ../panel-plugin/netload.c:843
 msgid "Maximum (incoming):"
-msgstr "Максимум (на вхід):"
+msgstr "Максимум (вхідний):"
 
 #: ../panel-plugin/netload.c:844
 msgid "Maximum (outgoing):"
-msgstr "Максимум (на вихід):"
+msgstr "Максимум (вихідний):"
 
 #: ../panel-plugin/netload.c:849 ../panel-plugin/netload.desktop.in.in.h:1
-#, fuzzy
 msgid "Network Monitor"
-msgstr "Мережевий пристрій:"
+msgstr "Спостереження за мережею"
 
 #: ../panel-plugin/netload.c:878
 msgid "Text to display:"
@@ -111,11 +114,8 @@ msgstr "Автоматичний максимум"
 
 #: ../panel-plugin/netload.c:991
 msgid "kByte/s"
-msgstr "кілобайт/с"
+msgstr "кБайт/с"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr ""
-
-#~ msgid "Netload"
-#~ msgstr "Контроль мережі"
+msgstr "Відображати мережеву активність"
