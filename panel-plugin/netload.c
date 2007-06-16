@@ -311,7 +311,7 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
                        GTK_WIDGET(global->monitor->label),
                        FALSE, FALSE, 0);
 
-    gtk_container_set_border_width(GTK_CONTAINER(global->monitor->box), 4);
+    gtk_container_set_border_width(GTK_CONTAINER(global->monitor->box), 2);
     gtk_widget_show(GTK_WIDGET(global->monitor->box));
 
     for (i = 0; i < SUM; i++)
