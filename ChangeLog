@@ -1,3 +1,7 @@
+2007-06-16  Bernhard Walle
+
+	* size fixes from Rodrigo Castro <rodrigo.castro@mezzano.com.br>
+
 2007-01-05 Mike Massonnet
 
 	* panel-plugin/netload.c(monitor_create_options): use xfce titled 
