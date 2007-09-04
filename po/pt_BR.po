@@ -2,14 +2,15 @@
 # Copyright (C) 2005 Adriano Winter Bess
 # This file is distributed under the same license as the xfce4-netload-plugin package.
 # Adriano Winter Bess <awbess@gmail.com>, 2005,2006.
+# Vladimir Melo <vladimirmelo@foresightlinux.org>, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin 0.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-10-22 15:35-0200\n"
-"Last-Translator: Adriano Winter Bess <awbess@gmail.com>\n"
+"PO-Revision-Date: 2007-09-03 15:35-0400\n"
+"Last-Translator: Vladimir Melo <vladimirmelo@foresightlinux.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -90,7 +91,7 @@ msgstr "Monitor da Rede"
 
 #: ../panel-plugin/netload.c:877
 msgid "Text to display:"
-msgstr "Texto para mostrar:"
+msgstr "Texto para exibir:"
 
 #: ../panel-plugin/netload.c:908
 msgid "Network device:"
