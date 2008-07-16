@@ -73,8 +73,7 @@ msgstr ""
 msgid "Maximum (outgoing):"
 msgstr ""
 
-#: ../panel-plugin/netload.c:849
-#: ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:849 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr ""
 
@@ -105,4 +104,3 @@ msgstr ""
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
 msgstr ""
-
