@@ -1,41 +1,18 @@
 # Spanish translation of xfce4-netload-plugin package.
 # Copyright (C) 2003-2005 Bernhard Walle.
-# This file is distributed under the same license as the
-#   xfce4-netload-plugin package.
+# This file is distributed under the same license as the xfce4-netload-plugin package.
 #
-# Changes:
-# - Initial translation
-#       Rudy Godoy <rudy@kernel-panik.org>, 2005
-#
-#  Traductores, si no conoce el formato PO, merece la pena leer la
-#  documentación de gettext, especialmente las secciones dedicadas a este
-#  formato, por ejemplo ejecutando:
-#         info -n '(gettext)PO Files'
-#         info -n '(gettext)Header Entry'
-#
-# Equipo de traducción al español, por favor lean antes de traducir
-# los siguientes documentos:
-#
-# - El proyecto de traducción de Debian al español
-#   http://www.debian.org/intl/spanish/coordinacion
-#   especialmente las notas de traducción en
-#   http://www.debian.org/intl/spanish/coordinacion
-#   especialmente las notas de traducción en
-#   http://www.debian.org/intl/spanish/notas
-#
-# - La guía de traducción de po's de debconf:
-#   /usr/share/doc/po-debconf/README-trans
-#   o http://www.debian.org/intl/l10n/po-debconf/README-trans
+# Rudy Godoy <rudy@kernel-panik.org>, 2005
+# Abel Martín <abel.martin.ruiz@gmail.com>, 2008
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin 0.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2005-10-24 22:05+0900\n"
-"Last-Translator: Rudy Godoy <rudy@kernel-panik.org>\n"
-"Language-Team: Debian l10n Spanish Team <debian-l10n-spanish@lists.debian."
-"org>\n"
+"PO-Revision-Date: 2008-11-02 22:39+0100\n"
+"Last-Translator: Abel Martín <abel.martin.ruiz@gmail.com>\n"
+"Language-Team: Debian l10n Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,15 +23,15 @@ msgstr "Xfce4-Netload-Plugin"
 
 #: ../panel-plugin/netload.c:60
 msgid "Unknown error."
-msgstr "Fallo desconocido"
+msgstr "Error desconocido."
 
 #: ../panel-plugin/netload.c:61
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "No se ha encontrado dispositivo «/proc/net/dev»."
+msgstr "Dispositivo de proc de Linux '/proc/net/dev' no encontrado."
 
 #: ../panel-plugin/netload.c:62
 msgid "Interface was not found."
-msgstr "No se ha encontrado interfaz."
+msgstr "No se encontró la interfaz."
 
 #: ../panel-plugin/netload.c:218
 #, c-format
@@ -65,7 +42,7 @@ msgid ""
 "Outgoing: %s kByte/s\n"
 "Total: %s kByte/s"
 msgstr ""
-"« %s » (%s)\n"
+"<< %s >> (%s)\n"
 "Promedio de últimas %d mediciones:\n"
 "Entrada: %s kByte/s\n"
 "Salida: %s kByte/s\n"
@@ -86,7 +63,7 @@ msgstr ""
 
 #: ../panel-plugin/netload.c:763
 msgid "Select color"
-msgstr "Elija color"
+msgstr "Seleccionar color"
 
 #: ../panel-plugin/netload.c:829
 msgid "Bar color (incoming):"
@@ -106,12 +83,12 @@ msgstr "Máximo (salida):"
 
 #: ../panel-plugin/netload.c:839
 msgid "Edit Properties"
-msgstr ""
+msgstr "Editar propiedades"
 
-#: ../panel-plugin/netload.c:853 ../panel-plugin/netload.desktop.in.in.h:1
-#, fuzzy
+#: ../panel-plugin/netload.c:853
+#: ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
-msgstr "Dispositivo de red:"
+msgstr "Monitor de red"
 
 #: ../panel-plugin/netload.c:877
 msgid "Text to display:"
@@ -139,7 +116,8 @@ msgstr "kByte/s"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr ""
+msgstr "Mostrar tráfico de red"
 
 #~ msgid "Netload"
 #~ msgstr "Carga de red"
+
