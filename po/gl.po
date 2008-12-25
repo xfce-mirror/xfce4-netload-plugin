@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: 0.01\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-05 02:01+0100\n"
-"PO-Revision-Date: 2008-06-24 19:51+0100\n"
+"PO-Revision-Date: 2008-12-14 16:25+0100\n"
 "Last-Translator: Leandro Regueiro <leandro DOT regueiro AT gmail DOT com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr "Non se atopou a interface."
 #: ../panel-plugin/netload.c:144
 #, c-format
 msgid "<< %s >> (Interface down)"
-msgstr ""
+msgstr "<< %s >> (Interface apagada)"
 
 #: ../panel-plugin/netload.c:228
 #, c-format
@@ -50,6 +50,11 @@ msgid ""
 "Outgoing: %s kByte/s\n"
 "Total: %s kByte/s"
 msgstr ""
+"<< %s >> (%s)\n"
+"Promedio da últimas %d medidas:\n"
+"Entrante: %s kByte/s\n"
+"Saínt: %s kByte/s\n"
+"Total: %s kByte/s"
 
 #: ../panel-plugin/netload.c:230
 msgid "no IP address"
@@ -70,28 +75,28 @@ msgstr "Seleccionar cor"
 
 #: ../panel-plugin/netload.c:839
 msgid "Bar color (incoming):"
-msgstr ""
+msgstr "Cor da barra (entrante):"
 
 #: ../panel-plugin/netload.c:840
 msgid "Bar color (outgoing):"
-msgstr ""
+msgstr "Cor da barra (saínte):"
 
 #: ../panel-plugin/netload.c:843
 msgid "Maximum (incoming):"
-msgstr ""
+msgstr "Máximo (entrante):"
 
 #: ../panel-plugin/netload.c:844
 msgid "Maximum (outgoing):"
-msgstr ""
+msgstr "Máximo (saínte):"
 
 #: ../panel-plugin/netload.c:849
 #: ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
-msgstr "Monitor de Rede"
+msgstr "Monitor de rede"
 
 #: ../panel-plugin/netload.c:878
 msgid "Text to display:"
-msgstr ""
+msgstr "Texto a mostrar:"
 
 #: ../panel-plugin/netload.c:909
 msgid "Network device:"
@@ -107,14 +112,13 @@ msgstr "s"
 
 #: ../panel-plugin/netload.c:959
 msgid "Automatic maximum"
-msgstr ""
+msgstr "Máximo automatico"
 
 #: ../panel-plugin/netload.c:991
 msgid "kByte/s"
 msgstr "kByte/s"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
-#, fuzzy
 msgid "Show network traffic"
 msgstr "Mostrar o tráfico de rede"
 
