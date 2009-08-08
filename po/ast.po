@@ -1,0 +1,124 @@
+# Asturian translation of xfce4-netload-plugin package.
+# Copyright (C) 2003-2005 Bernhard Walle.
+# This file is distributed under the same license as the xfce4-netload-plugin package.
+#
+# Astur <malditoastur@gmail.com>, 2008
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-netload-plugin 0.3.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-05 02:01+0100\n"
+"PO-Revision-Date: 2009-07-13 19:55+0100\n"
+"Last-Translator: Marcos Antonio Alvarez Costales <marcoscostales@gmail.com>\n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/netload.c:57
+msgid "Xfce4-Netload-Plugin"
+msgstr "Xfce4-Netload-Plugin"
+
+#: ../panel-plugin/netload.c:60
+msgid "Unknown error."
+msgstr "Fallu desconocíu."
+
+#: ../panel-plugin/netload.c:61
+msgid "Linux proc device '/proc/net/dev' not found."
+msgstr "Preséu de proc de Linux '/proc/net/dev' non alcontráu."
+
+#: ../panel-plugin/netload.c:62
+msgid "Interface was not found."
+msgstr "Nun s'alcontró la interface."
+
+#: ../panel-plugin/netload.c:144
+#, c-format
+msgid "<< %s >> (Interface down)"
+msgstr ""
+
+#: ../panel-plugin/netload.c:228
+#, c-format
+msgid ""
+"<< %s >> (%s)\n"
+"Average of last %d measures:\n"
+"Incoming: %s kByte/s\n"
+"Outgoing: %s kByte/s\n"
+"Total: %s kByte/s"
+msgstr ""
+"<< %s >> (%s)\n"
+"Promediu de les caberes %d midides:\n"
+"Entrada: %s kByte/s\n"
+"Salida: %s kByte/s\n"
+"Total: %s kByte/s"
+
+#: ../panel-plugin/netload.c:230
+msgid "no IP address"
+msgstr "ensin direición IP"
+
+#: ../panel-plugin/netload.c:468
+#, c-format
+msgid ""
+"%s: Error in initalizing:\n"
+"%s"
+msgstr ""
+"%s: Fallu al anicializar:\n"
+"%s"
+
+#: ../panel-plugin/netload.c:773
+msgid "Select color"
+msgstr "Esbillar color"
+
+#: ../panel-plugin/netload.c:839
+msgid "Bar color (incoming):"
+msgstr "Color de barra (entrada):"
+
+#: ../panel-plugin/netload.c:840
+msgid "Bar color (outgoing):"
+msgstr "Color de barra (salida):"
+
+#: ../panel-plugin/netload.c:843
+msgid "Maximum (incoming):"
+msgstr "Máximu (entrada):"
+
+#: ../panel-plugin/netload.c:844
+msgid "Maximum (outgoing):"
+msgstr "Máximu (salida):"
+
+#: ../panel-plugin/netload.c:849 ../panel-plugin/netload.desktop.in.in.h:1
+msgid "Network Monitor"
+msgstr "Monitor de rede"
+
+#: ../panel-plugin/netload.c:878
+msgid "Text to display:"
+msgstr "Testu a amosar:"
+
+#: ../panel-plugin/netload.c:909
+msgid "Network device:"
+msgstr "Preséu de rede:"
+
+#: ../panel-plugin/netload.c:935
+msgid "Update interval:"
+msgstr "Intervalo d'anovamientu:"
+
+#: ../panel-plugin/netload.c:946
+msgid "s"
+msgstr "s"
+
+#: ../panel-plugin/netload.c:959
+msgid "Automatic maximum"
+msgstr "Máximu automáticu"
+
+#: ../panel-plugin/netload.c:991
+msgid "kByte/s"
+msgstr "kByte/s"
+
+#: ../panel-plugin/netload.desktop.in.in.h:2
+msgid "Show network traffic"
+msgstr "Amosar tráficu de rede"
+
+#~ msgid "Edit Properties"
+#~ msgstr "Editar propiedaes"
+
+#~ msgid "Netload"
+#~ msgstr "Carga de red"
