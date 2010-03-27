@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the
 #   xfce4-netload-plugin package.
 # Sergey Fedoseev <fedoseev.sergey@gmail.com>, 2005.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin 0.3.3\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../panel-plugin/netload.c:57
 msgid "Xfce4-Netload-Plugin"
-msgstr "Плагин сетевой активности Xfce4"
+msgstr "Модуль сетевой активности Xfce4"
 
 #: ../panel-plugin/netload.c:60
 msgid "Unknown error."
@@ -86,8 +86,7 @@ msgstr "Максимум (входящий):"
 msgid "Maximum (outgoing):"
 msgstr "Максимум (исходящий):"
 
-#: ../panel-plugin/netload.c:849
-#: ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:849 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Сетевой монитор"
 
@@ -105,7 +104,7 @@ msgstr "Интервал обновления:"
 
 #: ../panel-plugin/netload.c:946
 msgid "s"
-msgstr "с"
+msgstr "сек."
 
 #: ../panel-plugin/netload.c:959
 msgid "Automatic maximum"
