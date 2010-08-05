@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../panel-plugin/netload.c:57
 msgid "Xfce4-Netload-Plugin"
-msgstr ""
+msgstr "Xfce4-Netload قىستۇرمىسى"
 
 #: ../panel-plugin/netload.c:60
 msgid "Unknown error."
@@ -28,16 +28,16 @@ msgstr "نامەلۇم خاتالىق."
 
 #: ../panel-plugin/netload.c:61
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr ""
+msgstr "Linux proc ئۈسكۈنىسى  '/proc/net/dev' تېپىلمىدى"
 
 #: ../panel-plugin/netload.c:62
 msgid "Interface was not found."
-msgstr ""
+msgstr "Interface تېپىلمىدى"
 
 #: ../panel-plugin/netload.c:144
 #, c-format
 msgid "<< %s >> (Interface down)"
-msgstr ""
+msgstr "<< %s >> (Interface توختىتىلغان)"
 
 #: ../panel-plugin/netload.c:228
 #, c-format
@@ -47,69 +47,74 @@ msgid ""
 "Incoming: %s kByte/s\n"
 "Outgoing: %s kByte/s\n"
 "Total: %s kByte/s"
-msgstr ""
+msgstr "<< %s >> (%s)\n"
+"最後から %d 測定分の平均:\n"
+"入力: %s kByte/s\n"
+"出力: %s kByte/s\n"
+"合計: %s kByte/s"
 
 #: ../panel-plugin/netload.c:230
 msgid "no IP address"
-msgstr ""
+msgstr "IP ئادرېسى يوق"
 
 #: ../panel-plugin/netload.c:468
 #, c-format
 msgid ""
 "%s: Error in initalizing:\n"
 "%s"
-msgstr ""
+msgstr "%s: دەسلەپلەشتۈرۈشتە خاتالىق كۆرۈلدى:\n"
+"%s"
 
 #: ../panel-plugin/netload.c:773
 msgid "Select color"
-msgstr ""
+msgstr "رەڭ تاللا"
 
 #: ../panel-plugin/netload.c:839
 msgid "Bar color (incoming):"
-msgstr ""
+msgstr "بالداق رېڭى (كىرىش):"
 
 #: ../panel-plugin/netload.c:840
 msgid "Bar color (outgoing):"
-msgstr ""
+msgstr "بالداق رېڭى  (چىقىش):"
 
 #: ../panel-plugin/netload.c:843
 msgid "Maximum (incoming):"
-msgstr ""
+msgstr "ئەڭ چوڭ (كىرىش):"
 
 #: ../panel-plugin/netload.c:844
 msgid "Maximum (outgoing):"
-msgstr ""
+msgstr "ئەڭ چوڭ (چىقىش):"
 
 #: ../panel-plugin/netload.c:849
 #: ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
-msgstr "تور نازارەتچىسى"
+msgstr "تور كۆزەتكۈ"
 
 #: ../panel-plugin/netload.c:878
 msgid "Text to display:"
-msgstr ""
+msgstr "كۆرسىتىدىغان تېكىست"
 
 #: ../panel-plugin/netload.c:909
 msgid "Network device:"
-msgstr ""
+msgstr "تور ئۈسكۈنىسى:"
 
 #: ../panel-plugin/netload.c:935
 msgid "Update interval:"
-msgstr ""
+msgstr "يېڭىلاش ئىنتېرۋالى:"
 
 #: ../panel-plugin/netload.c:946
 msgid "s"
-msgstr ""
+msgstr "s"
 
 #: ../panel-plugin/netload.c:959
 msgid "Automatic maximum"
-msgstr ""
+msgstr "ئۆزلۈكىدىن ئەڭ چوڭ"
 
 #: ../panel-plugin/netload.c:991
 msgid "kByte/s"
-msgstr ""
+msgstr "kByte/s"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr ""
+msgstr "تور قىستاڭچىلىقىنى كۆرسىتىدۇ"
 
