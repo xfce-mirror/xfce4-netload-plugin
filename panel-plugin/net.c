@@ -46,7 +46,7 @@
 #elif __APPLE__
 # include "src/macos.h"
 # include "src/macos.c"
-#elif __FreeBSD__ || __DragonFly__
+#elif __FreeBSD__ || __DragonFly__ || __FreeBSD_kernel__
 # include "wormulon/freebsd.h"
 # include "wormulon/freebsd.c"
 #elif __linux__

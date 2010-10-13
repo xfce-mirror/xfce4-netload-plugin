@@ -10,6 +10,7 @@ Following operating systems are supported:
  * Sun Solaris
  * HP_UX
  * MacOS X
+ * GNU/kFreeBSD
 
 I have only Linux installed so I can test only on Linux. If you encounter any
 problems on other operating systems (or on Linux, of course) feel free to send

@@ -96,7 +96,7 @@
 #  include <arpa/inet.h>
 #  include <net/ppp_layer/ppp_defs.h>
 #  include <net/ppp/if_ppp.h>
-#elif __FreeBSD__           /* F R E E B S D */
+#elif __FreeBSD__ || __FreeBSD_kernel__           /* F R E E B S D */
 #  include <stdio.h>
 #  include <stdlib.h>
 #  include <stdarg.h>
