@@ -257,7 +257,6 @@ static void run_update (t_global_monitor *global)
 static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation, 
                                      t_global_monitor *global)
 {
-    GtkRcStyle *rc;
     gint i;
 
     if (global->timeout_id)
@@ -316,19 +315,16 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
 
     for (i = 0; i < SUM; i++)
     {
-        rc = gtk_widget_get_modifier_style(GTK_WIDGET(global->monitor->status[i]));
-        if (!rc) 
-        {
-            rc = gtk_rc_style_new();
-        }
-        else
-        {
-            rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
-            rc->bg[GTK_STATE_PRELIGHT] =
-                global->monitor->options.color[i];
-        }
+        gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
+                             GTK_STATE_PRELIGHT,
+                             &global->monitor->options.color[i]);
+        gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
+                             GTK_STATE_SELECTED,
+                             &global->monitor->options.color[i]);
+        gtk_widget_modify_base(GTK_WIDGET(global->monitor->status[i]),
+                               GTK_STATE_SELECTED,
+                               &global->monitor->options.color[i]);
 
-        gtk_widget_modify_style(GTK_WIDGET(global->monitor->status[i]), rc);
         gtk_widget_show(GTK_WIDGET(global->monitor->status[i]));
 
         gtk_box_pack_start(GTK_BOX(global->monitor->box),
@@ -413,7 +409,6 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
 /* ---------------------------------------------------------------------------------------------- */
 static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
 {
-    GtkRcStyle *rc;
     gint i;
 
     gtk_widget_hide(GTK_WIDGET(global->monitor->box));
@@ -423,27 +418,15 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
 
     for (i = 0; i < SUM; i++)
     {
-        gtk_widget_hide(GTK_WIDGET(global->monitor->status[i]));
-        rc = gtk_widget_get_modifier_style(GTK_WIDGET(global->monitor->status[i]));
-        
-        if (!rc) {
-            rc = gtk_rc_style_new();
-        } else {
-            /* to free the style safely in any case */
-            gtk_rc_style_ref(rc);
-        }
-                
-        if (rc) {
-            rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
-            rc->color_flags[GTK_STATE_SELECTED] |= GTK_RC_BASE;
-            rc->bg[GTK_STATE_PRELIGHT] = global->monitor->options.color[i];
-            rc->base[GTK_STATE_SELECTED] = global->monitor->options.color[i];
-            
-            gtk_widget_modify_style(GTK_WIDGET(global->monitor->status[i]), rc);
-            gtk_rc_style_unref(rc);
-        }
-        
-        gtk_widget_show(GTK_WIDGET(global->monitor->status[i]));
+        gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
+                             GTK_STATE_PRELIGHT,
+                             &global->monitor->options.color[i]);
+        gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
+                             GTK_STATE_SELECTED,
+                             &global->monitor->options.color[i]);
+        gtk_widget_modify_base(GTK_WIDGET(global->monitor->status[i]),
+                               GTK_STATE_SELECTED,
+                               &global->monitor->options.color[i]);
         
         /* Maximum */
         if( global->monitor->options.auto_max )
