@@ -30,8 +30,6 @@
 #include <libxfce4panel/xfce-panel-plugin.h>
 
 
-static GtkTooltips *tooltips = NULL;
-
 #define BORDER 8
 
 /* Defaults */
@@ -119,6 +117,7 @@ typedef struct
 
     GtkWidget         *ebox;
     GtkWidget         *box;
+    GtkWidget         *tooltip_text;
     guint             timeout_id;
     t_monitor         *monitor;
 
@@ -143,7 +142,7 @@ static gboolean update_monitors(t_global_monitor *global)
         g_snprintf(caption, sizeof(caption), 
                 _("<< %s >> (Interface down)"),
                     get_name(&(global->monitor->data)));
-        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->ebox), caption, NULL);
+        gtk_label_set_text(GTK_LABEL(global->tooltip_text), caption);
 
         return TRUE;
     }
@@ -229,7 +228,7 @@ static gboolean update_monitors(t_global_monitor *global)
                     "Incoming: %s kByte/s\nOutgoing: %s kByte/s\nTotal: %s kByte/s"),
                     get_name(&(global->monitor->data)), ip ? ip : _("no IP address"),
                     HISTSIZE_CALCULATE, buffer[IN], buffer[OUT], buffer[TOT]);
-        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->ebox), caption, NULL);
+        gtk_label_set_text(GTK_LABEL(global->tooltip_text), caption);
     }
 
     return TRUE;
@@ -340,6 +339,12 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
     run_update( global );
 }
 
+/* ---------------------------------------------------------------------------------------------- */
+static gboolean tooltip_cb(GtkWidget *widget, gint x, gint y, gboolean keyboard, GtkTooltip *tooltip, t_global_monitor *global)
+{
+	gtk_tooltip_set_custom(tooltip, global->tooltip_text);
+	return TRUE;
+}
 
 /* ---------------------------------------------------------------------------------------------- */
 static void monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
@@ -353,6 +358,9 @@ static void monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
     {
         g_free(global->monitor->options.label_text);
     }
+
+    gtk_widget_destroy(global->tooltip_text);
+
     g_free(global);
     
     close_netload( &(global->monitor->data) );
@@ -368,16 +376,16 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     global = g_new(t_global_monitor, 1);
     global->timeout_id = 0;
     global->ebox = gtk_event_box_new();
+    gtk_widget_set_has_tooltip(global->ebox, TRUE);
+    g_signal_connect(global->ebox, "query-tooltip", G_CALLBACK(tooltip_cb), global);
     gtk_widget_show(global->ebox);
     global->box = NULL;
 
+    global->tooltip_text = gtk_label_new(NULL);
+    g_object_ref(global->tooltip_text);
+
     global->plugin = plugin;
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
-
-    if (!tooltips) 
-    {
-        tooltips = gtk_tooltips_new();
-    }
 
     global->monitor = g_new(t_monitor, 1);
     global->monitor->options.label_text = g_strdup(DEFAULT_TEXT);
