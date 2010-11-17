@@ -2,12 +2,12 @@
 # Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-netload-plugin package.
 # Nuno Miguel <nunis@netcabo.pt>, 2007.
-#
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-netload-plugin \n"
+"Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-12 15:10+0100\n"
+"POT-Creation-Date: 2007-01-05 02:01+0100\n"
 "PO-Revision-Date: 2007-06-17 12:22+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
@@ -25,7 +25,7 @@ msgstr "Erro desconhecido."
 
 #: ../panel-plugin/netload.c:61
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "'/proc/net/dev' não encontrado."
+msgstr "\"/proc/net/dev\" não encontrado."
 
 #: ../panel-plugin/netload.c:62
 msgid "Interface was not found."
@@ -34,7 +34,7 @@ msgstr "Interface não encontrada."
 #: ../panel-plugin/netload.c:144
 #, c-format
 msgid "<< %s >> (Interface down)"
-msgstr "<< %s >> (Interface em baixo)"
+msgstr "<< %s >> (Interface desligada)"
 
 #: ../panel-plugin/netload.c:228
 #, c-format
@@ -47,8 +47,8 @@ msgid ""
 msgstr ""
 "<< %s >> (%s)\n"
 "Média das últimas %d medições:\n"
-"Entrada: %s kByte/s\n"
-"Saída: %s kByte/s\n"
+"Recebidos: %s kByte/s\n"
+"Enviados: %s kByte/s\n"
 "Total: %s kByte/s"
 
 #: ../panel-plugin/netload.c:230
@@ -61,33 +61,32 @@ msgid ""
 "%s: Error in initalizing:\n"
 "%s"
 msgstr ""
-"%s :Erro de inicialização:\n"
+"%s :Erro ao iniciar:\n"
 "%s"
 
 #: ../panel-plugin/netload.c:773
 msgid "Select color"
-msgstr "Seleccionar cor"
+msgstr "Seleccione a cor"
 
 #: ../panel-plugin/netload.c:839
 msgid "Bar color (incoming):"
-msgstr "Cor da barra (entrada) :"
+msgstr "Cor da barra (recebidos) :"
 
 #: ../panel-plugin/netload.c:840
 msgid "Bar color (outgoing):"
-msgstr "Cor da barra (saí­da) :"
+msgstr "Cor da barra (enviados) :"
 
 #: ../panel-plugin/netload.c:843
 msgid "Maximum (incoming):"
-msgstr "Máximo (entrada):"
+msgstr "Máximo (recebidos):"
 
 #: ../panel-plugin/netload.c:844
 msgid "Maximum (outgoing):"
-msgstr "Máximo(saída):"
+msgstr "Máximo (enviados):"
 
-#: ../panel-plugin/netload.c:849
-#: ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:849 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
-msgstr "Monitor da Rede"
+msgstr "Monitor de rede"
 
 #: ../panel-plugin/netload.c:878
 msgid "Text to display:"
@@ -99,7 +98,7 @@ msgstr "Dispositivo de rede:"
 
 #: ../panel-plugin/netload.c:935
 msgid "Update interval:"
-msgstr "Intervalo de actualização :"
+msgstr "Intervalo de actualização:"
 
 #: ../panel-plugin/netload.c:946
 msgid "s"
@@ -115,5 +114,4 @@ msgstr "kByte/s"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr "Mostrar o tráfego de rede"
-
+msgstr "Mostrar tráfego de rede"
