@@ -1,5 +1,5 @@
 /*  XFce 4 - Netload Plugin
- *    Copyright (c) 2003 Bernhard Walle <bernhard.walle@gmx.de>
+ *    Copyright (c) 2003,2005 Bernhard Walle <bernhard.walle@gmx.de>
  * 
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

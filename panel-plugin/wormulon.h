@@ -4,8 +4,6 @@
  *
  * application specific defines. You should never need to tune anything here
  *
- ******************************************************************************
- * $Id$
  *****************************************************************************/
 
 #ifndef _WORMULON_H

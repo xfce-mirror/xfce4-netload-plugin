@@ -1,5 +1,5 @@
 /*
- * Id: $Id$
+ * Copyright 2003,2005 Bernhard Walle <bernhard@bwalle.de>
  * -------------------------------------------------------------------------------------------------
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms of the 

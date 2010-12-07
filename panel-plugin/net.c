@@ -1,5 +1,6 @@
 /*
- * Id: $Id$
+ * Copyright 2003,2005,2006 Bernhard Walle <bernhard@bwalle.de>
+ * Copyright 2010 Florian Rivoal <frivoal@gmail.com>
  * -------------------------------------------------------------------------------------------------
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms of the 

@@ -1,9 +1,6 @@
 #include <netio.h>
 #define WAIT_PCKS_COUNTER   15
 
-/* $Id$ */
-
-
 /*****************************************************************************
  *
  * init_osspecific()

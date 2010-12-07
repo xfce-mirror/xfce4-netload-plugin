@@ -5,8 +5,6 @@
  * this file handles basic network information functions for all
  * operating systems.
  *
- *****************************************************************************
- * $Id$
  *****************************************************************************/
 
 #if defined (__FreeBSD__) || (__OpenBSD__) || (__NetBSD__) || (__MicroBSD__) || (__APPLE__)
