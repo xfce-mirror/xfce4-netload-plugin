@@ -1,0 +1,15 @@
+1.0.0
+=====
+- Fix compatibility with Xfce 4.7+, fixing bug #6466
+- Translated in 23 more languages, for a total of 36, 32 of which are fully translations
+- Re-license under GPL2 or later
+- Add support for GNU/kFreeBSD, fixing bug #3043
+- Add support for DragonFly BSD, fixing bug #1456
+- Add a Unique icon, Fixing bug #6864
+- Upgrade from GtkTooltips to GtkTooltip, fixing bug #5177
+- Fix bar colors for some theme engines, fixing bug #1889
+- Fix buffer overflow, fixin bug #6026
+- Fix sizes to fit better in the panel, and with other plugins
+- Build fixes for compatibility with different version of libtool
+- Use xfce titled dialog for the options
+- Don't report errors if the interface has no IP address yet, fixing bug #1158

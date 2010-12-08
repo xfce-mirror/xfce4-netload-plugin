@@ -6,7 +6,7 @@ dnl Copyright 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl Copyright 2010 Florian Rivoal <frivoal@xfce.org>
 dnl
 
-m4_define([netload_version],[0.4.0])
+m4_define([netload_version],[1.0.0])
 
 AC_INIT([xfce4-netload-plugin], [netload_version],
 	[xfce-goodies-dev@lists.berlios.de])
