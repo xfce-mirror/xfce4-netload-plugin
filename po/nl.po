@@ -1,0 +1,120 @@
+# Dutch translation of the xfce4-netload-plugin package.
+# Copyright (C) The Xfce development team.
+# This file is distributed under the same license as the 
+# xfce4-netload-plugin package.
+# Pjotr, 2011.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-netload-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-05-27 04:04+0000\n"
+"PO-Revision-Date: 2011-05-25 11:34+0200\n"
+"Last-Translator: Pjotr\n"
+"Language-Team: Dutch (Flemish)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/netload.c:59
+msgid "Xfce4-Netload-Plugin"
+msgstr "Xfce4-Netbelasting-Plugin"
+
+#: ../panel-plugin/netload.c:62
+msgid "Unknown error."
+msgstr "Onbekende fout."
+
+#: ../panel-plugin/netload.c:63
+msgid "Linux proc device '/proc/net/dev' not found."
+msgstr "Linux proc-apparaat '/proc/net/dev' niet gevonden."
+
+#: ../panel-plugin/netload.c:64
+msgid "Interface was not found."
+msgstr "Netwerkkaart niet gevonden."
+
+#: ../panel-plugin/netload.c:147
+#, c-format
+msgid "<< %s >> (Interface down)"
+msgstr "<< %s >> (Netwerkkaart staat uit)"
+
+#: ../panel-plugin/netload.c:231
+#, c-format
+msgid ""
+"<< %s >> (%s)\n"
+"Average of last %d measures:\n"
+"Incoming: %s kByte/s\n"
+"Outgoing: %s kByte/s\n"
+"Total: %s kByte/s"
+msgstr ""
+"<< %s >> (%s)\n"
+"Gemiddelde van laatste %d metingen:\n"
+"Binnenkomend: %s kByte/s\n"
+"Uitgaand: %s kByte/s\n"
+"Totaal: %s kByte/s"
+
+#: ../panel-plugin/netload.c:233
+msgid "no IP address"
+msgstr "Geen IP-adres"
+
+#: ../panel-plugin/netload.c:463
+#, c-format
+msgid ""
+"%s: Error in initalizing:\n"
+"%s"
+msgstr ""
+"%s: Fout bij opstarten:\n"
+"%s"
+
+#: ../panel-plugin/netload.c:768
+msgid "Select color"
+msgstr "Kies kleur"
+
+#: ../panel-plugin/netload.c:834
+msgid "Bar color (incoming):"
+msgstr "Balkkleur (binnenkomend):"
+
+#: ../panel-plugin/netload.c:835
+msgid "Bar color (outgoing):"
+msgstr "Balkkleur (uitgaand):"
+
+#: ../panel-plugin/netload.c:838
+msgid "Maximum (incoming):"
+msgstr "Maximum (binnenkomend):"
+
+#: ../panel-plugin/netload.c:839
+msgid "Maximum (outgoing):"
+msgstr "Maximum (uitgaand):"
+
+#: ../panel-plugin/netload.c:844 ../panel-plugin/netload.desktop.in.in.h:1
+msgid "Network Monitor"
+msgstr "Netwerkbewaker"
+
+#: ../panel-plugin/netload.c:873
+msgid "Text to display:"
+msgstr "Tekst om weer te geven:"
+
+#: ../panel-plugin/netload.c:904
+msgid "Network device:"
+msgstr "Netwerkapparaat:"
+
+#: ../panel-plugin/netload.c:930
+msgid "Update interval:"
+msgstr "Interval voor bijwerken:"
+
+#: ../panel-plugin/netload.c:941
+msgid "s"
+msgstr "s"
+
+#: ../panel-plugin/netload.c:954
+msgid "Automatic maximum"
+msgstr "Automatisch maximum"
+
+#: ../panel-plugin/netload.c:986
+msgid "kByte/s"
+msgstr "kByte/s"
+
+#: ../panel-plugin/netload.desktop.in.in.h:2
+msgid "Show network traffic"
+msgstr "Toon netwerkverkeer"
