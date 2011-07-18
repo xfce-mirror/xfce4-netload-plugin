@@ -1,0 +1,122 @@
+# Slovak translation of xfce4-netload-plugin package.
+# Copyright (C) 2006 THE xfce4-netload-plugin COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-netload-plugin package.
+# Tomáš Vadina <kyberdev@gmail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-netload-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-18 04:05+0000\n"
+"PO-Revision-Date: 2011-07-18 09:14+0100\n"
+"Last-Translator: Tomáš Vadina <kyberdev@gmail.com>\n"
+"Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+
+#: ../panel-plugin/netload.c:59
+msgid "Xfce4-Netload-Plugin"
+msgstr "Xfce4-Netload-Plugin"
+
+#: ../panel-plugin/netload.c:62
+msgid "Unknown error."
+msgstr "Neznáma chyba."
+
+#: ../panel-plugin/netload.c:63
+msgid "Linux proc device '/proc/net/dev' not found."
+msgstr "Linuxové zariadenie proc '/proc/net/dev' nebolo nájdené."
+
+#: ../panel-plugin/netload.c:64
+msgid "Interface was not found."
+msgstr "Rozhranie nebolo nájdené."
+
+#: ../panel-plugin/netload.c:147
+#, c-format
+msgid "<< %s >> (Interface down)"
+msgstr "<< %s >> (Rozhranie nie je spustené)"
+
+#: ../panel-plugin/netload.c:231
+#, c-format
+msgid ""
+"<< %s >> (%s)\n"
+"Average of last %d measures:\n"
+"Incoming: %s kByte/s\n"
+"Outgoing: %s kByte/s\n"
+"Total: %s kByte/s"
+msgstr ""
+"<< %s >> (%s)\n"
+"Priemer z posledných %d meraní:\n"
+"Prichádzajúce: %s kByte/s\n"
+"Odchádzajúce: %s kByte/s\n"
+"Celkovo: %s kByte/s"
+
+#: ../panel-plugin/netload.c:233
+msgid "no IP address"
+msgstr "žiadna IP adresa"
+
+#: ../panel-plugin/netload.c:463
+#, c-format
+msgid ""
+"%s: Error in initalizing:\n"
+"%s"
+msgstr ""
+"%s: Chyba pri inicializácii:\n"
+"%s"
+
+#: ../panel-plugin/netload.c:768
+msgid "Select color"
+msgstr "Vyberte farbu"
+
+#: ../panel-plugin/netload.c:834
+msgid "Bar color (incoming):"
+msgstr "Farba panelu (prichádzajúce):"
+
+#: ../panel-plugin/netload.c:835
+msgid "Bar color (outgoing):"
+msgstr "Farba panelu (odchádzajúce):"
+
+#: ../panel-plugin/netload.c:838
+msgid "Maximum (incoming):"
+msgstr "Maximum (prichádzajúce):"
+
+#: ../panel-plugin/netload.c:839
+msgid "Maximum (outgoing):"
+msgstr "Maximum (odchádzajúce):"
+
+#: ../panel-plugin/netload.c:844
+#: ../panel-plugin/netload.desktop.in.in.h:1
+msgid "Network Monitor"
+msgstr "Sledovanie siete"
+
+#: ../panel-plugin/netload.c:873
+msgid "Text to display:"
+msgstr "Zobrazený text:"
+
+#: ../panel-plugin/netload.c:904
+msgid "Network device:"
+msgstr "Sieťové zariadenie:"
+
+#: ../panel-plugin/netload.c:930
+msgid "Update interval:"
+msgstr "Interval obnovenia:"
+
+#: ../panel-plugin/netload.c:941
+msgid "s"
+msgstr "s"
+
+#: ../panel-plugin/netload.c:954
+msgid "Automatic maximum"
+msgstr "Automatické maximum"
+
+#: ../panel-plugin/netload.c:986
+msgid "kByte/s"
+msgstr "kByte/s"
+
+#: ../panel-plugin/netload.desktop.in.in.h:2
+msgid "Show network traffic"
+msgstr "Zobrazuje prevádzku siete"
+
