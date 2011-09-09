@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-16 10:04+0000\n"
-"PO-Revision-Date: 2011-06-15 11:34+0200\n"
+"POT-Creation-Date: 2011-09-09 04:04+0000\n"
+"PO-Revision-Date: 2011-09-09 11:34+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: Dutch (Flemish)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../panel-plugin/netload.c:59
 msgid "Xfce4-Netload-Plugin"
-msgstr "Xfce4-Netbelasting-Plugin"
+msgstr "Xfce4-netbelasting-plugin"
 
 #: ../panel-plugin/netload.c:62
 msgid "Unknown error."
