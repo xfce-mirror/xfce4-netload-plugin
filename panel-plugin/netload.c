@@ -252,10 +252,10 @@ static gboolean update_monitors(t_global_monitor *global)
 
         if (global->monitor->options.show_values)
         {
-            g_snprintf(received, sizeof(received), "%s kByte/s", buffer[IN]);
+            g_snprintf(received, sizeof(received), "%s KiB/s", buffer[IN]);
             gtk_label_set_text(GTK_LABEL(global->monitor->rcv_label), received);
 
-            g_snprintf(sent, sizeof(sent), _("%s kByte/s"), buffer[OUT]);
+            g_snprintf(sent, sizeof(sent), _("%s KiB/s"), buffer[OUT]);
             gtk_label_set_text(GTK_LABEL(global->monitor->sent_label), sent);
         }
     }
@@ -1109,7 +1109,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                        GTK_WIDGET(global->monitor->opt_present_data_hbox), FALSE, FALSE, 0);
 
-    global->monitor->opt_present_data_label = gtk_label_new_with_mnemonic(_("_Present data as:"));
+    global->monitor->opt_present_data_label = gtk_label_new_with_mnemonic(_("Present _data as:"));
     gtk_misc_set_alignment(GTK_MISC(global->monitor->opt_present_data_label), 0, 0.5);
     gtk_widget_show(global->monitor->opt_present_data_label);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_present_data_hbox),
@@ -1120,7 +1120,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                                   global->monitor->opt_present_data_combobox);
     gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Bars"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Values"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Bars and Values"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Bars and values"));
 
     if(global->monitor->options.show_values)
         if(global->monitor->options.show_bars)
@@ -1168,7 +1168,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
 
     }
     global->monitor->opt_colorize_values =
-        gtk_check_button_new_with_mnemonic(_("_Colorize Values"));
+        gtk_check_button_new_with_mnemonic(_("_Colorize values"));
     gtk_widget_show(global->monitor->opt_colorize_values);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                        GTK_WIDGET(global->monitor->opt_colorize_values), FALSE, FALSE, 0);
