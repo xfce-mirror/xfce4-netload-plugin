@@ -69,6 +69,7 @@ typedef struct
     gboolean use_label;
     gboolean show_bars;
     gboolean show_values;
+    gboolean colorize_values;
     gboolean auto_max;
     gulong   max[SUM];
     gint     update_interval;
@@ -121,6 +122,7 @@ typedef struct
     /* Color */
     GtkWidget *opt_button[SUM];
     GtkWidget *opt_da[SUM];
+    GtkWidget *opt_colorize_values;
     
 } t_monitor;
 
@@ -514,6 +516,10 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
 
     if (global->monitor->options.show_values)
     {
+        gtk_widget_modify_fg(global->monitor->rcv_label, GTK_STATE_NORMAL,
+                             (global->monitor->options.colorize_values ? &global->monitor->options.color[IN] : NULL));
+        gtk_widget_modify_fg(global->monitor->sent_label, GTK_STATE_NORMAL,
+                             (global->monitor->options.colorize_values ? &global->monitor->options.color[OUT] : NULL));
         gtk_widget_show(global->monitor->rcv_label);
         gtk_widget_show(global->monitor->sent_label);
     }
@@ -559,6 +565,7 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
     global->monitor->options.use_label = xfce_rc_read_bool_entry (rc, "Use_Label", TRUE);
     global->monitor->options.show_values = xfce_rc_read_bool_entry (rc, "Show_Values", FALSE);
     global->monitor->options.show_bars = xfce_rc_read_bool_entry (rc, "Show_Bars", TRUE);
+    global->monitor->options.colorize_values = xfce_rc_read_bool_entry (rc, "Colorize_Values", FALSE);
     if (!global->monitor->options.show_bars && !global->monitor->options.show_values)
         global->monitor->options.show_bars = TRUE;
 
@@ -625,6 +632,7 @@ static void monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *glob
     xfce_rc_write_bool_entry (rc, "Use_Label", global->monitor->options.use_label);
     xfce_rc_write_bool_entry (rc, "Show_Values", global->monitor->options.show_values);
     xfce_rc_write_bool_entry (rc, "Show_Bars", global->monitor->options.show_bars);
+    xfce_rc_write_bool_entry (rc, "Colorize_Values", global->monitor->options.colorize_values);
 
     g_snprintf(value, 8, "#%02X%02X%02X",
                (guint)global->monitor->options.color[IN].red >> 8,
@@ -789,6 +797,9 @@ static void present_data_combobox_changed(GtkWidget *combobox, t_global_monitor 
     global->monitor->options.show_bars = (option == 0 || option == 2);
     global->monitor->options.show_values = (option == 1 || option == 2);
     
+    gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_colorize_values),
+                             global->monitor->options.show_values);
+
     setup_monitor(global, FALSE);
     PRINT_DBG("present_data_combobox_changed");
 }
@@ -814,6 +825,17 @@ static void max_label_toggled(GtkWidget *check_button, t_global_monitor *global)
     setup_monitor(global, FALSE);
     PRINT_DBG("max_label_toggled");
 
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
+static void colorize_values_toggled(GtkWidget *check_button, t_global_monitor *global)
+{
+    global->monitor->options.colorize_values = !global->monitor->options.colorize_values;
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_colorize_values),
+                                 global->monitor->options.colorize_values);
+    setup_monitor(global, FALSE);
+    PRINT_DBG("colorize_values_toggled");
 }
 
 
@@ -1145,6 +1167,15 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
         gtk_size_group_add_widget(sg, color_label[i]);
 
     }
+    global->monitor->opt_colorize_values =
+        gtk_check_button_new_with_mnemonic(_("_Colorize Values"));
+    gtk_widget_show(global->monitor->opt_colorize_values);
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
+                       GTK_WIDGET(global->monitor->opt_colorize_values), FALSE, FALSE, 0);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_colorize_values),
+                                 global->monitor->options.colorize_values);
+    gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_colorize_values),
+                             global->monitor->options.show_values);
 
     gtk_box_pack_start(GTK_BOX(vbox),
                 GTK_WIDGET(global->monitor->opt_vbox),
@@ -1159,6 +1190,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     
     g_signal_connect(GTK_WIDGET(global->monitor->max_use_label), "toggled",
             G_CALLBACK(max_label_toggled), global);
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_colorize_values), "toggled",
+            G_CALLBACK(colorize_values_toggled), global);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_da[0]), "expose_event",
             G_CALLBACK(expose_event_cb), NULL);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_da[1]), "expose_event",
