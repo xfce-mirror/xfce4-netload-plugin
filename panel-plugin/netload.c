@@ -932,12 +932,12 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gint             i;
     gchar            buffer[BUFSIZ];
     gchar            *color_text[] = { 
-                        N_("Bar color (incoming):"), 
-                        N_("Bar color (outgoing):") 
+                        N_("Bar color (i_ncoming):"), 
+                        N_("Bar color (_outgoing):") 
                      };
     gchar            *maximum_text_label[] = {
-                        N_("Maximum (incoming):"),
-                        N_("Maximum (outgoing):")
+                        N_("Maximum (inco_ming):"),
+                        N_("Maximum (o_utgoing):")
                      };
     
     xfce_panel_plugin_block_menu (plugin);
@@ -971,7 +971,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_widget_show(GTK_WIDGET(global->monitor->opt_hbox));
     
     global->monitor->opt_use_label =
-        gtk_check_button_new_with_mnemonic(_("Text to display:"));
+        gtk_check_button_new_with_mnemonic(_("_Text to display:"));
     gtk_widget_show(global->monitor->opt_use_label);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_hbox),
                        GTK_WIDGET(global->monitor->opt_use_label),
@@ -1002,7 +1002,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                         GTK_WIDGET(net_hbox), FALSE, FALSE, 0);
 
-    device_label = gtk_label_new(_("Network device:"));
+    device_label = gtk_label_new(_("Network _device:"));
     gtk_misc_set_alignment(GTK_MISC(device_label), 0, 0.5);
     gtk_widget_show(GTK_WIDGET(device_label));
     gtk_box_pack_start(GTK_BOX(net_hbox), GTK_WIDGET(device_label),
@@ -1028,7 +1028,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                         GTK_WIDGET(update_hbox), FALSE, FALSE, 0);
     
-    update_label = gtk_label_new(_("Update interval:"));
+    update_label = gtk_label_new(_("Update _interval:"));
     gtk_misc_set_alignment(GTK_MISC(update_label), 0, 0.5);
     gtk_box_pack_start(GTK_BOX(update_hbox), GTK_WIDGET(update_label), FALSE, FALSE, 0);
     
@@ -1052,7 +1052,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_widget_show(sep1);
     
     global->monitor->max_use_label = 
-                gtk_check_button_new_with_mnemonic(_("Automatic maximum"));
+                gtk_check_button_new_with_mnemonic(_("_Automatic maximum"));
     gtk_widget_show(global->monitor->max_use_label);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                 GTK_WIDGET(global->monitor->max_use_label), FALSE, FALSE, 0);
@@ -1109,7 +1109,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                        GTK_WIDGET(global->monitor->opt_present_data_hbox), FALSE, FALSE, 0);
 
-    global->monitor->opt_present_data_label = gtk_label_new_with_mnemonic(_("Present _data as:"));
+    global->monitor->opt_present_data_label = gtk_label_new_with_mnemonic(_("_Present data as:"));
     gtk_misc_set_alignment(GTK_MISC(global->monitor->opt_present_data_label), 0, 0.5);
     gtk_widget_show(global->monitor->opt_present_data_label);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_present_data_hbox),
