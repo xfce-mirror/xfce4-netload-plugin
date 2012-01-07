@@ -194,7 +194,7 @@ int get_interface_up(netdata* data)
         return FALSE;
     }
     
-    snprintf(ifr.ifr_name, IF_NAMESIZE, data->ifdata.if_name);
+    snprintf(ifr.ifr_name, IF_NAMESIZE, "%s", data->ifdata.if_name);
     if (ioctl(sockfd, SIOCGIFFLAGS, &ifr) != 0)
     {
         PRINT_DBG("Error in ioctl(sockfd): %s", strerror(errno));
@@ -231,7 +231,7 @@ char* get_ip_address(netdata* data)
         return NULL;
     }
     
-    snprintf(ifr.ifr_name, IF_NAMESIZE, data->ifdata.if_name);
+    snprintf(ifr.ifr_name, IF_NAMESIZE, "%s", data->ifdata.if_name);
     if (ioctl(sockfd, SIOCGIFADDR, &ifr) != 0)
     {
 	    if (errno != EADDRNOTAVAIL)
