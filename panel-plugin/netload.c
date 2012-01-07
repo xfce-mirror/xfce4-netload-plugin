@@ -100,9 +100,6 @@ typedef struct
     GtkWidget *opt_entry;
     GtkBox    *opt_hbox;
     GtkWidget *opt_use_label;
-    GtkWidget *opt_show_bars;
-    GtkWidget *opt_color_hbox[SUM];
-    GtkWidget *opt_show_values;
     
     /* Update interval */
     GtkWidget *update_spinner;
@@ -115,6 +112,12 @@ typedef struct
     GtkWidget *max_entry[SUM];
     GtkBox    *max_hbox[SUM];
     
+    /* Bars and values */
+    GtkWidget *opt_present_data_hbox;
+    GtkWidget *opt_present_data_label;
+    GtkWidget *opt_present_data_combobox;
+    GtkWidget *opt_color_hbox[SUM];
+
     /* Color */
     GtkWidget *opt_button[SUM];
     GtkWidget *opt_da[SUM];
@@ -555,6 +558,8 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
     global->monitor->options.use_label = xfce_rc_read_bool_entry (rc, "Use_Label", TRUE);
     global->monitor->options.show_values = xfce_rc_read_bool_entry (rc, "Show_Values", FALSE);
     global->monitor->options.show_bars = xfce_rc_read_bool_entry (rc, "Show_Bars", TRUE);
+    if (!global->monitor->options.show_bars && !global->monitor->options.show_values)
+        global->monitor->options.show_bars = TRUE;
 
     if ((value = xfce_rc_read_entry (rc, "Color_In", NULL)) != NULL)
     {
@@ -774,43 +779,18 @@ static void label_toggled(GtkWidget *check_button, t_global_monitor *global)
     PRINT_DBG("label_toggled");
 }
 
-
-static void show_bars_toggled(GtkWidget *check_button, t_global_monitor *global)
-{
-    int i;
-
-    global->monitor->options.show_bars = !global->monitor->options.show_bars;
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_show_bars),
-                                 global->monitor->options.show_bars);
-
-    for (i = 0; i < SUM; i++)
-    {
-        gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_color_hbox[i]),
-                                 global->monitor->options.show_bars);
-    }
-
-    gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_show_values),
-                             global->monitor->options.show_bars);
-
-    setup_monitor(global, FALSE);
-    PRINT_DBG("show_bars_toggled");
-}
-
-
 /* ---------------------------------------------------------------------------------------------- */
-static void show_values_toggled(GtkWidget *check_button, t_global_monitor *global)
+static void present_data_combobox_changed(GtkWidget *combobox, t_global_monitor *global)
 {
-    global->monitor->options.show_values = !global->monitor->options.show_values;
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_show_values),
-                                 global->monitor->options.show_values);
-
-    gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_show_bars),
-                             global->monitor->options.show_values);
-
+    gint option = gtk_combo_box_get_active(GTK_COMBO_BOX(combobox));
+    g_assert(option >= 0 && option <= 2);
+    
+    global->monitor->options.show_bars = (option == 0 || option == 2);
+    global->monitor->options.show_values = (option == 1 || option == 2);
+    
     setup_monitor(global, FALSE);
-    PRINT_DBG("show_values_toggled");
+    PRINT_DBG("present_data_combobox_changed");
 }
-
 
 /* ---------------------------------------------------------------------------------------------- */
 static void max_label_toggled(GtkWidget *check_button, t_global_monitor *global)
@@ -924,6 +904,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     GtkWidget        *update_label, *update_unit_label;
     GtkWidget        *color_label[SUM];
     GtkWidget        *align;
+    gint             present_data_active;
     GtkSizeGroup     *sg;
     gint             i;
     gchar            buffer[BUFSIZ];
@@ -1099,29 +1080,38 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep2), FALSE, FALSE, 0);
     gtk_widget_show(sep2);
     
-    /* Show bars */
-    global->monitor->opt_show_bars =
-        gtk_check_button_new_with_mnemonic(_("Show bars"));
-    gtk_widget_show(global->monitor->opt_show_bars);
+    /* Show bars and values */
+    global->monitor->opt_present_data_hbox = GTK_WIDGET(gtk_hbox_new(FALSE, 5));
+    gtk_widget_show(global->monitor->opt_present_data_hbox);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
-                       GTK_WIDGET(global->monitor->opt_show_bars),
-                       FALSE, FALSE, 0);
-    gtk_size_group_add_widget(sg, global->monitor->opt_show_bars);
+                       GTK_WIDGET(global->monitor->opt_present_data_hbox), FALSE, FALSE, 0);
 
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_show_bars),
-                                 global->monitor->options.show_bars);
+    global->monitor->opt_present_data_label = gtk_label_new_with_mnemonic(_("_Present data as:"));
+    gtk_misc_set_alignment(GTK_MISC(global->monitor->opt_present_data_label), 0, 0.5);
+    gtk_widget_show(global->monitor->opt_present_data_label);
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_present_data_hbox),
+                       global->monitor->opt_present_data_label, FALSE, FALSE, 0);
 
-    /* Show values */
-    global->monitor->opt_show_values =
-        gtk_check_button_new_with_mnemonic(_("Show values"));
-    gtk_widget_show(global->monitor->opt_show_values);
-    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
-                       GTK_WIDGET(global->monitor->opt_show_values),
-                       FALSE, FALSE, 0);
-    gtk_size_group_add_widget(sg, global->monitor->opt_show_values);
+    global->monitor->opt_present_data_combobox = gtk_combo_box_new_text();
+    gtk_label_set_mnemonic_widget(GTK_LABEL(global->monitor->opt_present_data_label),
+                                  global->monitor->opt_present_data_combobox);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Bars"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Values"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Bars and Values"));
 
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_show_values),
-                                 global->monitor->options.show_values);
+    if(global->monitor->options.show_values)
+        if(global->monitor->options.show_bars)
+            present_data_active = 2;
+        else
+            present_data_active = 1;
+    else
+        present_data_active = 0;
+    gtk_combo_box_set_active(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), present_data_active);
+
+    gtk_widget_show(global->monitor->opt_present_data_combobox);
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_present_data_hbox),
+                       global->monitor->opt_present_data_combobox, FALSE, FALSE, 0);
+    gtk_size_group_add_widget(sg, global->monitor->opt_present_data_label);
 
     /* Color 1 */
     for (i = 0; i < SUM; i++)
@@ -1180,10 +1170,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
             G_CALLBACK(label_toggled), global);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_entry), "activate",
             G_CALLBACK(label_changed), global);
-    g_signal_connect(GTK_WIDGET(global->monitor->opt_show_bars), "toggled",
-            G_CALLBACK(show_bars_toggled), global);
-    g_signal_connect(GTK_WIDGET(global->monitor->opt_show_values), "toggled",
-            G_CALLBACK(show_values_toggled), global);
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_present_data_combobox), "changed",
+            G_CALLBACK(present_data_combobox_changed), global);
     g_signal_connect(GTK_WIDGET(global->monitor->net_entry), "activate",
             G_CALLBACK(network_changed), global);
 
