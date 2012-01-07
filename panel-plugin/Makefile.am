@@ -17,12 +17,12 @@ xfce4_netload_plugin_SOURCES =						\
 xfce4_netload_plugin_CFLAGS =						\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	@LIBXFCE4PANEL_CFLAGS@				\
-	@LIBXFCEGUI4_CFLAGS@
+	@LIBXFCE4UI_CFLAGS@
 
 xfce4_netload_plugin_LDADD =						\
 	@SOLLIBS@                                   			\
 	@LIBXFCE4PANEL_LIBS@                                   			\
-	@LIBXFCEGUI4_LIBS@
+	@LIBXFCE4UI_LIBS@
 
 # .desktop file
 #

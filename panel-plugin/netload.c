@@ -30,7 +30,7 @@
 #include <gtk/gtk.h>
 
 #include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 
 
@@ -527,7 +527,8 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     if (!init_netload( &(global->monitor->data), global->monitor->options.network_device)
             && !supress_warnings)
     {
-        xfce_err (_("%s: Error in initalizing:\n%s"),
+        xfce_dialog_show_error (NULL, NULL,
+	    _("%s: Error in initalizing:\n%s"),
             _(APP_NAME),
             _(errormessages[
                 global->monitor->data.errorcode == 0 
