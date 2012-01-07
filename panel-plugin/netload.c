@@ -320,7 +320,6 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
 
     global->monitor->sent_label = gtk_label_new("");
     gtk_label_set_width_chars(GTK_LABEL(global->monitor->sent_label), 13);
-    gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.0f, 0.5f);
     gtk_widget_show(global->monitor->sent_label);
 
     if (orientation == GTK_ORIENTATION_HORIZONTAL)
@@ -331,6 +330,7 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
                     GTK_PROGRESS_BOTTOM_TO_TOP);
         }
+		gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.0f, 0.5f);
     }
     else
     {
@@ -340,6 +340,7 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]), 
                     GTK_PROGRESS_LEFT_TO_RIGHT);
         }
+		gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 1.0f, 0.5f);
     }
 
     gtk_box_pack_start(GTK_BOX(global->monitor->box),
