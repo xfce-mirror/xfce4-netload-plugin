@@ -257,7 +257,7 @@ static gboolean update_monitors(t_global_monitor *global)
             g_snprintf(received, sizeof(received), "%s", buffer_panel[IN]);
             gtk_label_set_text(GTK_LABEL(global->monitor->rcv_label), received);
 
-            g_snprintf(sent, sizeof(sent), _("%s"), buffer_panel[OUT]);
+            g_snprintf(sent, sizeof(sent), "%s", buffer_panel[OUT]);
             gtk_label_set_text(GTK_LABEL(global->monitor->sent_label), sent);
         }
     }
