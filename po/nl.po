@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-07 18:21+0000\n"
+"POT-Creation-Date: 2012-01-08 13:31+0000\n"
 "PO-Revision-Date: 2011-09-09 11:34+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: Dutch (Flemish)\n"
@@ -44,9 +44,9 @@ msgstr "<< %s >> (Netwerkkaart staat uit)"
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
-"Incoming: %s kByte/s\n"
-"Outgoing: %s kByte/s\n"
-"Total: %s kByte/s"
+"Incoming: %s/s\n"
+"Outgoing: %s/s\n"
+"Total: %s/s"
 msgstr ""
 "<< %s >> (%s)\n"
 "Gemiddelde van laatste %d metingen:\n"
@@ -60,8 +60,8 @@ msgstr "Geen IP-adres"
 
 #: ../panel-plugin/netload.c:258
 #, c-format
-msgid "%s KiB/s"
-msgstr "%s KiB/s"
+msgid "%s/s"
+msgstr "%s/s"
 
 #: ../panel-plugin/netload.c:531
 #, c-format
@@ -143,3 +143,6 @@ msgstr "Kleur de waarden"
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
 msgstr "Toon netwerkverkeer"
+
+#~ msgid "%s KiB/s"
+#~ msgstr "%s KiB/s"
