@@ -146,6 +146,7 @@ typedef struct
 static gboolean update_monitors(t_global_monitor *global)
 {
     char buffer[SUM+1][BUFSIZ];
+    char buffer_panel[SUM][BUFSIZ];
     gchar caption[BUFSIZ];
     gchar received[BUFSIZ];
     gchar sent[BUFSIZ];
@@ -237,6 +238,7 @@ static gboolean update_monitors(t_global_monitor *global)
             gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor->status[i]), temp);
 
         format_byte_humanreadable( buffer[i], BUFSIZ, display[i], 2 );
+        format_byte_humanreadable( buffer_panel[i], BUFSIZ, display[i], 0 );
     }
     
     format_byte_humanreadable( buffer[TOT], BUFSIZ, (display[IN]+display[OUT]), 2 );
@@ -252,10 +254,10 @@ static gboolean update_monitors(t_global_monitor *global)
 
         if (global->monitor->options.show_values)
         {
-            g_snprintf(received, sizeof(received), "%s/s", buffer[IN]);
+            g_snprintf(received, sizeof(received), "%s", buffer_panel[IN]);
             gtk_label_set_text(GTK_LABEL(global->monitor->rcv_label), received);
 
-            g_snprintf(sent, sizeof(sent), _("%s/s"), buffer[OUT]);
+            g_snprintf(sent, sizeof(sent), _("%s"), buffer_panel[OUT]);
             gtk_label_set_text(GTK_LABEL(global->monitor->sent_label), sent);
         }
     }
