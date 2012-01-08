@@ -73,19 +73,19 @@ msgstr "Kies kleur"
 
 #: ../panel-plugin/netload.c:938
 msgid "Bar color (i_ncoming):"
-msgstr "Balkkleur (binnenkomend):"
+msgstr "Balkkleur (bi_nnenkomend):"
 
 #: ../panel-plugin/netload.c:939
 msgid "Bar color (_outgoing):"
-msgstr "Balkkleur (uitgaand):"
+msgstr "Balkkleur (_uitgaand):"
 
 #: ../panel-plugin/netload.c:942
 msgid "Maximum (inco_ming):"
-msgstr "Maximum (binnenkomend):"
+msgstr "Maximum (binnenko_mend):"
 
 #: ../panel-plugin/netload.c:943
 msgid "Maximum (o_utgoing):"
-msgstr "Maximum (uitgaand):"
+msgstr "Maximum (uit_gaand):"
 
 #: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
@@ -93,15 +93,15 @@ msgstr "Netwerkbewaker"
 
 #: ../panel-plugin/netload.c:977
 msgid "_Text to display:"
-msgstr "Tekst om weer te geven:"
+msgstr "_Tekst om weer te geven:"
 
 #: ../panel-plugin/netload.c:1008
 msgid "Network _device:"
-msgstr "Netwerkapparaat:"
+msgstr "Netwerk_apparaat:"
 
 #: ../panel-plugin/netload.c:1036
 msgid "Update _interval:"
-msgstr "Interval voor bijwerken:"
+msgstr "_Interval voor bijwerken:"
 
 #: ../panel-plugin/netload.c:1049
 msgid "s"
@@ -109,7 +109,7 @@ msgstr "s"
 
 #: ../panel-plugin/netload.c:1062
 msgid "_Automatic maximum"
-msgstr "Automatisch maximum"
+msgstr "Automatisch ma_ximum"
 
 #: ../panel-plugin/netload.c:1096
 msgid "KiB/s"
@@ -117,7 +117,7 @@ msgstr "KiB/s"
 
 #: ../panel-plugin/netload.c:1121
 msgid "_Present data as:"
-msgstr "Presenteer gegevens als:"
+msgstr "_Presenteer gegevens als:"
 
 #: ../panel-plugin/netload.c:1130
 msgid "Bars"
@@ -133,7 +133,7 @@ msgstr "Balken en waarden"
 
 #: ../panel-plugin/netload.c:1182
 msgid "_Colorize values"
-msgstr "Kleur de waarden"
+msgstr "_Kleur de waarden"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
