@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin 0.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-08 14:34+0000\n"
+"POT-Creation-Date: 2012-01-08 14:54+0000\n"
 "PO-Revision-Date: 2007-01-05 10:34+0100\n"
 "Last-Translator: Maximilian Schleiss <maximilian@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
@@ -56,11 +56,6 @@ msgstr ""
 #: ../panel-plugin/netload.c:251
 msgid "no IP address"
 msgstr "pas d'adresse IP"
-
-#: ../panel-plugin/netload.c:260
-#, c-format
-msgid "%s"
-msgstr "%s"
 
 #: ../panel-plugin/netload.c:533
 #, c-format
@@ -145,7 +140,7 @@ msgstr "Afficher le trafic du réseau"
 
 #: ../panel-plugin/utils.c:78
 msgid "B"
-msgstr "B"
+msgstr "O"
 
 #: ../panel-plugin/utils.c:78
 msgid "KiB"
@@ -158,6 +153,9 @@ msgstr "Mo"
 #: ../panel-plugin/utils.c:78
 msgid "GiB"
 msgstr "Go"
+
+#~ msgid "%s"
+#~ msgstr "%s"
 
 #~ msgid "kByte/s"
 #~ msgstr "kOctet/s"
