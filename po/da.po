@@ -7,46 +7,47 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin 0.40\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-05 02:01+0100\n"
+"POT-Creation-Date: 2012-01-08 18:15+0000\n"
 "PO-Revision-Date: 2009-08-20 14:44+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "X-Poedit-Language: Danish\n"
-"X-Poedit-Country: DENMARK\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: DENMARK\n"
 
-#: ../panel-plugin/netload.c:57
+#: ../panel-plugin/netload.c:59
 msgid "Xfce4-Netload-Plugin"
 msgstr "Netbelastningsmodul til Xfce4"
 
-#: ../panel-plugin/netload.c:60
+#: ../panel-plugin/netload.c:62
 msgid "Unknown error."
 msgstr "Ukendt fejl"
 
-#: ../panel-plugin/netload.c:61
+#: ../panel-plugin/netload.c:63
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Linux procesenhed '/proc/net/dev' blev ikke fundet."
 
-#: ../panel-plugin/netload.c:62
+#: ../panel-plugin/netload.c:64
 msgid "Interface was not found."
 msgstr "Grænseflade blev ikke fundet"
 
-#: ../panel-plugin/netload.c:144
+#: ../panel-plugin/netload.c:162
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (grænseflade er nede)"
 
-#: ../panel-plugin/netload.c:228
+#: ../panel-plugin/netload.c:249
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
-"Incoming: %s kByte/s\n"
-"Outgoing: %s kByte/s\n"
-"Total: %s kByte/s"
+"Incoming: %s/s\n"
+"Outgoing: %s/s\n"
+"Total: %s/s"
 msgstr ""
 "<< %s >> (%s)\n"
 "Gennemsnit af sidste %d måling:\n"
@@ -54,128 +55,196 @@ msgstr ""
 "Udgående: %s kByte/s\n"
 "Total: %s kByte/s"
 
-#: ../panel-plugin/netload.c:230
+#: ../panel-plugin/netload.c:251
 msgid "no IP address"
 msgstr "ingen IP-adresse"
 
-#: ../panel-plugin/netload.c:468
+#: ../panel-plugin/netload.c:533
 #, c-format
 msgid ""
-"%s: Error in initalizing:\n"
+"%s: Error in initializing:\n"
 "%s"
 msgstr ""
 "%s: fejl ved initialisering:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:773
+#: ../panel-plugin/netload.c:872
 msgid "Select color"
 msgstr "Vælg farve"
 
-#: ../panel-plugin/netload.c:839
-msgid "Bar color (incoming):"
-msgstr "Statusfarve (indgående):"
+#: ../panel-plugin/netload.c:938
+msgid "Bar color (i_ncoming):"
+msgstr "Bjælkefarve (indgående):"
 
-#: ../panel-plugin/netload.c:840
-msgid "Bar color (outgoing):"
-msgstr "Statusfarve (udgående):"
+#: ../panel-plugin/netload.c:939
+msgid "Bar color (_outgoing):"
+msgstr "Bjælkefarve (udgående):"
 
-#: ../panel-plugin/netload.c:843
-msgid "Maximum (incoming):"
+#: ../panel-plugin/netload.c:942
+#, fuzzy
+msgid "Maximum (inco_ming):"
 msgstr "Maksimum (indgående):"
 
-#: ../panel-plugin/netload.c:844
-msgid "Maximum (outgoing):"
+#: ../panel-plugin/netload.c:943
+#, fuzzy
+msgid "Maximum (o_utgoing):"
 msgstr "Maksimum (udgående):"
 
-#: ../panel-plugin/netload.c:849
-#: ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Netværksovervågning"
 
-#: ../panel-plugin/netload.c:878
-msgid "Text to display:"
-msgstr "Tekst som vises"
+#: ../panel-plugin/netload.c:977
+msgid "_Text to display:"
+msgstr "_Tekst som vises:"
 
-#: ../panel-plugin/netload.c:909
-msgid "Network device:"
-msgstr "Netværksendhed:"
+#: ../panel-plugin/netload.c:1008
+msgid "Network _device:"
+msgstr "Netværksenhe_d:"
 
-#: ../panel-plugin/netload.c:935
-msgid "Update interval:"
-msgstr "Opdateringsinterval:"
+#: ../panel-plugin/netload.c:1036
+msgid "Update _interval:"
+msgstr "Opdaterings_interval:"
 
-#: ../panel-plugin/netload.c:946
+#: ../panel-plugin/netload.c:1049
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:959
-msgid "Automatic maximum"
-msgstr "Automatisk maksimum"
+#: ../panel-plugin/netload.c:1062
+msgid "_Automatic maximum"
+msgstr "_Automatisk maksimum"
 
-#: ../panel-plugin/netload.c:991
-msgid "kByte/s"
-msgstr "kByte/s"
+#: ../panel-plugin/netload.c:1096
+#, fuzzy
+msgid "KiB/s"
+msgstr "KiB/s"
+
+#: ../panel-plugin/netload.c:1121
+msgid "_Present data as:"
+msgstr "_Præsentér data som:"
+
+#: ../panel-plugin/netload.c:1130
+msgid "Bars"
+msgstr "Bjælker"
+
+#: ../panel-plugin/netload.c:1131
+msgid "Values"
+msgstr "Værdier"
+
+#: ../panel-plugin/netload.c:1132
+msgid "Bars and values"
+msgstr "Bjælker og værdier"
+
+#: ../panel-plugin/netload.c:1182
+msgid "_Colorize values"
+msgstr "Tildel værdier _farver"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
 msgstr "Vis netværkstraffik"
 
+#: ../panel-plugin/utils.c:78
+msgid "B"
+msgstr "B"
+
+#: ../panel-plugin/utils.c:78
+msgid "KiB"
+msgstr "KiB"
+
+#: ../panel-plugin/utils.c:78
+msgid "MiB"
+msgstr "MiB"
+
+#: ../panel-plugin/utils.c:78
+msgid "GiB"
+msgstr "GiB"
+
+#~ msgid "kByte/s"
+#~ msgstr "kByte/s"
+
 #~ msgid "Unable to open the following url: %s"
 #~ msgstr "Kunne ikke åbne følgende url: %s"
+
 #~ msgid "Are you sure you want to delete this window?"
 #~ msgstr "Er du sikker på, at du vil slette dette vindue?"
+
 #~ msgid "Window"
 #~ msgstr "Vindue"
+
 #~ msgid "_Rename..."
 #~ msgstr "_Omdøb..."
+
 #~ msgid "_Options"
 #~ msgstr "_Indstillinger"
+
 #~ msgid "Note"
 #~ msgstr "Notat"
+
 #~ msgid "R_ename..."
 #~ msgstr "O_mdøb..."
+
 #~ msgid "Resize grip"
 #~ msgstr "Størrelsesgreb"
+
 #~ msgid "Always on top"
 #~ msgstr "Altid øverst"
+
 #~ msgid "Sticky window"
 #~ msgstr "Hold vindue permanent"
+
 #~ msgid "Show on startup"
 #~ msgstr "Vis ved opstart"
+
 #~ msgid "Always"
 #~ msgstr "Altid"
+
 #~ msgid "Never"
 #~ msgstr "Aldrig"
+
 #~ msgid "Last state"
 #~ msgstr "Sidste tilstand"
+
 #~ msgid "Choose Window Font"
 #~ msgstr "Vælg skrifttype for vinduet"
+
 #~ msgid "Rename window"
 #~ msgstr "Omdøb vindue"
+
 #~ msgid "Error"
 #~ msgstr "Fejl"
+
 #~ msgid "Unable to rename window"
 #~ msgstr "Kunne ikke omdøbe vindue"
+
 #~ msgid "Are you sure you want to delete this note?"
 #~ msgstr "Er du sikker på, at du vil slette dette notat?"
+
 #~ msgid "Rename note"
 #~ msgstr "Omdøb notat"
+
 #~ msgid "Unable to rename note"
 #~ msgstr "Kunne ikke omdøbe notat"
+
 #~ msgid "Default settings"
 #~ msgstr "Standardindstillinger"
+
 #~ msgid "Hide windows from taskbar"
 #~ msgstr "Skjul vindue i proceslinjen"
+
 #~ msgid "Hide arrow button"
 #~ msgstr "Skjul pileknap"
+
 #~ msgid "New window settings"
 #~ msgstr "Nye vinduesindstillinger"
+
 #~ msgid "Font"
 #~ msgstr "Skrifttype"
+
 #~ msgid "Size"
 #~ msgstr "Størrelse"
+
 #~ msgid "Notes"
 #~ msgstr "Notater"
+
 #~ msgid "Notes plugin for the Xfce4 desktop"
 #~ msgstr "Notat-udvidelsesmodul til Xfce4-skrivebordet"
-
