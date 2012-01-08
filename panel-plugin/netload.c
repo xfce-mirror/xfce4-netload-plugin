@@ -313,7 +313,7 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
     gtk_widget_show(global->monitor->label);
 
     global->monitor->rcv_label = gtk_label_new("");
-    gtk_label_set_width_chars(GTK_LABEL(global->monitor->rcv_label), 10);
+    gtk_label_set_width_chars(GTK_LABEL(global->monitor->rcv_label), 7);
     gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
     gtk_widget_show(global->monitor->rcv_label);
 
@@ -323,7 +323,7 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
     }
 
     global->monitor->sent_label = gtk_label_new("");
-    gtk_label_set_width_chars(GTK_LABEL(global->monitor->sent_label), 10);
+    gtk_label_set_width_chars(GTK_LABEL(global->monitor->sent_label), 7);
     gtk_widget_show(global->monitor->sent_label);
 
     if (orientation == GTK_ORIENTATION_HORIZONTAL)
