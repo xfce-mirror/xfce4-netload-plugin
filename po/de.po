@@ -119,9 +119,8 @@ msgid "_Automatic maximum"
 msgstr "_Automatisches Maximum"
 
 #: ../panel-plugin/netload.c:1096
-#, fuzzy
 msgid "KiB/s"
-msgstr "%s KiB/s"
+msgstr "KiB/s"
 
 #: ../panel-plugin/netload.c:1121
 #, fuzzy
