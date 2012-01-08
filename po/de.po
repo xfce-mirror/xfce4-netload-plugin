@@ -154,19 +154,19 @@ msgstr "Netzwerkverkehr anzeigen"
 
 #: ../panel-plugin/utils.c:78
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: ../panel-plugin/utils.c:78
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #: ../panel-plugin/utils.c:78
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: ../panel-plugin/utils.c:78
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #~ msgid "kByte/s"
 #~ msgstr "kByte/s"
