@@ -20,16 +20,19 @@
 #define UTILS_H
 
 /**
- * Formats the number according the current locale with thousands separator. E.g.
- * 1234.5678 is formated in a German locale with digits=2 to 1.234,57. If the size
- * is too small, <code>NULL</code> is returned and the string contains garbage.
+ * Formats the number into a number of the appropriate byte unit with
+ * a thousands separator, respecting the current locale. It appends
+ * the byte unit to the number. E.g. 1024000 byte will be formatted in
+ * a German locale with 2 digits to 1.000,00 KiB. If the size is too
+ * small, <code>NULL</code> is returned and the string contains
+ * garbage.
  * @param   string      a character array in which the result is stored
  * @param   stringsize  the size of the character array
- * @param   number      the number that should be formated
+ * @param   number      the number that should be formatted
  * @param   digits      the number of digits after the decimal point
  * @return  the string to allow concatening buffers or <code>null</code>
  */
-char* format_with_thousandssep( char* string, int stringsize, double number, int digits );
+char* format_byte_humanreadable( char* string, int stringsize, double number, int digits );
 
 /**
  * Returns the minimum of the array. The array must contain at least one element.

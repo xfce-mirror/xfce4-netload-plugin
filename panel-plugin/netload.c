@@ -236,26 +236,26 @@ static gboolean update_monitors(t_global_monitor *global)
         if (global->monitor->options.show_bars)
             gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor->status[i]), temp);
 
-        format_with_thousandssep( buffer[i], BUFSIZ, display[i] / 1024.0, 2 );
+        format_byte_humanreadable( buffer[i], BUFSIZ, display[i], 2 );
     }
     
-    format_with_thousandssep( buffer[TOT], BUFSIZ, (display[IN]+display[OUT]) / 1024.0, 2 );
+    format_byte_humanreadable( buffer[TOT], BUFSIZ, (display[IN]+display[OUT]), 2 );
     
     {
         char* ip = get_ip_address(&(global->monitor->data));
         g_snprintf(caption, sizeof(caption), 
                 _("<< %s >> (%s)\nAverage of last %d measures:\n"
-                    "Incoming: %s kByte/s\nOutgoing: %s kByte/s\nTotal: %s kByte/s"),
+                    "Incoming: %s/s\nOutgoing: %s/s\nTotal: %s/s"),
                     get_name(&(global->monitor->data)), ip ? ip : _("no IP address"),
                     HISTSIZE_CALCULATE, buffer[IN], buffer[OUT], buffer[TOT]);
         gtk_label_set_text(GTK_LABEL(global->tooltip_text), caption);
 
         if (global->monitor->options.show_values)
         {
-            g_snprintf(received, sizeof(received), "%s KiB/s", buffer[IN]);
+            g_snprintf(received, sizeof(received), "%s/s", buffer[IN]);
             gtk_label_set_text(GTK_LABEL(global->monitor->rcv_label), received);
 
-            g_snprintf(sent, sizeof(sent), _("%s KiB/s"), buffer[OUT]);
+            g_snprintf(sent, sizeof(sent), _("%s/s"), buffer[OUT]);
             gtk_label_set_text(GTK_LABEL(global->monitor->sent_label), sent);
         }
     }
@@ -311,7 +311,7 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
     gtk_widget_show(global->monitor->label);
 
     global->monitor->rcv_label = gtk_label_new("");
-    gtk_label_set_width_chars(GTK_LABEL(global->monitor->rcv_label), 13);
+    gtk_label_set_width_chars(GTK_LABEL(global->monitor->rcv_label), 10);
     gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
     gtk_widget_show(global->monitor->rcv_label);
 
@@ -321,7 +321,7 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
     }
 
     global->monitor->sent_label = gtk_label_new("");
-    gtk_label_set_width_chars(GTK_LABEL(global->monitor->sent_label), 13);
+    gtk_label_set_width_chars(GTK_LABEL(global->monitor->sent_label), 10);
     gtk_widget_show(global->monitor->sent_label);
 
     if (orientation == GTK_ORIENTATION_HORIZONTAL)
@@ -332,7 +332,7 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
                     GTK_PROGRESS_BOTTOM_TO_TOP);
         }
-		gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.0f, 0.5f);
+        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.0f, 0.5f);
     }
     else
     {
@@ -342,7 +342,7 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]), 
                     GTK_PROGRESS_LEFT_TO_RIGHT);
         }
-		gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 1.0f, 0.5f);
+        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 1.0f, 0.5f);
     }
 
     gtk_box_pack_start(GTK_BOX(global->monitor->box),
@@ -528,7 +528,7 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
             && !supress_warnings)
     {
         xfce_dialog_show_error (NULL, NULL,
-	    _("%s: Error in initalizing:\n%s"),
+        _("%s: Error in initalizing:\n%s"),
             _(APP_NAME),
             _(errormessages[
                 global->monitor->data.errorcode == 0 

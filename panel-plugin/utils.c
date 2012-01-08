@@ -22,6 +22,9 @@
 #include <string.h>
 #include <limits.h>
 #include <locale.h>
+#include <glib.h>
+#include <glib/gprintf.h>
+#include <glib/gi18n.h>
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -67,11 +70,14 @@ unsigned long max_array( unsigned long array[], int size )
 
 
 /* ---------------------------------------------------------------------------------------------- */
-char* format_with_thousandssep(char* string, int stringsize, double number, int digits)
+char* format_byte_humanreadable(char* string, int stringsize, double number, int digits)
 {
     char* str = string;
     char buffer[BUFSIZ], formatstring[BUFSIZ];
     char* bufptr = buffer;
+    char* unit_names[] = { N_("B"), N_("KiB"), N_("MiB"), N_("GiB") };
+    unsigned int uidx = 0;
+    double number_displayed = number;
     unsigned int i;
     int numberOfIntegerChars, count;
     struct lconv* localeinfo = localeconv();
@@ -84,8 +90,22 @@ char* format_with_thousandssep(char* string, int stringsize, double number, int 
         digits = 2;
     }
     
+    /* no digits for smallest unit size */
+    if (number <= 1024.0)
+    {
+        digits = 0;
+    }
+
+    /* calculate number and appropriate unit size for display */
+    while(number_displayed >= 1024.0 && uidx < sizeof(unit_names))
+    {
+        number_displayed /= 1024.0;
+        uidx++;
+    }
+
+    /* format number first */
     snprintf(formatstring, BUFSIZ, "%%.%df", digits);
-    snprintf(buffer, BUFSIZ, formatstring, number);
+    snprintf(buffer, BUFSIZ, formatstring, number_displayed);
     
     /* get the number of integer characters */
     count = numberOfIntegerChars = ( digits > 0
@@ -115,15 +135,20 @@ char* format_with_thousandssep(char* string, int stringsize, double number, int 
         count--;
     }
     
-    /* Copy the rest */
+    /* Copy the rest of the number */
     while (digits > 0 && *bufptr != 0)
     {
         *str++ = *bufptr++;
     }
     
+    /* Add space */
+    *str++ = ' ';
+
     /* terminate with 0 finally */
     *str = 0;
     
+    /* Add the unit name */
+    g_strlcat(string, _(unit_names[uidx]), stringsize);
+
     return string;
 }
-
