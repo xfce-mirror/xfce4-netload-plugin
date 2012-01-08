@@ -1093,7 +1093,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
         gtk_box_pack_start(GTK_BOX(global->monitor->max_hbox[i]), GTK_WIDGET(global->monitor->max_entry[i]),
                        FALSE, FALSE, 0);
         
-        unit_label[i] = gtk_label_new(_("kByte/s"));
+        unit_label[i] = gtk_label_new(_("KiB/s"));
         gtk_box_pack_start(GTK_BOX(global->monitor->max_hbox[i]), GTK_WIDGET(unit_label[i]), FALSE, FALSE, 0);
         
         gtk_size_group_add_widget(sg, max_label[i]);
