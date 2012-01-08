@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-07 18:21+0000\n"
+"POT-Creation-Date: 2012-01-08 14:54+0000\n"
 "PO-Revision-Date: 2007-01-18 08:45+0100\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: <de@li.org>\n"
@@ -33,19 +33,19 @@ msgstr "Linux Prozessdatei '/proc/net/dev' nicht gefunden."
 msgid "Interface was not found."
 msgstr "Schnittstelle nicht gefunden."
 
-#: ../panel-plugin/netload.c:161
+#: ../panel-plugin/netload.c:162
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "»%s« (Schnittstelle nicht aktiviert)"
 
-#: ../panel-plugin/netload.c:247
-#, c-format
+#: ../panel-plugin/netload.c:249
+#, fuzzy, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
-"Incoming: %s kByte/s\n"
-"Outgoing: %s kByte/s\n"
-"Total: %s kByte/s"
+"Incoming: %s/s\n"
+"Outgoing: %s/s\n"
+"Total: %s/s"
 msgstr ""
 "»%s« (%s)\n"
 "Durchschnitt der letzten %d Messungen:\n"
@@ -53,101 +53,97 @@ msgstr ""
 "Ausgehend: %s kByte/s\n"
 "Gesamt: %s kByte/s"
 
-#: ../panel-plugin/netload.c:249
+#: ../panel-plugin/netload.c:251
 msgid "no IP address"
 msgstr "keine IP-Adresse"
 
-#: ../panel-plugin/netload.c:258
-#, c-format, fuzzy
-msgid "%s KiB/s"
-msgstr "%s KiB/s"
-
-#: ../panel-plugin/netload.c:531
-#, c-format
+#: ../panel-plugin/netload.c:533
+#, fuzzy, c-format
 msgid ""
-"%s: Error in initalizing:\n"
+"%s: Error in initializing:\n"
 "%s"
 msgstr ""
 "%s: Fehler beim Initialisieren:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:870
+#: ../panel-plugin/netload.c:872
 msgid "Select color"
 msgstr "Farbe auswählen"
 
-#: ../panel-plugin/netload.c:936
+#: ../panel-plugin/netload.c:938
 #, fuzzy
 msgid "Bar color (i_ncoming):"
-msgstr "Balkenfarbe (eingehend):"
+msgstr "Balkenfarbe (ei_ngehend):"
 
-#: ../panel-plugin/netload.c:937
+#: ../panel-plugin/netload.c:939
 #, fuzzy
 msgid "Bar color (_outgoing):"
-msgstr "Balkenfarbe (ausgehend):"
+msgstr "Balkenfarbe (au_sgehend):"
 
-#: ../panel-plugin/netload.c:940
+#: ../panel-plugin/netload.c:942
 #, fuzzy
 msgid "Maximum (inco_ming):"
-msgstr "Maximum (eingehend):"
+msgstr "_Maximum (eingehend):"
 
-#: ../panel-plugin/netload.c:941
+#: ../panel-plugin/netload.c:943
 #, fuzzy
 msgid "Maximum (o_utgoing):"
-msgstr "Maximum (ausgehend):"
+msgstr "Maximum (a_usgehend):"
 
-#: ../panel-plugin/netload.c:946 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Netzwerkmonitor"
 
-#: ../panel-plugin/netload.c:975
+#: ../panel-plugin/netload.c:977
 #, fuzzy
 msgid "_Text to display:"
-msgstr "Angezeigter Text:"
+msgstr "Angezeigter _Text:"
 
-#: ../panel-plugin/netload.c:1006
+#: ../panel-plugin/netload.c:1008
 #, fuzzy
 msgid "Network _device:"
-msgstr "Netzwerkschnittstelle:"
+msgstr "Netzwerk_schnittstelle:"
 
-#: ../panel-plugin/netload.c:1034
+#: ../panel-plugin/netload.c:1036
 #, fuzzy
 msgid "Update _interval:"
-msgstr "Aktualisierungsintervall:"
+msgstr "Aktualisierungs_intervall:"
 
-#: ../panel-plugin/netload.c:1047
+#: ../panel-plugin/netload.c:1049
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1060
+#: ../panel-plugin/netload.c:1062
 #, fuzzy
 msgid "_Automatic maximum"
-msgstr "Automatisches Maximum"
+msgstr "_Automatisches Maximum"
 
-#: ../panel-plugin/netload.c:1094
-msgid "kByte/s"
-msgstr "kByte/s"
+#: ../panel-plugin/netload.c:1096
+#, fuzzy
+msgid "KiB/s"
+msgstr "%s KiB/s"
 
-#: ../panel-plugin/netload.c:1119
+#: ../panel-plugin/netload.c:1121
 #, fuzzy
 msgid "_Present data as:"
 msgstr "_Daten darstellen als:"
 
-#: ../panel-plugin/netload.c:1128
+#: ../panel-plugin/netload.c:1130
 #, fuzzy
 msgid "Bars"
 msgstr "Balken"
 
-#: ../panel-plugin/netload.c:1129
+#: ../panel-plugin/netload.c:1131
 #, fuzzy
 msgid "Values"
 msgstr "Werte"
 
-#: ../panel-plugin/netload.c:1130
+#: ../panel-plugin/netload.c:1132
 #, fuzzy
 msgid "Bars and values"
 msgstr "Balken und Werte"
 
-#: ../panel-plugin/netload.c:1180
+#: ../panel-plugin/netload.c:1182
 #, fuzzy
 msgid "_Colorize values"
 msgstr "_Werte färben"
@@ -155,6 +151,25 @@ msgstr "_Werte färben"
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
 msgstr "Netzwerkverkehr anzeigen"
+
+#: ../panel-plugin/utils.c:78
+msgid "B"
+msgstr ""
+
+#: ../panel-plugin/utils.c:78
+msgid "KiB"
+msgstr ""
+
+#: ../panel-plugin/utils.c:78
+msgid "MiB"
+msgstr ""
+
+#: ../panel-plugin/utils.c:78
+msgid "GiB"
+msgstr ""
+
+#~ msgid "kByte/s"
+#~ msgstr "kByte/s"
 
 #~ msgid "Edit Properties"
 #~ msgstr "Einstellungen bearbeiten"
