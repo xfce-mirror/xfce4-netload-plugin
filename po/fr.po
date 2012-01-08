@@ -49,9 +49,9 @@ msgid ""
 msgstr ""
 "<< %s >> (%s)\n"
 "Moyenne des %d dernières mesures :\n"
-"Entrant : %s kOctet/s\n"
-"Sortant : %s kOctet/s\n"
-"Total : %s kOctet/s"
+"Entrant : %s/s\n"
+"Sortant : %s/s\n"
+"Total : %s/s"
 
 #: ../panel-plugin/netload.c:251
 msgid "no IP address"
