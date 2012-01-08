@@ -81,14 +81,12 @@ msgid "Bar color (_outgoing):"
 msgstr "Bjælkefarve (udgående):"
 
 #: ../panel-plugin/netload.c:942
-#, fuzzy
 msgid "Maximum (inco_ming):"
-msgstr "Maksimum (indgående):"
+msgstr "Maksimum (ind_gående):"
 
 #: ../panel-plugin/netload.c:943
-#, fuzzy
 msgid "Maximum (o_utgoing):"
-msgstr "Maksimum (udgående):"
+msgstr "Maksimum (u_dgående):"
 
 #: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
@@ -115,7 +113,6 @@ msgid "_Automatic maximum"
 msgstr "_Automatisk maksimum"
 
 #: ../panel-plugin/netload.c:1096
-#, fuzzy
 msgid "KiB/s"
 msgstr "KiB/s"
 
