@@ -4,13 +4,13 @@
 # the xfce4-netload-plugin package.
 # Vern Sun <s5unty@gmail.com>, 2007.
 # Hunt Xu <huntxu@live.cn>, 2009.
-# Chipong Luo <chipong_l@yahoo.com>, 2011.
+# Chipong Luo <chipong_l@yahoo.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-09 04:02+0000\n"
+"POT-Creation-Date: 2012-01-09 00:00+0000\n"
 "PO-Revision-Date: 2009-11-09 19:47+0800\n"
 "Last-Translator: Chipong Luo <chipong_l@yahoo.com>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
@@ -35,87 +35,123 @@ msgstr "未找到 Linux 设备 ‘/proc/net/dev’。"
 msgid "Interface was not found."
 msgstr "未找到接口。"
 
-#: ../panel-plugin/netload.c:147
+#: ../panel-plugin/netload.c:162
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (接口关闭)"
 
-#: ../panel-plugin/netload.c:231
+#: ../panel-plugin/netload.c:249
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
-"Incoming: %s kByte/s\n"
-"Outgoing: %s kByte/s\n"
-"Total: %s kByte/s"
+"Incoming: %s/s\n"
+"Outgoing: %s/s\n"
+"Total: %s/s"
 msgstr ""
 "<< %s >> (%s)\n"
 "%d 内的平均值：\n"
-"流入：%s k/s\n"
-"流出：%s k/s\n"
-"总共：%s k/s"
+"流入：%s/s\n"
+"流出：%s/s\n"
+"总共：%s/s"
 
-#: ../panel-plugin/netload.c:233
+#: ../panel-plugin/netload.c:251
 msgid "no IP address"
-msgstr "没有 IP 地址"
+msgstr "无 IP 地址"
 
-#: ../panel-plugin/netload.c:463
+#: ../panel-plugin/netload.c:533
 #, c-format
 msgid ""
-"%s: Error in initalizing:\n"
+"%s: Error in initializing:\n"
 "%s"
 msgstr ""
-"%s:：初始化时出错：\n"
+"%s：初始化时出错：\n"
 "%s"
 
-#: ../panel-plugin/netload.c:768
+#: ../panel-plugin/netload.c:872
 msgid "Select color"
 msgstr "选择颜色"
 
-#: ../panel-plugin/netload.c:834
-msgid "Bar color (incoming):"
-msgstr "条纹颜色(流入)："
+#: ../panel-plugin/netload.c:938
+msgid "Bar color (i_ncoming):"
+msgstr "条纹颜色(流入)(_N)："
 
-#: ../panel-plugin/netload.c:835
-msgid "Bar color (outgoing):"
-msgstr "条纹颜色(流出)："
+#: ../panel-plugin/netload.c:939
+msgid "Bar color (_outgoing):"
+msgstr "条纹颜色(流出)(_O)："
 
-#: ../panel-plugin/netload.c:838
-msgid "Maximum (incoming):"
-msgstr "最大值(流入)："
+#: ../panel-plugin/netload.c:942
+msgid "Maximum (inco_ming):"
+msgstr "最大值(流入)(_M)："
 
-#: ../panel-plugin/netload.c:839
-msgid "Maximum (outgoing):"
-msgstr "最大值(流出)："
+#: ../panel-plugin/netload.c:943
+msgid "Maximum (o_utgoing):"
+msgstr "最大值(流出)(_U)："
 
-#: ../panel-plugin/netload.c:844 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "网络监视器"
 
-#: ../panel-plugin/netload.c:873
-msgid "Text to display:"
-msgstr "要显示的文本："
+#: ../panel-plugin/netload.c:977
+msgid "_Text to display:"
+msgstr "要显示的文本(_T)："
 
-#: ../panel-plugin/netload.c:904
-msgid "Network device:"
-msgstr "网络设备："
+#: ../panel-plugin/netload.c:1008
+msgid "Network _device:"
+msgstr "网络设备(_D)："
 
-#: ../panel-plugin/netload.c:930
-msgid "Update interval:"
-msgstr "更新间隔："
+#: ../panel-plugin/netload.c:1036
+msgid "Update _interval:"
+msgstr "更新间隔(_I)："
 
-#: ../panel-plugin/netload.c:941
+#: ../panel-plugin/netload.c:1049
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:954
-msgid "Automatic maximum"
-msgstr "自动调节最大值"
+#: ../panel-plugin/netload.c:1062
+msgid "_Automatic maximum"
+msgstr "自动调节最大值(_A)"
 
-#: ../panel-plugin/netload.c:986
-msgid "kByte/s"
-msgstr "k/s"
+#: ../panel-plugin/netload.c:1096
+msgid "KiB/s"
+msgstr "K/s"
+
+#: ../panel-plugin/netload.c:1121
+msgid "_Present data as:"
+msgstr "当前数据为(_P)："
+
+#: ../panel-plugin/netload.c:1130
+msgid "Bars"
+msgstr "条纹"
+
+#: ../panel-plugin/netload.c:1131
+msgid "Values"
+msgstr "值"
+
+#: ../panel-plugin/netload.c:1132
+msgid "Bars and values"
+msgstr "条纹和值"
+
+#: ../panel-plugin/netload.c:1182
+msgid "_Colorize values"
+msgstr "彩色化的值(_C)"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
 msgstr "显示网络流量"
+
+#: ../panel-plugin/utils.c:78
+msgid "B"
+msgstr "B"
+
+#: ../panel-plugin/utils.c:78
+msgid "KiB"
+msgstr "K"
+
+#: ../panel-plugin/utils.c:78
+msgid "MiB"
+msgstr "M"
+
+#: ../panel-plugin/utils.c:78
+msgid "GiB"
+msgstr "G"
