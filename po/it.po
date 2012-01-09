@@ -58,7 +58,7 @@ msgid "no IP address"
 msgstr "Nessun indirizzo IP"
 
 #: ../panel-plugin/netload.c:533
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
