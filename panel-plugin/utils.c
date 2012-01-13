@@ -76,8 +76,8 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     char buffer[BUFSIZ], formatstring[BUFSIZ];
     char* bufptr = buffer;
     char* unit_names[] = { N_("B"), N_("KiB"), N_("MiB"), N_("GiB") };
-    unsigned int uidx = 0;
-    double number_displayed = number;
+    unsigned int uidx = 1;
+    double number_displayed = number / 1024.0;
     unsigned int i;
     int numberOfIntegerChars, count;
     struct lconv* localeinfo = localeconv();
