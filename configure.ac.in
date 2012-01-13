@@ -6,10 +6,10 @@ dnl Copyright 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl Copyright 2010 Florian Rivoal <frivoal@xfce.org>
 dnl
 
-m4_define([netload_version],[1.0.0])
+m4_define([netload_version],[1.1.0])
 
 AC_INIT([xfce4-netload-plugin], [netload_version],
-	[xfce-goodies-dev@lists.berlios.de])
+	[goodies-dev@xfce.org])
 
 NETLOAD_VERSION=netload_version()
 AM_INIT_AUTOMAKE([xfce4-netload-plugin], [$NETLOAD_VERSION])
@@ -53,7 +53,7 @@ AC_CHECK_LIB(nsl, kstat_open, SOLLIBS="$SOLLIBS -linet_ntop", SOLLIBS="$SOLLIBS"
 AC_SUBST(SOLLIBS)
 
 dnl configure the panel plugin
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.20])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.7.0])
 
 dnl configure the libxfcegui4
 XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.7.0])
@@ -73,4 +73,3 @@ icons/24x24/Makefile
 icons/48x48/Makefile
 icons/scalable/Makefile
 ])
-

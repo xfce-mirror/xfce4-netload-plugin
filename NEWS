@@ -1,3 +1,10 @@
+1.1.0
+=====
+- Add option to show values in panel in addition to the bars, bug #7804
+- Format units automatically, bug #8280
+- Port to libxfce4ui, bug #7083
+- Fix two calls to snprintf, bug #7360
+
 1.0.0
 =====
 - Fix compatibility with Xfce 4.7+, fixing bug #6466
