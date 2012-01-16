@@ -3,51 +3,52 @@
 # Copyright (C) 2003-2005 Bernhard Walle.
 # This file is distributed under the same license as the
 #   xfce4-netload-plugin package.
-#
+# 
 # Piarres Beobide <pi@beobide.net>, 2005, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-05 02:01+0100\n"
+"POT-Creation-Date: 2012-01-16 10:15+0000\n"
 "PO-Revision-Date: 2009-08-18 09:17+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Euskara <debian-l10n-eu@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
 
-#: ../panel-plugin/netload.c:57
+#: ../panel-plugin/netload.c:59
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-SareKarga-Plugin-a"
 
-#: ../panel-plugin/netload.c:60
+#: ../panel-plugin/netload.c:62
 msgid "Unknown error."
 msgstr "Errore ezezaguna."
 
-#: ../panel-plugin/netload.c:61
+#: ../panel-plugin/netload.c:63
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Ez da '/proc/net/dev' Linux proc gailua aurkitu."
 
-#: ../panel-plugin/netload.c:62
+#: ../panel-plugin/netload.c:64
 msgid "Interface was not found."
 msgstr "Ez da interfazea aurkitu."
 
-#: ../panel-plugin/netload.c:144
+#: ../panel-plugin/netload.c:162
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Interfazea deskonektaturik)"
 
-#: ../panel-plugin/netload.c:228
+#: ../panel-plugin/netload.c:249
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
-"Incoming: %s kByte/s\n"
-"Outgoing: %s kByte/s\n"
-"Total: %s kByte/s"
+"Incoming: %s/s\n"
+"Outgoing: %s/s\n"
+"Total: %s/s"
 msgstr ""
 "<< %s >> (%s)\n"
 "Azken %d neurketen bataz bestekoa:\n"
@@ -55,68 +56,106 @@ msgstr ""
 "Irteera: %s kByte/s\n"
 "Guztira: %s kByte/s"
 
-#: ../panel-plugin/netload.c:230
+#: ../panel-plugin/netload.c:251
 msgid "no IP address"
 msgstr "ez dago IP helbiderik"
 
-#: ../panel-plugin/netload.c:468
+#: ../panel-plugin/netload.c:533
 #, c-format
 msgid ""
-"%s: Error in initalizing:\n"
+"%s: Error in initializing:\n"
 "%s"
 msgstr ""
 "%s: Errorea abiaraztean:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:773
+#: ../panel-plugin/netload.c:872
 msgid "Select color"
 msgstr "Hautatu kolorea"
 
-#: ../panel-plugin/netload.c:839
-msgid "Bar color (incoming):"
-msgstr "Barra kolorea (sarrera):"
+#: ../panel-plugin/netload.c:938
+msgid "Bar color (i_ncoming):"
+msgstr "Barra kolorea (s_arrera):"
 
-#: ../panel-plugin/netload.c:840
-msgid "Bar color (outgoing):"
-msgstr "Barra kolorea (irteera):"
+#: ../panel-plugin/netload.c:939
+msgid "Bar color (_outgoing):"
+msgstr "Barra kolorea (_irteera):"
 
-#: ../panel-plugin/netload.c:843
-msgid "Maximum (incoming):"
-msgstr "Gehienezkoa (sarrera):"
+#: ../panel-plugin/netload.c:942
+msgid "Maximum (inco_ming):"
+msgstr "Gehienezkoa (_sarrera):"
 
-#: ../panel-plugin/netload.c:844
-msgid "Maximum (outgoing):"
-msgstr "Gehienezkoa (irteera):"
+#: ../panel-plugin/netload.c:943
+msgid "Maximum (o_utgoing):"
+msgstr "Gehienezkoa (i_rteera):"
 
-#: ../panel-plugin/netload.c:849 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Sare Monitorea"
 
-#: ../panel-plugin/netload.c:878
-msgid "Text to display:"
-msgstr "Bistaratzeko testua:"
+#: ../panel-plugin/netload.c:977
+msgid "_Text to display:"
+msgstr "Bistaratzeko _testua:"
 
-#: ../panel-plugin/netload.c:909
-msgid "Network device:"
-msgstr "Sare gailua:"
+#: ../panel-plugin/netload.c:1008
+msgid "Network _device:"
+msgstr "Sare _gailua:"
 
-#: ../panel-plugin/netload.c:935
-msgid "Update interval:"
-msgstr "Eguneratze epea:"
+#: ../panel-plugin/netload.c:1036
+msgid "Update _interval:"
+msgstr "Eguneratze _tartea:"
 
-#: ../panel-plugin/netload.c:946
+#: ../panel-plugin/netload.c:1049
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:959
-msgid "Automatic maximum"
-msgstr "Gehienezko automatikoa"
+#: ../panel-plugin/netload.c:1062
+msgid "_Automatic maximum"
+msgstr "_Gehienezko automatikoa"
 
-#: ../panel-plugin/netload.c:991
-msgid "kByte/s"
-msgstr "kByte/s"
+#: ../panel-plugin/netload.c:1096
+msgid "KiB/s"
+msgstr "KB/s"
+
+#: ../panel-plugin/netload.c:1121
+msgid "_Present data as:"
+msgstr "_Bistarazi datuak:"
+
+#: ../panel-plugin/netload.c:1130
+msgid "Bars"
+msgstr "Barrak"
+
+#: ../panel-plugin/netload.c:1131
+msgid "Values"
+msgstr "Balioak"
+
+#: ../panel-plugin/netload.c:1132
+msgid "Bars and values"
+msgstr "Barra eta balioak"
+
+#: ../panel-plugin/netload.c:1182
+msgid "_Colorize values"
+msgstr "_Koloreztatuko balioak"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
 msgstr "Ikusi sare trafikoa"
 
+#: ../panel-plugin/utils.c:78
+msgid "B"
+msgstr "B"
+
+#: ../panel-plugin/utils.c:78
+msgid "KiB"
+msgstr "KB"
+
+#: ../panel-plugin/utils.c:78
+msgid "MiB"
+msgstr "MB"
+
+#: ../panel-plugin/utils.c:78
+msgid "GiB"
+msgstr "GB"
+
+#~ msgid "kByte/s"
+#~ msgstr "kByte/s"
