@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-08 15:01+0000\n"
+"POT-Creation-Date: 2012-02-01 11:54+0000\n"
 "PO-Revision-Date: 2007-01-18 08:45+0100\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: <de@li.org>\n"
@@ -39,7 +39,7 @@ msgid "<< %s >> (Interface down)"
 msgstr "»%s« (Schnittstelle nicht aktiviert)"
 
 #: ../panel-plugin/netload.c:249
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
@@ -58,7 +58,7 @@ msgid "no IP address"
 msgstr "keine IP-Adresse"
 
 #: ../panel-plugin/netload.c:533
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
@@ -71,22 +71,18 @@ msgid "Select color"
 msgstr "Farbe auswählen"
 
 #: ../panel-plugin/netload.c:938
-#, fuzzy
 msgid "Bar color (i_ncoming):"
 msgstr "Balkenfarbe (ei_ngehend):"
 
 #: ../panel-plugin/netload.c:939
-#, fuzzy
 msgid "Bar color (_outgoing):"
 msgstr "Balkenfarbe (au_sgehend):"
 
 #: ../panel-plugin/netload.c:942
-#, fuzzy
 msgid "Maximum (inco_ming):"
 msgstr "_Maximum (eingehend):"
 
 #: ../panel-plugin/netload.c:943
-#, fuzzy
 msgid "Maximum (o_utgoing):"
 msgstr "Maximum (a_usgehend):"
 
@@ -95,17 +91,14 @@ msgid "Network Monitor"
 msgstr "Netzwerkmonitor"
 
 #: ../panel-plugin/netload.c:977
-#, fuzzy
 msgid "_Text to display:"
 msgstr "Angezeigter _Text:"
 
 #: ../panel-plugin/netload.c:1008
-#, fuzzy
 msgid "Network _device:"
 msgstr "Netzwerk_schnittstelle:"
 
 #: ../panel-plugin/netload.c:1036
-#, fuzzy
 msgid "Update _interval:"
 msgstr "Aktualisierungs_intervall:"
 
@@ -114,7 +107,6 @@ msgid "s"
 msgstr "s"
 
 #: ../panel-plugin/netload.c:1062
-#, fuzzy
 msgid "_Automatic maximum"
 msgstr "_Automatisches Maximum"
 
@@ -123,27 +115,22 @@ msgid "KiB/s"
 msgstr "KiB/s"
 
 #: ../panel-plugin/netload.c:1121
-#, fuzzy
 msgid "_Present data as:"
 msgstr "_Daten darstellen als:"
 
 #: ../panel-plugin/netload.c:1130
-#, fuzzy
 msgid "Bars"
 msgstr "Balken"
 
 #: ../panel-plugin/netload.c:1131
-#, fuzzy
 msgid "Values"
 msgstr "Werte"
 
 #: ../panel-plugin/netload.c:1132
-#, fuzzy
 msgid "Bars and values"
 msgstr "Balken und Werte"
 
 #: ../panel-plugin/netload.c:1182
-#, fuzzy
 msgid "_Colorize values"
 msgstr "_Werte färben"
 
