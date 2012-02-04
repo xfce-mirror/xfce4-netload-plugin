@@ -1,0 +1,156 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# كريم اولاد الشلحة <herr.linux88@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-04 15:18+0000\n"
+"PO-Revision-Date: 2012-02-04 20:24+0000\n"
+"Last-Translator: كريم اولاد الشلحة <herr.linux88@gmail.com>\n"
+"Language-Team: Arabic Xfce Translation Team\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Virtaal 0.7.0\n"
+
+#: ../panel-plugin/netload.c:59
+msgid "Xfce4-Netload-Plugin"
+msgstr "ملحق-تحميل نيت-لإكسفسي4"
+
+#: ../panel-plugin/netload.c:62
+msgid "Unknown error."
+msgstr "خطأ مجهول."
+
+#: ../panel-plugin/netload.c:63
+msgid "Linux proc device '/proc/net/dev' not found."
+msgstr "لم يتم العثور على '/proc/net/dev'."
+
+#: ../panel-plugin/netload.c:64
+msgid "Interface was not found."
+msgstr "لم يتم العثور غلى الواجهة."
+
+#: ../panel-plugin/netload.c:162
+#, c-format
+msgid "<< %s >> (Interface down)"
+msgstr "<< %s >> (واجهة للأسفل)"
+
+#: ../panel-plugin/netload.c:249
+#, c-format
+msgid ""
+"<< %s >> (%s)\n"
+"Average of last %d measures:\n"
+"Incoming: %s/s\n"
+"Outgoing: %s/s\n"
+"Total: %s/s"
+msgstr ""
+"<< %s >> (%s)\n"
+"معدل أخر %d إجراءات:\n"
+"الوارد: %s/s\n"
+"الصادر: %s/s\n"
+"المجموع: %s/s"
+
+#: ../panel-plugin/netload.c:251
+msgid "no IP address"
+msgstr "بدون عنوان IP"
+
+#: ../panel-plugin/netload.c:533
+#, c-format
+msgid ""
+"%s: Error in initializing:\n"
+"%s"
+msgstr ""
+"%s: خطأعنذ التمهيد:\n"
+"%s"
+
+#: ../panel-plugin/netload.c:872
+msgid "Select color"
+msgstr "اختر لون"
+
+#: ../panel-plugin/netload.c:938
+msgid "Bar color (i_ncoming):"
+msgstr "لون شريك (ال_وارد):"
+
+#: ../panel-plugin/netload.c:939
+msgid "Bar color (_outgoing):"
+msgstr "لون شريك (ال_صادر):"
+
+#: ../panel-plugin/netload.c:942
+msgid "Maximum (inco_ming):"
+msgstr "أقصى (الوارد):"
+
+#: ../panel-plugin/netload.c:943
+msgid "Maximum (o_utgoing):"
+msgstr "أقصى (الصادر):"
+
+#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
+msgid "Network Monitor"
+msgstr "مراقب الشبكة"
+
+#: ../panel-plugin/netload.c:977
+msgid "_Text to display:"
+msgstr "النص المراد عرضه:"
+
+#: ../panel-plugin/netload.c:1008
+msgid "Network _device:"
+msgstr "جهاز ال_شّبكة:"
+
+#: ../panel-plugin/netload.c:1036
+msgid "Update _interval:"
+msgstr "مجال التح_ديث:"
+
+#: ../panel-plugin/netload.c:1049
+msgid "s"
+msgstr "ث"
+
+#: ../panel-plugin/netload.c:1062
+msgid "_Automatic maximum"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1096
+msgid "KiB/s"
+msgstr "ك.بايت/ثا"
+
+#: ../panel-plugin/netload.c:1121
+msgid "_Present data as:"
+msgstr "ت_قديم البيانات كـ:"
+
+#: ../panel-plugin/netload.c:1130
+msgid "Bars"
+msgstr "أشرطة"
+
+#: ../panel-plugin/netload.c:1131
+msgid "Values"
+msgstr "قيم"
+
+#: ../panel-plugin/netload.c:1132
+msgid "Bars and values"
+msgstr "أشرطة و قيم"
+
+#: ../panel-plugin/netload.c:1182
+msgid "_Colorize values"
+msgstr "تلوين ا_لقيم"
+
+#: ../panel-plugin/netload.desktop.in.in.h:2
+msgid "Show network traffic"
+msgstr "عرض حركة الشبكة"
+
+#: ../panel-plugin/utils.c:78
+msgid "B"
+msgstr "بايت"
+
+#: ../panel-plugin/utils.c:78
+msgid "KiB"
+msgstr "ك.بايت"
+
+#: ../panel-plugin/utils.c:78
+msgid "MiB"
+msgstr "م.بايت"
+
+#: ../panel-plugin/utils.c:78
+msgid "GiB"
+msgstr "ج.بايت"
