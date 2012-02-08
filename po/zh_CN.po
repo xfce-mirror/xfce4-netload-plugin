@@ -4,15 +4,15 @@
 # the xfce4-netload-plugin package.
 # Vern Sun <s5unty@gmail.com>, 2007.
 # Hunt Xu <huntxu@live.cn>, 2009.
-# Chipong Luo <chipong_l@yahoo.com>, 2011, 2012.
+# Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-09 00:00+0000\n"
+"POT-Creation-Date: 2012-02-08 12:06+0000\n"
 "PO-Revision-Date: 2009-11-09 19:47+0800\n"
-"Last-Translator: Chipong Luo <chipong_l@yahoo.com>\n"
+"Last-Translator: Chipong Luo <chipong.luo@yahoo.com>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "未知错误。"
 
 #: ../panel-plugin/netload.c:63
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "未找到 Linux 设备 ‘/proc/net/dev’。"
+msgstr "未找到 Linux proc 设备 ‘/proc/net/dev’。"
 
 #: ../panel-plugin/netload.c:64
 msgid "Interface was not found."
@@ -94,7 +94,7 @@ msgstr "网络监视器"
 
 #: ../panel-plugin/netload.c:977
 msgid "_Text to display:"
-msgstr "要显示的文本(_T)："
+msgstr "要显示的文字(_T)："
 
 #: ../panel-plugin/netload.c:1008
 msgid "Network _device:"
@@ -110,7 +110,7 @@ msgstr "s"
 
 #: ../panel-plugin/netload.c:1062
 msgid "_Automatic maximum"
-msgstr "自动调节最大值(_A)"
+msgstr "自动最大值(_A)"
 
 #: ../panel-plugin/netload.c:1096
 msgid "KiB/s"
