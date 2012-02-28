@@ -90,7 +90,7 @@ msgstr "최대 (나가는 것)(_U):"
 #: ../panel-plugin/netload.c:948
 #: ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
-msgstr "네트웍 감시:"
+msgstr "네트워크 감시기"
 
 #: ../panel-plugin/netload.c:977
 msgid "_Text to display:"
@@ -98,7 +98,7 @@ msgstr "표시할 내용(_T):"
 
 #: ../panel-plugin/netload.c:1008
 msgid "Network _device:"
-msgstr "네트웍 장치(_D):"
+msgstr "네트워크 장치(_D):"
 
 #: ../panel-plugin/netload.c:1036
 msgid "Update _interval:"
@@ -138,7 +138,7 @@ msgstr "값을 색상화(_C)"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr "네트웍 상태를 보입니다"
+msgstr "네트워크 상태를 보입니다"
 
 #: ../panel-plugin/utils.c:78
 msgid "B"
