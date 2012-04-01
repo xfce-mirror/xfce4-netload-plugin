@@ -118,7 +118,7 @@ msgstr "KiB/s"
 
 #: ../panel-plugin/netload.c:1121
 msgid "_Present data as:"
-msgstr "다음으로 데이터 보이기(_P):"
+msgstr "다음으로 데이터 보기(_P):"
 
 #: ../panel-plugin/netload.c:1130
 msgid "Bars"
