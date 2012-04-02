@@ -69,7 +69,7 @@ msgstr ""
 
 #: ../panel-plugin/netload.c:872
 msgid "Select color"
-msgstr "색상을 선택하십시오."
+msgstr "색상을 선택하십시오"
 
 #: ../panel-plugin/netload.c:938
 msgid "Bar color (i_ncoming):"
