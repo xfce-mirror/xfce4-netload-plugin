@@ -2,23 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-netload-plugin package.
 # Ivica Kolić <ikoli@yahoo.com>, 2011.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-29 22:04+0000\n"
+"POT-Creation-Date: 2012-04-02 19:00+0000\n"
 "PO-Revision-Date: 2011-05-30 01:02+0200\n"
 "Last-Translator: Ivica Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian <ikoli@yahoo.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Croatian\n"
-"X-Poedit-Country: CROATIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: CROATIA\n"
 
 #: ../panel-plugin/netload.c:59
 msgid "Xfce4-Netload-Plugin"
@@ -36,19 +36,19 @@ msgstr "Linux proc uređaj '/proc/net/dev' nije pronađen"
 msgid "Interface was not found."
 msgstr "Sučelje nije pronađeno"
 
-#: ../panel-plugin/netload.c:147
+#: ../panel-plugin/netload.c:162
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr ""
 
-#: ../panel-plugin/netload.c:231
+#: ../panel-plugin/netload.c:249
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
-"Incoming: %s kByte/s\n"
-"Outgoing: %s kByte/s\n"
-"Total: %s kByte/s"
+"Incoming: %s/s\n"
+"Outgoing: %s/s\n"
+"Total: %s/s"
 msgstr ""
 "<< %s >> (%s)\n"
 "Prosjek  zadnjih %d mjerenja:\n"
@@ -56,67 +56,106 @@ msgstr ""
 "Odlazno: %s kByte/s\n"
 "Ukupno: %s kByte/s"
 
-#: ../panel-plugin/netload.c:233
+#: ../panel-plugin/netload.c:251
 msgid "no IP address"
 msgstr "nema IP adrese"
 
-#: ../panel-plugin/netload.c:463
+#: ../panel-plugin/netload.c:533
 #, c-format
 msgid ""
-"%s: Error in initalizing:\n"
+"%s: Error in initializing:\n"
 "%s"
 msgstr ""
 "%s:Greška pri iniciranju:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:768
+#: ../panel-plugin/netload.c:872
 msgid "Select color"
 msgstr "Odaberi boju"
 
-#: ../panel-plugin/netload.c:834
-msgid "Bar color (incoming):"
-msgstr "Boja trake (dolazno):"
+#: ../panel-plugin/netload.c:938
+msgid "Bar color (i_ncoming):"
+msgstr "Boja trake (d_olazno):"
 
-#: ../panel-plugin/netload.c:835
-msgid "Bar color (outgoing):"
-msgstr "Boja trake (odlazno):"
+#: ../panel-plugin/netload.c:939
+msgid "Bar color (_outgoing):"
+msgstr "Boja trake (_odlazno):"
 
-#: ../panel-plugin/netload.c:838
-msgid "Maximum (incoming):"
-msgstr "Maksimum (dolazno):"
+#: ../panel-plugin/netload.c:942
+msgid "Maximum (inco_ming):"
+msgstr "Maksimum (dola_zno):"
 
-#: ../panel-plugin/netload.c:839
-msgid "Maximum (outgoing):"
-msgstr "Maksimum (odlazno):"
+#: ../panel-plugin/netload.c:943
+msgid "Maximum (o_utgoing):"
+msgstr "Maksimum (o_dlazno):"
 
-#: ../panel-plugin/netload.c:844 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Nadzor mreže"
 
-#: ../panel-plugin/netload.c:873
-msgid "Text to display:"
-msgstr "Tekst za prikaz"
+#: ../panel-plugin/netload.c:977
+msgid "_Text to display:"
+msgstr "_Tekst za prikaz"
 
-#: ../panel-plugin/netload.c:904
-msgid "Network device:"
-msgstr "Mrežni uređaj:"
+#: ../panel-plugin/netload.c:1008
+msgid "Network _device:"
+msgstr "Mrežni _uređaj:"
 
-#: ../panel-plugin/netload.c:930
-msgid "Update interval:"
-msgstr "Interval nadopune"
+#: ../panel-plugin/netload.c:1036
+msgid "Update _interval:"
+msgstr "Interval _nadopune"
 
-#: ../panel-plugin/netload.c:941
+#: ../panel-plugin/netload.c:1049
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:954
-msgid "Automatic maximum"
-msgstr "Automatski maksimum"
+#: ../panel-plugin/netload.c:1062
+msgid "_Automatic maximum"
+msgstr "_Automatski maksimum"
 
-#: ../panel-plugin/netload.c:986
-msgid "kByte/s"
-msgstr "kByte/s"
+#: ../panel-plugin/netload.c:1096
+msgid "KiB/s"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1121
+msgid "_Present data as:"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1130
+msgid "Bars"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1131
+msgid "Values"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1132
+msgid "Bars and values"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1182
+msgid "_Colorize values"
+msgstr ""
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
 msgstr "Pokaži mrežni promet"
+
+#: ../panel-plugin/utils.c:78
+msgid "B"
+msgstr ""
+
+#: ../panel-plugin/utils.c:78
+msgid "KiB"
+msgstr ""
+
+#: ../panel-plugin/utils.c:78
+msgid "MiB"
+msgstr ""
+
+#: ../panel-plugin/utils.c:78
+msgid "GiB"
+msgstr ""
+
+#~ msgid "kByte/s"
+#~ msgstr "kByte/s"
