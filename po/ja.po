@@ -5,19 +5,19 @@
 # 		Hendrik Scholz <hscholz@raisdorf.net> (Wormulon code base)
 # This file is distributed under the same license as the xfce4-netload-plugin package.
 # Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2007
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-21 22:51+0900\n"
-"PO-Revision-Date: 2012-02-21 23:02+0900\n"
+"PO-Revision-Date: 2012-04-14 22:09+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-i18n@xfce.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 
 #: ../panel-plugin/netload.c:59
 msgid "Xfce4-Netload-Plugin"
@@ -74,11 +74,11 @@ msgstr "色の選択"
 
 #: ../panel-plugin/netload.c:938
 msgid "Bar color (i_ncoming):"
-msgstr "バーの色 (受信)(_I):"
+msgstr "バーの色 (受信)(_N):"
 
 #: ../panel-plugin/netload.c:939
 msgid "Bar color (_outgoing):"
-msgstr "バーの色 (送信)(_O):"
+msgstr "バーの色 (出力)(_O):"
 
 #: ../panel-plugin/netload.c:942
 msgid "Maximum (inco_ming):"
@@ -88,7 +88,8 @@ msgstr "最大 (受信)(_M):"
 msgid "Maximum (o_utgoing):"
 msgstr "最大 (送信)(_U):"
 
-#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:948
+#: ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "ネットワークモニター"
 
