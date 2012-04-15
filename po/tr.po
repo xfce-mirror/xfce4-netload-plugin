@@ -3,49 +3,50 @@
 # Copyright (C) 2007 THE xfce4-netload-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-netload-plugin package.
 # Jeff Bailes <thepizzaking@gmail.com>, 2007.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-05 02:01+0100\n"
+"POT-Creation-Date: 2012-04-15 18:03+0000\n"
 "PO-Revision-Date: 2008-11-05 18:32+0200\n"
 "Last-Translator: Ertuğrul\n"
 "Language-Team: Türkçe <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: ../panel-plugin/netload.c:57
+#: ../panel-plugin/netload.c:59
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-Ağ Trafiği-Eklentisi"
 
-#: ../panel-plugin/netload.c:60
+#: ../panel-plugin/netload.c:62
 msgid "Unknown error."
 msgstr "Bilinmeyen hata."
 
-#: ../panel-plugin/netload.c:61
+#: ../panel-plugin/netload.c:63
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Linux proc device '/proc/net/dev' bulunamadı."
 
-#: ../panel-plugin/netload.c:62
+#: ../panel-plugin/netload.c:64
 msgid "Interface was not found."
 msgstr "Arabirim bulunamadı."
 
-#: ../panel-plugin/netload.c:144
+#: ../panel-plugin/netload.c:162
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Arabirim çalışmıyor)"
 
-#: ../panel-plugin/netload.c:228
-#, c-format
+#: ../panel-plugin/netload.c:249
+#, fuzzy, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
-"Incoming: %s kByte/s\n"
-"Outgoing: %s kByte/s\n"
-"Total: %s kByte/s"
+"Incoming: %s/s\n"
+"Outgoing: %s/s\n"
+"Total: %s/s"
 msgstr ""
 "<< %s >> (%s)\n"
 "Son %d ölçümün ortalaması:\n"
@@ -53,68 +54,115 @@ msgstr ""
 "Gönderme: %s kByte/s\n"
 "Toplam: %s kByte/s"
 
-#: ../panel-plugin/netload.c:230
+#: ../panel-plugin/netload.c:251
 msgid "no IP address"
 msgstr "IP adres yok"
 
-#: ../panel-plugin/netload.c:468
-#, c-format
+#: ../panel-plugin/netload.c:533
+#, fuzzy, c-format
 msgid ""
-"%s: Error in initalizing:\n"
+"%s: Error in initializing:\n"
 "%s"
 msgstr ""
 "%s: Error in initalising:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:773
+#: ../panel-plugin/netload.c:872
 msgid "Select color"
 msgstr "Renk seç"
 
-#: ../panel-plugin/netload.c:839
-msgid "Bar color (incoming):"
+#: ../panel-plugin/netload.c:938
+#, fuzzy
+msgid "Bar color (i_ncoming):"
 msgstr "Çubuk rengi (indirme):"
 
-#: ../panel-plugin/netload.c:840
-msgid "Bar color (outgoing):"
+#: ../panel-plugin/netload.c:939
+#, fuzzy
+msgid "Bar color (_outgoing):"
 msgstr "Çubuk rengi (gönderme):"
 
-#: ../panel-plugin/netload.c:843
-msgid "Maximum (incoming):"
+#: ../panel-plugin/netload.c:942
+#, fuzzy
+msgid "Maximum (inco_ming):"
 msgstr "En yüksek hız (indirme):"
 
-#: ../panel-plugin/netload.c:844
-msgid "Maximum (outgoing):"
+#: ../panel-plugin/netload.c:943
+#, fuzzy
+msgid "Maximum (o_utgoing):"
 msgstr "En yüksek hız (gönderme):"
 
-#: ../panel-plugin/netload.c:849 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Ağ ekranı"
 
-#: ../panel-plugin/netload.c:878
-msgid "Text to display:"
+#: ../panel-plugin/netload.c:977
+#, fuzzy
+msgid "_Text to display:"
 msgstr "İsim göster:"
 
-#: ../panel-plugin/netload.c:909
-msgid "Network device:"
+#: ../panel-plugin/netload.c:1008
+#, fuzzy
+msgid "Network _device:"
 msgstr "Ağ donanımı: (ör: eth0)"
 
-#: ../panel-plugin/netload.c:935
-msgid "Update interval:"
+#: ../panel-plugin/netload.c:1036
+#, fuzzy
+msgid "Update _interval:"
 msgstr "Güncelleme süresi:"
 
-#: ../panel-plugin/netload.c:946
+#: ../panel-plugin/netload.c:1049
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:959
-msgid "Automatic maximum"
+#: ../panel-plugin/netload.c:1062
+#, fuzzy
+msgid "_Automatic maximum"
 msgstr "Otomatik öğren"
 
-#: ../panel-plugin/netload.c:991
-msgid "kByte/s"
-msgstr "kByte/s"
+#: ../panel-plugin/netload.c:1096
+#, fuzzy
+msgid "KiB/s"
+msgstr "KiB/s"
+
+#: ../panel-plugin/netload.c:1121
+msgid "_Present data as:"
+msgstr "_Veriyi bu şekilde göster:"
+
+#: ../panel-plugin/netload.c:1130
+msgid "Bars"
+msgstr "Çubuklar"
+
+#: ../panel-plugin/netload.c:1131
+msgid "Values"
+msgstr "Değerler"
+
+#: ../panel-plugin/netload.c:1132
+msgid "Bars and values"
+msgstr "Çubuklar ve değerler"
+
+#: ../panel-plugin/netload.c:1182
+msgid "_Colorize values"
+msgstr "Değerleri _renklendir"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
 msgstr "Ağ trafiğini gösterir"
 
+#: ../panel-plugin/utils.c:78
+msgid "B"
+msgstr "B"
+
+#: ../panel-plugin/utils.c:78
+msgid "KiB"
+msgstr "KiB"
+
+#: ../panel-plugin/utils.c:78
+msgid "MiB"
+msgstr "MiB"
+
+#: ../panel-plugin/utils.c:78
+msgid "GiB"
+msgstr "GiB"
+
+#~ msgid "kByte/s"
+#~ msgstr "kByte/s"
