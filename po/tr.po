@@ -72,22 +72,18 @@ msgid "Select color"
 msgstr "Renk seç"
 
 #: ../panel-plugin/netload.c:938
-#, fuzzy
 msgid "Bar color (i_ncoming):"
 msgstr "Çubuk rengi (indirme):"
 
 #: ../panel-plugin/netload.c:939
-#, fuzzy
 msgid "Bar color (_outgoing):"
 msgstr "Çubuk rengi (gönderme):"
 
 #: ../panel-plugin/netload.c:942
-#, fuzzy
 msgid "Maximum (inco_ming):"
 msgstr "En yüksek hız (indirme):"
 
 #: ../panel-plugin/netload.c:943
-#, fuzzy
 msgid "Maximum (o_utgoing):"
 msgstr "En yüksek hız (gönderme):"
 
@@ -96,17 +92,14 @@ msgid "Network Monitor"
 msgstr "Ağ ekranı"
 
 #: ../panel-plugin/netload.c:977
-#, fuzzy
 msgid "_Text to display:"
 msgstr "İsim göster:"
 
 #: ../panel-plugin/netload.c:1008
-#, fuzzy
 msgid "Network _device:"
 msgstr "Ağ donanımı: (ör: eth0)"
 
 #: ../panel-plugin/netload.c:1036
-#, fuzzy
 msgid "Update _interval:"
 msgstr "Güncelleme süresi:"
 
@@ -120,7 +113,6 @@ msgid "_Automatic maximum"
 msgstr "Otomatik öğren"
 
 #: ../panel-plugin/netload.c:1096
-#, fuzzy
 msgid "KiB/s"
 msgstr "KiB/s"
 
