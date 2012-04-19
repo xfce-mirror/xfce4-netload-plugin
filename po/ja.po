@@ -4,14 +4,15 @@
 # 		Bernhard Walle <bernhard.walle@gmx.de>
 # 		Hendrik Scholz <hscholz@raisdorf.net> (Wormulon code base)
 # This file is distributed under the same license as the xfce4-netload-plugin package.
-# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2007
+# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2007.
+# Masato Hashimoto <cabezon.hashimoto@gmail.com>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-21 22:51+0900\n"
-"PO-Revision-Date: 2012-04-14 22:09+0900\n"
+"PO-Revision-Date: 2012-04-19 15:11+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-i18n@xfce.org>\n"
 "Language: ja\n"
@@ -78,7 +79,7 @@ msgstr "バーの色 (受信)(_N):"
 
 #: ../panel-plugin/netload.c:939
 msgid "Bar color (_outgoing):"
-msgstr "バーの色 (出力)(_O):"
+msgstr "バーの色 (送信)(_O):"
 
 #: ../panel-plugin/netload.c:942
 msgid "Maximum (inco_ming):"
