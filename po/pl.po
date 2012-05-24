@@ -1,47 +1,52 @@
-# Translation of pl.po to polish
+# Polish translation for xfce-netload-plugin
 # Copyright (C) 2003 GPL
 # Michał Chruszcz <troll@troll.one.pl>, 2003.
+# Piotr Sokół <psokol@jabster.pl>, 2010, 2012.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce-netload 2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-05 02:01+0100\n"
-"PO-Revision-Date: 2009-04-08 19:58+0100\n"
-"Last-Translator: Piotr Sokół <piotr.sokol@10g.pl>\n"
-"Language-Team: pl <LL@li.org>\n"
+"POT-Creation-Date: 2012-05-24 16:00+0000\n"
+"PO-Revision-Date: 2012-05-24 21:27+0200\n"
+"Last-Translator: Piotr Sokół <psokol@jabster.pl>\n"
+"Language-Team: polski <>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bits\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : ((n%10>=2 && n%10<=4 && (n"
+"%100<10 || n%100>=20)) ? 1 : 2));\n"
 
-#: ../panel-plugin/netload.c:57
+#: ../panel-plugin/netload.c:59
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-netload-plugin"
 
-#: ../panel-plugin/netload.c:60
+#: ../panel-plugin/netload.c:62
 msgid "Unknown error."
 msgstr "Nieznany błąd."
 
-#: ../panel-plugin/netload.c:61
+#: ../panel-plugin/netload.c:63
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "Nie znaleziono urządzenia „/proc/net/dev”."
+msgstr "Nie odnaleziono procesu urządzenia „/proc/net/dev”."
 
-#: ../panel-plugin/netload.c:62
+#: ../panel-plugin/netload.c:64
 msgid "Interface was not found."
-msgstr "Nie znaleziono interfejsu."
+msgstr "Nie odnaleziono interfejsu."
 
-#: ../panel-plugin/netload.c:144
+#: ../panel-plugin/netload.c:162
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "%s: (interfejs wyłączony)"
 
-#: ../panel-plugin/netload.c:228
+#: ../panel-plugin/netload.c:249
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures:\n"
-"Incoming: %s kByte/s\n"
-"Outgoing: %s kByte/s\n"
-"Total: %s kByte/s"
+"Incoming: %s/s\n"
+"Outgoing: %s/s\n"
+"Total: %s/s"
 msgstr ""
 "%s: (%s)\n"
 "Średnia ostatnich %d pomiarów:\n"
@@ -49,74 +54,112 @@ msgstr ""
 "Wychodzące: %s kB/s\n"
 "Łącznie: %s kB/s"
 
-#: ../panel-plugin/netload.c:230
+#: ../panel-plugin/netload.c:251
 msgid "no IP address"
 msgstr "brak adresu IP"
 
-#: ../panel-plugin/netload.c:468
+#: ../panel-plugin/netload.c:533
 #, c-format
 msgid ""
-"%s: Error in initalizing:\n"
+"%s: Error in initializing:\n"
 "%s"
 msgstr ""
-"%s: Błąd inicjacji:\n"
+"%s: Błąd inicjowania:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:773
+#: ../panel-plugin/netload.c:872
 msgid "Select color"
 msgstr "Wybór koloru"
 
-#: ../panel-plugin/netload.c:839
-msgid "Bar color (incoming):"
-msgstr "Kolor wskaźnika przychodzących:"
+#: ../panel-plugin/netload.c:938
+msgid "Bar color (i_ncoming):"
+msgstr "Kolor wskaźnika p_obierania:"
 
-#: ../panel-plugin/netload.c:840
-msgid "Bar color (outgoing):"
-msgstr "Kolor wskaźnika wychodzących:"
+#: ../panel-plugin/netload.c:939
+msgid "Bar color (_outgoing):"
+msgstr "Kolor wskaźnika _wysyłania:"
 
-#: ../panel-plugin/netload.c:843
-msgid "Maximum (incoming):"
-msgstr "Wartość maksymalna przychodzących:"
+#: ../panel-plugin/netload.c:942
+msgid "Maximum (inco_ming):"
+msgstr "Wartość maksymalna po_bierania:"
 
-#: ../panel-plugin/netload.c:844
-msgid "Maximum (outgoing):"
-msgstr "Wartość maksymalna wychodzących:"
+#: ../panel-plugin/netload.c:943
+msgid "Maximum (o_utgoing):"
+msgstr "Wartość maksymalna wy_syłania:"
 
-#: ../panel-plugin/netload.c:849
-#: ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Monitor sieci"
 
-#: ../panel-plugin/netload.c:878
-msgid "Text to display:"
+#: ../panel-plugin/netload.c:977
+msgid "_Text to display:"
 msgstr "Etykieta:"
 
-#: ../panel-plugin/netload.c:909
-msgid "Network device:"
-msgstr "Urządzenie sieciowe:"
+#: ../panel-plugin/netload.c:1008
+msgid "Network _device:"
+msgstr "Urządzenie _sieciowe:"
 
-#: ../panel-plugin/netload.c:935
-msgid "Update interval:"
-msgstr "Okres aktualizacji:"
+#: ../panel-plugin/netload.c:1036
+msgid "Update _interval:"
+msgstr "Okres _aktualizacji:"
 
-#: ../panel-plugin/netload.c:946
+#: ../panel-plugin/netload.c:1049
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:959
-msgid "Automatic maximum"
-msgstr "Automatyczne określenie wartości maksymalnych"
+#: ../panel-plugin/netload.c:1062
+msgid "_Automatic maximum"
+msgstr "_Automatyczne określenie wartości maksymalnych"
 
-#: ../panel-plugin/netload.c:991
-msgid "kByte/s"
-msgstr "kB/s"
+#: ../panel-plugin/netload.c:1096
+msgid "KiB/s"
+msgstr "KiB/s"
+
+#: ../panel-plugin/netload.c:1121
+msgid "_Present data as:"
+msgstr "Sposób p_rzedstawienia danych:"
+
+#: ../panel-plugin/netload.c:1130
+msgid "Bars"
+msgstr "Słupki"
+
+#: ../panel-plugin/netload.c:1131
+msgid "Values"
+msgstr "Wartości"
+
+#: ../panel-plugin/netload.c:1132
+msgid "Bars and values"
+msgstr "Słupki i wartości"
+
+#: ../panel-plugin/netload.c:1182
+msgid "_Colorize values"
+msgstr "_Kolory wartości"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr "Wyświetlanie ruch w sieci"
+msgstr "Wyświetla ruch sieciowy"
+
+#: ../panel-plugin/utils.c:78
+msgid "B"
+msgstr "B"
+
+#: ../panel-plugin/utils.c:78
+msgid "KiB"
+msgstr "KiB"
+
+#: ../panel-plugin/utils.c:78
+msgid "MiB"
+msgstr "MiB"
+
+#: ../panel-plugin/utils.c:78
+msgid "GiB"
+msgstr "GiB"
+
+#~ msgid "kByte/s"
+#~ msgstr "kB/s"
 
 #~ msgid "Edit Properties"
 #~ msgstr "Edytuj Właściwości"
+
 #~ msgid "Netload"
 #~ msgstr "Obciążenie sieci"
-
