@@ -353,6 +353,14 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
         gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 1.0f, 0.5f);
     }
 
+    if (global->monitor->options.show_values)
+    {
+        gtk_widget_modify_fg(global->monitor->rcv_label, GTK_STATE_NORMAL,
+                             (global->monitor->options.colorize_values ? &global->monitor->options.color[IN] : NULL));
+        gtk_widget_modify_fg(global->monitor->sent_label, GTK_STATE_NORMAL,
+                             (global->monitor->options.colorize_values ? &global->monitor->options.color[OUT] : NULL));
+    }
+
     gtk_box_pack_start(GTK_BOX(global->monitor->box),
                        GTK_WIDGET(global->monitor->label),
                        TRUE, FALSE, BORDER / 2);
