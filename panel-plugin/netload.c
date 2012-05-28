@@ -315,7 +315,10 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
     global->monitor->rcv_label = gtk_label_new("");
     gtk_label_set_width_chars(GTK_LABEL(global->monitor->rcv_label), 7);
     gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
-    gtk_widget_show(global->monitor->rcv_label);
+    if (global->monitor->options.show_values)
+    {
+        gtk_widget_show(global->monitor->rcv_label);
+    }
 
     for (i = 0; i < SUM; i++)
     {
@@ -324,7 +327,10 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
 
     global->monitor->sent_label = gtk_label_new("");
     gtk_label_set_width_chars(GTK_LABEL(global->monitor->sent_label), 7);
-    gtk_widget_show(global->monitor->sent_label);
+    if (global->monitor->options.show_values)
+    {
+        gtk_widget_show(global->monitor->sent_label);
+    }
 
     if (orientation == GTK_ORIENTATION_HORIZONTAL)
     {
@@ -679,12 +685,12 @@ static gboolean monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_mon
         if (xfce_panel_plugin_get_orientation (plugin) == GTK_ORIENTATION_HORIZONTAL)
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]),
-                    BORDER, size - BORDER);
+                    BORDER, -1);
         }
         else
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]),
-                    size - BORDER, BORDER);
+                    -1, BORDER);
         }
     }
     PRINT_DBG("monitor_set_size");
