@@ -294,112 +294,28 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
         g_source_remove(global->timeout_id);
     }
 
-    gtk_widget_hide(GTK_WIDGET(global->ebox));
-    if (global->box)
-    {
-        gtk_container_remove(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
-    }
+    xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), orientation);
+    xfce_hvbox_set_orientation(XFCE_HVBOX(global->monitor->box), orientation);
     if (orientation == GTK_ORIENTATION_HORIZONTAL)
     {
-        global->box = gtk_hbox_new(FALSE, 0);
-    }
-    else
-    {
-        global->box = gtk_vbox_new(FALSE, 0);
-    }
-    gtk_widget_show(global->box);
-
-    global->monitor->label = gtk_label_new(global->monitor->options.label_text);
-    gtk_widget_show(global->monitor->label);
-
-    global->monitor->rcv_label = gtk_label_new("");
-    gtk_label_set_width_chars(GTK_LABEL(global->monitor->rcv_label), 7);
-    gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
-    if (global->monitor->options.show_values)
-    {
-        gtk_widget_show(global->monitor->rcv_label);
-    }
-
-    for (i = 0; i < SUM; i++)
-    {
-        global->monitor->status[i] = GTK_WIDGET(gtk_progress_bar_new());
-    }
-
-    global->monitor->sent_label = gtk_label_new("");
-    gtk_label_set_width_chars(GTK_LABEL(global->monitor->sent_label), 7);
-    if (global->monitor->options.show_values)
-    {
-        gtk_widget_show(global->monitor->sent_label);
-    }
-
-    if (orientation == GTK_ORIENTATION_HORIZONTAL)
-    {
-        global->monitor->box = GTK_WIDGET(gtk_hbox_new(FALSE, 0));
+        gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
+        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.0f, 0.5f);
         for (i = 0; i < SUM; i++)
         {
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
                     GTK_PROGRESS_BOTTOM_TO_TOP);
         }
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.0f, 0.5f);
     }
     else
     {
-        global->monitor->box = GTK_WIDGET(gtk_vbox_new(FALSE, 0));
+        gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.0f);
+        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 1.0f, 1.0f);
         for (i = 0; i < SUM; i++)
         {
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]), 
                     GTK_PROGRESS_LEFT_TO_RIGHT);
         }
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 1.0f, 0.5f);
     }
-
-    if (global->monitor->options.show_values)
-    {
-        gtk_widget_modify_fg(global->monitor->rcv_label, GTK_STATE_NORMAL,
-                             (global->monitor->options.colorize_values ? &global->monitor->options.color[IN] : NULL));
-        gtk_widget_modify_fg(global->monitor->sent_label, GTK_STATE_NORMAL,
-                             (global->monitor->options.colorize_values ? &global->monitor->options.color[OUT] : NULL));
-    }
-
-    gtk_box_pack_start(GTK_BOX(global->monitor->box),
-                       GTK_WIDGET(global->monitor->label),
-                       TRUE, FALSE, BORDER / 2);
-
-    gtk_box_pack_start(GTK_BOX(global->monitor->box),
-                       GTK_WIDGET(global->monitor->rcv_label),
-                       TRUE, FALSE, BORDER / 2);
-
-    gtk_container_set_border_width(GTK_CONTAINER(global->monitor->box), BORDER / 2);
-    gtk_widget_show(GTK_WIDGET(global->monitor->box));
-
-    for (i = 0; i < SUM; i++)
-    {
-        gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
-                             GTK_STATE_PRELIGHT,
-                             &global->monitor->options.color[i]);
-        gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
-                             GTK_STATE_SELECTED,
-                             &global->monitor->options.color[i]);
-        gtk_widget_modify_base(GTK_WIDGET(global->monitor->status[i]),
-                               GTK_STATE_SELECTED,
-                               &global->monitor->options.color[i]);
-
-        gtk_widget_show(GTK_WIDGET(global->monitor->status[i]));
-
-        gtk_box_pack_start(GTK_BOX(global->monitor->box),
-                GTK_WIDGET(global->monitor->status[i]), FALSE, FALSE, 0);
-    }
-
-    gtk_box_pack_start(GTK_BOX(global->monitor->box),
-                     GTK_WIDGET(global->monitor->sent_label),
-                     TRUE, FALSE, BORDER / 2);
-
-    gtk_box_pack_start(GTK_BOX(global->box),
-                       GTK_WIDGET(global->monitor->box), FALSE, FALSE, 0);
-
-
-    gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
-    gtk_widget_show(GTK_WIDGET(global->ebox));
 
     run_update( global );
 }
@@ -441,6 +357,8 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     global = g_new(t_global_monitor, 1);
     global->timeout_id = 0;
     global->ebox = gtk_event_box_new();
+    gtk_event_box_set_visible_window(global->ebox, FALSE);
+    gtk_event_box_set_above_child(global->ebox, TRUE);
     gtk_widget_set_has_tooltip(global->ebox, TRUE);
     g_signal_connect(global->ebox, "query-tooltip", G_CALLBACK(tooltip_cb), global);
     gtk_widget_show(global->ebox);
@@ -470,37 +388,40 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
         global->monitor->history[i][1] = 0;
         global->monitor->history[i][2] = 0;
         global->monitor->history[i][3] = 0;
+
         global->monitor->net_max[i]    = INIT_MAX;
         
         global->monitor->options.max[i] = INIT_MAX;
     }
 
-    monitor_set_orientation (plugin, xfce_panel_plugin_get_orientation (plugin), global);
-    
-    return global;
-}
+    /* Create widget containers */
+    global->box = xfce_hvbox_new(GTK_ORIENTATION_HORIZONTAL, FALSE, 0);
+    gtk_widget_show(GTK_WIDGET(global->box));
+    global->monitor->box = xfce_hvbox_new(GTK_ORIENTATION_HORIZONTAL, FALSE, 0);
+    gtk_container_set_border_width(GTK_CONTAINER(global->monitor->box), BORDER / 2);
+    gtk_widget_show(GTK_WIDGET(global->monitor->box));
 
+    /* Create the title label */
+    global->monitor->label = gtk_label_new(global->monitor->options.label_text);
+    gtk_box_pack_start(GTK_BOX(global->monitor->box),
+                       GTK_WIDGET(global->monitor->label),
+                       TRUE, FALSE, BORDER / 2);
 
-/* ---------------------------------------------------------------------------------------------- */
-static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
-{
-    gint i;
+    /* Create sent and received labels */
+    global->monitor->rcv_label = gtk_label_new("-");
+    gtk_label_set_width_chars(GTK_LABEL(global->monitor->rcv_label), 7);
+    global->monitor->sent_label = gtk_label_new("-");
+    gtk_label_set_width_chars(GTK_LABEL(global->monitor->sent_label), 7);
+    gtk_box_pack_start(GTK_BOX(global->monitor->box),
+                       GTK_WIDGET(global->monitor->rcv_label),
+                       TRUE, FALSE, BORDER / 2);
+    gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
+    gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.0f, 0.5f);
 
-    gtk_widget_hide(GTK_WIDGET(global->monitor->box));
-    gtk_widget_hide(global->monitor->label);
-    gtk_label_set_text(GTK_LABEL(global->monitor->label),
-            global->monitor->options.label_text);
-    gtk_widget_hide(global->monitor->rcv_label);
+    /* Create the progress bars */
     for (i = 0; i < SUM; i++)
-      gtk_widget_hide(global->monitor->status[i]);
-    gtk_widget_hide(global->monitor->sent_label);
-
-    if (global->monitor->options.show_bars)
     {
-      for (i = 0; i < SUM; i++)
-      {
-        gtk_widget_show(global->monitor->status[i]);
-
+        global->monitor->status[i] = GTK_WIDGET(gtk_progress_bar_new());
         gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
                              GTK_STATE_PRELIGHT,
                              &global->monitor->options.color[i]);
@@ -510,34 +431,85 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
         gtk_widget_modify_base(GTK_WIDGET(global->monitor->status[i]),
                                GTK_STATE_SELECTED,
                                &global->monitor->options.color[i]);
-        
-        /* Maximum */
-        if( global->monitor->options.auto_max )
+        gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
+                                         GTK_PROGRESS_BOTTOM_TO_TOP);
+        gtk_box_pack_start(GTK_BOX(global->monitor->box),
+                           GTK_WIDGET(global->monitor->status[i]), FALSE, FALSE, 0);
+    }
+
+    /* Add the progress bar container */
+    gtk_box_pack_start(GTK_BOX(global->box),
+                       GTK_WIDGET(global->monitor->box), FALSE, FALSE, 0);
+
+    /* Append sent label after the progress bars */
+    gtk_box_pack_start(GTK_BOX(global->monitor->box),
+                       GTK_WIDGET(global->monitor->sent_label),
+                       TRUE, FALSE, BORDER / 2);
+
+    gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
+
+    return global;
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
+static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
+{
+    gint i;
+
+    if (global->timeout_id)
+        g_source_remove(global->timeout_id);
+
+    /* Show title label? */
+    if (global->monitor->options.use_label)
+    {
+        gtk_label_set_text(global->monitor->label, global->monitor->options.label_text);
+        gtk_widget_show(global->monitor->label);
+    }
+    else
+        gtk_widget_hide(global->monitor->label);
+
+    /* Show values? */
+    if (global->monitor->options.show_values)
+    {
+        gtk_widget_show(global->monitor->rcv_label);
+        gtk_widget_show(global->monitor->sent_label);
+    }
+    else
+    {
+        gtk_widget_hide(global->monitor->rcv_label);
+        gtk_widget_hide(global->monitor->sent_label);
+    }
+
+    if (global->monitor->options.colorize_values)
+    {
+        gtk_widget_modify_fg(global->monitor->rcv_label, GTK_STATE_NORMAL,
+                             &global->monitor->options.color[IN]);
+        gtk_widget_modify_fg(global->monitor->sent_label, GTK_STATE_NORMAL,
+                             &global->monitor->options.color[OUT]);
+    }
+    else
+    {
+        gtk_widget_modify_fg(global->monitor->rcv_label, GTK_STATE_NORMAL, NULL);
+        gtk_widget_modify_fg(global->monitor->sent_label, GTK_STATE_NORMAL, NULL);
+    }
+
+    /* Create the progress bars */
+    for (i = 0; i < SUM; i++)
+    {
+        if (global->monitor->options.show_bars)
         {
-            global->monitor->net_max[i] = INIT_MAX;
+            /* Automatic or fixed maximum */
+            if (global->monitor->options.auto_max)
+                global->monitor->net_max[i] = INIT_MAX;
+            else
+                global->monitor->net_max[i] = global->monitor->options.max[i];
+            gtk_widget_show(global->monitor->status[i]);
         }
         else
         {
-            global->monitor->net_max[i] = global->monitor->options.max[i];
+            gtk_widget_hide(global->monitor->status[i]);
         }
-      }
-    }
-
-    gtk_widget_show(GTK_WIDGET(global->monitor->box));
-
-    if (global->monitor->options.use_label)
-    {
-        gtk_widget_show(global->monitor->label);
-    }
-
-    if (global->monitor->options.show_values)
-    {
-        gtk_widget_modify_fg(global->monitor->rcv_label, GTK_STATE_NORMAL,
-                             (global->monitor->options.colorize_values ? &global->monitor->options.color[IN] : NULL));
-        gtk_widget_modify_fg(global->monitor->sent_label, GTK_STATE_NORMAL,
-                             (global->monitor->options.colorize_values ? &global->monitor->options.color[OUT] : NULL));
-        gtk_widget_show(global->monitor->rcv_label);
-        gtk_widget_show(global->monitor->sent_label);
     }
 
     if (!init_netload( &(global->monitor->data), global->monitor->options.network_device)
@@ -559,7 +531,6 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     global->monitor->options.old_network_device = g_strdup(global->monitor->options.network_device);
     
     run_update( global );
-
 }
 
 
