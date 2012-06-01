@@ -486,7 +486,7 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
         gtk_widget_modify_fg(global->monitor->sent_label, GTK_STATE_NORMAL, NULL);
     }
 
-    /* Create the progress bars */
+    /* Setup the progress bars */
     for (i = 0; i < SUM; i++)
     {
         if (global->monitor->options.show_bars)
