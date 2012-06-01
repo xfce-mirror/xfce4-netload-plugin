@@ -665,7 +665,6 @@ static gboolean monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_mon
         }
     }
     PRINT_DBG("monitor_set_size");
-    setup_monitor(global, TRUE);
 
     return TRUE;
 }
