@@ -82,7 +82,6 @@ typedef struct
 
 typedef struct
 {
-    GtkWidget  *box;
     GtkWidget  *label;
     GtkWidget  *rcv_label;
     GtkWidget  *sent_label;
@@ -295,7 +294,6 @@ static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation ori
     }
 
     xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), orientation);
-    xfce_hvbox_set_orientation(XFCE_HVBOX(global->monitor->box), orientation);
     if (orientation == GTK_ORIENTATION_HORIZONTAL)
     {
         gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
@@ -396,14 +394,12 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
 
     /* Create widget containers */
     global->box = xfce_hvbox_new(GTK_ORIENTATION_HORIZONTAL, FALSE, 0);
+    gtk_container_set_border_width(GTK_CONTAINER(global->box), 2);
     gtk_widget_show(GTK_WIDGET(global->box));
-    global->monitor->box = xfce_hvbox_new(GTK_ORIENTATION_HORIZONTAL, FALSE, 0);
-    gtk_container_set_border_width(GTK_CONTAINER(global->monitor->box), BORDER / 2);
-    gtk_widget_show(GTK_WIDGET(global->monitor->box));
 
     /* Create the title label */
     global->monitor->label = gtk_label_new(global->monitor->options.label_text);
-    gtk_box_pack_start(GTK_BOX(global->monitor->box),
+    gtk_box_pack_start(GTK_BOX(global->box),
                        GTK_WIDGET(global->monitor->label),
                        TRUE, FALSE, BORDER / 2);
 
@@ -412,7 +408,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     gtk_label_set_width_chars(GTK_LABEL(global->monitor->rcv_label), 7);
     global->monitor->sent_label = gtk_label_new("-");
     gtk_label_set_width_chars(GTK_LABEL(global->monitor->sent_label), 7);
-    gtk_box_pack_start(GTK_BOX(global->monitor->box),
+    gtk_box_pack_start(GTK_BOX(global->box),
                        GTK_WIDGET(global->monitor->rcv_label),
                        TRUE, FALSE, BORDER / 2);
     gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
@@ -433,16 +429,12 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
                                &global->monitor->options.color[i]);
         gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
                                          GTK_PROGRESS_BOTTOM_TO_TOP);
-        gtk_box_pack_start(GTK_BOX(global->monitor->box),
+        gtk_box_pack_start(GTK_BOX(global->box),
                            GTK_WIDGET(global->monitor->status[i]), FALSE, FALSE, 0);
     }
 
-    /* Add the progress bar container */
-    gtk_box_pack_start(GTK_BOX(global->box),
-                       GTK_WIDGET(global->monitor->box), FALSE, FALSE, 0);
-
     /* Append sent label after the progress bars */
-    gtk_box_pack_start(GTK_BOX(global->monitor->box),
+    gtk_box_pack_start(GTK_BOX(global->box),
                        GTK_WIDGET(global->monitor->sent_label),
                        TRUE, FALSE, BORDER / 2);
 
