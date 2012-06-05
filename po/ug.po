@@ -1,8 +1,5 @@
 # Uyghur translations for xfce4-netload-plugin package.
 # Copyright (C) 2003,2004,2005,2006,2007
-#		Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
-#		Bernhard Walle <bernhard.walle@gmx.de>
-#		Hendrik Scholz <hscholz@raisdorf.net> (Wormulon code base)
 # This file is distributed under the same license as the xfce4-netload-plugin package.
 # Gheyret T.Kenji <gheyret@gmail.com>, 2010.
 #
@@ -28,16 +25,16 @@ msgstr "نامەلۇم خاتالىق."
 
 #: ../panel-plugin/netload.c:61
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "Linux proc ئۈسكۈنىسى  '/proc/net/dev' تېپىلمىدى"
+msgstr "لىنۇكىس proc ئۈسكۈنىسى  '/proc/net/dev' تېپىلمىدى"
 
 #: ../panel-plugin/netload.c:62
 msgid "Interface was not found."
-msgstr "Interface تېپىلمىدى"
+msgstr "ئارايۈز تېپىلمىدى"
 
 #: ../panel-plugin/netload.c:144
 #, c-format
 msgid "<< %s >> (Interface down)"
-msgstr "<< %s >> (Interface توختىتىلغان)"
+msgstr "<< %s >> (ئارايۈز توختىتىلغان)"
 
 #: ../panel-plugin/netload.c:228
 #, c-format
@@ -48,10 +45,10 @@ msgid ""
 "Outgoing: %s kByte/s\n"
 "Total: %s kByte/s"
 msgstr "<< %s >> (%s)\n"
-"最後から %d 測定分の平均:\n"
-"入力: %s kByte/s\n"
-"出力: %s kByte/s\n"
-"合計: %s kByte/s"
+"ئەڭ ئاخىرقى %d قېتىملىق ئۆلچەشنىڭ ئوتتۇرىچە قىممىتى:\n"
+"كىرىش: %s ك ب/س\n"
+"چىقىش: %s ك ب/س\n"
+"جەمئىي: %s ك ب/س"
 
 #: ../panel-plugin/netload.c:230
 msgid "no IP address"
@@ -112,7 +109,7 @@ msgstr "ئۆزلۈكىدىن ئەڭ چوڭ"
 
 #: ../panel-plugin/netload.c:991
 msgid "kByte/s"
-msgstr "kByte/s"
+msgstr "ك ب/س"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
