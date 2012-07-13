@@ -98,8 +98,6 @@
 #  include <net/if_media.h>
 #  include <net/if_mib.h>
 #  include <arpa/inet.h>
-#  include <net/ppp_layer/ppp_defs.h>
-#  include <net/ppp/if_ppp.h>
 #elif __FreeBSD__ || __FreeBSD_kernel__           /* F R E E B S D */
 #  include <stdio.h>
 #  include <stdlib.h>
@@ -122,8 +120,6 @@
 #  include <net/if_media.h>
 #  include <net/if_mib.h>
 #  include <arpa/inet.h>
-#  include <net/ppp_defs.h>
-#  include <net/if_ppp.h>
 #elif __NetBSD__            /* N E T B S D */
 #  include <stdio.h>
 #  include <sys/param.h>
@@ -147,8 +143,6 @@
 #  include <net/route.h>
 #  include <net/if_dl.h>
 #  include <arpa/inet.h>
-#  include <net/ppp_defs.h>
-#  include <net/if_ppp.h>
 #  include <net/if.h>
 #elif __OpenBSD__ || __MicroBSD__           /* O P E N B S D */
 #  include <stdio.h>
@@ -173,8 +167,6 @@
 #  include <net/if_dl.h>
 #  include <net/route.h>
 #  include <arpa/inet.h>
-#  include <net/ppp_defs.h>
-#  include <net/if_ppp.h>
 #elif __linux__             /* L I N U X */
 #  include <stdio.h>
 #  include <sys/param.h>
@@ -195,8 +187,6 @@
 #  include <netinet/in.h>
 #  include <net/if.h>
 #  include <arpa/inet.h>
-#  include <net/ppp_defs.h>
-#  include <net/if_ppp.h>
 #elif __Solaris__           /* S O L A R I S */
 #  include <stdio.h>
 #  define _WIDEC_H
