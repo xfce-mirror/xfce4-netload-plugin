@@ -35,6 +35,7 @@
 
 
 #define BORDER 8
+#define LABEL_SIZE 60
 
 /* Defaults */
 #define DEFAULT_TEXT "Net"
@@ -283,37 +284,99 @@ static void run_update (t_global_monitor *global)
 
 
 /* ---------------------------------------------------------------------------------------------- */
-static void monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation, 
-                                     t_global_monitor *global)
+static gboolean monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
 {
     gint i;
+    XfcePanelPluginMode mode = xfce_panel_plugin_get_mode (plugin);
+
+    PRINT_DBG("monitor_set_size");
+
+    if (mode == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+    {
+        for (i = 0; i < SUM; i++)
+            gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]), BORDER, BORDER);
+        gtk_widget_set_size_request(GTK_WIDGET(global->monitor->rcv_label), -1, -1);
+        gtk_widget_set_size_request(GTK_WIDGET(global->monitor->sent_label), -1, -1);
+        gtk_widget_set_size_request(GTK_WIDGET(plugin), size, -1);
+    }
+    else if (mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
+    {
+        for (i = 0; i < SUM; i++)
+            gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]), -1, BORDER);
+        gtk_widget_set_size_request(GTK_WIDGET(global->monitor->rcv_label), -1, LABEL_SIZE);
+        gtk_widget_set_size_request(GTK_WIDGET(global->monitor->sent_label), -1, LABEL_SIZE);
+        gtk_widget_set_size_request(GTK_WIDGET(plugin), size, -1);
+    }
+    else /* mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL */
+    {
+        for (i = 0; i < SUM; i++)
+            gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]), BORDER, -1);
+        gtk_widget_set_size_request(GTK_WIDGET(global->monitor->rcv_label), LABEL_SIZE, -1);
+        gtk_widget_set_size_request(GTK_WIDGET(global->monitor->sent_label), LABEL_SIZE, -1);
+        gtk_widget_set_size_request(GTK_WIDGET(plugin), -1, size);
+    }
+
+    gtk_container_set_border_width(GTK_CONTAINER(global->box), size > 26 ? 2 : 1);
+
+    return TRUE;
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
+static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
+                              t_global_monitor *global)
+{
+    gint i;
+
+    PRINT_DBG("monitor_set_mode");
 
     if (global->timeout_id)
     {
         g_source_remove(global->timeout_id);
     }
 
-    xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), orientation);
-    if (orientation == GTK_ORIENTATION_HORIZONTAL)
+    if (mode == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
     {
+        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), GTK_ORIENTATION_VERTICAL);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
+        gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 0.5f, 1.0f);
+        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.5f, 0.0f);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
+        for (i = 0; i < SUM; i++)
+            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
+                                             GTK_PROGRESS_LEFT_TO_RIGHT);
+    }
+    else if (mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
+    {
+        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), GTK_ORIENTATION_VERTICAL);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->label), 270);
+        gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 0.5f, 1.0f);
+        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.5f, 0.0f);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 270);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 270);
+        for (i = 0; i < SUM; i++)
+        {
+            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
+                    GTK_PROGRESS_LEFT_TO_RIGHT);
+        }
+    }
+    else /* mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL */
+    {
+        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), GTK_ORIENTATION_HORIZONTAL);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
         gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
         gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.0f, 0.5f);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
         for (i = 0; i < SUM; i++)
         {
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
                     GTK_PROGRESS_BOTTOM_TO_TOP);
         }
     }
-    else
-    {
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.0f);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 1.0f, 1.0f);
-        for (i = 0; i < SUM; i++)
-        {
-            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]), 
-                    GTK_PROGRESS_LEFT_TO_RIGHT);
-        }
-    }
+
+    monitor_set_size(plugin, xfce_panel_plugin_get_size(plugin), global);
 
     run_update( global );
 }
@@ -405,30 +468,15 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
 
     /* Create sent and received labels */
     global->monitor->rcv_label = gtk_label_new("-");
-    gtk_label_set_width_chars(GTK_LABEL(global->monitor->rcv_label), 7);
     global->monitor->sent_label = gtk_label_new("-");
-    gtk_label_set_width_chars(GTK_LABEL(global->monitor->sent_label), 7);
     gtk_box_pack_start(GTK_BOX(global->box),
                        GTK_WIDGET(global->monitor->rcv_label),
                        TRUE, FALSE, BORDER / 2);
-    gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
-    gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.0f, 0.5f);
 
     /* Create the progress bars */
     for (i = 0; i < SUM; i++)
     {
         global->monitor->status[i] = GTK_WIDGET(gtk_progress_bar_new());
-        gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
-                             GTK_STATE_PRELIGHT,
-                             &global->monitor->options.color[i]);
-        gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
-                             GTK_STATE_SELECTED,
-                             &global->monitor->options.color[i]);
-        gtk_widget_modify_base(GTK_WIDGET(global->monitor->status[i]),
-                               GTK_STATE_SELECTED,
-                               &global->monitor->options.color[i]);
-        gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
-                                         GTK_PROGRESS_BOTTOM_TO_TOP);
         gtk_box_pack_start(GTK_BOX(global->box),
                            GTK_WIDGET(global->monitor->status[i]), FALSE, FALSE, 0);
     }
@@ -497,6 +545,17 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
             else
                 global->monitor->net_max[i] = global->monitor->options.max[i];
             gtk_widget_show(global->monitor->status[i]);
+
+            /* Set bar colors */
+            gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
+                                 GTK_STATE_PRELIGHT,
+                                 &global->monitor->options.color[i]);
+            gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
+                                 GTK_STATE_SELECTED,
+                                 &global->monitor->options.color[i]);
+            gtk_widget_modify_base(GTK_WIDGET(global->monitor->status[i]),
+                                   GTK_STATE_SELECTED,
+                                   &global->monitor->options.color[i]);
         }
         else
         {
@@ -521,7 +580,9 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
         g_free(global->monitor->options.old_network_device);
     }
     global->monitor->options.old_network_device = g_strdup(global->monitor->options.network_device);
-    
+
+    monitor_set_mode(global->plugin, xfce_panel_plugin_get_mode(global->plugin), global);
+
     run_update( global );
 }
 
@@ -643,30 +704,6 @@ static void monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *glob
     xfce_rc_write_int_entry (rc, "Update_Interval", global->monitor->options.update_interval);
 
     xfce_rc_close (rc);
-}
-
-
-/* ---------------------------------------------------------------------------------------------- */
-static gboolean monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
-{
-    gint i;
-
-    for (i = 0; i < SUM; i++)
-    {
-        if (xfce_panel_plugin_get_orientation (plugin) == GTK_ORIENTATION_HORIZONTAL)
-        {
-            gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]),
-                    BORDER, -1);
-        }
-        else
-        {
-            gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]),
-                    -1, BORDER);
-        }
-    }
-    PRINT_DBG("monitor_set_size");
-
-    return TRUE;
 }
 
 
@@ -1220,7 +1257,7 @@ static void netload_construct (XfcePanelPlugin *plugin)
     
     g_signal_connect (plugin, "size-changed", G_CALLBACK (monitor_set_size), global);
     
-    g_signal_connect (plugin, "orientation-changed", G_CALLBACK (monitor_set_orientation), global);
+    g_signal_connect (plugin, "mode-changed", G_CALLBACK (monitor_set_mode), global);
     
     gtk_container_add(GTK_CONTAINER(plugin), global->ebox);
     
