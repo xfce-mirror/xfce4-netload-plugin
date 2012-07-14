@@ -246,10 +246,12 @@ static gboolean update_monitors(t_global_monitor *global)
     {
         char* ip = get_ip_address(&(global->monitor->data));
         g_snprintf(caption, sizeof(caption), 
-                _("<< %s >> (%s)\nAverage of last %d measures:\n"
-                    "Incoming: %s/s\nOutgoing: %s/s\nTotal: %s/s"),
+                   _("<< %s >> (%s)\nAverage of last %d measures\n"
+                     "with an interval of %.2fs:\n"
+                     "Incoming: %s\nOutgoing: %s\nTotal: %s"),
                     get_name(&(global->monitor->data)), ip ? ip : _("no IP address"),
-                    HISTSIZE_CALCULATE, buffer[IN], buffer[OUT], buffer[TOT]);
+                    HISTSIZE_CALCULATE, global->monitor->options.update_interval / 1000.0,
+                    buffer[IN], buffer[OUT], buffer[TOT]);
         gtk_label_set_text(GTK_LABEL(global->tooltip_text), caption);
 
         if (global->monitor->options.show_values)
