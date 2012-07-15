@@ -1,3 +1,14 @@
+1.2.0
+=====
+- Some code cleanup and respect the Panel HIG
+- Update monitor labels sizes gracefully, bug #8842
+- Rectify tooltip information, bug #9089
+- Support new panel mode Deskbar, bug #8941
+- Drop if_ppp headers, bug #7481
+- Reorganize code in monitor_new, setup_monitor and monitor_set_orientation, bug #8917
+- Keep colorized values after orientation change, bug #8915
+- Fix widget visibility on orientation change, bug #8914
+
 1.1.0
 =====
 - Add option to show values in panel in addition to the bars, bug #7804
