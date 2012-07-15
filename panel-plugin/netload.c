@@ -421,7 +421,6 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     gtk_widget_set_has_tooltip(global->ebox, TRUE);
     g_signal_connect(global->ebox, "query-tooltip", G_CALLBACK(tooltip_cb), global);
     gtk_widget_show(global->ebox);
-    global->box = NULL;
 
     global->tooltip_text = gtk_label_new(NULL);
     g_object_ref(global->tooltip_text);
@@ -592,10 +591,10 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
     char *file;
     XfceRc *rc;
     
-    if (!(file = xfce_panel_plugin_lookup_rc_file (plugin)))
+    if (!(file = xfce_panel_plugin_save_location (plugin, TRUE)))
         return;
     
-    rc = xfce_rc_simple_open (file, TRUE);
+    rc = xfce_rc_simple_open (file, FALSE);
     g_free (file);
 
     if (!rc)
