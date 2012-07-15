@@ -416,8 +416,8 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     global = g_new(t_global_monitor, 1);
     global->timeout_id = 0;
     global->ebox = gtk_event_box_new();
-    gtk_event_box_set_visible_window(global->ebox, FALSE);
-    gtk_event_box_set_above_child(global->ebox, TRUE);
+    gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->ebox), FALSE);
+    gtk_event_box_set_above_child(GTK_EVENT_BOX(global->ebox), TRUE);
     gtk_widget_set_has_tooltip(global->ebox, TRUE);
     g_signal_connect(global->ebox, "query-tooltip", G_CALLBACK(tooltip_cb), global);
     gtk_widget_show(global->ebox);
@@ -501,7 +501,7 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     /* Show title label? */
     if (global->monitor->options.use_label)
     {
-        gtk_label_set_text(global->monitor->label, global->monitor->options.label_text);
+        gtk_label_set_text(GTK_LABEL(global->monitor->label), global->monitor->options.label_text);
         gtk_widget_show(global->monitor->label);
     }
     else

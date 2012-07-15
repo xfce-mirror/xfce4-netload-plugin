@@ -106,7 +106,7 @@ cb_label_changed (GObject *object, GParamSpec *pspec, gpointer user_data)
                 label->count_height++;
         }
 
-        gtk_widget_set_size_request (label, req.width, req.height);
+        gtk_widget_set_size_request (widget, req.width, req.height);
 }
 
 
@@ -132,6 +132,6 @@ xnlp_monitor_label_reinit_size_request (XnlpMonitorLabel *label)
         label->width = 0;
         label->height = 0;
 
-        gtk_widget_set_size_request (label, -1, -1);
+        gtk_widget_set_size_request (GTK_WIDGET (label), -1, -1);
 }
 
