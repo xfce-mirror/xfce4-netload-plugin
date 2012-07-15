@@ -33,9 +33,10 @@
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4panel/libxfce4panel.h>
 
+#include "monitor-label.h"
+
 
 #define BORDER 8
-#define LABEL_SIZE 60
 
 /* Defaults */
 #define DEFAULT_TEXT "Net"
@@ -258,7 +259,6 @@ static gboolean update_monitors(t_global_monitor *global)
         {
             g_snprintf(received, sizeof(received), "%s", buffer_panel[IN]);
             gtk_label_set_text(GTK_LABEL(global->monitor->rcv_label), received);
-
             g_snprintf(sent, sizeof(sent), "%s", buffer_panel[OUT]);
             gtk_label_set_text(GTK_LABEL(global->monitor->sent_label), sent);
         }
@@ -297,27 +297,23 @@ static gboolean monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_mon
     {
         for (i = 0; i < SUM; i++)
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]), BORDER, BORDER);
-        gtk_widget_set_size_request(GTK_WIDGET(global->monitor->rcv_label), -1, -1);
-        gtk_widget_set_size_request(GTK_WIDGET(global->monitor->sent_label), -1, -1);
         gtk_widget_set_size_request(GTK_WIDGET(plugin), size, -1);
     }
     else if (mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
     {
         for (i = 0; i < SUM; i++)
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]), -1, BORDER);
-        gtk_widget_set_size_request(GTK_WIDGET(global->monitor->rcv_label), -1, LABEL_SIZE);
-        gtk_widget_set_size_request(GTK_WIDGET(global->monitor->sent_label), -1, LABEL_SIZE);
         gtk_widget_set_size_request(GTK_WIDGET(plugin), size, -1);
     }
     else /* mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL */
     {
         for (i = 0; i < SUM; i++)
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor->status[i]), BORDER, -1);
-        gtk_widget_set_size_request(GTK_WIDGET(global->monitor->rcv_label), LABEL_SIZE, -1);
-        gtk_widget_set_size_request(GTK_WIDGET(global->monitor->sent_label), LABEL_SIZE, -1);
         gtk_widget_set_size_request(GTK_WIDGET(plugin), -1, size);
     }
 
+    xnlp_monitor_label_reinit_size_request(XNLP_MONITOR_LABEL(global->monitor->rcv_label));
+    xnlp_monitor_label_reinit_size_request(XNLP_MONITOR_LABEL(global->monitor->sent_label));
     gtk_container_set_border_width(GTK_CONTAINER(global->box), size > 26 ? 2 : 1);
 
     return TRUE;
@@ -469,8 +465,8 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
                        TRUE, FALSE, 2);
 
     /* Create sent and received labels */
-    global->monitor->rcv_label = gtk_label_new("-");
-    global->monitor->sent_label = gtk_label_new("-");
+    global->monitor->rcv_label = xnlp_monitor_label_new("-");
+    global->monitor->sent_label = xnlp_monitor_label_new("-");
     gtk_box_pack_start(GTK_BOX(global->box),
                        GTK_WIDGET(global->monitor->rcv_label),
                        TRUE, FALSE, 2);

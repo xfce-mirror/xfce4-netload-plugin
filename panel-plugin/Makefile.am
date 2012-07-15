@@ -5,13 +5,15 @@ LIBS = @LIBS@ @SOLLIBS@
 
 xfce4_netload_plugin_SOURCES =						\
 	netload.c							\
-	utils.c                                     			\
-	utils.h                                     			\
+	monitor-label.c							\
+	monitor-label.h							\
+	utils.c								\
+	utils.h								\
 	net.h								\
-	net.c                                       			\
-	os.h                                        			\
-	wormulon.h			                                \
-	global.h                                    			\
+	net.c								\
+	os.h								\
+	wormulon.h							\
+	global.h							\
 	slurm.h
 
 xfce4_netload_plugin_CFLAGS =						\
