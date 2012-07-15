@@ -2,12 +2,12 @@
 # Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-netload-plugin package.
 # Nuno Miguel <nunis@netcabo.pt>, 2007.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-08 15:01+0000\n"
+"POT-Creation-Date: 2012-07-15 09:12+0000\n"
 "PO-Revision-Date: 2012-01-09 11:39-0000\n"
 "Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
 "Language-Team: \n"
@@ -16,19 +16,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
 
-#: ../panel-plugin/netload.c:59
+#: ../panel-plugin/netload.c:60
 msgid "Xfce4-Netload-Plugin"
 msgstr "\"Plug-in\" Xfce4 Netload"
 
-#: ../panel-plugin/netload.c:62
+#: ../panel-plugin/netload.c:63
 msgid "Unknown error."
 msgstr "Erro desconhecido."
 
-#: ../panel-plugin/netload.c:63
+#: ../panel-plugin/netload.c:64
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Dispositivo proc \"/proc/net/dev\" não encontrado."
 
-#: ../panel-plugin/netload.c:64
+#: ../panel-plugin/netload.c:65
 msgid "Interface was not found."
 msgstr "Interface não encontrada."
 
@@ -41,10 +41,11 @@ msgstr "<< %s >> (Interface desligada)"
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
-"Average of last %d measures:\n"
-"Incoming: %s/s\n"
-"Outgoing: %s/s\n"
-"Total: %s/s"
+"Average of last %d measures\n"
+"with an interval of %.2fs:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
 msgstr ""
 "<< %s >> (%s)\n"
 "Média das últimas %d medições:\n"
@@ -52,11 +53,11 @@ msgstr ""
 "Enviados: %s kByte/s\n"
 "Total: %s kByte/s"
 
-#: ../panel-plugin/netload.c:251
+#: ../panel-plugin/netload.c:252
 msgid "no IP address"
 msgstr "sem endereço IP"
 
-#: ../panel-plugin/netload.c:533
+#: ../panel-plugin/netload.c:572
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
@@ -65,72 +66,71 @@ msgstr ""
 "%s: erro ao iniciar:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:872
+#: ../panel-plugin/netload.c:887
 msgid "Select color"
 msgstr "Selecione a cor"
 
-#: ../panel-plugin/netload.c:938
+#: ../panel-plugin/netload.c:953
 msgid "Bar color (i_ncoming):"
 msgstr "Cor da barra (rece_bidos) :"
 
-#: ../panel-plugin/netload.c:939
+#: ../panel-plugin/netload.c:954
 msgid "Bar color (_outgoing):"
 msgstr "Cor da barra (enviad_os) :"
 
-#: ../panel-plugin/netload.c:942
+#: ../panel-plugin/netload.c:957
 msgid "Maximum (inco_ming):"
 msgstr "Máximo (recebi_dos):"
 
-#: ../panel-plugin/netload.c:943
+#: ../panel-plugin/netload.c:958
 msgid "Maximum (o_utgoing):"
 msgstr "Máximo (e_nviados):"
 
-#: ../panel-plugin/netload.c:948
-#: ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:963 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Monitor de rede"
 
-#: ../panel-plugin/netload.c:977
+#: ../panel-plugin/netload.c:992
 msgid "_Text to display:"
 msgstr "_Texto a exibir:"
 
-#: ../panel-plugin/netload.c:1008
+#: ../panel-plugin/netload.c:1023
 msgid "Network _device:"
 msgstr "_Dispositivo de rede:"
 
-#: ../panel-plugin/netload.c:1036
+#: ../panel-plugin/netload.c:1051
 msgid "Update _interval:"
 msgstr "_Intervalo de atualização:"
 
-#: ../panel-plugin/netload.c:1049
+#: ../panel-plugin/netload.c:1064
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1062
+#: ../panel-plugin/netload.c:1077
 msgid "_Automatic maximum"
 msgstr "Máximo _automático"
 
-#: ../panel-plugin/netload.c:1096
+#: ../panel-plugin/netload.c:1111
 msgid "KiB/s"
 msgstr "KB/s"
 
-#: ../panel-plugin/netload.c:1121
+#: ../panel-plugin/netload.c:1136
 msgid "_Present data as:"
 msgstr "A_presentar dados:"
 
-#: ../panel-plugin/netload.c:1130
+#: ../panel-plugin/netload.c:1145
 msgid "Bars"
 msgstr "Barras"
 
-#: ../panel-plugin/netload.c:1131
+#: ../panel-plugin/netload.c:1146
 msgid "Values"
 msgstr "Valores"
 
-#: ../panel-plugin/netload.c:1132
+#: ../panel-plugin/netload.c:1147
 msgid "Bars and values"
 msgstr "Barras e valores"
 
-#: ../panel-plugin/netload.c:1182
+#: ../panel-plugin/netload.c:1197
 msgid "_Colorize values"
 msgstr "_Colorir valores"
 
