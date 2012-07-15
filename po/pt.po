@@ -38,7 +38,7 @@ msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Interface desligada)"
 
 #: ../panel-plugin/netload.c:249
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures\n"
