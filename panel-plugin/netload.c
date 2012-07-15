@@ -466,14 +466,14 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     global->monitor->label = gtk_label_new(global->monitor->options.label_text);
     gtk_box_pack_start(GTK_BOX(global->box),
                        GTK_WIDGET(global->monitor->label),
-                       TRUE, FALSE, BORDER / 2);
+                       TRUE, FALSE, 2);
 
     /* Create sent and received labels */
     global->monitor->rcv_label = gtk_label_new("-");
     global->monitor->sent_label = gtk_label_new("-");
     gtk_box_pack_start(GTK_BOX(global->box),
                        GTK_WIDGET(global->monitor->rcv_label),
-                       TRUE, FALSE, BORDER / 2);
+                       TRUE, FALSE, 2);
 
     /* Create the progress bars */
     for (i = 0; i < SUM; i++)
@@ -486,7 +486,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     /* Append sent label after the progress bars */
     gtk_box_pack_start(GTK_BOX(global->box),
                        GTK_WIDGET(global->monitor->sent_label),
-                       TRUE, FALSE, BORDER / 2);
+                       TRUE, FALSE, 2);
 
     gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
 
