@@ -3,44 +3,43 @@
 # This file is distributed under the same license as the
 # xfce4-netload-plugin package.
 # Pjotr, 2011.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-15 09:12+0000\n"
+"POT-Creation-Date: 2012-07-21 15:00+0000\n"
 "PO-Revision-Date: 2011-09-09 11:34+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: Dutch (Flemish)\n"
+"Language: nl (Dutch)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl (Dutch)\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/netload.c:60
+#: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-netbelasting-plugin"
 
-#: ../panel-plugin/netload.c:63
+#: ../panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Onbekende fout."
 
-#: ../panel-plugin/netload.c:64
+#: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Linux proc-apparaat '/proc/net/dev' niet gevonden."
 
-#: ../panel-plugin/netload.c:65
+#: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "Netwerkkaart werd niet gevonden."
 
-#: ../panel-plugin/netload.c:162
+#: ../panel-plugin/netload.c:163
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Netwerkkaart staat uit)"
 
-#: ../panel-plugin/netload.c:249
-#, fuzzy, c-format
+#: ../panel-plugin/netload.c:250
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures\n"
@@ -50,16 +49,17 @@ msgid ""
 "Total: %s"
 msgstr ""
 "<< %s >> (%s)\n"
-"Gemiddelde van laatste %d metingen:\n"
-"Binnenkomend: %s kByte/s\n"
-"Uitgaand: %s kByte/s\n"
-"Totaal: %s kByte/s"
+"Gemiddelde van laatste %d metingen\n"
+"met een tussenpoze van %.2fs:\n"
+"Binnenkomend: %s\n"
+"Uitgaand: %s\n"
+"Totaal: %s"
 
-#: ../panel-plugin/netload.c:252
+#: ../panel-plugin/netload.c:253
 msgid "no IP address"
 msgstr "Geen IP-adres"
 
-#: ../panel-plugin/netload.c:572
+#: ../panel-plugin/netload.c:567
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
@@ -68,71 +68,71 @@ msgstr ""
 "%s: Fout bij opstarten:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:887
+#: ../panel-plugin/netload.c:882
 msgid "Select color"
 msgstr "Kies kleur"
 
-#: ../panel-plugin/netload.c:953
+#: ../panel-plugin/netload.c:948
 msgid "Bar color (i_ncoming):"
 msgstr "Balkkleur (bi_nnenkomend):"
 
-#: ../panel-plugin/netload.c:954
+#: ../panel-plugin/netload.c:949
 msgid "Bar color (_outgoing):"
 msgstr "Balkkleur (_uitgaand):"
 
-#: ../panel-plugin/netload.c:957
+#: ../panel-plugin/netload.c:952
 msgid "Maximum (inco_ming):"
 msgstr "Maximum (binnenko_mend):"
 
-#: ../panel-plugin/netload.c:958
+#: ../panel-plugin/netload.c:953
 msgid "Maximum (o_utgoing):"
 msgstr "Maximum (uit_gaand):"
 
-#: ../panel-plugin/netload.c:963 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:958 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Netwerkbewaker"
 
-#: ../panel-plugin/netload.c:992
+#: ../panel-plugin/netload.c:987
 msgid "_Text to display:"
 msgstr "_Tekst om weer te geven:"
 
-#: ../panel-plugin/netload.c:1023
+#: ../panel-plugin/netload.c:1018
 msgid "Network _device:"
 msgstr "Netwerk_apparaat:"
 
-#: ../panel-plugin/netload.c:1051
+#: ../panel-plugin/netload.c:1046
 msgid "Update _interval:"
-msgstr "_Interval voor bijwerken:"
+msgstr "Tussenpoze voor bijwerken:"
 
-#: ../panel-plugin/netload.c:1064
+#: ../panel-plugin/netload.c:1059
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1077
+#: ../panel-plugin/netload.c:1072
 msgid "_Automatic maximum"
-msgstr "Automatisch ma_ximum"
+msgstr "_Automatisch maximum"
 
-#: ../panel-plugin/netload.c:1111
+#: ../panel-plugin/netload.c:1106
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1136
+#: ../panel-plugin/netload.c:1131
 msgid "_Present data as:"
 msgstr "_Presenteer gegevens als:"
 
-#: ../panel-plugin/netload.c:1145
+#: ../panel-plugin/netload.c:1140
 msgid "Bars"
 msgstr "Balken"
 
-#: ../panel-plugin/netload.c:1146
+#: ../panel-plugin/netload.c:1141
 msgid "Values"
 msgstr "Waarden"
 
-#: ../panel-plugin/netload.c:1147
+#: ../panel-plugin/netload.c:1142
 msgid "Bars and values"
 msgstr "Balken en waarden"
 
-#: ../panel-plugin/netload.c:1197
+#: ../panel-plugin/netload.c:1192
 msgid "_Colorize values"
 msgstr "_Kleur de waarden"
 
