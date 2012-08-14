@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin 0.3.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-08 18:15+0000\n"
+"POT-Creation-Date: 2012-08-14 22:09+0000\n"
 "PO-Revision-Date: 2009-05-28 13:18-0400\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: \n"
@@ -18,35 +18,36 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
 
-#: ../panel-plugin/netload.c:59
+#: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-Netload-Plugin"
 
-#: ../panel-plugin/netload.c:62
+#: ../panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Erro desconhecido."
 
-#: ../panel-plugin/netload.c:63
+#: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Dispositivo proc \"/proc/net/dev\" do Linux não encontrado."
 
-#: ../panel-plugin/netload.c:64
+#: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "A interface não foi encontrada."
 
-#: ../panel-plugin/netload.c:162
+#: ../panel-plugin/netload.c:163
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Interface desconectada)"
 
-#: ../panel-plugin/netload.c:249
+#: ../panel-plugin/netload.c:250
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
-"Average of last %d measures:\n"
-"Incoming: %s/s\n"
-"Outgoing: %s/s\n"
-"Total: %s/s"
+"Average of last %d measures\n"
+"with an interval of %.2fs:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
 msgstr ""
 "<< %s >> (%s)\n"
 "Média das últimas %d medições:\n"
@@ -54,11 +55,11 @@ msgstr ""
 "Saída: %s kByte/s\n"
 "Total: %s KByte/s"
 
-#: ../panel-plugin/netload.c:251
+#: ../panel-plugin/netload.c:253
 msgid "no IP address"
 msgstr "nenhum endereço IP"
 
-#: ../panel-plugin/netload.c:533
+#: ../panel-plugin/netload.c:567
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
@@ -67,71 +68,71 @@ msgstr ""
 "%s: Erro na inicialização:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:872
+#: ../panel-plugin/netload.c:882
 msgid "Select color"
 msgstr "Selecione a cor"
 
-#: ../panel-plugin/netload.c:938
+#: ../panel-plugin/netload.c:948
 msgid "Bar color (i_ncoming):"
 msgstr "Cor da barra (e_ntrada):"
 
-#: ../panel-plugin/netload.c:939
+#: ../panel-plugin/netload.c:949
 msgid "Bar color (_outgoing):"
 msgstr "C_or da barra (saída):"
 
-#: ../panel-plugin/netload.c:942
+#: ../panel-plugin/netload.c:952
 msgid "Maximum (inco_ming):"
 msgstr "_Máximo (entrada):"
 
-#: ../panel-plugin/netload.c:943
+#: ../panel-plugin/netload.c:953
 msgid "Maximum (o_utgoing):"
 msgstr "Máximo (_saída):"
 
-#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:958 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Monitor da Rede"
 
-#: ../panel-plugin/netload.c:977
+#: ../panel-plugin/netload.c:987
 msgid "_Text to display:"
 msgstr "_Texto para exibir:"
 
-#: ../panel-plugin/netload.c:1008
+#: ../panel-plugin/netload.c:1018
 msgid "Network _device:"
 msgstr "_Dispositivo de rede:"
 
-#: ../panel-plugin/netload.c:1036
+#: ../panel-plugin/netload.c:1046
 msgid "Update _interval:"
 msgstr "_Intervalo de atualização:"
 
-#: ../panel-plugin/netload.c:1049
+#: ../panel-plugin/netload.c:1059
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1062
+#: ../panel-plugin/netload.c:1072
 msgid "_Automatic maximum"
 msgstr "Máximo _automático"
 
-#: ../panel-plugin/netload.c:1096
+#: ../panel-plugin/netload.c:1106
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1121
+#: ../panel-plugin/netload.c:1131
 msgid "_Present data as:"
 msgstr "Mostrar dados _como:"
 
-#: ../panel-plugin/netload.c:1130
+#: ../panel-plugin/netload.c:1140
 msgid "Bars"
 msgstr "Barras"
 
-#: ../panel-plugin/netload.c:1131
+#: ../panel-plugin/netload.c:1141
 msgid "Values"
 msgstr "Valores"
 
-#: ../panel-plugin/netload.c:1132
+#: ../panel-plugin/netload.c:1142
 msgid "Bars and values"
 msgstr "Barras e valores"
 
-#: ../panel-plugin/netload.c:1182
+#: ../panel-plugin/netload.c:1192
 msgid "_Colorize values"
 msgstr "Co_lorir valores"
 
