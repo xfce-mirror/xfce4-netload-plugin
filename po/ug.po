@@ -1,15 +1,15 @@
-# Uyghur translations for xfce4-netload-plugin package.
-# Copyright (C) 2003,2004,2005,2006,2007
-# This file is distributed under the same license as the xfce4-netload-plugin package.
-# Gheyret T.Kenji <gheyret@gmail.com>, 2010.
-# 
+# Uyghur translation for xfce4-netload-plugin.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Gheyret Kenji <gheyret@gmail.com>, YEAR.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-20 01:12+0000\n"
-"PO-Revision-Date: 2007-02-24 20:52+0900\n"
-"Last-Translator: Gheyret T.Kenji <gheyret@gmail.com>\n"
+"POT-Creation-Date: 2012-10-24 03:24+0000\n"
+"PO-Revision-Date: 2011-11-09 16:10+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -38,6 +38,7 @@ msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (ئارايۈز توختىتىلغان)"
 
 #: ../panel-plugin/netload.c:250
+#, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures\n"
@@ -45,8 +46,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
-"<< %s >> (%s)\n"
+msgstr "<< %s >> (%s)\n"
 "ئەڭ ئاخىرقى %d قېتىملىق ئۆلچەشنىڭ ئوتتۇرىچە قىممىتى:\n"
 "ئۆلچەش ئىنتېرۋالى %.2fs:\n"
 "كىرىش: %s \n"
@@ -58,11 +58,11 @@ msgid "no IP address"
 msgstr "IP ئادرېسى يوق"
 
 #: ../panel-plugin/netload.c:567
+#, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr ""
-"%s: دەسلەپلەشتۈرۈشتە خاتالىق كۆرۈلدى:\n"
+msgstr "%s: دەسلەپلەشتۈرۈشتە خاتالىق كۆرۈلدى:\n"
 "%s"
 
 #: ../panel-plugin/netload.c:882
@@ -111,7 +111,7 @@ msgstr "ئۆزلۈكىدىن ئەڭ چوڭ(_A)"
 
 #: ../panel-plugin/netload.c:1106
 msgid "KiB/s"
-msgstr "كىلوبايت/سېكۇنت"
+msgstr "ك ب/س"
 
 #: ../panel-plugin/netload.c:1131
 msgid "_Present data as:"
@@ -152,6 +152,3 @@ msgstr "مېگابايت"
 #: ../panel-plugin/utils.c:78
 msgid "GiB"
 msgstr "گىگابايت"
-
-#~ msgid "kByte/s"
-#~ msgstr "ك ب/س"
