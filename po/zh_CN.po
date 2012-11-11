@@ -3,16 +3,16 @@
 # This file is distributed under the same license as
 # the xfce4-netload-plugin package.
 # Vern Sun <s5unty@gmail.com>, 2007.
-# Hunt Xu <huntxu@live.cn>, 2009.
+# Hunt Xu <huntxu@live.cn>, 2009, 2012.
 # Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
-"Report-Msgid-Bugs-To: <xfce-i18n@xfce.org>\n"
-"POT-Creation-Date: 2012-04-20 07:18+0000\n"
-"PO-Revision-Date: 2009-11-09 19:47+0800\n"
-"Last-Translator: Chipong Luo <chipong.luo@yahoo.com>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-11 10:06+0000\n"
+"PO-Revision-Date: 2012-11-11 22:27+0800\n"
+"Last-Translator: Hunt Xu <huntxu@live.cn>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n-cn@xfce.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -20,47 +20,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/netload.c:59
+#: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-Netload-Plugin"
 
-#: ../panel-plugin/netload.c:62
+#: ../panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "未知错误。"
 
-#: ../panel-plugin/netload.c:63
+#: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "未找到 Linux proc 设备 ‘/proc/net/dev’。"
 
-#: ../panel-plugin/netload.c:64
+#: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "未找到接口。"
 
-#: ../panel-plugin/netload.c:162
+#: ../panel-plugin/netload.c:163
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (接口关闭)"
 
-#: ../panel-plugin/netload.c:249
+#: ../panel-plugin/netload.c:250
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
-"Average of last %d measures:\n"
-"Incoming: %s/s\n"
-"Outgoing: %s/s\n"
-"Total: %s/s"
+"Average of last %d measures\n"
+"with an interval of %.2fs:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
 msgstr ""
 "<< %s >> (%s)\n"
-"%d 内的平均值：\n"
-"流入：%s/s\n"
-"流出：%s/s\n"
-"总共：%s/s"
+"最近 %d 时间段内\n"
+"间隔为 %.2f 秒的平均值:\n"
+"流入：%s\n"
+"流出：%s\n"
+"总共：%s"
 
-#: ../panel-plugin/netload.c:251
+#: ../panel-plugin/netload.c:253
 msgid "no IP address"
 msgstr "无 IP 地址"
 
-#: ../panel-plugin/netload.c:533
+#: ../panel-plugin/netload.c:567
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
@@ -69,71 +71,71 @@ msgstr ""
 "%s：初始化时出错：\n"
 "%s"
 
-#: ../panel-plugin/netload.c:872
+#: ../panel-plugin/netload.c:882
 msgid "Select color"
 msgstr "选择颜色"
 
-#: ../panel-plugin/netload.c:938
+#: ../panel-plugin/netload.c:948
 msgid "Bar color (i_ncoming):"
 msgstr "条纹颜色(流入)(_N)："
 
-#: ../panel-plugin/netload.c:939
+#: ../panel-plugin/netload.c:949
 msgid "Bar color (_outgoing):"
 msgstr "条纹颜色(流出)(_O)："
 
-#: ../panel-plugin/netload.c:942
+#: ../panel-plugin/netload.c:952
 msgid "Maximum (inco_ming):"
 msgstr "最大值(流入)(_M)："
 
-#: ../panel-plugin/netload.c:943
+#: ../panel-plugin/netload.c:953
 msgid "Maximum (o_utgoing):"
 msgstr "最大值(流出)(_U)："
 
-#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:958 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "网络监视器"
 
-#: ../panel-plugin/netload.c:977
+#: ../panel-plugin/netload.c:987
 msgid "_Text to display:"
 msgstr "要显示的文字(_T)："
 
-#: ../panel-plugin/netload.c:1008
+#: ../panel-plugin/netload.c:1018
 msgid "Network _device:"
 msgstr "网络设备(_D)："
 
-#: ../panel-plugin/netload.c:1036
+#: ../panel-plugin/netload.c:1046
 msgid "Update _interval:"
 msgstr "更新间隔(_I)："
 
-#: ../panel-plugin/netload.c:1049
+#: ../panel-plugin/netload.c:1059
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1062
+#: ../panel-plugin/netload.c:1072
 msgid "_Automatic maximum"
 msgstr "自动最大值(_A)"
 
-#: ../panel-plugin/netload.c:1096
+#: ../panel-plugin/netload.c:1106
 msgid "KiB/s"
 msgstr "K/s"
 
-#: ../panel-plugin/netload.c:1121
+#: ../panel-plugin/netload.c:1131
 msgid "_Present data as:"
 msgstr "当前数据为(_P)："
 
-#: ../panel-plugin/netload.c:1130
+#: ../panel-plugin/netload.c:1140
 msgid "Bars"
 msgstr "条纹"
 
-#: ../panel-plugin/netload.c:1131
+#: ../panel-plugin/netload.c:1141
 msgid "Values"
 msgstr "值"
 
-#: ../panel-plugin/netload.c:1132
+#: ../panel-plugin/netload.c:1142
 msgid "Bars and values"
 msgstr "条纹和值"
 
-#: ../panel-plugin/netload.c:1182
+#: ../panel-plugin/netload.c:1192
 msgid "_Colorize values"
 msgstr "彩色化的值(_C)"
 
