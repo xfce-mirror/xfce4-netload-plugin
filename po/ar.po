@@ -1,155 +1,187 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# كريم اولاد الشلحة <herr.linux88@gmail.com>, 2012.
+# كريم أولاد الشلحة <herr.linux88@gmail.com>, 2012.
+# محمد الحرقان <malham1@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-04 15:18+0000\n"
-"PO-Revision-Date: 2012-02-04 20:24+0000\n"
-"Last-Translator: كريم اولاد الشلحة <herr.linux88@gmail.com>\n"
-"Language-Team: Arabic Xfce Translation Team\n"
+"POT-Creation-Date: 2012-11-18 18:06+0000\n"
+"PO-Revision-Date: 2012-11-18 23:24+0300\n"
+"Last-Translator: محمد الحرقان <malham1@gmail.com>\n"
+"Language-Team: http://www.vertaal.com.ar/files/factory/ar/list/\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Virtaal 0.7.0\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Virtaal 0.7.1\n"
 
-#: ../panel-plugin/netload.c:59
-msgid "Xfce4-Netload-Plugin"
-msgstr "ملحق-تحميل نيت-لإكسفسي4"
+#: ../panel-plugin/embed.c:48
+msgid "Embed"
+msgstr "مضمّن"
 
-#: ../panel-plugin/netload.c:62
-msgid "Unknown error."
-msgstr "خطأ مجهول."
+#. pop out menu item, not shown by default
+#: ../panel-plugin/embed.c:244
+msgid "Pop _Out"
+msgstr "قائمة منبثقة"
 
-#: ../panel-plugin/netload.c:63
-msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "لم يتم العثور على '/proc/net/dev'."
+#. embed menu item, shown by default.
+#: ../panel-plugin/embed.c:249
+msgid "_Embed"
+msgstr "_مضمّن"
 
-#: ../panel-plugin/netload.c:64
-msgid "Interface was not found."
-msgstr "لم يتم العثور غلى الواجهة."
+#. focus menu item, not shown by default
+#: ../panel-plugin/embed.c:255
+msgid "_Focus"
+msgstr "_التركيز"
 
-#: ../panel-plugin/netload.c:162
+#: ../panel-plugin/embed-dialogs.c:51
 #, c-format
-msgid "<< %s >> (Interface down)"
-msgstr "<< %s >> (واجهة للأسفل)"
+msgid "Unable to open the following url: %s"
+msgstr "غير قادر على فتح المسار: %s"
 
-#: ../panel-plugin/netload.c:249
+#: ../panel-plugin/embed-dialogs.c:100
+msgid "Input is valid"
+msgstr "إدخال سليم"
+
+#: ../panel-plugin/embed-dialogs.c:105
+msgid "Input is invalid"
+msgstr "إدخال غير سليم"
+
+#: ../panel-plugin/embed-dialogs.c:317 ../panel-plugin/embed.desktop.in.h:1
+msgid "Embed Plugin"
+msgstr "ملحق التضمّين"
+
+#: ../panel-plugin/embed-dialogs.c:326
+msgid "Application Launching"
+msgstr "غطلاق التطبيق"
+
+#: ../panel-plugin/embed-dialogs.c:328
 #, c-format
 msgid ""
-"<< %s >> (%s)\n"
-"Average of last %d measures:\n"
-"Incoming: %s/s\n"
-"Outgoing: %s/s\n"
-"Total: %s/s"
+"If a window is not found (or there are no criteria), a command can\n"
+"optionally be launched. The command can either result in a window\n"
+"that matches the below criteria, or it can use the socket ID passed\n"
+"to it (%s) to embed itself automatically."
 msgstr ""
-"<< %s >> (%s)\n"
-"معدل أخر %d إجراءات:\n"
-"الوارد: %s/s\n"
-"الصادر: %s/s\n"
-"المجموع: %s/s"
+"إذا لم يتم العثور على نافذة (أو لا توجد معايير)، يمكن إطلاق\n"
+"أمرا اختيارياً. الأمر يمكن أن يكون أما نافذة تطابق معايير\n"
+"الدنيا، أو تستخدم مأخذ المعرف الذي تم تمريره إلى (%s) لتضمن\n"
+"نفسها تلقائياً."
 
-#: ../panel-plugin/netload.c:251
-msgid "no IP address"
-msgstr "بدون عنوان IP"
-
-#: ../panel-plugin/netload.c:533
+#: ../panel-plugin/embed-dialogs.c:336
 #, c-format
 msgid ""
-"%s: Error in initializing:\n"
-"%s"
+"Leave blank to not launch anything\n"
+"%s expands to the socket ID"
 msgstr ""
-"%s: خطأعنذ التمهيد:\n"
-"%s"
+"أتركه خاليا لعدم إطلاق أي شيء\n"
+"%s توسيع إلى مقود المعرف"
 
-#: ../panel-plugin/netload.c:872
-msgid "Select color"
-msgstr "اختر لون"
+#: ../panel-plugin/embed-dialogs.c:339
+msgid "L_aunch command"
+msgstr "أطلق الامر"
 
-#: ../panel-plugin/netload.c:938
-msgid "Bar color (i_ncoming):"
-msgstr "لون شريك (ال_وارد):"
+#. poll_delay
+#. No UI element. Generally polling is unnecessary, unless you have a very
+#. * strange window that you're trying to match that is not uniquely
+#. * identifiable when it is mapped.
+#: ../panel-plugin/embed-dialogs.c:348
+msgid "Selection Criteria"
+msgstr "حدد المعايير"
 
-#: ../panel-plugin/netload.c:939
-msgid "Bar color (_outgoing):"
-msgstr "لون شريك (ال_صادر):"
+#: ../panel-plugin/embed-dialogs.c:350
+msgid ""
+"The window to embed must match all of the non-blank criteria.\n"
+"Leave everything blank to rely on a launch command with socket ID."
+msgstr ""
+"يجب تضمين النافذة لتطابق جميع المعايير غير فارغة.\n"
+"ترك كل شيء فارغة يودي إلى الاعتماد على أمر إطلاق مُعرف المقبس."
 
-#: ../panel-plugin/netload.c:942
-msgid "Maximum (inco_ming):"
-msgstr "أقصى (الوارد):"
+#: ../panel-plugin/embed-dialogs.c:354
+msgid "_Process name"
+msgstr "_إسم العملية"
 
-#: ../panel-plugin/netload.c:943
-msgid "Maximum (o_utgoing):"
-msgstr "أقصى (الصادر):"
+#: ../panel-plugin/embed-dialogs.c:355
+msgid ""
+"Match the window's application's process name\n"
+"Leave blank if it is not a criterion"
+msgstr ""
+"تطابق إسم النوافذ تطبيق الإجراء\n"
+"اتركه خاليا إذا لم يكن معيارا"
 
-#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
-msgid "Network Monitor"
-msgstr "مراقب الشبكة"
+#: ../panel-plugin/embed-dialogs.c:361
+msgid "_Window class"
+msgstr "_صنف النافذة"
 
-#: ../panel-plugin/netload.c:977
-msgid "_Text to display:"
-msgstr "النص المراد عرضه:"
+#: ../panel-plugin/embed-dialogs.c:362
+msgid ""
+"Match the window's class\n"
+"Leave blank if it is not a criterion"
+msgstr ""
+"تطابق صنف النوافذ\n"
+"اتركه خاليا إذا لم يكن معيارا"
 
-#: ../panel-plugin/netload.c:1008
-msgid "Network _device:"
-msgstr "جهاز ال_شّبكة:"
+#: ../panel-plugin/embed-dialogs.c:368
+msgid "Window _title"
+msgstr "عن_وان النافذة"
 
-#: ../panel-plugin/netload.c:1036
-msgid "Update _interval:"
-msgstr "مجال التح_ديث:"
+#: ../panel-plugin/embed-dialogs.c:369
+msgid ""
+"Match the window's title using a REGEX\n"
+"Leave blank if it is not a criterion"
+msgstr ""
+"تطابق عنوان النوافذ بإستعمال REGEX\n"
+"اتركه خاليا إذا لم يكن معيارا"
 
-#: ../panel-plugin/netload.c:1049
-msgid "s"
-msgstr "ث"
+#: ../panel-plugin/embed-dialogs.c:373
+msgid "Display"
+msgstr "عرض"
 
-#: ../panel-plugin/netload.c:1062
-msgid "_Automatic maximum"
-msgstr "أق_صى تلقائيا"
+#: ../panel-plugin/embed-dialogs.c:376
+#, c-format
+msgid ""
+"Leave blank to hide the label\n"
+"%s expands to the embedded window's title"
+msgstr ""
+"اتركه خاليا لإخفاء التسمية\n"
+"%s تتسع لعنوان النوافذ المضمنة"
 
-#: ../panel-plugin/netload.c:1096
-msgid "KiB/s"
-msgstr "ك.بايت/ثا"
+#: ../panel-plugin/embed-dialogs.c:379
+msgid "_Label format"
+msgstr "_صيغة التسمية"
 
-#: ../panel-plugin/netload.c:1121
-msgid "_Present data as:"
-msgstr "ت_قديم البيانات كـ:"
+#: ../panel-plugin/embed-dialogs.c:384
+msgid "Label _font"
+msgstr "خ_ط التسمية"
 
-#: ../panel-plugin/netload.c:1130
-msgid "Bars"
-msgstr "أشرطة"
+#: ../panel-plugin/embed-dialogs.c:385
+msgid "Choose the label font"
+msgstr "إختر خط التسمية"
 
-#: ../panel-plugin/netload.c:1131
-msgid "Values"
-msgstr "قيم"
+#: ../panel-plugin/embed-dialogs.c:389
+msgid "Minimum _size (px)"
+msgstr "الح_جم الأقصى (px)"
 
-#: ../panel-plugin/netload.c:1132
-msgid "Bars and values"
-msgstr "أشرطة و قيم"
+#: ../panel-plugin/embed-dialogs.c:390
+msgid ""
+"Minimum size of the embedded window\n"
+"Set to 0 to keep the original window size"
+msgstr ""
+"الحجم الأصغر للنافذة المضمنة\n"
+"الرقم 0 للحفاظ حجم النافذة الأصلي"
 
-#: ../panel-plugin/netload.c:1182
-msgid "_Colorize values"
-msgstr "تلوين ا_لقيم"
+#: ../panel-plugin/embed-dialogs.c:395
+msgid "_Expand"
+msgstr "_توسّع"
 
-#: ../panel-plugin/netload.desktop.in.in.h:2
-msgid "Show network traffic"
-msgstr "عرض حركة الشبكة"
+#: ../panel-plugin/embed-dialogs.c:396
+msgid "Use up all available panel space"
+msgstr "إستعمل كل المساحة المتوفرة في اللوحة"
 
-#: ../panel-plugin/utils.c:78
-msgid "B"
-msgstr "بايت"
-
-#: ../panel-plugin/utils.c:78
-msgid "KiB"
-msgstr "ك.بايت"
-
-#: ../panel-plugin/utils.c:78
-msgid "MiB"
-msgstr "م.بايت"
-
-#: ../panel-plugin/utils.c:78
-msgid "GiB"
-msgstr "ج.بايت"
+#: ../panel-plugin/embed.desktop.in.h:2
+msgid "Embeds an arbitrary window into the panel"
+msgstr "يضمن إجبار النافذة في لوحة"
