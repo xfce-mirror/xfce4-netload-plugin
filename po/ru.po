@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin 0.3.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 11:39+0000\n"
+"POT-Creation-Date: 2012-12-27 08:12+0000\n"
 "PO-Revision-Date: 2010-03-01 11:14+0200\n"
 "Last-Translator: Dima Smirnov <arch@cnc-parts.info>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -17,35 +17,36 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 
-#: ../panel-plugin/netload.c:59
+#: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Модуль сетевой активности Xfce4"
 
-#: ../panel-plugin/netload.c:62
+#: ../panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Неизвестная ошибка."
 
-#: ../panel-plugin/netload.c:63
+#: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Не найдено устройство '/proc/net/dev'."
 
-#: ../panel-plugin/netload.c:64
+#: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "Интерфейс не найден."
 
-#: ../panel-plugin/netload.c:162
+#: ../panel-plugin/netload.c:163
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "Интерфейс << %s >> выключен"
 
-#: ../panel-plugin/netload.c:249
+#: ../panel-plugin/netload.c:250
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
-"Average of last %d measures:\n"
-"Incoming: %s/s\n"
-"Outgoing: %s/s\n"
-"Total: %s/s"
+"Average of last %d measures\n"
+"with an interval of %.2fs:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
 msgstr ""
 "<< %s >> (%s)\n"
 "Среднее значение %d \n"
@@ -54,11 +55,11 @@ msgstr ""
 "Исходящий: %s кБайт/s\n"
 "Всего: %s кБайт/s"
 
-#: ../panel-plugin/netload.c:251
+#: ../panel-plugin/netload.c:253
 msgid "no IP address"
 msgstr "нет IP-адреса"
 
-#: ../panel-plugin/netload.c:533
+#: ../panel-plugin/netload.c:567
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
@@ -67,71 +68,71 @@ msgstr ""
 "%s: Ошибка инициализации:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:872
+#: ../panel-plugin/netload.c:882
 msgid "Select color"
 msgstr "Выбор цвета"
 
-#: ../panel-plugin/netload.c:938
+#: ../panel-plugin/netload.c:948
 msgid "Bar color (i_ncoming):"
 msgstr "Цвет индикатора (вхо_дящий):"
 
-#: ../panel-plugin/netload.c:939
+#: ../panel-plugin/netload.c:949
 msgid "Bar color (_outgoing):"
 msgstr "Цвет индикатора (исход_ящий):"
 
-#: ../panel-plugin/netload.c:942
+#: ../panel-plugin/netload.c:952
 msgid "Maximum (inco_ming):"
 msgstr "Максимум (в_ходящий):"
 
-#: ../panel-plugin/netload.c:943
+#: ../panel-plugin/netload.c:953
 msgid "Maximum (o_utgoing):"
 msgstr "Максимум (_исходящий):"
 
-#: ../panel-plugin/netload.c:948 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:958 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Сетевой монитор"
 
-#: ../panel-plugin/netload.c:977
+#: ../panel-plugin/netload.c:987
 msgid "_Text to display:"
 msgstr "_Подпись:"
 
-#: ../panel-plugin/netload.c:1008
+#: ../panel-plugin/netload.c:1018
 msgid "Network _device:"
 msgstr "Сетевое _устройство:"
 
-#: ../panel-plugin/netload.c:1036
+#: ../panel-plugin/netload.c:1046
 msgid "Update _interval:"
 msgstr "Интервал о_бновления:"
 
-#: ../panel-plugin/netload.c:1049
+#: ../panel-plugin/netload.c:1059
 msgid "s"
 msgstr "сек."
 
-#: ../panel-plugin/netload.c:1062
+#: ../panel-plugin/netload.c:1072
 msgid "_Automatic maximum"
 msgstr "_Автоматически определять максимум"
 
-#: ../panel-plugin/netload.c:1096
+#: ../panel-plugin/netload.c:1106
 msgid "KiB/s"
 msgstr "КиБ/с"
 
-#: ../panel-plugin/netload.c:1121
+#: ../panel-plugin/netload.c:1131
 msgid "_Present data as:"
 msgstr "Представ_ление в виде:"
 
-#: ../panel-plugin/netload.c:1130
+#: ../panel-plugin/netload.c:1140
 msgid "Bars"
 msgstr "Столбцов"
 
-#: ../panel-plugin/netload.c:1131
+#: ../panel-plugin/netload.c:1141
 msgid "Values"
 msgstr "Значений"
 
-#: ../panel-plugin/netload.c:1132
+#: ../panel-plugin/netload.c:1142
 msgid "Bars and values"
 msgstr "Столбцов и значений"
 
-#: ../panel-plugin/netload.c:1182
+#: ../panel-plugin/netload.c:1192
 msgid "_Colorize values"
 msgstr "_Цветные значения"
 
