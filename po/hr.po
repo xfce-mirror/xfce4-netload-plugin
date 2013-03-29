@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-16 16:48+0000\n"
+"POT-Creation-Date: 2013-03-29 04:24+0000\n"
 "PO-Revision-Date: 2011-05-30 01:02+0200\n"
 "Last-Translator: Ivica Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian <ikoli@yahoo.com>\n"
@@ -97,7 +97,7 @@ msgstr "Nadzor mreže"
 
 #: ../panel-plugin/netload.c:987
 msgid "_Text to display:"
-msgstr "_Tekst za prikaz"
+msgstr "_Tekst za prikaz:"
 
 #: ../panel-plugin/netload.c:1018
 msgid "Network _device:"
@@ -105,7 +105,7 @@ msgstr "Mrežni _uređaj:"
 
 #: ../panel-plugin/netload.c:1046
 msgid "Update _interval:"
-msgstr "Interval _osvježavanja"
+msgstr "Interval _osvježavanja:"
 
 #: ../panel-plugin/netload.c:1059
 msgid "s"
