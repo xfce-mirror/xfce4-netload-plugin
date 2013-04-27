@@ -2,7 +2,7 @@
 # Copyright (C) The Xfce development team.
 # This file is distributed under the same license as the
 # xfce4-netload-plugin package.
-# Pjotr, 2011.
+# Pjotr <pjotrvertaalt@gmail.com> , 2011 - 2013.
 #
 msgid ""
 msgstr ""
@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-21 15:00+0000\n"
 "PO-Revision-Date: 2011-09-09 11:34+0200\n"
-"Last-Translator: Pjotr\n"
+"Last-Translator: Pjotr pjotrvertaalt@gmail.com\n"
 "Language-Team: Dutch (Flemish)\n"
 "Language: nl (Dutch)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
-msgstr "Xfce4-netbelasting-plugin"
+msgstr "Xfce4-netbelasting-invoegtoepassing"
 
 #: ../panel-plugin/netload.c:64
 msgid "Unknown error."
