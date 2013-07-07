@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Andhika padmawan <andhika.padmawan@gmail.com>, 2008
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-03 21:08+0200\n"
+"PO-Revision-Date: 2013-07-06 08:39+0000\n"
+"Last-Translator: Ardjuna <Asyura.x@gmail.com>\n"
+"Language-Team: Indonesian (http://www.transifex.com/projects/p/xfce/language/id/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../panel-plugin/netload.c:61
+msgid "Xfce4-Netload-Plugin"
+msgstr "Xfce4-Netload-Plugin"
+
+#: ../panel-plugin/netload.c:64
+msgid "Unknown error."
+msgstr "Galat tak dikenal."
+
+#: ../panel-plugin/netload.c:65
+msgid "Linux proc device '/proc/net/dev' not found."
+msgstr "Divais proc Linux '/proc/net/dev' tak ditemukan."
+
+#: ../panel-plugin/netload.c:66
+msgid "Interface was not found."
+msgstr "Antarmuka tak ditemukan."
+
+#: ../panel-plugin/netload.c:163
+#, c-format
+msgid "<< %s >> (Interface down)"
+msgstr "<< %s >> (Antarmuka tidak aktif)"
+
+#: ../panel-plugin/netload.c:250
+#, c-format
+msgid ""
+"<< %s >> (%s)\n"
+"Average of last %d measures\n"
+"with an interval of %.2fs:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
+msgstr "<< %s >> (%s)\nNilai rerata %d ukuran terakhir\ndengan interval %.2fs:\nMasuk: %s\nKeluar: %s\nTotal: %s"
+
+#: ../panel-plugin/netload.c:253
+msgid "no IP address"
+msgstr "tak ada alamat IP"
+
+#: ../panel-plugin/netload.c:567
+#, c-format
+msgid ""
+"%s: Error in initializing:\n"
+"%s"
+msgstr "%s: Galat ketika menginisialisasi:\n%s"
+
+#: ../panel-plugin/netload.c:882
+msgid "Select color"
+msgstr "Pilih warna"
+
+#: ../panel-plugin/netload.c:948
+msgid "Bar color (i_ncoming):"
+msgstr "Batang warna (_masuk):"
+
+#: ../panel-plugin/netload.c:949
+msgid "Bar color (_outgoing):"
+msgstr "Batang warna (_keluar):"
+
+#: ../panel-plugin/netload.c:952
+msgid "Maximum (inco_ming):"
+msgstr "Maksimum (m_asuk):"
+
+#: ../panel-plugin/netload.c:953
+msgid "Maximum (o_utgoing):"
+msgstr "Maksimum (k_eluar):"
+
+#: ../panel-plugin/netload.c:958 ../panel-plugin/netload.desktop.in.in.h:1
+msgid "Network Monitor"
+msgstr "Monitor Jaringan"
+
+#: ../panel-plugin/netload.c:987
+msgid "_Text to display:"
+msgstr "_Teks untuk ditampilkan:"
+
+#: ../panel-plugin/netload.c:1018
+msgid "Network _device:"
+msgstr "Divais _jaringan:"
+
+#: ../panel-plugin/netload.c:1046
+msgid "Update _interval:"
+msgstr "Interval _pemutakhiran:"
+
+#: ../panel-plugin/netload.c:1059
+msgid "s"
+msgstr "s"
+
+#: ../panel-plugin/netload.c:1072
+msgid "_Automatic maximum"
+msgstr "_Maksimum otomatis"
+
+#: ../panel-plugin/netload.c:1106
+msgid "KiB/s"
+msgstr "KiB/s"
+
+#: ../panel-plugin/netload.c:1131
+msgid "_Present data as:"
+msgstr "Tampilkan _data sebagai:"
+
+#: ../panel-plugin/netload.c:1140
+msgid "Bars"
+msgstr "Mistar"
+
+#: ../panel-plugin/netload.c:1141
+msgid "Values"
+msgstr "Nilai"
+
+#: ../panel-plugin/netload.c:1142
+msgid "Bars and values"
+msgstr "Mistar dan Nilai"
+
+#: ../panel-plugin/netload.c:1192
+msgid "_Colorize values"
+msgstr "_Warnai nilai"
+
+#: ../panel-plugin/netload.desktop.in.in.h:2
+msgid "Show network traffic"
+msgstr "Tampilkan arus jaringan"
+
+#: ../panel-plugin/utils.c:78
+msgid "B"
+msgstr "B"
+
+#: ../panel-plugin/utils.c:78
+msgid "KiB"
+msgstr "KiB"
+
+#: ../panel-plugin/utils.c:78
+msgid "MiB"
+msgstr "MiB"
+
+#: ../panel-plugin/utils.c:78
+msgid "GiB"
+msgstr "GiB"
