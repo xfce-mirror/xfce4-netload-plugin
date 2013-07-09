@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2006,2009
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-03 21:08+0200\n"
+"PO-Revision-Date: 2013-07-09 22:26+0000\n"
+"Last-Translator: kelemeng <kelemeng@gnome.hu>\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/xfce/language/hu/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/netload.c:61
+msgid "Xfce4-Netload-Plugin"
+msgstr "Xfce 4 hálózati terhelés bővítmény"
+
+#: ../panel-plugin/netload.c:64
+msgid "Unknown error."
+msgstr "Ismeretlen hiba."
+
+#: ../panel-plugin/netload.c:65
+msgid "Linux proc device '/proc/net/dev' not found."
+msgstr "A „/proc/net/dev” Linux proc eszköz nem található."
+
+#: ../panel-plugin/netload.c:66
+msgid "Interface was not found."
+msgstr "A csatoló nem található."
+
+#: ../panel-plugin/netload.c:163
+#, c-format
+msgid "<< %s >> (Interface down)"
+msgstr "<< %s >> (a csatoló nem működik)"
+
+#: ../panel-plugin/netload.c:250
+#, c-format
+msgid ""
+"<< %s >> (%s)\n"
+"Average of last %d measures\n"
+"with an interval of %.2fs:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
+msgstr "<< %s >> (%s)\nAz utolsó %d mérés átlaga:\n%.2fs gyakoriság mellett:\nBejövő: %s\nKimenő: %s\nÖsszesen: %s"
+
+#: ../panel-plugin/netload.c:253
+msgid "no IP address"
+msgstr "nincs IP cím"
+
+#: ../panel-plugin/netload.c:567
+#, c-format
+msgid ""
+"%s: Error in initializing:\n"
+"%s"
+msgstr "%s: Hiba az előkészítés során:\n%s"
+
+#: ../panel-plugin/netload.c:882
+msgid "Select color"
+msgstr "Válasszon színt"
+
+#: ../panel-plugin/netload.c:948
+msgid "Bar color (i_ncoming):"
+msgstr "Sáv színe (_bejövő):"
+
+#: ../panel-plugin/netload.c:949
+msgid "Bar color (_outgoing):"
+msgstr "Sáv színe (_kimenő):"
+
+#: ../panel-plugin/netload.c:952
+msgid "Maximum (inco_ming):"
+msgstr "Maximum (b_ejövő):"
+
+#: ../panel-plugin/netload.c:953
+msgid "Maximum (o_utgoing):"
+msgstr "Maximum (ki_menő):"
+
+#: ../panel-plugin/netload.c:958 ../panel-plugin/netload.desktop.in.in.h:1
+msgid "Network Monitor"
+msgstr "Hálózatfigyelő"
+
+#: ../panel-plugin/netload.c:987
+msgid "_Text to display:"
+msgstr "Megjelenítendő s_zöveg:"
+
+#: ../panel-plugin/netload.c:1018
+msgid "Network _device:"
+msgstr "_Hálózati eszköz:"
+
+#: ../panel-plugin/netload.c:1046
+msgid "Update _interval:"
+msgstr "_Frissítési időköz:"
+
+#: ../panel-plugin/netload.c:1059
+msgid "s"
+msgstr "mp"
+
+#: ../panel-plugin/netload.c:1072
+msgid "_Automatic maximum"
+msgstr "_Automatikus maximum"
+
+#: ../panel-plugin/netload.c:1106
+msgid "KiB/s"
+msgstr "KiB/s"
+
+#: ../panel-plugin/netload.c:1131
+msgid "_Present data as:"
+msgstr "A_datok megjelenítése mint:"
+
+#: ../panel-plugin/netload.c:1140
+msgid "Bars"
+msgstr "Sávok"
+
+#: ../panel-plugin/netload.c:1141
+msgid "Values"
+msgstr "Értékek"
+
+#: ../panel-plugin/netload.c:1142
+msgid "Bars and values"
+msgstr "Sávok és értékek"
+
+#: ../panel-plugin/netload.c:1192
+msgid "_Colorize values"
+msgstr "É_rtékek színezése"
+
+#: ../panel-plugin/netload.desktop.in.in.h:2
+msgid "Show network traffic"
+msgstr "Hálózati forgalom megjelenítése"
+
+#: ../panel-plugin/utils.c:78
+msgid "B"
+msgstr "B"
+
+#: ../panel-plugin/utils.c:78
+msgid "KiB"
+msgstr "KiB"
+
+#: ../panel-plugin/utils.c:78
+msgid "MiB"
+msgstr "MiB"
+
+#: ../panel-plugin/utils.c:78
+msgid "GiB"
+msgstr "GiB"
