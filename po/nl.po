@@ -1,21 +1,20 @@
-# Dutch translation of the xfce4-netload-plugin package.
-# Copyright (C) The Xfce development team.
-# This file is distributed under the same license as the
-# xfce4-netload-plugin package.
-# Pjotr <pjotrvertaalt@gmail.com> , 2011 - 2013.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-netload-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-21 15:00+0000\n"
-"PO-Revision-Date: 2011-09-09 11:34+0200\n"
-"Last-Translator: Pjotr pjotrvertaalt@gmail.com\n"
-"Language-Team: Dutch (Flemish)\n"
-"Language: nl (Dutch)\n"
+"POT-Creation-Date: 2013-07-03 21:08+0200\n"
+"PO-Revision-Date: 2013-09-19 14:50+0000\n"
+"Last-Translator: Pjotr123 <pjotrvertaalt@gmail.com>\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/xfce/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/netload.c:61
@@ -40,6 +39,7 @@ msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Netwerkkaart staat uit)"
 
 #: ../panel-plugin/netload.c:250
+#, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures\n"
@@ -47,13 +47,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
-"<< %s >> (%s)\n"
-"Gemiddelde van laatste %d metingen\n"
-"met een tussenpoze van %.2fs:\n"
-"Binnenkomend: %s\n"
-"Uitgaand: %s\n"
-"Totaal: %s"
+msgstr "<< %s >> (%s)\nGemiddelde van laatste %d metingen\nmet een tussenpoze van %.2fs:\nBinnenkomend: %s\nUitgaand: %s\nTotaal: %s"
 
 #: ../panel-plugin/netload.c:253
 msgid "no IP address"
@@ -64,9 +58,7 @@ msgstr "Geen IP-adres"
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr ""
-"%s: Fout bij opstarten:\n"
-"%s"
+msgstr "%s: Fout bij opstarten:\n%s"
 
 #: ../panel-plugin/netload.c:882
 msgid "Select color"
@@ -155,9 +147,3 @@ msgstr "MiB"
 #: ../panel-plugin/utils.c:78
 msgid "GiB"
 msgstr "GiB"
-
-#~ msgid "%s/s"
-#~ msgstr "%s/s"
-
-#~ msgid "kByte/s"
-#~ msgstr "kByte/s"
