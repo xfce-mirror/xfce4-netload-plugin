@@ -338,6 +338,7 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
     if (mode == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
     {
         xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), GTK_ORIENTATION_VERTICAL);
+        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box_bars), GTK_ORIENTATION_VERTICAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
         gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 0.5f, 1.0f);
         gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.5f, 0.0f);
@@ -350,6 +351,7 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
     else if (mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
     {
         xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), GTK_ORIENTATION_VERTICAL);
+        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box_bars), GTK_ORIENTATION_VERTICAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 270);
         gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 0.5f, 1.0f);
         gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.5f, 0.0f);
@@ -364,6 +366,7 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
     else /* mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL */
     {
         xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), GTK_ORIENTATION_HORIZONTAL);
+        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box_bars), GTK_ORIENTATION_HORIZONTAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
         gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
         gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.0f, 0.5f);
