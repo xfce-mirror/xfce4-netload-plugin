@@ -4,18 +4,23 @@ dnl xfce4-netload-plugin - Netload plugin for xfce4-panel
 dnl
 dnl Copyright 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl Copyright 2010 Florian Rivoal <frivoal@xfce.org>
+dnl Copyright 2014 Mike Massonnet <mmassonnet@xfce.org>
 dnl
 
-m4_define([netload_version],[1.2.0])
+m4_define([netload_version],[1.2.1])
 
 AC_INIT([xfce4-netload-plugin], [netload_version],
 	[goodies-dev@xfce.org])
-
-NETLOAD_VERSION=netload_version()
-AM_INIT_AUTOMAKE([xfce4-netload-plugin], [$NETLOAD_VERSION])
 AM_CONFIG_HEADER([config.h])
+AC_PREREQ([2.50])
+AC_CANONICAL_TARGET()
 
+AM_INIT_AUTOMAKE([1.8 no-dist-gzip dist-bzip2])
 AM_MAINTAINER_MODE
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+
+LT_PREREQ([2.2.6])
+LT_INIT([disable-static])
 
 dnl Check for basic programs
 AC_PROG_CC

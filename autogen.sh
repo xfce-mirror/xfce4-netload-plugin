@@ -1,10 +1,4 @@
 #!/bin/sh
-#
-# Copyright (c) 2002-2010
-#         The Xfce development team. All rights reserved.
-#
-
-export XDT_AUTOGEN_REQUIRED_VERSION="4.7.0"
 
 (type xdt-autogen) >/dev/null 2>&1 || {
   cat >&2 <<EOF
@@ -16,4 +10,5 @@ EOF
   exit 1
 }
 
+XDT_AUTOGEN_REQUIRED_VERSION="4.7.0" \
 xdt-autogen $@
