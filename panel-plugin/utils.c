@@ -90,8 +90,8 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
         digits = 2;
     }
     
-    /* no digits for smallest unit size */
-    if (number <= 1024.0)
+    /* no digits for values under MiB/s unit size */
+    if (number < 1024.0 * 1024.0)
     {
         digits = 0;
     }

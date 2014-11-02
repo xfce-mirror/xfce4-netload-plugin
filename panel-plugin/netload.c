@@ -241,7 +241,7 @@ static gboolean update_monitors(t_global_monitor *global)
             gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor->status[i]), temp);
 
         format_byte_humanreadable( buffer[i], BUFSIZ - 1, display[i], 2 );
-        format_byte_humanreadable( buffer_panel[i], BUFSIZ - 1, display[i], 0 );
+        format_byte_humanreadable( buffer_panel[i], BUFSIZ - 1, display[i], 2 );
     }
     
     format_byte_humanreadable( buffer[TOT], BUFSIZ - 1, (display[IN]+display[OUT]), 2 );
