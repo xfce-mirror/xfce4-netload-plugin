@@ -1271,4 +1271,4 @@ static void netload_construct (XfcePanelPlugin *plugin)
     run_update( global );
 }
 
-XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (netload_construct);
+XFCE_PANEL_PLUGIN_REGISTER (netload_construct);

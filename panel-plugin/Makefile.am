@@ -1,9 +1,9 @@
-plugindir = $(libexecdir)/xfce4/panel-plugins
-plugin_PROGRAMS = xfce4-netload-plugin
+plugindir = $(libdir)/xfce4/panel-plugins
+plugin_LTLIBRARIES = libnetload.la
 
 LIBS = @LIBS@ @SOLLIBS@
 
-xfce4_netload_plugin_SOURCES =						\
+libnetload_la_SOURCES =							\
 	netload.c							\
 	monitor-label.c							\
 	monitor-label.h							\
@@ -16,14 +16,21 @@ xfce4_netload_plugin_SOURCES =						\
 	global.h							\
 	slurm.h
 
-xfce4_netload_plugin_CFLAGS =						\
+libnetload_la_CFLAGS =							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
-	@LIBXFCE4PANEL_CFLAGS@				\
+	@LIBXFCE4PANEL_CFLAGS@						\
 	@LIBXFCE4UI_CFLAGS@
 
-xfce4_netload_plugin_LDADD =						\
-	@SOLLIBS@                                   			\
-	@LIBXFCE4PANEL_LIBS@                                   			\
+libnetload_la_LDFLAGS =							\
+	-avoid-version							\
+	-module								\
+	-no-undefined							\
+	-export-symbols-regex '^xfce_panel_module_(preinit|init|construct)' \
+	$(PLATFORM_LDFLAGS)
+
+libnetload_la_LIBADD =							\
+	@SOLLIBS@							\
+	@LIBXFCE4PANEL_LIBS@						\
 	@LIBXFCE4UI_LIBS@
 
 # .desktop file
