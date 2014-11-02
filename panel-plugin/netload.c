@@ -134,6 +134,8 @@ typedef struct
 
     GtkWidget         *ebox;
     GtkWidget         *box;
+    GtkWidget         *ebox_bars;
+    GtkWidget         *box_bars;
     GtkWidget         *tooltip_text;
     guint             timeout_id;
     t_monitor         *monitor;
@@ -471,12 +473,21 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
                        TRUE, FALSE, 2);
 
     /* Create the progress bars */
+    global->ebox_bars = gtk_event_box_new();
+    gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->ebox_bars), FALSE);
+    gtk_event_box_set_above_child(GTK_EVENT_BOX(global->ebox_bars), TRUE);
+    gtk_widget_show(global->ebox_bars);
+    global->box_bars = xfce_hvbox_new(GTK_ORIENTATION_HORIZONTAL, FALSE, 0);
+    gtk_widget_show(global->box_bars);
     for (i = 0; i < SUM; i++)
     {
         global->monitor->status[i] = GTK_WIDGET(gtk_progress_bar_new());
-        gtk_box_pack_start(GTK_BOX(global->box),
+        gtk_box_pack_start(GTK_BOX(global->box_bars),
                            GTK_WIDGET(global->monitor->status[i]), FALSE, FALSE, 0);
+        gtk_widget_show(global->monitor->status[i]);
     }
+    gtk_container_add(GTK_CONTAINER(global->ebox_bars), GTK_WIDGET(global->box_bars));
+    gtk_container_add(GTK_CONTAINER(global->box), GTK_WIDGET(global->ebox_bars));
 
     /* Append sent label after the progress bars */
     gtk_box_pack_start(GTK_BOX(global->box),
@@ -532,16 +543,16 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     }
 
     /* Setup the progress bars */
-    for (i = 0; i < SUM; i++)
+    if (global->monitor->options.show_bars)
     {
-        if (global->monitor->options.show_bars)
+        gtk_widget_show(global->ebox_bars);
+        for (i = 0; i < SUM; i++)
         {
             /* Automatic or fixed maximum */
             if (global->monitor->options.auto_max)
                 global->monitor->net_max[i] = INIT_MAX;
             else
                 global->monitor->net_max[i] = global->monitor->options.max[i];
-            gtk_widget_show(global->monitor->status[i]);
 
             /* Set bar colors */
             gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
@@ -554,10 +565,10 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
                                    GTK_STATE_SELECTED,
                                    &global->monitor->options.color[i]);
         }
-        else
-        {
-            gtk_widget_hide(global->monitor->status[i]);
-        }
+    }
+    else
+    {
+        gtk_widget_hide(global->ebox_bars);
     }
 
     if (!init_netload( &(global->monitor->data), global->monitor->options.network_device)
@@ -1182,8 +1193,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                 FALSE, FALSE, 0);
 
         gtk_size_group_add_widget(sg, color_label[i]);
-
     }
+
     global->monitor->opt_colorize_values =
         gtk_check_button_new_with_mnemonic(_("_Colorize values"));
     gtk_widget_show(global->monitor->opt_colorize_values);
