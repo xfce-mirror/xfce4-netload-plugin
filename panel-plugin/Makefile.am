@@ -1,4 +1,4 @@
-plugindir = $(libdir)/xfce4/panel-plugins
+plugindir = $(libdir)/xfce4/panel/plugins
 plugin_LTLIBRARIES = libnetload.la
 
 LIBS = @LIBS@ @SOLLIBS@
