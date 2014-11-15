@@ -19,6 +19,8 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <glib.h>
+
 /**
  * Formats the number into a number of the appropriate byte unit with
  * a thousands separator, respecting the current locale. It appends
@@ -32,7 +34,7 @@
  * @param   digits      the number of digits after the decimal point
  * @return  the string to allow concatening buffers or <code>null</code>
  */
-char* format_byte_humanreadable( char* string, int stringsize, double number, int digits );
+char* format_byte_humanreadable( char* string, int stringsize, double number, int digits, gboolean as_bits );
 
 /**
  * Returns the minimum of the array. The array must contain at least one element.

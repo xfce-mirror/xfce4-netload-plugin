@@ -27,6 +27,7 @@
 #include "utils.h"
 #include "global.h"
 
+#include <glib.h>
 #include <gtk/gtk.h>
 
 #include <libxfce4util/libxfce4util.h>
@@ -240,11 +241,11 @@ static gboolean update_monitors(t_global_monitor *global)
         if (global->monitor->options.show_bars)
             gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor->status[i]), temp);
 
-        format_byte_humanreadable( buffer[i], BUFSIZ - 1, display[i], 2 );
-        format_byte_humanreadable( buffer_panel[i], BUFSIZ - 1, display[i], 2 );
+        format_byte_humanreadable( buffer[i], BUFSIZ - 1, display[i], 2, FALSE );
+        format_byte_humanreadable( buffer_panel[i], BUFSIZ - 1, display[i], 2, FALSE );
     }
     
-    format_byte_humanreadable( buffer[TOT], BUFSIZ - 1, (display[IN]+display[OUT]), 2 );
+    format_byte_humanreadable( buffer[TOT], BUFSIZ - 1, (display[IN]+display[OUT]), 2, FALSE );
     
     {
         char* ip = get_ip_address(&(global->monitor->data));
