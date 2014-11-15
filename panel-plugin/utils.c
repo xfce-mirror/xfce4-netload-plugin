@@ -76,7 +76,7 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     char buffer[BUFSIZ], formatstring[BUFSIZ];
     char* bufptr = buffer;
     char* unit_names[] = { N_("B"), N_("KiB"), N_("MiB"), N_("GiB") };
-    unsigned int uidx = 1;
+    unsigned int uidx = 0;
     double number_displayed = number / 1024.0;
     unsigned int i;
     int numberOfIntegerChars, count;
@@ -97,7 +97,7 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     }
 
     /* calculate number and appropriate unit size for display */
-    while(number_displayed >= 1024.0 && uidx < sizeof(unit_names))
+    while(number_displayed >= 1024.0 && uidx < (sizeof(unit_names) / sizeof(char*) - 1))
     {
         number_displayed /= 1024.0;
         uidx++;
