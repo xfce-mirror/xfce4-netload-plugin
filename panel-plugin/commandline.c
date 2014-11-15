@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 {
     unsigned long in, out, tot;
     char* device;
-    char bufIn[20], bufOut[20], bufTot[20];
+    char bufIn[20], bufOut[20], bufTot[20], bufBS[20];
     struct sigaction sig_struct;
     
     /* Signal fuer's Beenden */
@@ -75,9 +75,10 @@ int main(int argc, char* argv[])
         get_current_netload(&data, &in, &out, &tot);
         format_byte_humanreadable(bufIn, 20, (double)in, 0, FALSE);
         format_byte_humanreadable(bufOut, 20, (double)out, 0, FALSE);
-        format_byte_humanreadable(bufTot, 20, (double)tot, 0, FALSE);
-        printf("Current netload:\nIN : %s\nOUT: %s\nTOT: %s\nIP: %s\n", 
-            bufIn, bufOut, bufTot, get_ip_address(&data));
+        format_byte_humanreadable(bufTot, 20, (double)tot, 2, TRUE);
+        format_byte_humanreadable(bufBS, 20, 12235345.0, 2, TRUE);
+        printf("Current netload:\nIN : %s\nOUT: %s\nTOT: %s\nBS: %s\nIP: %s\n",
+            bufIn, bufOut, bufTot, bufBS, get_ip_address(&data));
         sleep(1);
     }
     
