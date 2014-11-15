@@ -1,3 +1,21 @@
+1.2.3
+=====
+- Revive commandline.c test program
+- Fix unit_names index
+
+1.2.2
+=====
+- Fix plugin installation path
+
+1.2.1
+=====
+- Build plugin as a module
+- Update build environment
+- Only round to 0 digits for KiB/s values (bug #11152)
+- Pack progress bars inside event box and hide/show (bug #10258)
+- Do not enforce max length for text/device entries (bug #9869)
+- Fix stringsize - 1 (bug #9172)
+
 1.2.0
 =====
 - Some code cleanup and respect the Panel HIG
