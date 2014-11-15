@@ -33,9 +33,6 @@
 
 #include "net.h"
 #include "utils.h"
-/* This is not good style, but it works for testing and simplifies compilation */ 
-#include "net.c"
-#include "utils.c"
 
 netdata data;
 
@@ -76,9 +73,9 @@ int main(int argc, char* argv[])
     for (;;)
     {
         get_current_netload(&data, &in, &out, &tot);
-        format_with_thousandssep(bufIn, 20, (double)in, 2);
-        format_with_thousandssep(bufOut, 20, (double)in, 2);
-        format_with_thousandssep(bufTot, 20, (double)in, 2);
+        format_byte_humanreadable(bufIn, 20, (double)in, 0);
+        format_byte_humanreadable(bufOut, 20, (double)out, 0);
+        format_byte_humanreadable(bufTot, 20, (double)tot, 0);
         printf("Current netload:\nIN : %s\nOUT: %s\nTOT: %s\nIP: %s\n", 
             bufIn, bufOut, bufTot, get_ip_address(&data));
         sleep(1);

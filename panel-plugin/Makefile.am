@@ -33,6 +33,11 @@ libnetload_la_LIBADD =							\
 	@LIBXFCE4PANEL_LIBS@						\
 	@LIBXFCE4UI_LIBS@
 
+check_PROGRAMS = commandline
+commandline_SOURCES = commandline.c utils.c utils.h net.c net.h
+commandline_CFLAGS = @LIBXFCE4PANEL_CFLAGS@
+commandline_LDADD = @LIBXFCE4PANEL_LIBS@
+
 # .desktop file
 #
 # Some automake trickery here. Because we cannot use $(libexecdir) in the
