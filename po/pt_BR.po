@@ -1,23 +1,25 @@
-# Brazilian portuguese translations for xfce4-netload-plugin package.
-# Copyright (C) 2005 Adriano Winter Bess
-# This file is distributed under the same license as the xfce4-netload-plugin package.
-# Adriano Winter Bess <awbess@gmail.com>, 2005,2006.
-# Vladimir Melo <vladimirmelo@foresightlinux.org>, 2007.
-# Og Maciel <ogmaciel@gnome.org>, 2008.
-# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Adriano Winter Bess <awbess@gmail.com>, 2005-2006
+# André Miranda <andreldm1989@gmail.com>, 2014
+# Og Maciel <ogmaciel@gnome.org>, 2008
+# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013
+# Vladimir Melo <vladimirmelo@foresightlinux.org>, 2007
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-netload-plugin 0.3.3\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:09+0100\n"
-"PO-Revision-Date: 2013-06-26 19:13-0300\n"
-"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <xfce-i18n-br@xfce.org>\n"
-"Language: pt_BR\n"
+"POT-Creation-Date: 2014-11-16 12:31+0100\n"
+"PO-Revision-Date: 2014-11-16 18:31+0000\n"
+"Last-Translator: André Miranda <andreldm1989@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../panel-plugin/netload.c:62
@@ -50,13 +52,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
-"<< %s >> (%s)\n"
-"Média das últimas %d medições\n"
-"com um intervalo de %.2fs:\n"
-"Entrada: %s\n"
-"Saída: %s\n"
-"Total: %s"
+msgstr "<< %s >> (%s)\nMédia das últimas %d medições\ncom um intervalo de %.2fs:\nEntrada: %s\nSaída: %s\nTotal: %s"
 
 #: ../panel-plugin/netload.c:258
 msgid "no IP address"
@@ -67,9 +63,7 @@ msgstr "nenhum endereço IP"
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr ""
-"%s: Erro na inicialização:\n"
-"%s"
+msgstr "%s: Erro na inicialização:\n%s"
 
 #: ../panel-plugin/netload.c:914
 msgid "Select color"
@@ -113,7 +107,7 @@ msgstr "s"
 
 #: ../panel-plugin/netload.c:1101
 msgid "Show values as _bits"
-msgstr ""
+msgstr "Mostrar valores como _bits"
 
 #: ../panel-plugin/netload.c:1115
 msgid "_Automatic maximum"
@@ -145,7 +139,7 @@ msgstr "Co_lorir valores"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr "Mostra o tráfego de rede"
+msgstr "Mostrar o tráfego de rede"
 
 #: ../panel-plugin/utils.c:78
 msgid "B"
@@ -165,22 +159,16 @@ msgstr "GiB"
 
 #: ../panel-plugin/utils.c:79
 msgid "bps"
-msgstr ""
+msgstr "bps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Kbps"
-msgstr ""
+msgstr "Kbps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Mbps"
-msgstr ""
+msgstr "Mbps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Gbps"
-msgstr ""
-
-#~ msgid "kByte/s"
-#~ msgstr "kByte/s"
-
-#~ msgid "Edit Properties"
-#~ msgstr "Editar Propriedades"
+msgstr "Gbps"
