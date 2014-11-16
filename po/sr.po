@@ -3,43 +3,44 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Саша Петровић <salepetronije@gmail.com>, 2013.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-06 10:42+0000\n"
+"POT-Creation-Date: 2014-11-16 12:09+0100\n"
 "PO-Revision-Date: 2013-01-29 20:58+0100\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: српски <>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: ../panel-plugin/netload.c:61
+#: ../panel-plugin/netload.c:62
 msgid "Xfce4-Netload-Plugin"
 msgstr "ИксФЦЕ4 прикључак праћења протока"
 
-#: ../panel-plugin/netload.c:64
+#: ../panel-plugin/netload.c:65
 msgid "Unknown error."
 msgstr "Непозната грешка"
 
-#: ../panel-plugin/netload.c:65
+#: ../panel-plugin/netload.c:66
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Није пронађен Линукс уређај „/proc/net/dev“."
 
-#: ../panel-plugin/netload.c:66
+#: ../panel-plugin/netload.c:67
 msgid "Interface was not found."
 msgstr "Није пронађен уређај."
 
-#: ../panel-plugin/netload.c:163
+#: ../panel-plugin/netload.c:168
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (уређај није укључен)"
 
-#: ../panel-plugin/netload.c:250
+#: ../panel-plugin/netload.c:255
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -56,11 +57,11 @@ msgstr ""
 "Одлазни: %s\n"
 "Укупни: %s"
 
-#: ../panel-plugin/netload.c:253
+#: ../panel-plugin/netload.c:258
 msgid "no IP address"
 msgstr "нема ИП адреса"
 
-#: ../panel-plugin/netload.c:567
+#: ../panel-plugin/netload.c:585
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
@@ -69,71 +70,75 @@ msgstr ""
 "%s: Грешка при покретању:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:882
+#: ../panel-plugin/netload.c:914
 msgid "Select color"
 msgstr "Изаберите боју"
 
-#: ../panel-plugin/netload.c:948
+#: ../panel-plugin/netload.c:981
 msgid "Bar color (i_ncoming):"
 msgstr "Боја траке (_долазни):"
 
-#: ../panel-plugin/netload.c:949
+#: ../panel-plugin/netload.c:982
 msgid "Bar color (_outgoing):"
 msgstr "Боја траке (_одлазни):"
 
-#: ../panel-plugin/netload.c:952
+#: ../panel-plugin/netload.c:985
 msgid "Maximum (inco_ming):"
 msgstr "Највећи (долазни):"
 
-#: ../panel-plugin/netload.c:953
+#: ../panel-plugin/netload.c:986
 msgid "Maximum (o_utgoing):"
 msgstr "Највећи (одлазни):"
 
-#: ../panel-plugin/netload.c:958 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:991 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Надгледник мреже"
 
-#: ../panel-plugin/netload.c:987
+#: ../panel-plugin/netload.c:1020
 msgid "_Text to display:"
 msgstr "_Текст које ће се приказивати:"
 
-#: ../panel-plugin/netload.c:1018
+#: ../panel-plugin/netload.c:1049
 msgid "Network _device:"
 msgstr "Мрежни _уређаји:"
 
-#: ../panel-plugin/netload.c:1046
+#: ../panel-plugin/netload.c:1074
 msgid "Update _interval:"
 msgstr "Учесталост _упита:"
 
-#: ../panel-plugin/netload.c:1059
+#: ../panel-plugin/netload.c:1087
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1072
+#: ../panel-plugin/netload.c:1101
+msgid "Show values as _bits"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1115
 msgid "_Automatic maximum"
 msgstr "_Самостално највећи"
 
-#: ../panel-plugin/netload.c:1106
+#: ../panel-plugin/netload.c:1149
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1131
+#: ../panel-plugin/netload.c:1174
 msgid "_Present data as:"
 msgstr "_Прикажи податке као:"
 
-#: ../panel-plugin/netload.c:1140
+#: ../panel-plugin/netload.c:1183
 msgid "Bars"
 msgstr "Траке"
 
-#: ../panel-plugin/netload.c:1141
+#: ../panel-plugin/netload.c:1184
 msgid "Values"
 msgstr "Вредности"
 
-#: ../panel-plugin/netload.c:1142
+#: ../panel-plugin/netload.c:1185
 msgid "Bars and values"
 msgstr "Траке и вредности"
 
-#: ../panel-plugin/netload.c:1192
+#: ../panel-plugin/netload.c:1235
 msgid "_Colorize values"
 msgstr "_Обоји вредности"
 
@@ -156,3 +161,19 @@ msgstr "MiB"
 #: ../panel-plugin/utils.c:78
 msgid "GiB"
 msgstr "GiB"
+
+#: ../panel-plugin/utils.c:79
+msgid "bps"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "Kbps"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "Mbps"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "Gbps"
+msgstr ""

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Elias Julkunen <elias.julkunen@gmail.com>, 2008
 # Jari Rahkonen <jari.rahkonen@pp1.inet.fi>, 2008
@@ -10,38 +10,39 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:08+0200\n"
+"POT-Creation-Date: 2014-11-16 12:09+0100\n"
 "PO-Revision-Date: 2013-11-11 21:33+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish (http://www.transifex.com/projects/p/xfce/language/fi/)\n"
+"Language-Team: Finnish (http://www.transifex.com/projects/p/xfce/language/"
+"fi/)\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/netload.c:61
+#: ../panel-plugin/netload.c:62
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4 verkkokuormaliitännäinen"
 
-#: ../panel-plugin/netload.c:64
+#: ../panel-plugin/netload.c:65
 msgid "Unknown error."
 msgstr "Tuntematon virhe."
 
-#: ../panel-plugin/netload.c:65
+#: ../panel-plugin/netload.c:66
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Linux proc -laitetta \"/proc/net/dev\" ei löytynyt."
 
-#: ../panel-plugin/netload.c:66
+#: ../panel-plugin/netload.c:67
 msgid "Interface was not found."
 msgstr "Verkkolaitetta ei löytynyt."
 
-#: ../panel-plugin/netload.c:163
+#: ../panel-plugin/netload.c:168
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Laite poistettu käytöstä)"
 
-#: ../panel-plugin/netload.c:250
+#: ../panel-plugin/netload.c:255
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -52,82 +53,86 @@ msgid ""
 "Total: %s"
 msgstr ""
 
-#: ../panel-plugin/netload.c:253
+#: ../panel-plugin/netload.c:258
 msgid "no IP address"
 msgstr "ei IP-osoitetta"
 
-#: ../panel-plugin/netload.c:567
+#: ../panel-plugin/netload.c:585
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr ""
 
-#: ../panel-plugin/netload.c:882
+#: ../panel-plugin/netload.c:914
 msgid "Select color"
 msgstr "Valitse väri"
 
-#: ../panel-plugin/netload.c:948
+#: ../panel-plugin/netload.c:981
 msgid "Bar color (i_ncoming):"
 msgstr ""
 
-#: ../panel-plugin/netload.c:949
+#: ../panel-plugin/netload.c:982
 msgid "Bar color (_outgoing):"
 msgstr ""
 
-#: ../panel-plugin/netload.c:952
+#: ../panel-plugin/netload.c:985
 msgid "Maximum (inco_ming):"
 msgstr ""
 
-#: ../panel-plugin/netload.c:953
+#: ../panel-plugin/netload.c:986
 msgid "Maximum (o_utgoing):"
 msgstr ""
 
-#: ../panel-plugin/netload.c:958 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:991 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Verkon valvonta"
 
-#: ../panel-plugin/netload.c:987
+#: ../panel-plugin/netload.c:1020
 msgid "_Text to display:"
 msgstr ""
 
-#: ../panel-plugin/netload.c:1018
+#: ../panel-plugin/netload.c:1049
 msgid "Network _device:"
 msgstr "_Verkkolaite:"
 
-#: ../panel-plugin/netload.c:1046
+#: ../panel-plugin/netload.c:1074
 msgid "Update _interval:"
 msgstr "_Päivitysväli:"
 
-#: ../panel-plugin/netload.c:1059
+#: ../panel-plugin/netload.c:1087
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1072
+#: ../panel-plugin/netload.c:1101
+msgid "Show values as _bits"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1115
 msgid "_Automatic maximum"
 msgstr ""
 
-#: ../panel-plugin/netload.c:1106
+#: ../panel-plugin/netload.c:1149
 msgid "KiB/s"
 msgstr ""
 
-#: ../panel-plugin/netload.c:1131
+#: ../panel-plugin/netload.c:1174
 msgid "_Present data as:"
 msgstr "_Tietojen esitystapa:"
 
-#: ../panel-plugin/netload.c:1140
+#: ../panel-plugin/netload.c:1183
 msgid "Bars"
 msgstr "Palkit"
 
-#: ../panel-plugin/netload.c:1141
+#: ../panel-plugin/netload.c:1184
 msgid "Values"
 msgstr "Arvot"
 
-#: ../panel-plugin/netload.c:1142
+#: ../panel-plugin/netload.c:1185
 msgid "Bars and values"
 msgstr "Palkit ja arvot"
 
-#: ../panel-plugin/netload.c:1192
+#: ../panel-plugin/netload.c:1235
 msgid "_Colorize values"
 msgstr ""
 
@@ -149,4 +154,20 @@ msgstr ""
 
 #: ../panel-plugin/utils.c:78
 msgid "GiB"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "bps"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "Kbps"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "Mbps"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "Gbps"
 msgstr ""

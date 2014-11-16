@@ -6,39 +6,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-netload\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2014-11-16 12:09+0100\n"
 "PO-Revision-Date: 2006-02-19 22:51+0300\n"
 "Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
 "Language-Team: Vietnamese <none@li.org>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 
-#: ../panel-plugin/netload.c:57
+#: ../panel-plugin/netload.c:62
 msgid "Xfce4-Netload-Plugin"
 msgstr "Plugin Netload của Xfce4"
 
-#: ../panel-plugin/netload.c:60
+#: ../panel-plugin/netload.c:65
 msgid "Unknown error."
 msgstr "Lỗi không rõ."
 
-#: ../panel-plugin/netload.c:61
+#: ../panel-plugin/netload.c:66
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Không tìm thấy thiết bị proc của Linux '/proc/net/dev'."
 
-#: ../panel-plugin/netload.c:62
+#: ../panel-plugin/netload.c:67
 msgid "Interface was not found."
 msgstr "Không tìm thấy giao diện mạng."
 
-#: ../panel-plugin/netload.c:218
+#: ../panel-plugin/netload.c:168
 #, c-format
+msgid "<< %s >> (Interface down)"
+msgstr ""
+
+#: ../panel-plugin/netload.c:255
+#, fuzzy, c-format
 msgid ""
 "<< %s >> (%s)\n"
-"Average of last %d measures:\n"
-"Incoming: %s kByte/s\n"
-"Outgoing: %s kByte/s\n"
-"Total: %s kByte/s"
+"Average of last %d measures\n"
+"with an interval of %.2fs:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
 msgstr ""
 "<< %s >> (%s)\n"
 "Trung bình %d lần đo cuối:\n"
@@ -46,75 +53,138 @@ msgstr ""
 "Ra: %s kByte/s\n"
 "Tổng: %s kByte/s"
 
-#: ../panel-plugin/netload.c:220
+#: ../panel-plugin/netload.c:258
 msgid "no IP address"
 msgstr "không có địa chỉ IP"
 
-#: ../panel-plugin/netload.c:458
-#, c-format
+#: ../panel-plugin/netload.c:585
+#, fuzzy, c-format
 msgid ""
-"%s: Error in initalizing:\n"
+"%s: Error in initializing:\n"
 "%s"
 msgstr ""
 "%s: Lỗi khởi chạy:\n"
 "%s"
 
-#: ../panel-plugin/netload.c:763
+#: ../panel-plugin/netload.c:914
 msgid "Select color"
 msgstr "Chọn màu"
 
-#: ../panel-plugin/netload.c:829
-msgid "Bar color (incoming):"
+#: ../panel-plugin/netload.c:981
+#, fuzzy
+msgid "Bar color (i_ncoming):"
 msgstr "Màu thanh (vào):"
 
-#: ../panel-plugin/netload.c:830
-msgid "Bar color (outgoing):"
+#: ../panel-plugin/netload.c:982
+#, fuzzy
+msgid "Bar color (_outgoing):"
 msgstr "Màu thanh (ra):"
 
-#: ../panel-plugin/netload.c:833
-msgid "Maximum (incoming):"
+#: ../panel-plugin/netload.c:985
+#, fuzzy
+msgid "Maximum (inco_ming):"
 msgstr "Lớn nhất (vào):"
 
-#: ../panel-plugin/netload.c:834
-msgid "Maximum (outgoing):"
+#: ../panel-plugin/netload.c:986
+#, fuzzy
+msgid "Maximum (o_utgoing):"
 msgstr "Lớn nhất (ra):"
 
-#: ../panel-plugin/netload.c:839
-msgid "Edit Properties"
-msgstr ""
-
-#: ../panel-plugin/netload.c:853 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:991 ../panel-plugin/netload.desktop.in.in.h:1
 #, fuzzy
 msgid "Network Monitor"
 msgstr "Thiết bị mạng:"
 
-#: ../panel-plugin/netload.c:877
-msgid "Text to display:"
+#: ../panel-plugin/netload.c:1020
+#, fuzzy
+msgid "_Text to display:"
 msgstr "Văn bản hiển thị:"
 
-#: ../panel-plugin/netload.c:908
-msgid "Network device:"
+#: ../panel-plugin/netload.c:1049
+#, fuzzy
+msgid "Network _device:"
 msgstr "Thiết bị mạng:"
 
-#: ../panel-plugin/netload.c:934
-msgid "Update interval:"
+#: ../panel-plugin/netload.c:1074
+#, fuzzy
+msgid "Update _interval:"
 msgstr "Khoảng cập nhật:"
 
-#: ../panel-plugin/netload.c:945
+#: ../panel-plugin/netload.c:1087
 msgid "s"
 msgstr "giây"
 
-#: ../panel-plugin/netload.c:958
-msgid "Automatic maximum"
+#: ../panel-plugin/netload.c:1101
+msgid "Show values as _bits"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1115
+#, fuzzy
+msgid "_Automatic maximum"
 msgstr "Lớn nhật tự động"
 
-#: ../panel-plugin/netload.c:990
-msgid "kByte/s"
-msgstr "kByte/giây"
+#: ../panel-plugin/netload.c:1149
+msgid "KiB/s"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1174
+msgid "_Present data as:"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1183
+msgid "Bars"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1184
+msgid "Values"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1185
+msgid "Bars and values"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1235
+msgid "_Colorize values"
+msgstr ""
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
 msgstr ""
+
+#: ../panel-plugin/utils.c:78
+msgid "B"
+msgstr ""
+
+#: ../panel-plugin/utils.c:78
+msgid "KiB"
+msgstr ""
+
+#: ../panel-plugin/utils.c:78
+msgid "MiB"
+msgstr ""
+
+#: ../panel-plugin/utils.c:78
+msgid "GiB"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "bps"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "Kbps"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "Mbps"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "Gbps"
+msgstr ""
+
+#~ msgid "kByte/s"
+#~ msgstr "kByte/giây"
 
 #~ msgid "Netload"
 #~ msgstr "Tải mạng"

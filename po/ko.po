@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # ByungHyun Choi<byunghyun.choi@debianusers.org>, 2005
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2014
@@ -9,38 +9,39 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:08+0200\n"
+"POT-Creation-Date: 2014-11-16 12:09+0100\n"
 "PO-Revision-Date: 2014-10-30 08:06+0000\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
-"Language-Team: Korean (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ko/)\n"
+"Language-Team: Korean (http://www.transifex.com/projects/p/xfce-panel-"
+"plugins/language/ko/)\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/netload.c:61
+#: ../panel-plugin/netload.c:62
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-Netload-Plugin"
 
-#: ../panel-plugin/netload.c:64
+#: ../panel-plugin/netload.c:65
 msgid "Unknown error."
 msgstr "알 수 없는 오류."
 
-#: ../panel-plugin/netload.c:65
+#: ../panel-plugin/netload.c:66
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Linux proc 장치 '/proc/net/dev'를 찾을 수 없습니다."
 
-#: ../panel-plugin/netload.c:66
+#: ../panel-plugin/netload.c:67
 msgid "Interface was not found."
 msgstr "인터페이스를 찾을 수 없습니다."
 
-#: ../panel-plugin/netload.c:163
+#: ../panel-plugin/netload.c:168
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (인터페이스 죽음)"
 
-#: ../panel-plugin/netload.c:250
+#: ../panel-plugin/netload.c:255
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -49,84 +50,95 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr "<< %s >> (%s)\n최근 %d 회 측정 평균주기시간: %.2fs\n수신: %s/s\n송신: %s/s\n총계: %s/s"
+msgstr ""
+"<< %s >> (%s)\n"
+"최근 %d 회 측정 평균주기시간: %.2fs\n"
+"수신: %s/s\n"
+"송신: %s/s\n"
+"총계: %s/s"
 
-#: ../panel-plugin/netload.c:253
+#: ../panel-plugin/netload.c:258
 msgid "no IP address"
 msgstr "IP 주소가 없습니다."
 
-#: ../panel-plugin/netload.c:567
+#: ../panel-plugin/netload.c:585
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr "%s: 초기화 도중 오류 발생:\n%s"
+msgstr ""
+"%s: 초기화 도중 오류 발생:\n"
+"%s"
 
-#: ../panel-plugin/netload.c:882
+#: ../panel-plugin/netload.c:914
 msgid "Select color"
 msgstr "색상을 선택하십시오"
 
-#: ../panel-plugin/netload.c:948
+#: ../panel-plugin/netload.c:981
 msgid "Bar color (i_ncoming):"
 msgstr "막대 색(들어옴)(_N):"
 
-#: ../panel-plugin/netload.c:949
+#: ../panel-plugin/netload.c:982
 msgid "Bar color (_outgoing):"
 msgstr "막대 색(나감)(_O):"
 
-#: ../panel-plugin/netload.c:952
+#: ../panel-plugin/netload.c:985
 msgid "Maximum (inco_ming):"
 msgstr "최대(들어옴)(_M):"
 
-#: ../panel-plugin/netload.c:953
+#: ../panel-plugin/netload.c:986
 msgid "Maximum (o_utgoing):"
 msgstr "최대(나감)(_U):"
 
-#: ../panel-plugin/netload.c:958 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:991 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "네트워크 감시기"
 
-#: ../panel-plugin/netload.c:987
+#: ../panel-plugin/netload.c:1020
 msgid "_Text to display:"
 msgstr "표시할 내용(_T):"
 
-#: ../panel-plugin/netload.c:1018
+#: ../panel-plugin/netload.c:1049
 msgid "Network _device:"
 msgstr "네트워크 장치(_D):"
 
-#: ../panel-plugin/netload.c:1046
+#: ../panel-plugin/netload.c:1074
 msgid "Update _interval:"
 msgstr "업데이트 간격(_I):"
 
-#: ../panel-plugin/netload.c:1059
+#: ../panel-plugin/netload.c:1087
 msgid "s"
 msgstr "초"
 
-#: ../panel-plugin/netload.c:1072
+#: ../panel-plugin/netload.c:1101
+msgid "Show values as _bits"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1115
 msgid "_Automatic maximum"
 msgstr "최대치 자동 설정(_A)"
 
-#: ../panel-plugin/netload.c:1106
+#: ../panel-plugin/netload.c:1149
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1131
+#: ../panel-plugin/netload.c:1174
 msgid "_Present data as:"
 msgstr "다음 모양새로 데이터 보기(_P):"
 
-#: ../panel-plugin/netload.c:1140
+#: ../panel-plugin/netload.c:1183
 msgid "Bars"
 msgstr "막대"
 
-#: ../panel-plugin/netload.c:1141
+#: ../panel-plugin/netload.c:1184
 msgid "Values"
 msgstr "값"
 
-#: ../panel-plugin/netload.c:1142
+#: ../panel-plugin/netload.c:1185
 msgid "Bars and values"
 msgstr "막대와 값"
 
-#: ../panel-plugin/netload.c:1192
+#: ../panel-plugin/netload.c:1235
 msgid "_Colorize values"
 msgstr "값을 색깔로 표시(_C)"
 
@@ -149,3 +161,19 @@ msgstr "MiB"
 #: ../panel-plugin/utils.c:78
 msgid "GiB"
 msgstr "GiB"
+
+#: ../panel-plugin/utils.c:79
+msgid "bps"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "Kbps"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "Mbps"
+msgstr ""
+
+#: ../panel-plugin/utils.c:79
+msgid "Gbps"
+msgstr ""
