@@ -72,6 +72,7 @@ typedef struct
     gboolean use_label;
     gboolean show_bars;
     gboolean show_values;
+    gboolean values_as_bits;
     gboolean colorize_values;
     gboolean auto_max;
     gulong   max[SUM];
@@ -103,6 +104,7 @@ typedef struct
     GtkWidget *opt_entry;
     GtkBox    *opt_hbox;
     GtkWidget *opt_use_label;
+    GtkWidget *opt_as_bits;
     
     /* Update interval */
     GtkWidget *update_spinner;
@@ -241,11 +243,11 @@ static gboolean update_monitors(t_global_monitor *global)
         if (global->monitor->options.show_bars)
             gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor->status[i]), temp);
 
-        format_byte_humanreadable( buffer[i], BUFSIZ - 1, display[i], 2, FALSE );
-        format_byte_humanreadable( buffer_panel[i], BUFSIZ - 1, display[i], 2, FALSE );
+        format_byte_humanreadable( buffer[i], BUFSIZ - 1, display[i], 2, global->monitor->options.values_as_bits );
+        format_byte_humanreadable( buffer_panel[i], BUFSIZ - 1, display[i], 2, global->monitor->options.values_as_bits );
     }
     
-    format_byte_humanreadable( buffer[TOT], BUFSIZ - 1, (display[IN]+display[OUT]), 2, FALSE );
+    format_byte_humanreadable( buffer[TOT], BUFSIZ - 1, (display[IN]+display[OUT]), 2, global->monitor->options.values_as_bits );
     
     {
         char* ip = get_ip_address(&(global->monitor->data));
@@ -440,6 +442,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     global->monitor->options.old_network_device = g_strdup("");
     global->monitor->options.use_label = TRUE;
     global->monitor->options.show_values = FALSE;
+    global->monitor->options.values_as_bits = FALSE;
     global->monitor->options.show_bars = TRUE;
     global->monitor->options.auto_max = TRUE;
     global->monitor->options.update_interval = UPDATE_TIMEOUT;
@@ -659,6 +662,8 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
     global->monitor->options.update_interval = 
         xfce_rc_read_int_entry (rc, "Update_Interval", UPDATE_TIMEOUT);
 
+    global->monitor->options.values_as_bits = xfce_rc_read_bool_entry (rc, "Values_As_Bits", FALSE);
+
     PRINT_DBG("monitor_read_config");
     setup_monitor(global, TRUE);
 
@@ -714,6 +719,8 @@ static void monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *glob
     xfce_rc_write_bool_entry (rc, "Auto_Max", global->monitor->options.auto_max);
     
     xfce_rc_write_int_entry (rc, "Update_Interval", global->monitor->options.update_interval);
+
+    xfce_rc_write_bool_entry (rc, "Values_As_Bits", global->monitor->options.values_as_bits);
 
     xfce_rc_close (rc);
 }
@@ -813,6 +820,16 @@ static void label_toggled(GtkWidget *check_button, t_global_monitor *global)
                              global->monitor->options.use_label);
 
     setup_monitor(global, FALSE);
+    PRINT_DBG("label_toggled");
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+static void as_bits_toggled(GtkWidget *check_button, t_global_monitor *global)
+{
+    global->monitor->options.values_as_bits = !global->monitor->options.values_as_bits;
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_as_bits),
+                                 global->monitor->options.values_as_bits);
+
     PRINT_DBG("label_toggled");
 }
 
@@ -951,6 +968,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     GtkBox           *vbox, *global_vbox, *net_hbox;
     GtkWidget        *device_label, *unit_label[SUM], *max_label[SUM];
     GtkWidget        *sep1, *sep2;
+    GtkBox           *bits_hbox;
     GtkBox           *update_hbox;
     GtkWidget        *update_label, *update_unit_label;
     GtkWidget        *color_label[SUM];
@@ -1048,7 +1066,6 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
 
     gtk_widget_show_all(GTK_WIDGET(net_hbox));
     
-    
     /* Update timevalue */
     update_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
@@ -1074,6 +1091,21 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_widget_show_all(GTK_WIDGET(update_hbox));
     gtk_size_group_add_widget(sg, update_label);
     
+    /* Show values as bits */
+    bits_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
+    gtk_widget_show(GTK_WIDGET(bits_hbox));
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
+                       GTK_WIDGET(bits_hbox), FALSE, FALSE, 0);
+    
+    global->monitor->opt_as_bits =
+        gtk_check_button_new_with_mnemonic(_("Show values as _bits"));
+    gtk_widget_show(global->monitor->opt_as_bits);
+    gtk_box_pack_start(GTK_BOX(bits_hbox), GTK_WIDGET(global->monitor->opt_as_bits),
+                       FALSE, FALSE, 0);
+
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_as_bits),
+                                 global->monitor->options.values_as_bits);
+
     
     sep1 = gtk_hseparator_new();
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep1), FALSE, FALSE, 0);
@@ -1240,6 +1272,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
             G_CALLBACK(present_data_combobox_changed), global);
     g_signal_connect(GTK_WIDGET(global->monitor->net_entry), "activate",
             G_CALLBACK(network_changed), global);
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_as_bits), "toggled",
+            G_CALLBACK(as_bits_toggled), global);
 
     gtk_widget_show (dlg);
 }
