@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Bernhard Walle <bernhard.walle@gmx.de>, 2003,2005
 # Enrico Tröger <enrico.troeger@uvena.de>, 2006
@@ -12,15 +12,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:09+0100\n"
-"PO-Revision-Date: 2014-08-01 20:56+0000\n"
+"POT-Creation-Date: 2014-11-16 12:31+0100\n"
+"PO-Revision-Date: 2014-11-17 00:17+0000\n"
 "Last-Translator: Tobias Bannert\n"
-"Language-Team: German (http://www.transifex.com/projects/p/xfce-panel-"
-"plugins/language/de/)\n"
-"Language: de\n"
+"Language-Team: German (http://www.transifex.com/projects/p/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/netload.c:62
@@ -53,13 +52,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
-"»%s« (%s)\n"
-"Durchschnitt der letzten %d Messungen\n"
-"in einem Abstand von %.2fs:\n"
-"Eingehend: %s\n"
-"Ausgehend: %s\n"
-"Gesamt: %s"
+msgstr "»%s« (%s)\nDurchschnitt der letzten %d Messungen\nin einem Abstand von %.2fs:\nEingehend: %s\nAusgehend: %s\nGesamt: %s"
 
 #: ../panel-plugin/netload.c:258
 msgid "no IP address"
@@ -70,9 +63,7 @@ msgstr "keine IP-Adresse"
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr ""
-"%s: Fehler beim Initialisieren:\n"
-"%s"
+msgstr "%s: Fehler beim Initialisieren:\n%s"
 
 #: ../panel-plugin/netload.c:914
 msgid "Select color"
@@ -116,7 +107,7 @@ msgstr "s"
 
 #: ../panel-plugin/netload.c:1101
 msgid "Show values as _bits"
-msgstr ""
+msgstr "Werte als _Bits anzeigen"
 
 #: ../panel-plugin/netload.c:1115
 msgid "_Automatic maximum"
@@ -168,16 +159,16 @@ msgstr "GiB"
 
 #: ../panel-plugin/utils.c:79
 msgid "bps"
-msgstr ""
+msgstr "bit/s"
 
 #: ../panel-plugin/utils.c:79
 msgid "Kbps"
-msgstr ""
+msgstr "Kbit/s"
 
 #: ../panel-plugin/utils.c:79
 msgid "Mbps"
-msgstr ""
+msgstr "Mbit/s"
 
 #: ../panel-plugin/utils.c:79
 msgid "Gbps"
-msgstr ""
+msgstr "Gbit/s"
