@@ -1,22 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # abuyop <abuyop@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:09+0100\n"
-"PO-Revision-Date: 2014-03-02 00:47+0000\n"
+"POT-Creation-Date: 2014-11-16 12:31+0100\n"
+"PO-Revision-Date: 2014-11-21 00:41+0000\n"
 "Last-Translator: abuyop <abuyop@gmail.com>\n"
-"Language-Team: Malay (http://www.transifex.com/projects/p/xfce/language/"
-"ms/)\n"
-"Language: ms\n"
+"Language-Team: Malay (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ms/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ms\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../panel-plugin/netload.c:62
@@ -49,13 +48,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
-"<< %s >> (%s)\n"
-"Purata %d ukuran terakhir\n"
-"dengan sela %.2fs:\n"
-"Masuk: %s\n"
-"Keluar: %s\n"
-"Jumlah: %s"
+msgstr "<< %s >> (%s)\nPurata %d ukuran terakhir\ndengan sela %.2fs:\nMasuk: %s\nKeluar: %s\nJumlah: %s"
 
 #: ../panel-plugin/netload.c:258
 msgid "no IP address"
@@ -66,9 +59,7 @@ msgstr "tiada alamat IP"
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr ""
-"%s: Ralat ketika mengawalkan:\n"
-"%s"
+msgstr "%s: Ralat ketika mengawalkan:\n%s"
 
 #: ../panel-plugin/netload.c:914
 msgid "Select color"
@@ -112,7 +103,7 @@ msgstr "s"
 
 #: ../panel-plugin/netload.c:1101
 msgid "Show values as _bits"
-msgstr ""
+msgstr "Tunjuk nilai sebagai _bit"
 
 #: ../panel-plugin/netload.c:1115
 msgid "_Automatic maximum"
@@ -164,16 +155,16 @@ msgstr "GiB"
 
 #: ../panel-plugin/utils.c:79
 msgid "bps"
-msgstr ""
+msgstr "bps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Kbps"
-msgstr ""
+msgstr "Kbps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Mbps"
-msgstr ""
+msgstr "Mbps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Gbps"
-msgstr ""
+msgstr "Gbps"
