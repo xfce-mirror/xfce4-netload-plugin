@@ -29,7 +29,7 @@
 #define UP_UPDATE_INTERVAL 20
 #define IP_UPDATE_INTERVAL 20
 #define IP_ADDRESS_LENGTH 64
-#define INTERFACE_NAME_LENGTH 9
+#define INTERFACE_NAME_LENGTH 32
 
 #ifndef gettext_noop
 #define gettext_noop(String) String

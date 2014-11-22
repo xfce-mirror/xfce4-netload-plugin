@@ -52,7 +52,7 @@
 static gchar* DEFAULT_COLOR[] = { "#FF4F00", "#FFE500" };
 
 #define UPDATE_TIMEOUT 250
-#define MAX_LENGTH 10
+#define MAX_LENGTH 32
 
 #define IN 0
 #define OUT 1

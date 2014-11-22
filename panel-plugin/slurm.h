@@ -10,7 +10,7 @@
 #define _SLURM_H_
 
 typedef struct IfData{
-    char if_name[10];       /* The device name given as start parameter*/
+    char if_name[32];       /* The device name given as start parameter*/
     int  if_speed;          /* The Interface speed */
     char if_speedstring[12]; /* the measuring unit like Mbit, kbit */
     int  if_id;             /* The ID which the interface inside the OS has */
