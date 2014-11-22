@@ -1,3 +1,11 @@
+1.2.4
+=====
+
+- Option to show values as bits (bug #9932)
+- Reverted "Do not enforce max length for text/device entries (bug #9869)"
+- Set iface length name to 32 chars max (#9869)
+- 16 languages updated
+
 1.2.3
 =====
 - Revive commandline.c test program

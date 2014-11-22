@@ -7,7 +7,7 @@ dnl Copyright 2010 Florian Rivoal <frivoal@xfce.org>
 dnl Copyright 2014 Mike Massonnet <mmassonnet@xfce.org>
 dnl
 
-m4_define([netload_version],[1.2.3])
+m4_define([netload_version],[1.2.4])
 
 AC_INIT([xfce4-netload-plugin], [netload_version],
 	[goodies-dev@xfce.org])
