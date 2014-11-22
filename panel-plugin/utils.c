@@ -106,7 +106,7 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     }
 
     /* calculate number and appropriate unit size for display */
-    while(number_displayed >= thousand_divider && uidx < (sizeof(unit_names) / sizeof(char*) - 1))
+    while(number_displayed >= thousand_divider && uidx < (sizeof(unit_names) / sizeof(unit_names[0]) - 1))
     {
         number_displayed /= thousand_divider;
         uidx++;
