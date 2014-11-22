@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Cristian Marchi <cri.penta@gmail.com>, 2013-2014
 # Fabio Riga <usul@aruba.it>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:09+0100\n"
-"PO-Revision-Date: 2013-07-04 11:01+0000\n"
-"Last-Translator: cri <cri.penta@gmail.com>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/xfce/language/"
-"it/)\n"
-"Language: it\n"
+"POT-Creation-Date: 2014-11-16 12:31+0100\n"
+"PO-Revision-Date: 2014-11-16 16:05+0000\n"
+"Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/netload.c:62
@@ -29,7 +29,7 @@ msgstr "Errore sconosciuto."
 
 #: ../panel-plugin/netload.c:66
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "Il device proc di Linux \"/proc/net/dev\" non è stato trovato."
+msgstr "Il dispositivo proc di Linux \"/proc/net/dev\" non è stato trovato."
 
 #: ../panel-plugin/netload.c:67
 msgid "Interface was not found."
@@ -49,13 +49,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
-"<< %s >> (%s)\n"
-"Media delle ultime %d misurazioni:\n"
-"con un intervallo di %.2fs:\n"
-"In entrata: %s\n"
-"In uscita: %s\n"
-"Totale: %s"
+msgstr "<< %s >> (%s)\nMedia delle ultime %d misurazioni\ncon un intervallo di %.2fs:\nIn entrata: %s\nIn uscita: %s\nTotale: %s"
 
 #: ../panel-plugin/netload.c:258
 msgid "no IP address"
@@ -66,13 +60,11 @@ msgstr "Nessun indirizzo IP"
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr ""
-"%s: Errore durante l'inizializzazione:\n"
-"%s"
+msgstr "%s: Errore durante l'inizializzazione:\n%s"
 
 #: ../panel-plugin/netload.c:914
 msgid "Select color"
-msgstr "Selezionare un colore"
+msgstr "Selezione del colore"
 
 #: ../panel-plugin/netload.c:981
 msgid "Bar color (i_ncoming):"
@@ -112,7 +104,7 @@ msgstr "sec"
 
 #: ../panel-plugin/netload.c:1101
 msgid "Show values as _bits"
-msgstr ""
+msgstr "Mostra i valori in _bit"
 
 #: ../panel-plugin/netload.c:1115
 msgid "_Automatic maximum"
@@ -164,16 +156,16 @@ msgstr "GiB"
 
 #: ../panel-plugin/utils.c:79
 msgid "bps"
-msgstr ""
+msgstr "bps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Kbps"
-msgstr ""
+msgstr "Kbps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Mbps"
-msgstr ""
+msgstr "Mbps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Gbps"
-msgstr ""
+msgstr "Gbps"
