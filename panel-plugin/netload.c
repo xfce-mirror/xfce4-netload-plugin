@@ -1025,6 +1025,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_size_group_add_widget(sg, global->monitor->opt_use_label);
 
     global->monitor->opt_entry = gtk_entry_new();
+    gtk_entry_set_max_length(GTK_ENTRY(global->monitor->opt_entry),
+                             MAX_LENGTH);
     gtk_entry_set_text(GTK_ENTRY(global->monitor->opt_entry),
                        global->monitor->options.label_text);
     gtk_widget_show(global->monitor->opt_entry);
@@ -1055,6 +1057,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     global->monitor->net_entry = gtk_entry_new();
     gtk_label_set_mnemonic_widget(GTK_LABEL(device_label),
                                   global->monitor->net_entry);
+    gtk_entry_set_max_length(GTK_ENTRY(global->monitor->net_entry),
+                             MAX_LENGTH);
     gtk_entry_set_text(GTK_ENTRY(global->monitor->net_entry),
                        global->monitor->options.network_device);
     gtk_widget_show(global->monitor->opt_entry);
