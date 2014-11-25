@@ -39,7 +39,7 @@
 #define BORDER 8
 
 /* Defaults */
-#define DEFAULT_TEXT "Net"
+#define DEFAULT_TEXT N_("Net")
 
 #define INIT_MAX 4096
 #define MINIMAL_MAX 1024
@@ -448,7 +448,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
 
     global->monitor = g_new(t_monitor, 1);
-    global->monitor->options.label_text = g_strdup(DEFAULT_TEXT);
+    global->monitor->options.label_text = g_strdup(_(DEFAULT_TEXT));
     global->monitor->options.network_device = g_strdup("");
     global->monitor->options.old_network_device = g_strdup("");
     global->monitor->options.use_label = TRUE;
