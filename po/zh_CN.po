@@ -1,23 +1,25 @@
-# Simplified Chinese translations for
-# the xfce4-netload-plugin package.
-# This file is distributed under the same license as
-# the xfce4-netload-plugin package.
-# Vern Sun <s5unty@gmail.com>, 2007.
-# Hunt Xu <huntxu@live.cn>, 2009, 2012.
-# Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Chipong Luo <chipong.luo@yahoo.com>, 2011-2012
+# greensea <gs@bbxy.net>, 2013
+# Hunt Xu <huntxu@live.cn>, 2009,2012
+# Vern Sun <s5unty@gmail.com>, 2007
+# 玉堂白鹤 <yjwork@qq.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-netload-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:09+0100\n"
-"PO-Revision-Date: 2012-11-11 22:27+0800\n"
-"Last-Translator: Hunt Xu <huntxu@live.cn>\n"
-"Language-Team: Chinese (Simplified) <xfce-i18n-cn@xfce.org>\n"
-"Language: zh_CN\n"
+"POT-Creation-Date: 2014-11-16 12:31+0100\n"
+"PO-Revision-Date: 2014-12-03 06:01+0000\n"
+"Last-Translator: 玉堂白鹤 <yjwork@qq.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../panel-plugin/netload.c:62
@@ -34,7 +36,7 @@ msgstr "未找到 Linux proc 设备 ‘/proc/net/dev’。"
 
 #: ../panel-plugin/netload.c:67
 msgid "Interface was not found."
-msgstr "未找到接口。"
+msgstr "未找到网络接口。"
 
 #: ../panel-plugin/netload.c:168
 #, c-format
@@ -50,13 +52,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
-"<< %s >> (%s)\n"
-"最近 %d 时间段内\n"
-"间隔为 %.2f 秒的平均值:\n"
-"流入：%s\n"
-"流出：%s\n"
-"总共：%s"
+msgstr "<< %s >> (%s)\n最近 %d个 时间段内\n%.2f 秒内的平均值:\n流入：%s\n流出：%s\n总共：%s"
 
 #: ../panel-plugin/netload.c:258
 msgid "no IP address"
@@ -67,9 +63,7 @@ msgstr "无 IP 地址"
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr ""
-"%s：初始化时出错：\n"
-"%s"
+msgstr "%s：初始化时出错：\n%s"
 
 #: ../panel-plugin/netload.c:914
 msgid "Select color"
@@ -77,11 +71,11 @@ msgstr "选择颜色"
 
 #: ../panel-plugin/netload.c:981
 msgid "Bar color (i_ncoming):"
-msgstr "条纹颜色(流入)(_N)："
+msgstr "柱图颜色(流入)(_N)："
 
 #: ../panel-plugin/netload.c:982
 msgid "Bar color (_outgoing):"
-msgstr "条纹颜色(流出)(_O)："
+msgstr "柱图颜色(流出)(_O)："
 
 #: ../panel-plugin/netload.c:985
 msgid "Maximum (inco_ming):"
@@ -109,11 +103,11 @@ msgstr "更新间隔(_I)："
 
 #: ../panel-plugin/netload.c:1087
 msgid "s"
-msgstr "s"
+msgstr "秒"
 
 #: ../panel-plugin/netload.c:1101
 msgid "Show values as _bits"
-msgstr ""
+msgstr "以比特显示值(_B)"
 
 #: ../panel-plugin/netload.c:1115
 msgid "_Automatic maximum"
@@ -121,27 +115,27 @@ msgstr "自动最大值(_A)"
 
 #: ../panel-plugin/netload.c:1149
 msgid "KiB/s"
-msgstr "K/s"
+msgstr "KiB/s"
 
 #: ../panel-plugin/netload.c:1174
 msgid "_Present data as:"
-msgstr "当前数据为(_P)："
+msgstr "显示方法(_P)："
 
 #: ../panel-plugin/netload.c:1183
 msgid "Bars"
-msgstr "条纹"
+msgstr "柱图"
 
 #: ../panel-plugin/netload.c:1184
 msgid "Values"
-msgstr "值"
+msgstr "文字"
 
 #: ../panel-plugin/netload.c:1185
 msgid "Bars and values"
-msgstr "条纹和值"
+msgstr "柱图和文字"
 
 #: ../panel-plugin/netload.c:1235
 msgid "_Colorize values"
-msgstr "彩色化的值(_C)"
+msgstr "使用彩色显示文字(_C)"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
@@ -153,28 +147,28 @@ msgstr "B"
 
 #: ../panel-plugin/utils.c:78
 msgid "KiB"
-msgstr "K"
+msgstr "KiB"
 
 #: ../panel-plugin/utils.c:78
 msgid "MiB"
-msgstr "M"
+msgstr "MiB"
 
 #: ../panel-plugin/utils.c:78
 msgid "GiB"
-msgstr "G"
+msgstr "GiB"
 
 #: ../panel-plugin/utils.c:79
 msgid "bps"
-msgstr ""
+msgstr "bps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Kbps"
-msgstr ""
+msgstr "Kbps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Mbps"
-msgstr ""
+msgstr "Mbps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Gbps"
-msgstr ""
+msgstr "Gbps"
