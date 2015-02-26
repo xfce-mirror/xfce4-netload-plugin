@@ -1,23 +1,23 @@
-# Slovak translation of xfce4-netload-plugin package.
-# Copyright (C) 2006 THE xfce4-netload-plugin COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-netload-plugin package.
-# Tomáš Vadina <kyberdev@gmail.com>, 2011, 2012.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Slavko <linux@slavino.sk>, 2015
+# Tomáš Vadina <tomasvadina+transifex@cryptolab.net>, 2011-2012
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-netload-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:09+0100\n"
-"PO-Revision-Date: 2012-01-09 11:02+0100\n"
-"Last-Translator: Tomáš Vadina <kyberdev@gmail.com>\n"
-"Language-Team: slovenčina <slovenska-lokalizacia-xfce@googlegroups.com>\n"
-"Language: sk\n"
+"POT-Creation-Date: 2014-11-16 12:31+0100\n"
+"PO-Revision-Date: 2015-02-26 11:31+0000\n"
+"Last-Translator: Slavko <linux@slavino.sk>\n"
+"Language-Team: Slovak (http://www.transifex.com/projects/p/xfce-panel-plugins/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Poedit-Language: Slovak\n"
-"X-Poedit-Country: SLOVAKIA\n"
+"Language: sk\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../panel-plugin/netload.c:62
 msgid "Xfce4-Netload-Plugin"
@@ -41,7 +41,7 @@ msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Rozhranie nie je spustené)"
 
 #: ../panel-plugin/netload.c:255
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures\n"
@@ -49,12 +49,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
-"<< %s >> (%s)\n"
-"Priemer z posledných %d meraní:\n"
-"Prichádzajúce: %s/s\n"
-"Odchádzajúce: %s/s\n"
-"Celkovo: %s/s"
+msgstr "<< %s >> (%s)\nPriemer posledných %d meraní\ns intervalom %.2fs:\nPrijaté: %s\nOdoslané: %s\nCelkom: %s"
 
 #: ../panel-plugin/netload.c:258
 msgid "no IP address"
@@ -65,9 +60,7 @@ msgstr "žiadna IP adresa"
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr ""
-"%s: Chyba pri inicializácii:\n"
-"%s"
+msgstr "%s: Chyba pri inicializácii:\n%s"
 
 #: ../panel-plugin/netload.c:914
 msgid "Select color"
@@ -111,7 +104,7 @@ msgstr "s"
 
 #: ../panel-plugin/netload.c:1101
 msgid "Show values as _bits"
-msgstr ""
+msgstr "Zobraziť hodnoty ako _bity"
 
 #: ../panel-plugin/netload.c:1115
 msgid "_Automatic maximum"
@@ -163,19 +156,16 @@ msgstr "GiB"
 
 #: ../panel-plugin/utils.c:79
 msgid "bps"
-msgstr ""
+msgstr "b/s"
 
 #: ../panel-plugin/utils.c:79
 msgid "Kbps"
-msgstr ""
+msgstr "kb/s"
 
 #: ../panel-plugin/utils.c:79
 msgid "Mbps"
-msgstr ""
+msgstr "Mb/s"
 
 #: ../panel-plugin/utils.c:79
 msgid "Gbps"
-msgstr ""
-
-#~ msgid "kByte/s"
-#~ msgstr "kByte/s"
+msgstr "Gb/s"
