@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Daniel Nylander <po@danielnylander.se>, 2006,2008
+# Påvel Nicklasson <pavel@frimix.se>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:09+0100\n"
-"PO-Revision-Date: 2014-02-09 10:43+0000\n"
-"Last-Translator: PavelNicklasson <pavelnicklasson@bahnhof.se>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/xfce/language/"
-"sv/)\n"
-"Language: sv\n"
+"POT-Creation-Date: 2014-11-16 12:31+0100\n"
+"PO-Revision-Date: 2015-06-03 16:47+0000\n"
+"Last-Translator: Påvel Nicklasson <pavelnicklasson@bahnhof.se>\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/netload.c:62
@@ -49,13 +49,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
-"<< %s >> (%s)\n"
-"Genomsnitt av senaste %d mätningar\n"
-"med en intervall på %.2fs:\n"
-"Inkommande: %s\n"
-"Utgående: %s\n"
-"Totalt: %s"
+msgstr "<< %s >> (%s)\nGenomsnitt av senaste %d mätningar\nmed en intervall på %.2fs:\nInkommande: %s\nUtgående: %s\nTotalt: %s"
 
 #: ../panel-plugin/netload.c:258
 msgid "no IP address"
@@ -66,9 +60,7 @@ msgstr "ingen IP-adress"
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr ""
-"%s: Fel vid initiering:\n"
-"%s"
+msgstr "%s: Fel vid initiering:\n%s"
 
 #: ../panel-plugin/netload.c:914
 msgid "Select color"
@@ -112,7 +104,7 @@ msgstr "s"
 
 #: ../panel-plugin/netload.c:1101
 msgid "Show values as _bits"
-msgstr ""
+msgstr "Visa värden i _bitar"
 
 #: ../panel-plugin/netload.c:1115
 msgid "_Automatic maximum"
@@ -164,16 +156,16 @@ msgstr "GiB"
 
 #: ../panel-plugin/utils.c:79
 msgid "bps"
-msgstr ""
+msgstr "bps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Kbps"
-msgstr ""
+msgstr "Kbps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Mbps"
-msgstr ""
+msgstr "Mbps"
 
 #: ../panel-plugin/utils.c:79
 msgid "Gbps"
-msgstr ""
+msgstr "Gbps"
