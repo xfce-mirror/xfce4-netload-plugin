@@ -996,21 +996,21 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
 
     global->opt_dialog = dlg;
     
-    global_vbox = GTK_BOX (gtk_vbox_new(FALSE, BORDER));
+    global_vbox = GTK_BOX (gtk_box_new(GTK_ORIENTATION_VERTICAL, BORDER));
     gtk_container_set_border_width (GTK_CONTAINER (global_vbox), BORDER - 2);
     gtk_widget_show(GTK_WIDGET (global_vbox));
-    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), GTK_WIDGET (global_vbox), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX (gtk_dialog_get_content_area(GTK_DIALOG(dlg))), GTK_WIDGET (global_vbox), TRUE, TRUE, 0);
     
     sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
     
-    vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
+    vbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 5));
     gtk_widget_show(GTK_WIDGET(vbox));
 
-    global->monitor->opt_vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
+    global->monitor->opt_vbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 5));
     gtk_widget_show(GTK_WIDGET(global->monitor->opt_vbox));
 
     /* Displayed text */
-    global->monitor->opt_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
+    global->monitor->opt_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
     gtk_widget_show(GTK_WIDGET(global->monitor->opt_hbox));
     
     global->monitor->opt_use_label =
@@ -1041,7 +1041,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                              global->monitor->options.use_label);
 
     /* Network device */
-    net_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
+    net_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                         GTK_WIDGET(net_hbox), FALSE, FALSE, 0);
 
@@ -1093,7 +1093,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_size_group_add_widget(sg, update_label);
     
     /* Show values as bits */
-    bits_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
+    bits_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
     gtk_widget_show(GTK_WIDGET(bits_hbox));
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                        GTK_WIDGET(bits_hbox), FALSE, FALSE, 0);
@@ -1124,7 +1124,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     /* Input maximum */
     for( i = 0; i < SUM; i++)
     {
-        global->monitor->max_hbox[i] = GTK_BOX(gtk_hbox_new(FALSE, 5));
+	global->monitor->max_hbox[i] = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
         gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), 
                     GTK_WIDGET(global->monitor->max_hbox[i]), FALSE, FALSE, 0);
         
@@ -1167,7 +1167,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_widget_show(sep2);
     
     /* Show bars and values */
-    global->monitor->opt_present_data_hbox = GTK_WIDGET(gtk_hbox_new(FALSE, 5));
+    global->monitor->opt_present_data_hbox = GTK_WIDGET(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
     gtk_widget_show(global->monitor->opt_present_data_hbox);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                        GTK_WIDGET(global->monitor->opt_present_data_hbox), FALSE, FALSE, 0);
@@ -1202,7 +1202,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     /* Color 1 */
     for (i = 0; i < SUM; i++)
     {
-        global->monitor->opt_color_hbox[i] = gtk_hbox_new(FALSE, 5);
+	global->monitor->opt_color_hbox[i] = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
         gtk_widget_show(GTK_WIDGET(global->monitor->opt_color_hbox[i]));
         gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                 GTK_WIDGET(global->monitor->opt_color_hbox[i]), FALSE, FALSE, 0);
