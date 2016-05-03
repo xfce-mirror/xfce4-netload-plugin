@@ -1046,7 +1046,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                         GTK_WIDGET(net_hbox), FALSE, FALSE, 0);
 
     device_label = gtk_label_new_with_mnemonic(_("Network _device:"));
-    gtk_misc_set_alignment(GTK_MISC(device_label), 0, 0.5);
+    gtk_widget_set_valign(device_label,GTK_ALIGN_CENTER);
     gtk_widget_show(GTK_WIDGET(device_label));
     gtk_box_pack_start(GTK_BOX(net_hbox), GTK_WIDGET(device_label),
                        FALSE, FALSE, 0);
@@ -1073,7 +1073,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                         GTK_WIDGET(update_hbox), FALSE, FALSE, 0);
     
     update_label = gtk_label_new_with_mnemonic(_("Update _interval:"));
-    gtk_misc_set_alignment(GTK_MISC(update_label), 0, 0.5);
+    gtk_widget_set_valign(update_label, GTK_ALIGN_CENTER);
     gtk_box_pack_start(GTK_BOX(update_hbox), GTK_WIDGET(update_label), FALSE, FALSE, 0);
 
     global->monitor->update_spinner = gtk_spin_button_new_with_range (0.1, 10.0, 0.05);
@@ -1129,7 +1129,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                     GTK_WIDGET(global->monitor->max_hbox[i]), FALSE, FALSE, 0);
         
         max_label[i] = gtk_label_new_with_mnemonic(_(maximum_text_label[i]));
-        gtk_misc_set_alignment(GTK_MISC(max_label[i]), 0, 0.5);
+        gtk_widget_set_valign(max_label[i], GTK_ALIGN_CENTER);
         gtk_widget_show(GTK_WIDGET(max_label[i]));
         gtk_box_pack_start(GTK_BOX(global->monitor->max_hbox[i]), GTK_WIDGET(max_label[i]), FALSE, FALSE, 0);
         
@@ -1173,7 +1173,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                        GTK_WIDGET(global->monitor->opt_present_data_hbox), FALSE, FALSE, 0);
 
     global->monitor->opt_present_data_label = gtk_label_new_with_mnemonic(_("_Present data as:"));
-    gtk_misc_set_alignment(GTK_MISC(global->monitor->opt_present_data_label), 0, 0.5);
+    gtk_widget_set_valign(global->monitor->opt_present_data_label, GTK_ALIGN_CENTER);
     gtk_widget_show(global->monitor->opt_present_data_label);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_present_data_hbox),
                        global->monitor->opt_present_data_label, FALSE, FALSE, 0);
@@ -1208,7 +1208,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                 GTK_WIDGET(global->monitor->opt_color_hbox[i]), FALSE, FALSE, 0);
 
         color_label[i] = gtk_label_new_with_mnemonic(_(color_text[i]));
-        gtk_misc_set_alignment(GTK_MISC(color_label[i]), 0, 0.5);
+        gtk_widget_set_valign(color_label[i], GTK_ALIGN_CENTER);
         gtk_widget_show(GTK_WIDGET(color_label[i]));
         gtk_box_pack_start(GTK_BOX(global->monitor->opt_color_hbox[i]), GTK_WIDGET(color_label[i]),
                 FALSE, FALSE, 0);
