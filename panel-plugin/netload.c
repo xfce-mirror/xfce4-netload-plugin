@@ -889,17 +889,12 @@ static void colorize_values_toggled(GtkWidget *check_button, t_global_monitor *g
 /* ---------------------------------------------------------------------------------------------- */
 static gboolean expose_event_cb(GtkWidget *widget, GdkEventExpose *event)
 {
-    if (widget->window)
+    if (gtk_widget_get_window(widget))
     {
-        GtkStyle *style;
-
-        style = gtk_widget_get_style(widget);
-
-        gdk_draw_rectangle(widget->window,
-                           style->bg_gc[GTK_STATE_NORMAL],
-                           TRUE,
-                           event->area.x, event->area.y,
-                           event->area.width, event->area.height);
+        cairo_t *cr;
+        cr = gdk_cairo_create (gtk_widget_get_window(widget));
+        cairo_rectangle (cr, event->area.x, event->area.y, event->area.width, event->area.height);
+        cairo_fill (cr);
     }
 
     return TRUE;
