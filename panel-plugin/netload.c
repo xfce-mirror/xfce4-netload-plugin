@@ -1108,7 +1108,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                                  global->monitor->options.values_as_bits);
 
     
-    sep1 = gtk_hseparator_new();
+    sep1 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep1), FALSE, FALSE, 0);
     gtk_widget_show(sep1);
     
@@ -1162,7 +1162,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
 
     } 
     
-    sep2 = gtk_hseparator_new();
+    sep2 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep2), FALSE, FALSE, 0);
     gtk_widget_show(sep2);
     
