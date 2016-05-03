@@ -1177,7 +1177,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_present_data_hbox),
                        global->monitor->opt_present_data_label, FALSE, FALSE, 0);
 
-    global->monitor->opt_present_data_combobox = gtk_combo_box_new_text();
+    global->monitor->opt_present_data_combobox = gtk_combo_box_text_new();
     gtk_label_set_mnemonic_widget(GTK_LABEL(global->monitor->opt_present_data_label),
                                   global->monitor->opt_present_data_combobox);
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(global->monitor->opt_present_data_combobox), _("Bars"));
