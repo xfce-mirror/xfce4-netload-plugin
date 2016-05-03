@@ -969,7 +969,6 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     GtkBox           *update_hbox;
     GtkWidget        *update_label, *update_unit_label;
     GtkWidget        *color_label[SUM];
-    GtkWidget        *align;
     gint             present_data_active;
     GtkSizeGroup     *sg;
     gint             i;
@@ -1246,10 +1245,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                 GTK_WIDGET(global->monitor->opt_vbox),
                 FALSE, FALSE, 0);
     
-    align = gtk_alignment_new(0, 0, 0, 0);
-    gtk_widget_set_size_request(align, 5, 5);
-    gtk_widget_show(GTK_WIDGET(align));
-    gtk_box_pack_start(GTK_BOX(vbox), GTK_WIDGET(align), FALSE, FALSE, 0);
+    gtk_widget_set_halign(GTK_WIDGET(vbox), GTK_ALIGN_START);
+    gtk_widget_set_valign(GTK_WIDGET(vbox), GTK_ALIGN_START);
 
     gtk_box_pack_start( GTK_BOX(global_vbox), GTK_WIDGET(vbox), FALSE, FALSE, 0);
     
