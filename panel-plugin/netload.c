@@ -285,7 +285,7 @@ static void run_update (t_global_monitor *global)
     if (global->monitor->options.update_interval > 0)
     {
         global->timeout_id =  g_timeout_add( global->monitor->options.update_interval, 
-            (GtkFunction)update_monitors, global);
+            (GSourceFunc)update_monitors, global);
     }
 }
 
