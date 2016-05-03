@@ -77,7 +77,7 @@ typedef struct
     gboolean auto_max;
     gulong   max[SUM];
     gint     update_interval;
-    GdkColor color[SUM];
+    GdkRGBA  color[SUM];
     gchar    *label_text;
     gchar    *network_device;
     gchar    *old_network_device;
@@ -453,7 +453,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     
     for (i = 0; i < SUM; i++)
     {
-        gdk_color_parse(DEFAULT_COLOR[i], &global->monitor->options.color[i]);
+        gdk_rgba_parse(&global->monitor->options.color[i], DEFAULT_COLOR[i]);
 
         global->monitor->history[i][0] = 0;
         global->monitor->history[i][1] = 0;
@@ -631,13 +631,11 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
 
     if ((value = xfce_rc_read_entry (rc, "Color_In", NULL)) != NULL)
     {
-        gdk_color_parse(value,
-                        &global->monitor->options.color[IN]);
+        gdk_rgba_parse(&global->monitor->options.color[IN], value);
     }
     if ((value = xfce_rc_read_entry (rc, "Color_Out", NULL)) != NULL)
     {
-        gdk_color_parse(value,
-                        &global->monitor->options.color[OUT]);
+        gdk_rgba_parse(&global->monitor->options.color[OUT], value);
     }
     if ((value = xfce_rc_read_entry (rc, "Text", NULL)) && *value)
     {
