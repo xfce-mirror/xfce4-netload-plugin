@@ -1181,9 +1181,9 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     global->monitor->opt_present_data_combobox = gtk_combo_box_new_text();
     gtk_label_set_mnemonic_widget(GTK_LABEL(global->monitor->opt_present_data_label),
                                   global->monitor->opt_present_data_combobox);
-    gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Bars"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Values"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Bars and values"));
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(global->monitor->opt_present_data_combobox), _("Bars"));
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(global->monitor->opt_present_data_combobox), _("Values"));
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(global->monitor->opt_present_data_combobox), _("Bars and values"));
 
     if(global->monitor->options.show_values)
         if(global->monitor->options.show_bars)
