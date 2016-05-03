@@ -6,4 +6,4 @@ _Comment=Show network traffic
 Icon=xfce4-netload-plugin
 X-XFCE-Module=netload
 X-XFCE-Internal=FALSE
-
+X-XFCE-API=2.0
