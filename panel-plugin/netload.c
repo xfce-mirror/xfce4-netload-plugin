@@ -986,8 +986,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     xfce_panel_plugin_block_menu (plugin);
     
     dlg = xfce_titled_dialog_new_with_buttons (_("Network Monitor"), NULL,
-                                               GTK_DIALOG_NO_SEPARATOR,
-                                               GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
+                                               GTK_DIALOG_DESTROY_WITH_PARENT,
+                                               "gtk-close", GTK_RESPONSE_OK,
                                                NULL);
     
     gtk_window_set_icon_name (GTK_WINDOW (dlg), "xfce4-settings");
