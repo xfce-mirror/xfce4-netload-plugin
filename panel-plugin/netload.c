@@ -911,8 +911,9 @@ static void change_color(GtkWidget *button, t_global_monitor *global, gint type)
     dialog = gtk_color_selection_dialog_new(_("Select color"));
     gtk_window_set_transient_for(GTK_WINDOW(dialog),
                                  GTK_WINDOW(global->opt_dialog));
-    colorsel =
-        GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dialog)->colorsel);
+    // Fixme for GTK3 Migration
+    //colorsel =
+    //    GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dialog)->colorsel);
     gtk_color_selection_set_previous_color(colorsel,
                                            &global->monitor->options.color[type]);
     gtk_color_selection_set_current_color(colorsel,
