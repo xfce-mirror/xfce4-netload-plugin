@@ -340,45 +340,49 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
 
     if (mode == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
     {
-        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), GTK_ORIENTATION_VERTICAL);
-        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box_bars), GTK_ORIENTATION_VERTICAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), GTK_ORIENTATION_VERTICAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_bars), GTK_ORIENTATION_VERTICAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 0.5f, 1.0f);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.5f, 0.0f);
+        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_END);
+        gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_START);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
         for (i = 0; i < SUM; i++)
-            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
-                                             GTK_PROGRESS_LEFT_TO_RIGHT);
+            gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_HORIZONTAL);
     }
     else if (mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
     {
-        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), GTK_ORIENTATION_VERTICAL);
-        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box_bars), GTK_ORIENTATION_VERTICAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), GTK_ORIENTATION_VERTICAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_bars), GTK_ORIENTATION_VERTICAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 270);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 0.5f, 1.0f);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.5f, 0.0f);
+        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_END);
+        gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_START);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 270);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 270);
         for (i = 0; i < SUM; i++)
         {
-            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
-                    GTK_PROGRESS_LEFT_TO_RIGHT);
+            gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_HORIZONTAL);
         }
     }
     else /* mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL */
     {
-        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), GTK_ORIENTATION_HORIZONTAL);
-        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box_bars), GTK_ORIENTATION_HORIZONTAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), GTK_ORIENTATION_HORIZONTAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_bars), GTK_ORIENTATION_HORIZONTAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.0f, 0.5f);
+        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_END);
+        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_START);
+        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
         for (i = 0; i < SUM; i++)
         {
-            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
-                    GTK_PROGRESS_BOTTOM_TO_TOP);
+            gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_VERTICAL);
+            gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(global->monitor->status[i]),TRUE);
         }
     }
 
