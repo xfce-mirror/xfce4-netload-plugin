@@ -466,7 +466,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     }
 
     /* Create widget containers */
-    global->box = xfce_hvbox_new(GTK_ORIENTATION_HORIZONTAL, FALSE, 0);
+    global->box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_container_set_border_width(GTK_CONTAINER(global->box), 2);
     gtk_widget_show(GTK_WIDGET(global->box));
 
@@ -488,7 +488,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->ebox_bars), FALSE);
     gtk_event_box_set_above_child(GTK_EVENT_BOX(global->ebox_bars), TRUE);
     gtk_widget_show(global->ebox_bars);
-    global->box_bars = xfce_hvbox_new(GTK_ORIENTATION_HORIZONTAL, FALSE, 0);
+    global->box_bars = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show(global->box_bars);
     for (i = 0; i < SUM; i++)
     {
