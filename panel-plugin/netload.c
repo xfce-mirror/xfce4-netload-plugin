@@ -542,9 +542,9 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
 
     if (global->monitor->options.colorize_values)
     {
-        gtk_widget_modify_fg(global->monitor->rcv_label, GTK_STATE_NORMAL,
+        gtk_widget_override_color(global->monitor->rcv_label, GTK_STATE_NORMAL,
                              &global->monitor->options.color[IN]);
-        gtk_widget_modify_fg(global->monitor->sent_label, GTK_STATE_NORMAL,
+        gtk_widget_override_color(global->monitor->sent_label, GTK_STATE_NORMAL,
                              &global->monitor->options.color[OUT]);
     }
     else
@@ -900,31 +900,30 @@ static gboolean expose_event_cb(GtkWidget *widget, GdkEventExpose *event)
     return TRUE;
 }
 
-
 /* ---------------------------------------------------------------------------------------------- */
 static void change_color(GtkWidget *button, t_global_monitor *global, gint type)
 {
     GtkWidget *dialog;
-    GtkColorSelection *colorsel;
+    GdkRGBA colorsel;
     gint response;
 
-    dialog = gtk_color_selection_dialog_new(_("Select color"));
+    dialog = gtk_color_chooser_dialog_new(_("Select color"), GTK_WINDOW(global->opt_dialog));
     gtk_window_set_transient_for(GTK_WINDOW(dialog),
                                  GTK_WINDOW(global->opt_dialog));
     // Fixme for GTK3 Migration
     //colorsel =
     //    GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dialog)->colorsel);
-    gtk_color_selection_set_previous_color(colorsel,
-                                           &global->monitor->options.color[type]);
-    gtk_color_selection_set_current_color(colorsel,
-                                          &global->monitor->options.color[type]);
-    gtk_color_selection_set_has_palette(colorsel, TRUE);
+    //gtk_color_selection_set_previous_color(colorsel,
+    //                                       &global->monitor->options.color[type]);
+    //gtk_color_selection_set_current_color(colorsel,
+    //                                      &global->monitor->options.color[type]);
+    //gtk_color_selection_set_has_palette(colorsel, TRUE);
+	//gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER (dialog), &global->monitor->options.color[type]);
 
     response = gtk_dialog_run(GTK_DIALOG(dialog));
     if (response == GTK_RESPONSE_OK)
     {
-        gtk_color_selection_get_current_color(colorsel,
-                                              &global->monitor->options.color[type]);
+        gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER (dialog), &global->monitor->options.color[type]);
         gtk_widget_modify_bg(global->monitor->opt_da[type],
                              GTK_STATE_NORMAL,
                              &global->monitor->options.color[type]);
