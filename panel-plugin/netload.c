@@ -944,20 +944,6 @@ static void colorize_values_toggled(GtkWidget *check_button, t_global_monitor *g
 
 
 /* ---------------------------------------------------------------------------------------------- */
-static gboolean expose_event_cb(GtkWidget *widget, GdkEventExpose *event)
-{
-    if (gtk_widget_get_window(widget))
-    {
-        cairo_t *cr;
-        cr = gdk_cairo_create (gtk_widget_get_window(widget));
-        cairo_rectangle (cr, event->area.x, event->area.y, event->area.width, event->area.height);
-        cairo_fill (cr);
-    }
-
-    return TRUE;
-}
-
-/* ---------------------------------------------------------------------------------------------- */
 static void change_color(GtkWidget *button, t_global_monitor *global, gint type)
 {
     GtkWidget *dialog;
@@ -1272,15 +1258,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
         global->monitor->opt_button[i] = gtk_button_new();
         gtk_label_set_mnemonic_widget(GTK_LABEL(color_label[i]),
                                       global->monitor->opt_button[i]);
-        global->monitor->opt_da[i] = gtk_drawing_area_new();
-        
-        gtk_widget_modify_bg(global->monitor->opt_da[i], GTK_STATE_NORMAL,
-                &global->monitor->options.color[i]);
-        gtk_widget_set_size_request(global->monitor->opt_da[i], 64, 12);
-        gtk_container_add(GTK_CONTAINER(global->monitor->opt_button[i]),
-                global->monitor->opt_da[i]);
         gtk_widget_show(GTK_WIDGET(global->monitor->opt_button[i]));
-        gtk_widget_show(GTK_WIDGET(global->monitor->opt_da[i]));
         gtk_box_pack_start(GTK_BOX(global->monitor->opt_color_hbox[i]),
                 GTK_WIDGET(global->monitor->opt_button[i]),
                 FALSE, FALSE, 0);
