@@ -525,7 +525,11 @@ static void set_label_csscolor(GtkWidget* label, GdkRGBA* color)
     }
     else
     {
-        css = g_strdup_printf(".label { color: black; }");
+#if GTK_CHECK_VERSION (3, 20, 0)
+        css = g_strdup_printf("label { color: inherit; }");
+#else
+        css = g_strdup_printf(".label { color: inherit; }");
+#endif
     }
     css_provider = gtk_css_provider_new ();
     gtk_css_provider_load_from_data (css_provider, css, strlen(css), NULL);
