@@ -69,44 +69,45 @@ cb_label_changed (GObject *object, GParamSpec *pspec, gpointer user_data)
 {
         XnlpMonitorLabel *label = XNLP_MONITOR_LABEL (object);
         GtkWidget *widget = GTK_WIDGET (object);
-        GtkRequisition req;
+        GtkRequisition minimum_size;
+        GtkRequisition natural_size;
 
         gtk_widget_set_size_request (widget, -1, -1);
-        gtk_widget_size_request (widget, &req);
+        gtk_widget_get_preferred_size (widget, &minimum_size, &natural_size);
 
-        if (req.width >= label->width)
+        if (minimum_size.width >= label->width)
         {
-                label->width = req.width;
+                label->width = minimum_size.width;
                 label->count_width = 0;
         }
         else if (label->count_width > 10)
         {
-                label->width = req.width;
+                label->width = minimum_size.width;
                 label->count_width = 0;
         }
         else
         {
-                req.width = label->width;
+                minimum_size.width = label->width;
                 label->count_width++;
         }
 
-        if (req.height >= label->height)
+        if (minimum_size.height >= label->height)
         {
-                label->height = req.height;
+                label->height = minimum_size.height;
                 label->count_height = 0;
         }
         else if (label->count_height > 10)
         {
-                label->height = req.height;
+                label->height = minimum_size.height;
                 label->count_height = 0;
         }
         else
         {
-                req.height = label->height;
+                minimum_size.height = label->height;
                 label->count_height++;
         }
 
-        gtk_widget_set_size_request (widget, req.width, req.height);
+        gtk_widget_set_size_request (widget, minimum_size.width, minimum_size.height);
 }
 
 
