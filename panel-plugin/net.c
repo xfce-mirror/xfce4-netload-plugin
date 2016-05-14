@@ -33,6 +33,8 @@
 #include <config.h>
 #endif
 
+#include <libxfce4util/libxfce4util.h>
+
 /* From Wormulon */
 #include "net.h"
 #include "os.h"
@@ -41,8 +43,6 @@
 
 #include <sys/types.h>
 #include <errno.h>
-
-#include "global.h"
 
 #ifdef __HPUX__
 # include "wormulon/hpux.h"
@@ -104,7 +104,7 @@ int init_netload(netdata* data, const char* device)
     
     data->correct_interface = TRUE;
     
-    PRINT_DBG("The netload plugin was initialized for '%s'.", device);
+    DBG("The netload plugin was initialized for '%s'.", device);
     
     return TRUE;
 }
@@ -190,14 +190,14 @@ int get_interface_up(netdata* data)
     /* get the value from the operating system */
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
     {
-        PRINT_DBG("Error in socket: %s", strerror(errno));
+        DBG("Error in socket: %s", strerror(errno));
         return FALSE;
     }
     
     snprintf(ifr.ifr_name, IF_NAMESIZE, "%s", data->ifdata.if_name);
     if (ioctl(sockfd, SIOCGIFFLAGS, &ifr) != 0)
     {
-        PRINT_DBG("Error in ioctl(sockfd): %s", strerror(errno));
+        DBG("Error in ioctl(sockfd): %s", strerror(errno));
         close(sockfd);
         return FALSE;
     }
@@ -227,7 +227,7 @@ char* get_ip_address(netdata* data)
     /* get the value from the operating system */
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
     {
-        PRINT_DBG("Error in socket: %s", strerror(errno));
+        DBG("Error in socket: %s", strerror(errno));
         return NULL;
     }
     
@@ -236,7 +236,7 @@ char* get_ip_address(netdata* data)
     {
 	    if (errno != EADDRNOTAVAIL)
         {
-            PRINT_DBG("Error in ioctl(sockfd): %s", strerror(errno));
+            DBG("Error in ioctl(sockfd): %s", strerror(errno));
         }
         close(sockfd);
         return NULL;
@@ -247,7 +247,7 @@ char* get_ip_address(netdata* data)
     
     if (!inet_ntop(AF_INET, &p_sa->sin_addr, data->ip_address, IP_ADDRESS_LENGTH))
     {
-        PRINT_DBG("Error in inet_ntop: %s", strerror(errno));
+        DBG("Error in inet_ntop: %s", strerror(errno));
         return NULL;
     }
     

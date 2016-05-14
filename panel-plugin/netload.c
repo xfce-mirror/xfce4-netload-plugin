@@ -25,7 +25,6 @@
 
 #include "net.h"
 #include "utils.h"
-#include "global.h"
 
 #include <glib.h>
 #include <gtk/gtk.h>
@@ -217,15 +216,15 @@ static gboolean update_monitors(t_global_monitor *global)
         switch (i) 
         {
             case IN:
-                PRINT_DBG("input: Max = %lu", global->monitor->net_max[i]);
+                DBG("input: Max = %lu", global->monitor->net_max[i]);
                 break;
                 
             case OUT:
-                PRINT_DBG("output: Max = %lu", global->monitor->net_max[i]);
+                DBG("output: Max = %lu", global->monitor->net_max[i]);
                 break;
                 
             case TOT:
-                PRINT_DBG("total: Max = %lu", global->monitor->net_max[i]);
+                DBG("total: Max = %lu", global->monitor->net_max[i]);
                 break;
         }
 #endif /* DEBUG */
@@ -296,7 +295,7 @@ static gboolean monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_mon
     gint i;
     XfcePanelPluginMode mode = xfce_panel_plugin_get_mode (plugin);
 
-    PRINT_DBG("monitor_set_size");
+    DBG("monitor_set_size");
 
     if (mode == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
     {
@@ -331,7 +330,7 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
 {
     gint i;
 
-    PRINT_DBG("monitor_set_mode");
+    DBG("monitor_set_mode");
 
     if (global->timeout_id)
     {
@@ -666,7 +665,7 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
 
     global->monitor->options.values_as_bits = xfce_rc_read_bool_entry (rc, "Values_As_Bits", FALSE);
 
-    PRINT_DBG("monitor_read_config");
+    DBG("monitor_read_config");
     setup_monitor(global, TRUE);
 
     xfce_rc_close (rc);
@@ -761,7 +760,7 @@ static void monitor_apply_options(t_global_monitor *global)
             GTK_SPIN_BUTTON(global->monitor->update_spinner) ) * 1000 + 0.5);
     
     setup_monitor(global, FALSE);
-    PRINT_DBG("monitor_apply_options_cb");
+    DBG("monitor_apply_options_cb");
 }
 
 
@@ -777,7 +776,7 @@ static void label_changed(GtkWidget *button, t_global_monitor *global)
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->opt_entry)));
 
     setup_monitor(global, FALSE);
-    PRINT_DBG("label_changed");
+    DBG("label_changed");
 }
 
 
@@ -792,7 +791,7 @@ static void max_label_changed(GtkWidget *button, t_global_monitor *global)
     }
 
     setup_monitor(global, FALSE);
-    PRINT_DBG("max_label_changed");
+    DBG("max_label_changed");
 }
 
 
@@ -808,7 +807,7 @@ static void network_changed(GtkWidget *button, t_global_monitor *global)
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->net_entry)));
 
     setup_monitor(global, FALSE);
-    PRINT_DBG("network_changed");
+    DBG("network_changed");
 }
 
 
@@ -822,7 +821,7 @@ static void label_toggled(GtkWidget *check_button, t_global_monitor *global)
                              global->monitor->options.use_label);
 
     setup_monitor(global, FALSE);
-    PRINT_DBG("label_toggled");
+    DBG("label_toggled");
 }
 
 /* ---------------------------------------------------------------------------------------------- */
@@ -832,7 +831,7 @@ static void as_bits_toggled(GtkWidget *check_button, t_global_monitor *global)
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_as_bits),
                                  global->monitor->options.values_as_bits);
 
-    PRINT_DBG("label_toggled");
+    DBG("label_toggled");
 }
 
 /* ---------------------------------------------------------------------------------------------- */
@@ -848,7 +847,7 @@ static void present_data_combobox_changed(GtkWidget *combobox, t_global_monitor 
                              global->monitor->options.show_values);
 
     setup_monitor(global, FALSE);
-    PRINT_DBG("present_data_combobox_changed");
+    DBG("present_data_combobox_changed");
 }
 
 /* ---------------------------------------------------------------------------------------------- */
@@ -870,7 +869,7 @@ static void max_label_toggled(GtkWidget *check_button, t_global_monitor *global)
         }
     }
     setup_monitor(global, FALSE);
-    PRINT_DBG("max_label_toggled");
+    DBG("max_label_toggled");
 
 }
 
