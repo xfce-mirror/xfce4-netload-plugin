@@ -1124,7 +1124,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_widget_show_all(GTK_WIDGET(net_hbox));
     
     /* Update timevalue */
-    update_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
+    update_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                         GTK_WIDGET(update_hbox), FALSE, FALSE, 0);
     
