@@ -931,7 +931,7 @@ static void colorize_values_toggled(GtkWidget *check_button, t_global_monitor *g
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_colorize_values),
                                  global->monitor->options.colorize_values);
     setup_monitor(global, FALSE);
-    PRINT_DBG("colorize_values_toggled");
+    DBG("colorize_values_toggled");
 }
 
 
