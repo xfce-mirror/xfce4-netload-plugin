@@ -48,7 +48,7 @@ commandline_LDADD = @LIBXFCE4PANEL_LIBS@
 desktop_in_in_files = netload.desktop.in.in
 desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
 	
-desktopdir = $(datadir)/xfce4/panel-plugins
+desktopdir = $(datadir)/xfce4/panel/plugins
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
@@ -61,6 +61,6 @@ DISTCLEANFILES =							\
 	
 # get full path into .desktop file
 %.desktop.in: %.desktop.in.in
-	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
+	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel/plugins^" \
 		$< > $@
 
