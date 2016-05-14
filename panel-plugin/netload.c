@@ -77,7 +77,7 @@ typedef struct
     gboolean auto_max;
     gulong   max[SUM];
     gint     update_interval;
-    GdkColor color[SUM];
+    GdkRGBA  color[SUM];
     gchar    *label_text;
     gchar    *network_device;
     gchar    *old_network_device;
@@ -285,7 +285,7 @@ static void run_update (t_global_monitor *global)
     if (global->monitor->options.update_interval > 0)
     {
         global->timeout_id =  g_timeout_add( global->monitor->options.update_interval, 
-            (GtkFunction)update_monitors, global);
+            (GSourceFunc)update_monitors, global);
     }
 }
 
@@ -340,45 +340,49 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
 
     if (mode == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
     {
-        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), GTK_ORIENTATION_VERTICAL);
-        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box_bars), GTK_ORIENTATION_VERTICAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), GTK_ORIENTATION_VERTICAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_bars), GTK_ORIENTATION_VERTICAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 0.5f, 1.0f);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.5f, 0.0f);
+        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_END);
+        gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_START);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
         for (i = 0; i < SUM; i++)
-            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
-                                             GTK_PROGRESS_LEFT_TO_RIGHT);
+            gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_HORIZONTAL);
     }
     else if (mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
     {
-        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), GTK_ORIENTATION_VERTICAL);
-        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box_bars), GTK_ORIENTATION_VERTICAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), GTK_ORIENTATION_VERTICAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_bars), GTK_ORIENTATION_VERTICAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 270);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 0.5f, 1.0f);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.5f, 0.0f);
+        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_END);
+        gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_START);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 270);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 270);
         for (i = 0; i < SUM; i++)
         {
-            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
-                    GTK_PROGRESS_LEFT_TO_RIGHT);
+            gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_HORIZONTAL);
         }
     }
     else /* mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL */
     {
-        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), GTK_ORIENTATION_HORIZONTAL);
-        xfce_hvbox_set_orientation(XFCE_HVBOX(global->box_bars), GTK_ORIENTATION_HORIZONTAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), GTK_ORIENTATION_HORIZONTAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_bars), GTK_ORIENTATION_HORIZONTAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->rcv_label), 1.0f, 0.5f);
-        gtk_misc_set_alignment(GTK_MISC(global->monitor->sent_label), 0.0f, 0.5f);
+        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_END);
+        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_START);
+        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
         for (i = 0; i < SUM; i++)
         {
-            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor->status[i]),
-                    GTK_PROGRESS_BOTTOM_TO_TOP);
+            gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_VERTICAL);
+            gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(global->monitor->status[i]),TRUE);
         }
     }
 
@@ -449,7 +453,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     
     for (i = 0; i < SUM; i++)
     {
-        gdk_color_parse(DEFAULT_COLOR[i], &global->monitor->options.color[i]);
+        gdk_rgba_parse(&global->monitor->options.color[i], DEFAULT_COLOR[i]);
 
         global->monitor->history[i][0] = 0;
         global->monitor->history[i][1] = 0;
@@ -462,7 +466,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     }
 
     /* Create widget containers */
-    global->box = xfce_hvbox_new(GTK_ORIENTATION_HORIZONTAL, FALSE, 0);
+    global->box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_container_set_border_width(GTK_CONTAINER(global->box), 2);
     gtk_widget_show(GTK_WIDGET(global->box));
 
@@ -484,7 +488,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->ebox_bars), FALSE);
     gtk_event_box_set_above_child(GTK_EVENT_BOX(global->ebox_bars), TRUE);
     gtk_widget_show(global->ebox_bars);
-    global->box_bars = xfce_hvbox_new(GTK_ORIENTATION_HORIZONTAL, FALSE, 0);
+    global->box_bars = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show(global->box_bars);
     for (i = 0; i < SUM; i++)
     {
@@ -538,9 +542,9 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
 
     if (global->monitor->options.colorize_values)
     {
-        gtk_widget_modify_fg(global->monitor->rcv_label, GTK_STATE_NORMAL,
+        gtk_widget_override_color(global->monitor->rcv_label, GTK_STATE_NORMAL,
                              &global->monitor->options.color[IN]);
-        gtk_widget_modify_fg(global->monitor->sent_label, GTK_STATE_NORMAL,
+        gtk_widget_override_color(global->monitor->sent_label, GTK_STATE_NORMAL,
                              &global->monitor->options.color[OUT]);
     }
     else
@@ -627,13 +631,11 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
 
     if ((value = xfce_rc_read_entry (rc, "Color_In", NULL)) != NULL)
     {
-        gdk_color_parse(value,
-                        &global->monitor->options.color[IN]);
+        gdk_rgba_parse(&global->monitor->options.color[IN], value);
     }
     if ((value = xfce_rc_read_entry (rc, "Color_Out", NULL)) != NULL)
     {
-        gdk_color_parse(value,
-                        &global->monitor->options.color[OUT]);
+        gdk_rgba_parse(&global->monitor->options.color[OUT], value);
     }
     if ((value = xfce_rc_read_entry (rc, "Text", NULL)) && *value)
     {
@@ -887,46 +889,41 @@ static void colorize_values_toggled(GtkWidget *check_button, t_global_monitor *g
 /* ---------------------------------------------------------------------------------------------- */
 static gboolean expose_event_cb(GtkWidget *widget, GdkEventExpose *event)
 {
-    if (widget->window)
+    if (gtk_widget_get_window(widget))
     {
-        GtkStyle *style;
-
-        style = gtk_widget_get_style(widget);
-
-        gdk_draw_rectangle(widget->window,
-                           style->bg_gc[GTK_STATE_NORMAL],
-                           TRUE,
-                           event->area.x, event->area.y,
-                           event->area.width, event->area.height);
+        cairo_t *cr;
+        cr = gdk_cairo_create (gtk_widget_get_window(widget));
+        cairo_rectangle (cr, event->area.x, event->area.y, event->area.width, event->area.height);
+        cairo_fill (cr);
     }
 
     return TRUE;
 }
 
-
 /* ---------------------------------------------------------------------------------------------- */
 static void change_color(GtkWidget *button, t_global_monitor *global, gint type)
 {
     GtkWidget *dialog;
-    GtkColorSelection *colorsel;
+    GdkRGBA colorsel;
     gint response;
 
-    dialog = gtk_color_selection_dialog_new(_("Select color"));
+    dialog = gtk_color_chooser_dialog_new(_("Select color"), GTK_WINDOW(global->opt_dialog));
     gtk_window_set_transient_for(GTK_WINDOW(dialog),
                                  GTK_WINDOW(global->opt_dialog));
-    colorsel =
-        GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dialog)->colorsel);
-    gtk_color_selection_set_previous_color(colorsel,
-                                           &global->monitor->options.color[type]);
-    gtk_color_selection_set_current_color(colorsel,
-                                          &global->monitor->options.color[type]);
-    gtk_color_selection_set_has_palette(colorsel, TRUE);
+    // Fixme for GTK3 Migration
+    //colorsel =
+    //    GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dialog)->colorsel);
+    //gtk_color_selection_set_previous_color(colorsel,
+    //                                       &global->monitor->options.color[type]);
+    //gtk_color_selection_set_current_color(colorsel,
+    //                                      &global->monitor->options.color[type]);
+    //gtk_color_selection_set_has_palette(colorsel, TRUE);
+	//gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER (dialog), &global->monitor->options.color[type]);
 
     response = gtk_dialog_run(GTK_DIALOG(dialog));
     if (response == GTK_RESPONSE_OK)
     {
-        gtk_color_selection_get_current_color(colorsel,
-                                              &global->monitor->options.color[type]);
+        gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER (dialog), &global->monitor->options.color[type]);
         gtk_widget_modify_bg(global->monitor->opt_da[type],
                              GTK_STATE_NORMAL,
                              &global->monitor->options.color[type]);
@@ -972,7 +969,6 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     GtkBox           *update_hbox;
     GtkWidget        *update_label, *update_unit_label;
     GtkWidget        *color_label[SUM];
-    GtkWidget        *align;
     gint             present_data_active;
     GtkSizeGroup     *sg;
     gint             i;
@@ -989,8 +985,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     xfce_panel_plugin_block_menu (plugin);
     
     dlg = xfce_titled_dialog_new_with_buttons (_("Network Monitor"), NULL,
-                                               GTK_DIALOG_NO_SEPARATOR,
-                                               GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
+                                               GTK_DIALOG_DESTROY_WITH_PARENT,
+                                               "gtk-close", GTK_RESPONSE_OK,
                                                NULL);
     
     gtk_window_set_icon_name (GTK_WINDOW (dlg), "xfce4-settings");
@@ -999,21 +995,21 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
 
     global->opt_dialog = dlg;
     
-    global_vbox = GTK_BOX (gtk_vbox_new(FALSE, BORDER));
+    global_vbox = GTK_BOX (gtk_box_new(GTK_ORIENTATION_VERTICAL, BORDER));
     gtk_container_set_border_width (GTK_CONTAINER (global_vbox), BORDER - 2);
     gtk_widget_show(GTK_WIDGET (global_vbox));
-    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), GTK_WIDGET (global_vbox), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX (gtk_dialog_get_content_area(GTK_DIALOG(dlg))), GTK_WIDGET (global_vbox), TRUE, TRUE, 0);
     
     sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
     
-    vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
+    vbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 5));
     gtk_widget_show(GTK_WIDGET(vbox));
 
-    global->monitor->opt_vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
+    global->monitor->opt_vbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 5));
     gtk_widget_show(GTK_WIDGET(global->monitor->opt_vbox));
 
     /* Displayed text */
-    global->monitor->opt_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
+    global->monitor->opt_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
     gtk_widget_show(GTK_WIDGET(global->monitor->opt_hbox));
     
     global->monitor->opt_use_label =
@@ -1044,12 +1040,12 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                              global->monitor->options.use_label);
 
     /* Network device */
-    net_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
+    net_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                         GTK_WIDGET(net_hbox), FALSE, FALSE, 0);
 
     device_label = gtk_label_new_with_mnemonic(_("Network _device:"));
-    gtk_misc_set_alignment(GTK_MISC(device_label), 0, 0.5);
+    gtk_widget_set_valign(device_label,GTK_ALIGN_CENTER);
     gtk_widget_show(GTK_WIDGET(device_label));
     gtk_box_pack_start(GTK_BOX(net_hbox), GTK_WIDGET(device_label),
                        FALSE, FALSE, 0);
@@ -1076,7 +1072,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                         GTK_WIDGET(update_hbox), FALSE, FALSE, 0);
     
     update_label = gtk_label_new_with_mnemonic(_("Update _interval:"));
-    gtk_misc_set_alignment(GTK_MISC(update_label), 0, 0.5);
+    gtk_widget_set_valign(update_label, GTK_ALIGN_CENTER);
     gtk_box_pack_start(GTK_BOX(update_hbox), GTK_WIDGET(update_label), FALSE, FALSE, 0);
 
     global->monitor->update_spinner = gtk_spin_button_new_with_range (0.1, 10.0, 0.05);
@@ -1096,7 +1092,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_size_group_add_widget(sg, update_label);
     
     /* Show values as bits */
-    bits_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
+    bits_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
     gtk_widget_show(GTK_WIDGET(bits_hbox));
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                        GTK_WIDGET(bits_hbox), FALSE, FALSE, 0);
@@ -1111,7 +1107,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                                  global->monitor->options.values_as_bits);
 
     
-    sep1 = gtk_hseparator_new();
+    sep1 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep1), FALSE, FALSE, 0);
     gtk_widget_show(sep1);
     
@@ -1127,12 +1123,12 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     /* Input maximum */
     for( i = 0; i < SUM; i++)
     {
-        global->monitor->max_hbox[i] = GTK_BOX(gtk_hbox_new(FALSE, 5));
+	global->monitor->max_hbox[i] = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
         gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), 
                     GTK_WIDGET(global->monitor->max_hbox[i]), FALSE, FALSE, 0);
         
         max_label[i] = gtk_label_new_with_mnemonic(_(maximum_text_label[i]));
-        gtk_misc_set_alignment(GTK_MISC(max_label[i]), 0, 0.5);
+        gtk_widget_set_valign(max_label[i], GTK_ALIGN_CENTER);
         gtk_widget_show(GTK_WIDGET(max_label[i]));
         gtk_box_pack_start(GTK_BOX(global->monitor->max_hbox[i]), GTK_WIDGET(max_label[i]), FALSE, FALSE, 0);
         
@@ -1165,28 +1161,28 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
 
     } 
     
-    sep2 = gtk_hseparator_new();
+    sep2 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep2), FALSE, FALSE, 0);
     gtk_widget_show(sep2);
     
     /* Show bars and values */
-    global->monitor->opt_present_data_hbox = GTK_WIDGET(gtk_hbox_new(FALSE, 5));
+    global->monitor->opt_present_data_hbox = GTK_WIDGET(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
     gtk_widget_show(global->monitor->opt_present_data_hbox);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                        GTK_WIDGET(global->monitor->opt_present_data_hbox), FALSE, FALSE, 0);
 
     global->monitor->opt_present_data_label = gtk_label_new_with_mnemonic(_("_Present data as:"));
-    gtk_misc_set_alignment(GTK_MISC(global->monitor->opt_present_data_label), 0, 0.5);
+    gtk_widget_set_valign(global->monitor->opt_present_data_label, GTK_ALIGN_CENTER);
     gtk_widget_show(global->monitor->opt_present_data_label);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_present_data_hbox),
                        global->monitor->opt_present_data_label, FALSE, FALSE, 0);
 
-    global->monitor->opt_present_data_combobox = gtk_combo_box_new_text();
+    global->monitor->opt_present_data_combobox = gtk_combo_box_text_new();
     gtk_label_set_mnemonic_widget(GTK_LABEL(global->monitor->opt_present_data_label),
                                   global->monitor->opt_present_data_combobox);
-    gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Bars"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Values"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(global->monitor->opt_present_data_combobox), _("Bars and values"));
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(global->monitor->opt_present_data_combobox), _("Bars"));
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(global->monitor->opt_present_data_combobox), _("Values"));
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(global->monitor->opt_present_data_combobox), _("Bars and values"));
 
     if(global->monitor->options.show_values)
         if(global->monitor->options.show_bars)
@@ -1205,13 +1201,13 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     /* Color 1 */
     for (i = 0; i < SUM; i++)
     {
-        global->monitor->opt_color_hbox[i] = gtk_hbox_new(FALSE, 5);
+	global->monitor->opt_color_hbox[i] = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
         gtk_widget_show(GTK_WIDGET(global->monitor->opt_color_hbox[i]));
         gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                 GTK_WIDGET(global->monitor->opt_color_hbox[i]), FALSE, FALSE, 0);
 
         color_label[i] = gtk_label_new_with_mnemonic(_(color_text[i]));
-        gtk_misc_set_alignment(GTK_MISC(color_label[i]), 0, 0.5);
+        gtk_widget_set_valign(color_label[i], GTK_ALIGN_CENTER);
         gtk_widget_show(GTK_WIDGET(color_label[i]));
         gtk_box_pack_start(GTK_BOX(global->monitor->opt_color_hbox[i]), GTK_WIDGET(color_label[i]),
                 FALSE, FALSE, 0);
@@ -1249,10 +1245,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                 GTK_WIDGET(global->monitor->opt_vbox),
                 FALSE, FALSE, 0);
     
-    align = gtk_alignment_new(0, 0, 0, 0);
-    gtk_widget_set_size_request(align, 5, 5);
-    gtk_widget_show(GTK_WIDGET(align));
-    gtk_box_pack_start(GTK_BOX(vbox), GTK_WIDGET(align), FALSE, FALSE, 0);
+    gtk_widget_set_halign(GTK_WIDGET(vbox), GTK_ALIGN_START);
+    gtk_widget_set_valign(GTK_WIDGET(vbox), GTK_ALIGN_START);
 
     gtk_box_pack_start( GTK_BOX(global_vbox), GTK_WIDGET(vbox), FALSE, FALSE, 0);
     
