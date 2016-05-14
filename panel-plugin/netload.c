@@ -591,15 +591,28 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
 
     if (global->monitor->options.colorize_values)
     {
+#if GTK_CHECK_VERSION (3, 16, 0)
+        set_label_csscolor(global->monitor->rcv_label,
+                             &global->monitor->options.color[IN]);
+        set_label_csscolor(global->monitor->sent_label,
+                             &global->monitor->options.color[OUT]);
+#else
         gtk_widget_override_color(global->monitor->rcv_label, GTK_STATE_NORMAL,
                              &global->monitor->options.color[IN]);
         gtk_widget_override_color(global->monitor->sent_label, GTK_STATE_NORMAL,
                              &global->monitor->options.color[OUT]);
+#endif
     }
     else
     {
-        gtk_widget_modify_fg(global->monitor->rcv_label, GTK_STATE_NORMAL, NULL);
-        gtk_widget_modify_fg(global->monitor->sent_label, GTK_STATE_NORMAL, NULL);
+        DBG("resetting label colors");
+#if GTK_CHECK_VERSION (3, 16, 0)
+        set_label_csscolor(global->monitor->rcv_label, NULL);
+        set_label_csscolor(global->monitor->sent_label, NULL);
+#else
+        gtk_widget_override_color(global->monitor->rcv_label, GTK_STATE_NORMAL, NULL);
+        gtk_widget_override_color(global->monitor->sent_label, GTK_STATE_NORMAL, NULL);
+#endif
     }
 
     /* Setup the progress bars */
@@ -615,15 +628,19 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
                 global->monitor->net_max[i] = global->monitor->options.max[i];
 
             /* Set bar colors */
-            gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
+#if GTK_CHECK_VERSION (3, 16, 0)
+            set_progressbar_csscolor(global->monitor->status[i], &global->monitor->options.color[i]);
+#else
+            gtk_widget_override_background_color(GTK_WIDGET(global->monitor->status[i]),
                                  GTK_STATE_PRELIGHT,
                                  &global->monitor->options.color[i]);
-            gtk_widget_modify_bg(GTK_WIDGET(global->monitor->status[i]),
+            gtk_widget_override_background_color(GTK_WIDGET(global->monitor->status[i]),
                                  GTK_STATE_SELECTED,
                                  &global->monitor->options.color[i]);
-            gtk_widget_modify_base(GTK_WIDGET(global->monitor->status[i]),
+            gtk_widget_override_color(GTK_WIDGET(global->monitor->status[i]),
                                    GTK_STATE_SELECTED,
                                    &global->monitor->options.color[i]);
+#endif
         }
     }
     else
