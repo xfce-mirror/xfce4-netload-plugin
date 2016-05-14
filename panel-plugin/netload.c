@@ -743,17 +743,8 @@ static void monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *glob
     xfce_rc_write_bool_entry (rc, "Show_Bars", global->monitor->options.show_bars);
     xfce_rc_write_bool_entry (rc, "Colorize_Values", global->monitor->options.colorize_values);
 
-    g_snprintf(value, 8, "#%02X%02X%02X",
-               (guint)global->monitor->options.color[IN].red >> 8,
-               (guint)global->monitor->options.color[IN].green >> 8,
-               (guint)global->monitor->options.color[IN].blue >> 8);
-    xfce_rc_write_entry (rc, "Color_In", value);
-
-    g_snprintf(value, 8, "#%02X%02X%02X",
-               (guint)global->monitor->options.color[OUT].red >> 8,
-               (guint)global->monitor->options.color[OUT].green >> 8,
-               (guint)global->monitor->options.color[OUT].blue >> 8);
-    xfce_rc_write_entry (rc, "Color_Out", value);
+    xfce_rc_write_entry (rc, "Color_In", gdk_rgba_to_string(&global->monitor->options.color[IN]));
+    xfce_rc_write_entry (rc, "Color_Out", gdk_rgba_to_string(&global->monitor->options.color[OUT]));
 
     xfce_rc_write_entry (rc, "Text", global->monitor->options.label_text ?
                                      global->monitor->options.label_text : "");
