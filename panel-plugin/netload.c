@@ -946,34 +946,9 @@ static void colorize_values_toggled(GtkWidget *check_button, t_global_monitor *g
 /* ---------------------------------------------------------------------------------------------- */
 static void change_color(GtkWidget *button, t_global_monitor *global, gint type)
 {
-    GtkWidget *dialog;
-    GdkRGBA colorsel;
-    gint response;
-
-    dialog = gtk_color_chooser_dialog_new(_("Select color"), GTK_WINDOW(global->opt_dialog));
-    gtk_window_set_transient_for(GTK_WINDOW(dialog),
-                                 GTK_WINDOW(global->opt_dialog));
-    // Fixme for GTK3 Migration
-    //colorsel =
-    //    GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dialog)->colorsel);
-    //gtk_color_selection_set_previous_color(colorsel,
-    //                                       &global->monitor->options.color[type]);
-    //gtk_color_selection_set_current_color(colorsel,
-    //                                      &global->monitor->options.color[type]);
-    //gtk_color_selection_set_has_palette(colorsel, TRUE);
-	//gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER (dialog), &global->monitor->options.color[type]);
-
-    response = gtk_dialog_run(GTK_DIALOG(dialog));
-    if (response == GTK_RESPONSE_OK)
-    {
-        gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER (dialog), &global->monitor->options.color[type]);
-        gtk_widget_modify_bg(global->monitor->opt_da[type],
-                             GTK_STATE_NORMAL,
-                             &global->monitor->options.color[type]);
-        setup_monitor(global, FALSE);
-    }
-    PRINT_DBG("change_color");
-    gtk_widget_destroy(dialog);
+    gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(button), &global->monitor->options.color[type]);
+    setup_monitor(global, FALSE);
+    DBG("change_color(%d) with %s", type, gdk_rgba_to_string(&global->monitor->options.color[type]));
 }
 
 
@@ -1255,7 +1230,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
         gtk_box_pack_start(GTK_BOX(global->monitor->opt_color_hbox[i]), GTK_WIDGET(color_label[i]),
                 FALSE, FALSE, 0);
 
-        global->monitor->opt_button[i] = gtk_button_new();
+        global->monitor->opt_button[i] = gtk_color_button_new_with_rgba(&global->monitor->options.color[i]);
         gtk_label_set_mnemonic_widget(GTK_LABEL(color_label[i]),
                                       global->monitor->opt_button[i]);
         gtk_widget_show(GTK_WIDGET(global->monitor->opt_button[i]));
@@ -1289,13 +1264,9 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
             G_CALLBACK(max_label_toggled), global);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_colorize_values), "toggled",
             G_CALLBACK(colorize_values_toggled), global);
-    g_signal_connect(GTK_WIDGET(global->monitor->opt_da[0]), "expose_event",
-            G_CALLBACK(expose_event_cb), NULL);
-    g_signal_connect(GTK_WIDGET(global->monitor->opt_da[1]), "expose_event",
-            G_CALLBACK(expose_event_cb), NULL);
-    g_signal_connect(GTK_WIDGET(global->monitor->opt_button[IN]), "clicked",
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_button[IN]), "color-set",
             G_CALLBACK(change_color_in), global);
-    g_signal_connect(GTK_WIDGET(global->monitor->opt_button[OUT]), "clicked",
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_button[OUT]), "color-set",
             G_CALLBACK(change_color_out), global);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_use_label), "toggled",
             G_CALLBACK(label_toggled), global);
