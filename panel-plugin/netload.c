@@ -549,7 +549,9 @@ static void set_progressbar_csscolor(GtkWidget* pbar, GdkRGBA* color)
     GtkCssProvider *css_provider;
     gchar * css;
 #if GTK_CHECK_VERSION (3, 20, 0)
-    css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; }",
+    css = g_strdup_printf("progressbar trough { min-width: 4px; min-height: 4px; } \
+                           progressbar progress { min-width: 4px; min-height: 4px; \
+                                                  background-color: %s; background-image: none; }",
 #else
     css = g_strdup_printf(".progressbar { background-color: %s; background-image: none; }",
 #endif
