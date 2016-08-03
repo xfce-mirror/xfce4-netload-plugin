@@ -5,43 +5,43 @@
 # Translators:
 # Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012
 # Mantas <zaz@xxx.lt>, 2003
-# Moo, 2015
+# Moo, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:31+0100\n"
-"PO-Revision-Date: 2015-03-27 12:17+0000\n"
+"POT-Creation-Date: 2016-05-14 18:31+0200\n"
+"PO-Revision-Date: 2016-08-02 20:02+0000\n"
 "Last-Translator: Moo\n"
-"Language-Team: Lithuanian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/lt/)\n"
+"Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../panel-plugin/netload.c:62
+#: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-Netload-įskiepis"
 
-#: ../panel-plugin/netload.c:65
+#: ../panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Nežinoma klaida."
 
-#: ../panel-plugin/netload.c:66
+#: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Linux proc įrenginys „/proc/net/dev“ nerastas."
 
-#: ../panel-plugin/netload.c:67
+#: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "Sąsaja nerasta."
 
-#: ../panel-plugin/netload.c:168
+#: ../panel-plugin/netload.c:167
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Sąsaja neaktyvi)"
 
-#: ../panel-plugin/netload.c:255
+#: ../panel-plugin/netload.c:254
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -52,88 +52,84 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nPaskutinių %d matavimų vidurkis\nsu %.2fs intervalu:\nGaunami duomenys: %s\nSiunčiami duomenys: %s\nViso: %s"
 
-#: ../panel-plugin/netload.c:258
+#: ../panel-plugin/netload.c:257
 msgid "no IP address"
 msgstr "nėra IP adreso"
 
-#: ../panel-plugin/netload.c:585
+#: ../panel-plugin/netload.c:659
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Klaida inicijuojant:\n%s"
 
-#: ../panel-plugin/netload.c:914
-msgid "Select color"
-msgstr "Pasirinkite spalvą"
-
-#: ../panel-plugin/netload.c:981
+#: ../panel-plugin/netload.c:999
 msgid "Bar color (i_ncoming):"
 msgstr "Juostos spalva (_gaunami duomenys):"
 
-#: ../panel-plugin/netload.c:982
+#: ../panel-plugin/netload.c:1000
 msgid "Bar color (_outgoing):"
 msgstr "Juostos spalva (_siunčiami duomenys):"
 
-#: ../panel-plugin/netload.c:985
+#: ../panel-plugin/netload.c:1003
 msgid "Maximum (inco_ming):"
 msgstr "Daugiausia (_gaunami duomenys):"
 
-#: ../panel-plugin/netload.c:986
+#: ../panel-plugin/netload.c:1004
 msgid "Maximum (o_utgoing):"
 msgstr "Daugiausia (_siunčiami duomenys):"
 
-#: ../panel-plugin/netload.c:991 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:1009 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Tinklo stebėjimas"
 
-#: ../panel-plugin/netload.c:1020
+#: ../panel-plugin/netload.c:1038
 msgid "_Text to display:"
 msgstr "_Rodomas tekstas:"
 
-#: ../panel-plugin/netload.c:1049
+#: ../panel-plugin/netload.c:1069
 msgid "Network _device:"
 msgstr "_Tinklo įrenginys:"
 
-#: ../panel-plugin/netload.c:1074
+#: ../panel-plugin/netload.c:1096
 msgid "Update _interval:"
 msgstr "Atnaujinimo _intervalas:"
 
-#: ../panel-plugin/netload.c:1087
+#: ../panel-plugin/netload.c:1109
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1101
+#: ../panel-plugin/netload.c:1123
 msgid "Show values as _bits"
 msgstr "Rodyti reikšmes kaip _bitus"
 
-#: ../panel-plugin/netload.c:1115
+#: ../panel-plugin/netload.c:1137
 msgid "_Automatic maximum"
 msgstr "_Automatinis didžiausias"
 
-#: ../panel-plugin/netload.c:1149
+#: ../panel-plugin/netload.c:1171
 msgid "KiB/s"
 msgstr "KB/s"
 
-#: ../panel-plugin/netload.c:1174
+#: ../panel-plugin/netload.c:1196
 msgid "_Present data as:"
 msgstr "_Atvaizduoti duomenis kaip:"
 
-#: ../panel-plugin/netload.c:1183
+#: ../panel-plugin/netload.c:1205
 msgid "Bars"
 msgstr "Juostos"
 
-#: ../panel-plugin/netload.c:1184
+#: ../panel-plugin/netload.c:1206
 msgid "Values"
 msgstr "Reikšmės"
 
-#: ../panel-plugin/netload.c:1185
+#: ../panel-plugin/netload.c:1207
 msgid "Bars and values"
 msgstr "Juostos ir reikšmės"
 
-#: ../panel-plugin/netload.c:1235
+#: ../panel-plugin/netload.c:1249
 msgid "_Colorize values"
-msgstr "_Nuspalvoti reikšmes"
+msgstr "_Nuspalvinti reikšmes"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
