@@ -349,7 +349,10 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
         for (i = 0; i < SUM; i++)
+        {
             gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_HORIZONTAL);
+            gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(global->monitor->status[i]), FALSE);
+        }
     }
     else if (mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
     {
@@ -365,6 +368,7 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         for (i = 0; i < SUM; i++)
         {
             gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_HORIZONTAL);
+            gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(global->monitor->status[i]), FALSE);
         }
     }
     else /* mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL */
@@ -381,7 +385,7 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         for (i = 0; i < SUM; i++)
         {
             gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_VERTICAL);
-            gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(global->monitor->status[i]),TRUE);
+            gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(global->monitor->status[i]), TRUE);
         }
     }
 
