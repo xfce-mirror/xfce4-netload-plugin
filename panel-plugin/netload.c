@@ -147,6 +147,7 @@ typedef struct
 } t_global_monitor;
 
 
+static void set_progressbar_csscolor(GtkWidget*, GdkRGBA*);
 /* ---------------------------------------------------------------------------------------------- */
 static gboolean update_monitors(t_global_monitor *global)
 {
@@ -389,6 +390,10 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         }
     }
 
+#if GTK_CHECK_VERSION (3, 20, 0)
+    for (i = 0; i < SUM; i++)
+        set_progressbar_csscolor(global->monitor->status[i], &global->monitor->options.color[i]);
+#endif
     monitor_set_size(plugin, xfce_panel_plugin_get_size(plugin), global);
 
     run_update( global );
