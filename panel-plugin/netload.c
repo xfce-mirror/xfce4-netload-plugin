@@ -537,40 +537,6 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
 }
 
 /* ---------------------------------------------------------------------------------------------- */
-static void set_label_csscolor(GtkWidget* label, GdkRGBA* color)
-{
-    GtkCssProvider *css_provider;
-    gchar * css;
-    if (color != NULL)
-    {
-#if GTK_CHECK_VERSION (3, 20, 0)
-        css = g_strdup_printf("label { color: %s; }",
-#else
-        css = g_strdup_printf(".label { color: %s; }",
-#endif
-                              gdk_rgba_to_string(color));
-    }
-    else
-    {
-#if GTK_CHECK_VERSION (3, 20, 0)
-        css = g_strdup_printf("label { color: inherit; }");
-#else
-        css = g_strdup_printf(".label { color: inherit; }");
-#endif
-    }
-    css_provider = gtk_css_provider_new ();
-    gtk_css_provider_load_from_data (css_provider, css, strlen(css), NULL);
-    g_free(css);
-
-    DBG("setting label css: %s", gtk_css_provider_to_string (css_provider));
-    gtk_style_context_add_provider (
-        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (label))),
-        GTK_STYLE_PROVIDER (css_provider),
-        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-}
-
-/* ---------------------------------------------------------------------------------------------- */
 static void set_progressbar_csscolor(GtkWidget* pbar, GdkRGBA* color)
 {
     gchar * css;
@@ -617,9 +583,9 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     if (global->monitor->options.colorize_values)
     {
 #if GTK_CHECK_VERSION (3, 16, 0)
-        set_label_csscolor(global->monitor->rcv_label,
+        xnlp_monitor_label_set_color(XNLP_MONITOR_LABEL(global->monitor->rcv_label),
                              &global->monitor->options.color[IN]);
-        set_label_csscolor(global->monitor->sent_label,
+        xnlp_monitor_label_set_color(XNLP_MONITOR_LABEL(global->monitor->sent_label),
                              &global->monitor->options.color[OUT]);
 #else
         gtk_widget_override_color(global->monitor->rcv_label, GTK_STATE_NORMAL,
@@ -632,8 +598,8 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     {
         DBG("resetting label colors");
 #if GTK_CHECK_VERSION (3, 16, 0)
-        set_label_csscolor(global->monitor->rcv_label, NULL);
-        set_label_csscolor(global->monitor->sent_label, NULL);
+        xnlp_monitor_label_set_color(XNLP_MONITOR_LABEL(global->monitor->rcv_label), NULL);
+        xnlp_monitor_label_set_color(XNLP_MONITOR_LABEL(global->monitor->sent_label), NULL);
 #else
         gtk_widget_override_color(global->monitor->rcv_label, GTK_STATE_NORMAL, NULL);
         gtk_widget_override_color(global->monitor->sent_label, GTK_STATE_NORMAL, NULL);

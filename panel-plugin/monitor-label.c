@@ -14,6 +14,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include <libxfce4util/libxfce4util.h>
 
 #include "monitor-label.h"
 
@@ -28,6 +29,7 @@ struct _XnlpMonitorLabel
 {
         GtkLabel                parent;
         /*<private>*/
+        GtkCssProvider          *css_provider;
         gint                    count_width;
         gint                    count_height;
         gint                    width;
@@ -58,6 +60,11 @@ xnlp_monitor_label_init (XnlpMonitorLabel *label)
         label->count_height = 0;
         label->width = 0;
         label->height = 0;
+        label->css_provider = gtk_css_provider_new ();
+        gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (label))),
+            GTK_STYLE_PROVIDER (label->css_provider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         g_signal_connect (label, "notify::label", G_CALLBACK (cb_label_changed), NULL);
 }
@@ -123,6 +130,33 @@ xnlp_monitor_label_new (const gchar *str)
                 gtk_label_set_text (label, str);
 
         return GTK_WIDGET (label);
+}
+
+void
+xnlp_monitor_label_set_color (XnlpMonitorLabel *label, GdkRGBA* color)
+{
+    gchar * css;
+    if (color != NULL)
+    {
+#if GTK_CHECK_VERSION (3, 20, 0)
+        css = g_strdup_printf("label { color: %s; }",
+#else
+        css = g_strdup_printf(".label { color: %s; }",
+#endif
+                              gdk_rgba_to_string(color));
+    }
+    else
+    {
+#if GTK_CHECK_VERSION (3, 20, 0)
+        css = g_strdup_printf("label { color: inherit; }");
+#else
+        css = g_strdup_printf(".label { color: inherit; }");
+#endif
+    }
+    DBG("setting label css: %s", gtk_css_provider_to_string (label->css_provider));
+    gtk_css_provider_load_from_data (label->css_provider, css, strlen(css), NULL);
+    g_free(css);
+
 }
 
 void

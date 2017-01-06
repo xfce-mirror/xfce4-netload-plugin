@@ -31,6 +31,7 @@ typedef struct _XnlpMonitorLabel XnlpMonitorLabel;
 GType           xnlp_monitor_label_get_type                  (void);
 GtkWidget *     xnlp_monitor_label_new                       (const gchar *str);
 void            xnlp_monitor_label_reinit_size_request       (XnlpMonitorLabel *label);
+void            xnlp_monitor_label_set_color                 (XnlpMonitorLabel *label, GdkRGBA* color);
 
 #endif /* !MONITOR_LABEL_H */
 
