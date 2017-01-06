@@ -566,7 +566,7 @@ static void set_progressbar_csscolor(GtkWidget* pbar, GdkRGBA* color)
                                                   background-color: %s; background-image: none; }",
                           cssminsizes, cssminsizes,
 #else
-    css = g_strdup_printf(".progressbar { background-color: %s; background-image: none; }",
+    css = g_strdup_printf(".progressbar progress { background-color: %s; background-image: none; }",
 #endif
                           gdk_rgba_to_string(color));
     DBG("setting pbar css to %s", css);
