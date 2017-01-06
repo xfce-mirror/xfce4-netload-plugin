@@ -1004,7 +1004,7 @@ monitor_dialog_response (GtkWidget *dlg, int response, t_global_monitor *global)
 
 static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-    GtkWidget        *dlg, *header;
+    GtkWidget        *dlg;
     GtkBox           *vbox, *global_vbox, *net_hbox;
     GtkWidget        *device_label, *unit_label[SUM], *max_label[SUM];
     GtkWidget        *sep1, *sep2;
