@@ -784,7 +784,6 @@ static void monitor_apply_options(t_global_monitor *global)
 
     global->monitor->options.label_text =
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->opt_entry)));
-    setup_monitor(global, FALSE);
 
     if (global->monitor->options.network_device)
     {
@@ -792,7 +791,6 @@ static void monitor_apply_options(t_global_monitor *global)
     }
     global->monitor->options.network_device =
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->net_entry)));
-    setup_monitor(global, FALSE);
     
     for( i = 0; i < SUM; i++ )
     {
