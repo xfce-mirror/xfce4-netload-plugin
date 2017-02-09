@@ -153,8 +153,8 @@ xnlp_monitor_label_set_color (XnlpMonitorLabel *label, GdkRGBA* color)
         css = g_strdup_printf(".label { color: inherit; }");
 #endif
     }
-    DBG("setting label css: %s", gtk_css_provider_to_string (label->css_provider));
     gtk_css_provider_load_from_data (label->css_provider, css, strlen(css), NULL);
+    DBG("setting label css: %s", gtk_css_provider_to_string (label->css_provider));
     g_free(css);
 
 }
