@@ -170,7 +170,6 @@
 #elif __linux__             /* L I N U X */
 #  include <stdio.h>
 #  include <sys/param.h>
-#  include <sys/sysctl.h>
 #  include <stdlib.h>
 #  include <stdarg.h>
 #  include <unistd.h>
