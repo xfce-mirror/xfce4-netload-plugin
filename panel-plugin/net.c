@@ -35,6 +35,7 @@
 
 #include <libxfce4util/libxfce4util.h>
 
+
 /* From Wormulon */
 #include "net.h"
 #include "os.h"
@@ -81,8 +82,7 @@ int init_netload(netdata* data, const char* device)
         return TRUE;
     }
     
-    strncpy( data->ifdata.if_name, device, INTERFACE_NAME_LENGTH);
-    data->ifdata.if_name[INTERFACE_NAME_LENGTH] = '\0';
+    g_strlcpy(data->ifdata.if_name, device, sizeof(data->ifdata.if_name));
     
     init_osspecific( data );
     
