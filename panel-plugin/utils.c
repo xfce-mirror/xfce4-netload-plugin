@@ -113,7 +113,7 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     }
 
     /* format number first */
-    snprintf(formatstring, BUFSIZ, "%%.%df", digits);
+    snprintf(formatstring, BUFSIZ, "%%%d.%df\t",6, digits);
     snprintf(buffer, BUFSIZ, formatstring, number_displayed);
     
     /* get the number of integer characters */
