@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 12:31+0200\n"
-"PO-Revision-Date: 2017-06-18 16:34+0000\n"
+"PO-Revision-Date: 2017-07-04 19:01+0000\n"
 "Last-Translator: Påvel Nicklasson <pavel2@frimix.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 #. Defaults
 #: ../panel-plugin/netload.c:42
 msgid "Net"
-msgstr ""
+msgstr "Nät"
 
 #: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
