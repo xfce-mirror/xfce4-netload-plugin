@@ -10,15 +10,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-14 18:31+0200\n"
-"PO-Revision-Date: 2017-01-05 22:22+0000\n"
-"Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
+"POT-Creation-Date: 2017-06-09 12:31+0200\n"
+"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Croatian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hr\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. Defaults
+#: ../panel-plugin/netload.c:42
+msgid "Net"
+msgstr ""
 
 #: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
@@ -36,12 +41,12 @@ msgstr "Linux proc uređaj '/proc/net/dev' nije pronađen."
 msgid "Interface was not found."
 msgstr "Sučelje nije pronađeno."
 
-#: ../panel-plugin/netload.c:167
+#: ../panel-plugin/netload.c:168
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (sučelje nije aktivno)"
 
-#: ../panel-plugin/netload.c:254
+#: ../panel-plugin/netload.c:255
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -52,82 +57,82 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nProsjek  zadnjih %d mjerenja\ns intervalom od %.2fs:\nDolazno: %s\nOdlazno: %s\nUkupno: %s"
 
-#: ../panel-plugin/netload.c:257
+#: ../panel-plugin/netload.c:258
 msgid "no IP address"
 msgstr "nema IP adrese"
 
-#: ../panel-plugin/netload.c:659
+#: ../panel-plugin/netload.c:642
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s:Greška pri iniciranju:\n%s"
 
-#: ../panel-plugin/netload.c:999
+#: ../panel-plugin/netload.c:980
 msgid "Bar color (i_ncoming):"
 msgstr "Boja trake (d_olazno):"
 
-#: ../panel-plugin/netload.c:1000
+#: ../panel-plugin/netload.c:981
 msgid "Bar color (_outgoing):"
 msgstr "Boja trake (_odlazno):"
 
-#: ../panel-plugin/netload.c:1003
+#: ../panel-plugin/netload.c:984
 msgid "Maximum (inco_ming):"
 msgstr "Maksimum (dola_zno):"
 
-#: ../panel-plugin/netload.c:1004
+#: ../panel-plugin/netload.c:985
 msgid "Maximum (o_utgoing):"
 msgstr "Maksimum (o_dlazno):"
 
-#: ../panel-plugin/netload.c:1009 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:990 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Nadzor mreže"
 
-#: ../panel-plugin/netload.c:1038
+#: ../panel-plugin/netload.c:1019
 msgid "_Text to display:"
 msgstr "_Tekst za prikaz:"
 
-#: ../panel-plugin/netload.c:1069
+#: ../panel-plugin/netload.c:1050
 msgid "Network _device:"
 msgstr "Mrežni _uređaj:"
 
-#: ../panel-plugin/netload.c:1096
+#: ../panel-plugin/netload.c:1077
 msgid "Update _interval:"
 msgstr "Interval _osvježavanja:"
 
-#: ../panel-plugin/netload.c:1109
+#: ../panel-plugin/netload.c:1090
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1123
+#: ../panel-plugin/netload.c:1104
 msgid "Show values as _bits"
 msgstr "Pokazuj vrijednosti kao _bitove"
 
-#: ../panel-plugin/netload.c:1137
+#: ../panel-plugin/netload.c:1118
 msgid "_Automatic maximum"
 msgstr "_Automatski maksimum"
 
-#: ../panel-plugin/netload.c:1171
+#: ../panel-plugin/netload.c:1152
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1196
+#: ../panel-plugin/netload.c:1177
 msgid "_Present data as:"
 msgstr "_Prikaži podatke kao:"
 
-#: ../panel-plugin/netload.c:1205
+#: ../panel-plugin/netload.c:1186
 msgid "Bars"
 msgstr "Trake"
 
-#: ../panel-plugin/netload.c:1206
+#: ../panel-plugin/netload.c:1187
 msgid "Values"
 msgstr "Vrijednosti"
 
-#: ../panel-plugin/netload.c:1207
+#: ../panel-plugin/netload.c:1188
 msgid "Bars and values"
 msgstr "Trake i vrijednosti"
 
-#: ../panel-plugin/netload.c:1249
+#: ../panel-plugin/netload.c:1230
 msgid "_Colorize values"
 msgstr "_Obojane vrijednosti"
 
