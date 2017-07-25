@@ -3,34 +3,39 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Michael Findlay <keltoiboy@gmail.com>, 2013-2014
+# Michael Findlay <translate@cobber-linux.org>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:31+0100\n"
-"PO-Revision-Date: 2014-11-23 23:53+0000\n"
-"Last-Translator: Michael Findlay <keltoiboy@gmail.com>\n"
-"Language-Team: English (Australia) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/en_AU/)\n"
+"POT-Creation-Date: 2017-06-09 12:31+0200\n"
+"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"Language-Team: English (Australia) (http://www.transifex.com/xfce/xfce-panel-plugins/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_AU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/netload.c:62
+#. Defaults
+#: ../panel-plugin/netload.c:42
+msgid "Net"
+msgstr ""
+
+#: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-Netload-Plugin"
 
-#: ../panel-plugin/netload.c:65
+#: ../panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Unknown error."
 
-#: ../panel-plugin/netload.c:66
+#: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Linux proc device '/proc/net/dev' not found."
 
-#: ../panel-plugin/netload.c:67
+#: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "Interface was not found."
 
@@ -54,82 +59,78 @@ msgstr "<< %s >> (%s)\nAverage of last %d measures\nwith an interval of %.2fs:\n
 msgid "no IP address"
 msgstr "no IP address"
 
-#: ../panel-plugin/netload.c:585
+#: ../panel-plugin/netload.c:642
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Error in initialising:\n%s"
 
-#: ../panel-plugin/netload.c:914
-msgid "Select color"
-msgstr "Select colour"
-
-#: ../panel-plugin/netload.c:981
+#: ../panel-plugin/netload.c:980
 msgid "Bar color (i_ncoming):"
 msgstr "Bar colour (i_ncoming):"
 
-#: ../panel-plugin/netload.c:982
+#: ../panel-plugin/netload.c:981
 msgid "Bar color (_outgoing):"
 msgstr "Bar colour (_outgoing):"
 
-#: ../panel-plugin/netload.c:985
+#: ../panel-plugin/netload.c:984
 msgid "Maximum (inco_ming):"
 msgstr "Maximum (inco_ming):"
 
-#: ../panel-plugin/netload.c:986
+#: ../panel-plugin/netload.c:985
 msgid "Maximum (o_utgoing):"
 msgstr "Maximum (o_utgoing):"
 
-#: ../panel-plugin/netload.c:991 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:990 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Network Monitor"
 
-#: ../panel-plugin/netload.c:1020
+#: ../panel-plugin/netload.c:1019
 msgid "_Text to display:"
 msgstr "_Text to display:"
 
-#: ../panel-plugin/netload.c:1049
+#: ../panel-plugin/netload.c:1050
 msgid "Network _device:"
 msgstr "Network _device:"
 
-#: ../panel-plugin/netload.c:1074
+#: ../panel-plugin/netload.c:1077
 msgid "Update _interval:"
 msgstr "Update _interval:"
 
-#: ../panel-plugin/netload.c:1087
+#: ../panel-plugin/netload.c:1090
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1101
+#: ../panel-plugin/netload.c:1104
 msgid "Show values as _bits"
 msgstr "Show values as _bits"
 
-#: ../panel-plugin/netload.c:1115
+#: ../panel-plugin/netload.c:1118
 msgid "_Automatic maximum"
 msgstr "_Automatic maximum"
 
-#: ../panel-plugin/netload.c:1149
+#: ../panel-plugin/netload.c:1152
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1174
+#: ../panel-plugin/netload.c:1177
 msgid "_Present data as:"
 msgstr "_Present data as:"
 
-#: ../panel-plugin/netload.c:1183
+#: ../panel-plugin/netload.c:1186
 msgid "Bars"
 msgstr "Bars"
 
-#: ../panel-plugin/netload.c:1184
+#: ../panel-plugin/netload.c:1187
 msgid "Values"
 msgstr "Values"
 
-#: ../panel-plugin/netload.c:1185
+#: ../panel-plugin/netload.c:1188
 msgid "Bars and values"
 msgstr "Bars and values"
 
-#: ../panel-plugin/netload.c:1235
+#: ../panel-plugin/netload.c:1230
 msgid "_Colorize values"
 msgstr "_Colourise values"
 
