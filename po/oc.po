@@ -9,15 +9,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-14 18:31+0200\n"
-"PO-Revision-Date: 2016-11-24 18:49+0000\n"
-"Last-Translator: Cédric Valmary <cvalmary@yahoo.fr>\n"
+"POT-Creation-Date: 2017-06-09 12:31+0200\n"
+"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Occitan (post 1500) (http://www.transifex.com/xfce/xfce-panel-plugins/language/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: oc\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. Defaults
+#: ../panel-plugin/netload.c:42
+msgid "Net"
+msgstr ""
 
 #: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
@@ -35,12 +40,12 @@ msgstr "Periferic Linux proc '/proc/net/dev' pas trobat."
 msgid "Interface was not found."
 msgstr "Interfàcia pas trobada."
 
-#: ../panel-plugin/netload.c:167
+#: ../panel-plugin/netload.c:168
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (interfàcia inactiva)"
 
-#: ../panel-plugin/netload.c:254
+#: ../panel-plugin/netload.c:255
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -51,82 +56,82 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nMejana de las %d darrièras mesuras\namb un interval de %.2fs :\nEntrant : %s/s\nSortent : %s/s\nTotal : %s/s"
 
-#: ../panel-plugin/netload.c:257
+#: ../panel-plugin/netload.c:258
 msgid "no IP address"
 msgstr "pas d'adreça IP"
 
-#: ../panel-plugin/netload.c:659
+#: ../panel-plugin/netload.c:642
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s : Error pendent l'inicializacion :\n%s"
 
-#: ../panel-plugin/netload.c:999
+#: ../panel-plugin/netload.c:980
 msgid "Bar color (i_ncoming):"
 msgstr "Color de la barra (_entrant) :"
 
-#: ../panel-plugin/netload.c:1000
+#: ../panel-plugin/netload.c:981
 msgid "Bar color (_outgoing):"
 msgstr "Color de la barra (_sortent) :"
 
-#: ../panel-plugin/netload.c:1003
+#: ../panel-plugin/netload.c:984
 msgid "Maximum (inco_ming):"
 msgstr "Maximum (e_ntrant) :"
 
-#: ../panel-plugin/netload.c:1004
+#: ../panel-plugin/netload.c:985
 msgid "Maximum (o_utgoing):"
 msgstr "Maximum (s_ortent) :"
 
-#: ../panel-plugin/netload.c:1009 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:990 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Monitor ret"
 
-#: ../panel-plugin/netload.c:1038
+#: ../panel-plugin/netload.c:1019
 msgid "_Text to display:"
 msgstr "_Tèxte d'afichar :"
 
-#: ../panel-plugin/netload.c:1069
+#: ../panel-plugin/netload.c:1050
 msgid "Network _device:"
 msgstr "_Periferic ret :"
 
-#: ../panel-plugin/netload.c:1096
+#: ../panel-plugin/netload.c:1077
 msgid "Update _interval:"
 msgstr "_Interval de mesa a jorn :"
 
-#: ../panel-plugin/netload.c:1109
+#: ../panel-plugin/netload.c:1090
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1123
+#: ../panel-plugin/netload.c:1104
 msgid "Show values as _bits"
 msgstr "Afichar las valors en _octets"
 
-#: ../panel-plugin/netload.c:1137
+#: ../panel-plugin/netload.c:1118
 msgid "_Automatic maximum"
 msgstr "_Maximum automatic"
 
-#: ../panel-plugin/netload.c:1171
+#: ../panel-plugin/netload.c:1152
 msgid "KiB/s"
 msgstr "Kio/s"
 
-#: ../panel-plugin/netload.c:1196
+#: ../panel-plugin/netload.c:1177
 msgid "_Present data as:"
 msgstr "P_resentar las donadas coma :"
 
-#: ../panel-plugin/netload.c:1205
+#: ../panel-plugin/netload.c:1186
 msgid "Bars"
 msgstr "Barras"
 
-#: ../panel-plugin/netload.c:1206
+#: ../panel-plugin/netload.c:1187
 msgid "Values"
 msgstr "Valors"
 
-#: ../panel-plugin/netload.c:1207
+#: ../panel-plugin/netload.c:1188
 msgid "Bars and values"
 msgstr "Barras e valors"
 
-#: ../panel-plugin/netload.c:1249
+#: ../panel-plugin/netload.c:1230
 msgid "_Colorize values"
 msgstr "_Colorar las valors"
 
