@@ -479,6 +479,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
 
     /* Create the title label */
     global->monitor->label = gtk_label_new(global->monitor->options.label_text);
+    gtk_widget_set_name(GTK_WIDGET(global->monitor->label), "netload-title");
     gtk_box_pack_start(GTK_BOX(global->box),
                        GTK_WIDGET(global->monitor->label),
                        TRUE, FALSE, 2);
