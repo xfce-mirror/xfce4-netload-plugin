@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 12:31+0200\n"
-"PO-Revision-Date: 2017-09-30 14:18+0000\n"
+"PO-Revision-Date: 2017-11-01 18:20+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Net"
 
 #: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
-msgstr "Xfce4-Netload-plugin"
+msgstr "Xfce4 netværksbelastning-plugin"
 
 #: ../panel-plugin/netload.c:64
 msgid "Unknown error."
@@ -35,16 +35,16 @@ msgstr "Ukendt fejl."
 
 #: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "Linux proc-enhed '/proc/net/dev' ikke fundet."
+msgstr "Linux proc-enheden '/proc/net/dev' blev ikke fundet."
 
 #: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
-msgstr "Grænseflade var ikke fundet."
+msgstr "Grænsefladen blev ikke fundet."
 
 #: ../panel-plugin/netload.c:168
 #, c-format
 msgid "<< %s >> (Interface down)"
-msgstr "<< %s >> (Grænseflade nede)"
+msgstr "<< %s >> (Grænsefladen er nede)"
 
 #: ../panel-plugin/netload.c:255
 #, c-format
@@ -55,7 +55,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr "<< %s >> (%s)\nGennemsnit af de sidste %d målinger\nmed et interval af %.2fs:\nIndkommende: %s\nUdgående: %s\nTotal: %s"
+msgstr "<< %s >> (%s)\nGennemsnit af de sidste %d målinger\nmed et interval af %.2fs:\nIndkommende: %s\nUdgående: %s\nSamlet: %s"
 
 #: ../panel-plugin/netload.c:258
 msgid "no IP address"
@@ -90,7 +90,7 @@ msgstr "Netværksovervågning"
 
 #: ../panel-plugin/netload.c:1019
 msgid "_Text to display:"
-msgstr "_Tekst at vise:"
+msgstr "_Tekst som skal vises:"
 
 #: ../panel-plugin/netload.c:1050
 msgid "Network _device:"
