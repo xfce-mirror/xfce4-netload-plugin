@@ -45,25 +45,25 @@
 #include <sys/types.h>
 #include <errno.h>
 
-#ifdef __HPUX__
+#if defined(__HPUX__)
 # include "wormulon/hpux.h"
 # include "wormulon/hpux.c"
-#elif __APPLE__
+#elif defined(__APPLE__)
 # include "src/macos.h"
 # include "src/macos.c"
-#elif __FreeBSD__ || __DragonFly__ || __FreeBSD_kernel__
+#elif (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__FreeBSD_kernel__))
 # include "wormulon/freebsd.h"
 # include "wormulon/freebsd.c"
-#elif __linux__
+#elif defined(__linux__)
 # include "wormulon/linux.h"
 # include "wormulon/linux.c"
-#elif __OpenBSD__ || __MicroBSD__
+#elif (defined(__OpenBSD__) || defined(__MicroBSD__))
 # include "wormulon/openbsd.h"
 # include "wormulon/openbsd.c"
-#elif __NetBSD__
+#elif defined(__NetBSD__)
 # include "wormulon/netbsd.h"
 # include "wormulon/netbsd.c"
-#elif __Solaris__
+#elif defined(__Solaris__)
 # include "wormulon/solaris.h"
 # include "wormulon/solaris.c"
 #else
