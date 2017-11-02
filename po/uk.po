@@ -5,34 +5,39 @@
 # Translators:
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2007
 # Maxim Dziumanenko <mvd@mylinux.com.ua>, 2003
-# Yarema aka Knedlyk <yupadmin@gmail.com>, 2012,2014
+# Yarema aka Knedlyk <yupadmin@gmail.com>, 2012,2014,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:31+0100\n"
-"PO-Revision-Date: 2014-11-20 14:02+0000\n"
+"POT-Creation-Date: 2017-06-09 12:31+0200\n"
+"PO-Revision-Date: 2017-09-19 18:06+0000\n"
 "Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/uk/)\n"
+"Language-Team: Ukrainian (http://www.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../panel-plugin/netload.c:62
+#. Defaults
+#: ../panel-plugin/netload.c:42
+msgid "Net"
+msgstr "Сітка"
+
+#: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Модуль контролю з'єднаннями мережі для Xfce4"
 
-#: ../panel-plugin/netload.c:65
+#: ../panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Невідома помилка."
 
-#: ../panel-plugin/netload.c:66
+#: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Не знайдено Linux пристрій '/proc/net/dev'."
 
-#: ../panel-plugin/netload.c:67
+#: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "Інтерфейс не існує."
 
@@ -56,82 +61,78 @@ msgstr "<< %s >> (%s)\nСереднє значення за останні %d в
 msgid "no IP address"
 msgstr "немає IP адреси"
 
-#: ../panel-plugin/netload.c:585
+#: ../panel-plugin/netload.c:642
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Помилка ініціалізації:\n%s"
 
-#: ../panel-plugin/netload.c:914
-msgid "Select color"
-msgstr "Колір індикатора"
-
-#: ../panel-plugin/netload.c:981
+#: ../panel-plugin/netload.c:980
 msgid "Bar color (i_ncoming):"
 msgstr "Колір (вхід_ний):"
 
-#: ../panel-plugin/netload.c:982
+#: ../panel-plugin/netload.c:981
 msgid "Bar color (_outgoing):"
 msgstr "Колір (вихі_дний):"
 
-#: ../panel-plugin/netload.c:985
+#: ../panel-plugin/netload.c:984
 msgid "Maximum (inco_ming):"
 msgstr "Максимум (в_хідний):"
 
-#: ../panel-plugin/netload.c:986
+#: ../panel-plugin/netload.c:985
 msgid "Maximum (o_utgoing):"
 msgstr "Максимум (в_ихідний):"
 
-#: ../panel-plugin/netload.c:991 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:990 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Спостереження за мережею"
 
-#: ../panel-plugin/netload.c:1020
+#: ../panel-plugin/netload.c:1019
 msgid "_Text to display:"
 msgstr "_Відображуваний текст:"
 
-#: ../panel-plugin/netload.c:1049
+#: ../panel-plugin/netload.c:1050
 msgid "Network _device:"
 msgstr "Мережевий _пристрій:"
 
-#: ../panel-plugin/netload.c:1074
+#: ../panel-plugin/netload.c:1077
 msgid "Update _interval:"
 msgstr "Інтервал _оновлення:"
 
-#: ../panel-plugin/netload.c:1087
+#: ../panel-plugin/netload.c:1090
 msgid "s"
 msgstr "с"
 
-#: ../panel-plugin/netload.c:1101
+#: ../panel-plugin/netload.c:1104
 msgid "Show values as _bits"
 msgstr "Показати значення в _бітах"
 
-#: ../panel-plugin/netload.c:1115
+#: ../panel-plugin/netload.c:1118
 msgid "_Automatic maximum"
 msgstr "А_втоматичний максимум"
 
-#: ../panel-plugin/netload.c:1149
+#: ../panel-plugin/netload.c:1152
 msgid "KiB/s"
 msgstr "КіБ/с"
 
-#: ../panel-plugin/netload.c:1174
+#: ../panel-plugin/netload.c:1177
 msgid "_Present data as:"
 msgstr "Показати дані як:"
 
-#: ../panel-plugin/netload.c:1183
+#: ../panel-plugin/netload.c:1186
 msgid "Bars"
 msgstr "Шкала"
 
-#: ../panel-plugin/netload.c:1184
+#: ../panel-plugin/netload.c:1187
 msgid "Values"
 msgstr "Значення"
 
-#: ../panel-plugin/netload.c:1185
+#: ../panel-plugin/netload.c:1188
 msgid "Bars and values"
 msgstr "Шкала і значення"
 
-#: ../panel-plugin/netload.c:1235
+#: ../panel-plugin/netload.c:1230
 msgid "_Colorize values"
 msgstr "_Значення в кольорі"
 

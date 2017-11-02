@@ -5,13 +5,13 @@
 # Translators:
 # Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012
 # Mantas <zaz@xxx.lt>, 2003
-# Moo, 2015-2016
+# Moo, 2015-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-14 18:31+0200\n"
-"PO-Revision-Date: 2016-09-14 09:02+0000\n"
+"POT-Creation-Date: 2017-06-09 12:31+0200\n"
+"PO-Revision-Date: 2017-09-19 18:06+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -19,6 +19,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. Defaults
+#: ../panel-plugin/netload.c:42
+msgid "Net"
+msgstr "Tinklas"
 
 #: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
@@ -36,12 +41,12 @@ msgstr "Linux proc įrenginys „/proc/net/dev“ nerastas."
 msgid "Interface was not found."
 msgstr "Sąsaja nerasta."
 
-#: ../panel-plugin/netload.c:167
+#: ../panel-plugin/netload.c:168
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Sąsaja neaktyvi)"
 
-#: ../panel-plugin/netload.c:254
+#: ../panel-plugin/netload.c:255
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -52,82 +57,82 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nPaskutinių %d matavimų vidurkis\nsu %.2fs intervalu:\nGaunami duomenys: %s\nSiunčiami duomenys: %s\nViso: %s"
 
-#: ../panel-plugin/netload.c:257
+#: ../panel-plugin/netload.c:258
 msgid "no IP address"
 msgstr "nėra IP adreso"
 
-#: ../panel-plugin/netload.c:659
+#: ../panel-plugin/netload.c:642
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Klaida inicijuojant:\n%s"
 
-#: ../panel-plugin/netload.c:999
+#: ../panel-plugin/netload.c:980
 msgid "Bar color (i_ncoming):"
 msgstr "Juostos spalva (_gaunami duomenys):"
 
-#: ../panel-plugin/netload.c:1000
+#: ../panel-plugin/netload.c:981
 msgid "Bar color (_outgoing):"
 msgstr "Juostos spalva (_siunčiami duomenys):"
 
-#: ../panel-plugin/netload.c:1003
+#: ../panel-plugin/netload.c:984
 msgid "Maximum (inco_ming):"
 msgstr "Daugiausia (_gaunami duomenys):"
 
-#: ../panel-plugin/netload.c:1004
+#: ../panel-plugin/netload.c:985
 msgid "Maximum (o_utgoing):"
 msgstr "Daugiausia (_siunčiami duomenys):"
 
-#: ../panel-plugin/netload.c:1009 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:990 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Tinklo prižiūryklė"
 
-#: ../panel-plugin/netload.c:1038
+#: ../panel-plugin/netload.c:1019
 msgid "_Text to display:"
 msgstr "_Rodomas tekstas:"
 
-#: ../panel-plugin/netload.c:1069
+#: ../panel-plugin/netload.c:1050
 msgid "Network _device:"
 msgstr "_Tinklo įrenginys:"
 
-#: ../panel-plugin/netload.c:1096
+#: ../panel-plugin/netload.c:1077
 msgid "Update _interval:"
 msgstr "Atnaujinimo _intervalas:"
 
-#: ../panel-plugin/netload.c:1109
+#: ../panel-plugin/netload.c:1090
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1123
+#: ../panel-plugin/netload.c:1104
 msgid "Show values as _bits"
 msgstr "Rodyti reikšmes kaip _bitus"
 
-#: ../panel-plugin/netload.c:1137
+#: ../panel-plugin/netload.c:1118
 msgid "_Automatic maximum"
 msgstr "_Automatinis didžiausias"
 
-#: ../panel-plugin/netload.c:1171
+#: ../panel-plugin/netload.c:1152
 msgid "KiB/s"
 msgstr "KB/s"
 
-#: ../panel-plugin/netload.c:1196
+#: ../panel-plugin/netload.c:1177
 msgid "_Present data as:"
 msgstr "_Atvaizduoti duomenis kaip:"
 
-#: ../panel-plugin/netload.c:1205
+#: ../panel-plugin/netload.c:1186
 msgid "Bars"
 msgstr "Juostos"
 
-#: ../panel-plugin/netload.c:1206
+#: ../panel-plugin/netload.c:1187
 msgid "Values"
 msgstr "Reikšmės"
 
-#: ../panel-plugin/netload.c:1207
+#: ../panel-plugin/netload.c:1188
 msgid "Bars and values"
 msgstr "Juostos ir reikšmės"
 
-#: ../panel-plugin/netload.c:1249
+#: ../panel-plugin/netload.c:1230
 msgid "_Colorize values"
 msgstr "_Nuspalvinti reikšmes"
 

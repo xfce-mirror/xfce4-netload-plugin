@@ -6,35 +6,41 @@
 # Chipong Luo <chipong.luo@yahoo.com>, 2011-2012
 # greensea <gs@bbxy.net>, 2013
 # Hunt Xu <huntxu@live.cn>, 2009,2012
+# Mingcong Bai <jeffbai@aosc.xyz>, 2017
 # Vern Sun <s5unty@gmail.com>, 2007
 # 玉堂白鹤 <yjwork@qq.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:31+0100\n"
-"PO-Revision-Date: 2014-12-03 06:01+0000\n"
-"Last-Translator: 玉堂白鹤 <yjwork@qq.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/zh_CN/)\n"
+"POT-Creation-Date: 2017-06-09 12:31+0200\n"
+"PO-Revision-Date: 2017-09-19 18:06+0000\n"
+"Last-Translator: Mingcong Bai <jeffbai@aosc.xyz>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/netload.c:62
+#. Defaults
+#: ../panel-plugin/netload.c:42
+msgid "Net"
+msgstr "网络"
+
+#: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-Netload-Plugin"
 
-#: ../panel-plugin/netload.c:65
+#: ../panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "未知错误。"
 
-#: ../panel-plugin/netload.c:66
+#: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "未找到 Linux proc 设备 ‘/proc/net/dev’。"
 
-#: ../panel-plugin/netload.c:67
+#: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "未找到网络接口。"
 
@@ -58,82 +64,78 @@ msgstr "<< %s >> (%s)\n最近 %d个 时间段内\n%.2f 秒内的平均值:\n流�
 msgid "no IP address"
 msgstr "无 IP 地址"
 
-#: ../panel-plugin/netload.c:585
+#: ../panel-plugin/netload.c:642
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s：初始化时出错：\n%s"
 
-#: ../panel-plugin/netload.c:914
-msgid "Select color"
-msgstr "选择颜色"
-
-#: ../panel-plugin/netload.c:981
+#: ../panel-plugin/netload.c:980
 msgid "Bar color (i_ncoming):"
 msgstr "柱图颜色(流入)(_N)："
 
-#: ../panel-plugin/netload.c:982
+#: ../panel-plugin/netload.c:981
 msgid "Bar color (_outgoing):"
 msgstr "柱图颜色(流出)(_O)："
 
-#: ../panel-plugin/netload.c:985
+#: ../panel-plugin/netload.c:984
 msgid "Maximum (inco_ming):"
 msgstr "最大值(流入)(_M)："
 
-#: ../panel-plugin/netload.c:986
+#: ../panel-plugin/netload.c:985
 msgid "Maximum (o_utgoing):"
 msgstr "最大值(流出)(_U)："
 
-#: ../panel-plugin/netload.c:991 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:990 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "网络监视器"
 
-#: ../panel-plugin/netload.c:1020
+#: ../panel-plugin/netload.c:1019
 msgid "_Text to display:"
 msgstr "要显示的文字(_T)："
 
-#: ../panel-plugin/netload.c:1049
+#: ../panel-plugin/netload.c:1050
 msgid "Network _device:"
 msgstr "网络设备(_D)："
 
-#: ../panel-plugin/netload.c:1074
+#: ../panel-plugin/netload.c:1077
 msgid "Update _interval:"
 msgstr "更新间隔(_I)："
 
-#: ../panel-plugin/netload.c:1087
+#: ../panel-plugin/netload.c:1090
 msgid "s"
 msgstr "秒"
 
-#: ../panel-plugin/netload.c:1101
+#: ../panel-plugin/netload.c:1104
 msgid "Show values as _bits"
 msgstr "以比特显示值(_B)"
 
-#: ../panel-plugin/netload.c:1115
+#: ../panel-plugin/netload.c:1118
 msgid "_Automatic maximum"
 msgstr "自动最大值(_A)"
 
-#: ../panel-plugin/netload.c:1149
+#: ../panel-plugin/netload.c:1152
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1174
+#: ../panel-plugin/netload.c:1177
 msgid "_Present data as:"
 msgstr "显示方法(_P)："
 
-#: ../panel-plugin/netload.c:1183
+#: ../panel-plugin/netload.c:1186
 msgid "Bars"
 msgstr "柱图"
 
-#: ../panel-plugin/netload.c:1184
+#: ../panel-plugin/netload.c:1187
 msgid "Values"
 msgstr "文字"
 
-#: ../panel-plugin/netload.c:1185
+#: ../panel-plugin/netload.c:1188
 msgid "Bars and values"
 msgstr "柱图和文字"
 
-#: ../panel-plugin/netload.c:1235
+#: ../panel-plugin/netload.c:1230
 msgid "_Colorize values"
 msgstr "使用彩色显示文字(_C)"
 

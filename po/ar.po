@@ -1,37 +1,42 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# كريم اولاد الشلحة <herr.linux88@gmail.com>, 2012.
-# محمد الحرقان <malham1@gmail.com>, 2012.
+# 
+# Translators:
+# كريم أولاد الشلحة <herr.linux88@gmail.com>, 2012
+# محمد الحرقان <malham1@gmail.com>, 2012
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:09+0100\n"
-"PO-Revision-Date: 2012-11-19 05:42+0300\n"
-"Last-Translator: محمد الحرقان <malham1@gmail.com>\n"
-"Language-Team: http://www.vertaal.com.ar/files/factory/ar/list/\n"
-"Language: ar\n"
+"POT-Creation-Date: 2017-06-09 12:31+0200\n"
+"PO-Revision-Date: 2017-09-19 18:06+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"Language-Team: Arabic (http://www.transifex.com/xfce/xfce-panel-plugins/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Virtaal 0.7.1\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: ../panel-plugin/netload.c:62
+#. Defaults
+#: ../panel-plugin/netload.c:42
+msgid "Net"
+msgstr ""
+
+#: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "ملحق-تحميل نيت-لإكسفسي4"
 
-#: ../panel-plugin/netload.c:65
+#: ../panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "خطأ مجهول."
 
-#: ../panel-plugin/netload.c:66
+#: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "جهاز لنكس '/proc/net/dev' لم يتم العثور عليه."
 
-#: ../panel-plugin/netload.c:67
+#: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "لم يتم العثور على الواجهة."
 
@@ -49,96 +54,84 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
-"<< %s >> (%s)\n"
-"معدل آخر %d إجراء\n"
-"مع فاصل مدته %.2fs:\n"
-"تحميل: %s\n"
-"رفع: %s\n"
-"المجموع: %s"
+msgstr "<< %s >> (%s)\nمعدل آخر %d إجراء\nمع فاصل مدته %.2fs:\nتحميل: %s\nرفع: %s\nالمجموع: %s"
 
 #: ../panel-plugin/netload.c:258
 msgid "no IP address"
 msgstr "بدون عنوان IP"
 
-#: ../panel-plugin/netload.c:585
+#: ../panel-plugin/netload.c:642
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr ""
-"%s: خطأعند المعالجة:\n"
-"%s"
+msgstr "%s: خطأعند المعالجة:\n%s"
 
-#: ../panel-plugin/netload.c:914
-msgid "Select color"
-msgstr "اختر لون"
-
-#: ../panel-plugin/netload.c:981
+#: ../panel-plugin/netload.c:980
 msgid "Bar color (i_ncoming):"
 msgstr "لون شريط (ال_وارد):"
 
-#: ../panel-plugin/netload.c:982
+#: ../panel-plugin/netload.c:981
 msgid "Bar color (_outgoing):"
 msgstr "لون شريط (ال_صادر):"
 
-#: ../panel-plugin/netload.c:985
+#: ../panel-plugin/netload.c:984
 msgid "Maximum (inco_ming):"
 msgstr "أقصى (الوارد):"
 
-#: ../panel-plugin/netload.c:986
+#: ../panel-plugin/netload.c:985
 msgid "Maximum (o_utgoing):"
 msgstr "أقصى (الصادر):"
 
-#: ../panel-plugin/netload.c:991 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:990 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "مراقب الشبكة"
 
-#: ../panel-plugin/netload.c:1020
+#: ../panel-plugin/netload.c:1019
 msgid "_Text to display:"
 msgstr "_نص العرض:"
 
-#: ../panel-plugin/netload.c:1049
+#: ../panel-plugin/netload.c:1050
 msgid "Network _device:"
 msgstr "جهاز ال_شّبكة:"
 
-#: ../panel-plugin/netload.c:1074
+#: ../panel-plugin/netload.c:1077
 msgid "Update _interval:"
 msgstr "مجال التح_ديث:"
 
-#: ../panel-plugin/netload.c:1087
+#: ../panel-plugin/netload.c:1090
 msgid "s"
 msgstr "ث"
 
-#: ../panel-plugin/netload.c:1101
+#: ../panel-plugin/netload.c:1104
 msgid "Show values as _bits"
 msgstr ""
 
-#: ../panel-plugin/netload.c:1115
+#: ../panel-plugin/netload.c:1118
 msgid "_Automatic maximum"
 msgstr "_أقصى تلقائيا"
 
-#: ../panel-plugin/netload.c:1149
+#: ../panel-plugin/netload.c:1152
 msgid "KiB/s"
 msgstr "ك.بايت/ثا"
 
-#: ../panel-plugin/netload.c:1174
+#: ../panel-plugin/netload.c:1177
 msgid "_Present data as:"
 msgstr "_تقديم البيانات كـ:"
 
-#: ../panel-plugin/netload.c:1183
+#: ../panel-plugin/netload.c:1186
 msgid "Bars"
 msgstr "أشرطة"
 
-#: ../panel-plugin/netload.c:1184
+#: ../panel-plugin/netload.c:1187
 msgid "Values"
 msgstr "قيم"
 
-#: ../panel-plugin/netload.c:1185
+#: ../panel-plugin/netload.c:1188
 msgid "Bars and values"
 msgstr "أشرطة و قيم"
 
-#: ../panel-plugin/netload.c:1235
+#: ../panel-plugin/netload.c:1230
 msgid "_Colorize values"
 msgstr "_تلوين القيم"
 
