@@ -149,10 +149,10 @@ int get_stat(netdata* data)
             /* search for the right network interface */
             if (sdl->sdl_family != AF_LINK)
                 continue;
-            if (strcmp(sdl->sdl_data, data->ifdata.if_name) != 0)
-                continue;
             strncpy(s, sdl->sdl_data, sdl->sdl_nlen);
             s[sdl->sdl_nlen] = '\0';
+            if (strcmp(s, data->ifdata.if_name) != 0)
+                continue;
 
             rx_o = data->stats.rx_bytes; tx_o = data->stats.tx_bytes;
             /* write stats */
