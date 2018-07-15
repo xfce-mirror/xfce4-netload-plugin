@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Cristian Marchi <cri.penta@gmail.com>, 2013-2014
+# Emanuele Petriglia <inbox@emanuelepetriglia.me>, 2018
 # Fabio Riga <usul@aruba.it>, 2007
 # Massimiliano Vessi <angerangel@gmail.com>, 2017
 msgid ""
@@ -11,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 12:31+0200\n"
-"PO-Revision-Date: 2018-07-11 15:12+0000\n"
+"PO-Revision-Date: 2018-07-15 10:29+0000\n"
 "Last-Translator: Emanuele Petriglia <inbox@emanuelepetriglia.me>\n"
 "Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -35,11 +36,11 @@ msgstr "Errore sconosciuto."
 
 #: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "Il dispositivo proc di Linux \"/proc/net/dev\" non è stato trovato."
+msgstr "Impossibile trovare il dispositivo proc di Linux '/proc/net/dev'."
 
 #: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
-msgstr "Interfaccia non trovata."
+msgstr "Impossibile trovare l'interfaccia."
 
 #: ../panel-plugin/netload.c:168
 #, c-format
