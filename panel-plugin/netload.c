@@ -999,21 +999,21 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
 
     global->opt_dialog = dlg;
     
-    global_vbox = GTK_BOX (gtk_box_new(GTK_ORIENTATION_VERTICAL, BORDER));
-    gtk_container_set_border_width (GTK_CONTAINER (global_vbox), BORDER - 2);
+    global_vbox = GTK_BOX (gtk_box_new(GTK_ORIENTATION_VERTICAL, 6));
+    gtk_container_set_border_width (GTK_CONTAINER (global_vbox), 12);
     gtk_widget_show(GTK_WIDGET (global_vbox));
     gtk_box_pack_start(GTK_BOX (gtk_dialog_get_content_area(GTK_DIALOG(dlg))), GTK_WIDGET (global_vbox), TRUE, TRUE, 0);
     
     sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
     
-    vbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 5));
+    vbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 6));
     gtk_widget_show(GTK_WIDGET(vbox));
 
-    global->monitor->opt_vbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 5));
+    global->monitor->opt_vbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 6));
     gtk_widget_show(GTK_WIDGET(global->monitor->opt_vbox));
 
     /* Displayed text */
-    global->monitor->opt_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
+    global->monitor->opt_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12));
     gtk_widget_show(GTK_WIDGET(global->monitor->opt_hbox));
     
     global->monitor->opt_use_label =
@@ -1044,11 +1044,12 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                              global->monitor->options.use_label);
 
     /* Network device */
-    net_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
+    net_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12));
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                         GTK_WIDGET(net_hbox), FALSE, FALSE, 0);
 
     device_label = gtk_label_new_with_mnemonic(_("Network _device:"));
+    gtk_label_set_xalign (GTK_LABEL (device_label), 0.0f);
     gtk_widget_set_valign(device_label,GTK_ALIGN_CENTER);
     gtk_widget_show(GTK_WIDGET(device_label));
     gtk_box_pack_start(GTK_BOX(net_hbox), GTK_WIDGET(device_label),
@@ -1071,11 +1072,12 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_widget_show_all(GTK_WIDGET(net_hbox));
     
     /* Update timevalue */
-    update_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
+    update_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12));
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                         GTK_WIDGET(update_hbox), FALSE, FALSE, 0);
     
     update_label = gtk_label_new_with_mnemonic(_("Update _interval:"));
+    gtk_label_set_xalign (GTK_LABEL (update_label), 0.0f);
     gtk_widget_set_valign(update_label, GTK_ALIGN_CENTER);
     gtk_box_pack_start(GTK_BOX(update_hbox), GTK_WIDGET(update_label), FALSE, FALSE, 0);
 
@@ -1089,6 +1091,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
         FALSE, FALSE, 0);
         
     update_unit_label = gtk_label_new(_("s"));
+    gtk_label_set_xalign (GTK_LABEL (update_unit_label), 0.0f);
     gtk_box_pack_start(GTK_BOX(update_hbox), GTK_WIDGET(update_unit_label), 
         FALSE, FALSE, 0);
     
@@ -1096,7 +1099,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_size_group_add_widget(sg, update_label);
     
     /* Show values as bits */
-    bits_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
+    bits_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12));
     gtk_widget_show(GTK_WIDGET(bits_hbox));
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                        GTK_WIDGET(bits_hbox), FALSE, FALSE, 0);
@@ -1112,7 +1115,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
 
     
     sep1 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
-    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep1), FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep1), FALSE, FALSE, 6);
     gtk_widget_show(sep1);
     
     global->monitor->max_use_label = 
@@ -1127,11 +1130,12 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     /* Input maximum */
     for( i = 0; i < SUM; i++)
     {
-	global->monitor->max_hbox[i] = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
+	global->monitor->max_hbox[i] = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12));
         gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), 
                     GTK_WIDGET(global->monitor->max_hbox[i]), FALSE, FALSE, 0);
         
         max_label[i] = gtk_label_new_with_mnemonic(_(maximum_text_label[i]));
+        gtk_label_set_xalign (GTK_LABEL (max_label[i]), 0.0f);
         gtk_widget_set_valign(max_label[i], GTK_ALIGN_CENTER);
         gtk_widget_show(GTK_WIDGET(max_label[i]));
         gtk_box_pack_start(GTK_BOX(global->monitor->max_hbox[i]), GTK_WIDGET(max_label[i]), FALSE, FALSE, 0);
@@ -1151,6 +1155,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                        FALSE, FALSE, 0);
         
         unit_label[i] = gtk_label_new(_("KiB/s"));
+        gtk_label_set_xalign (GTK_LABEL (unit_label[i]), 0.0f);
         gtk_box_pack_start(GTK_BOX(global->monitor->max_hbox[i]), GTK_WIDGET(unit_label[i]), FALSE, FALSE, 0);
         
         gtk_size_group_add_widget(sg, max_label[i]);
@@ -1166,16 +1171,17 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     } 
     
     sep2 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
-    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep2), FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep2), FALSE, FALSE, 6);
     gtk_widget_show(sep2);
     
     /* Show bars and values */
-    global->monitor->opt_present_data_hbox = GTK_WIDGET(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5));
+    global->monitor->opt_present_data_hbox = GTK_WIDGET(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12));
     gtk_widget_show(global->monitor->opt_present_data_hbox);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                        GTK_WIDGET(global->monitor->opt_present_data_hbox), FALSE, FALSE, 0);
 
     global->monitor->opt_present_data_label = gtk_label_new_with_mnemonic(_("_Present data as:"));
+    gtk_label_set_xalign (GTK_LABEL (global->monitor->opt_present_data_label), 0.0f);
     gtk_widget_set_valign(global->monitor->opt_present_data_label, GTK_ALIGN_CENTER);
     gtk_widget_show(global->monitor->opt_present_data_label);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_present_data_hbox),
@@ -1205,12 +1211,13 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     /* Color 1 */
     for (i = 0; i < SUM; i++)
     {
-	global->monitor->opt_color_hbox[i] = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
+	global->monitor->opt_color_hbox[i] = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
         gtk_widget_show(GTK_WIDGET(global->monitor->opt_color_hbox[i]));
         gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
                 GTK_WIDGET(global->monitor->opt_color_hbox[i]), FALSE, FALSE, 0);
 
         color_label[i] = gtk_label_new_with_mnemonic(_(color_text[i]));
+        gtk_label_set_xalign (GTK_LABEL (color_label[i]), 0.0f);
         gtk_widget_set_valign(color_label[i], GTK_ALIGN_CENTER);
         gtk_widget_show(GTK_WIDGET(color_label[i]));
         gtk_box_pack_start(GTK_BOX(global->monitor->opt_color_hbox[i]), GTK_WIDGET(color_label[i]),
