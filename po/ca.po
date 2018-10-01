@@ -5,7 +5,7 @@
 # Translators:
 # Carles Muñoz Gorriz <carlesmu@internautas.org>, 2007,2012
 # Davidmp <medipas@gmail.com>, 2016
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2017
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2017-2018
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016
 # Toni Vall <tests@tiscali.esg>, 2004
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 12:31+0200\n"
-"PO-Revision-Date: 2017-12-30 18:43+0000\n"
+"PO-Revision-Date: 2018-09-29 22:22+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -140,7 +140,7 @@ msgstr "A_coloreix els valors"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr "Mostra el tràfic de xarxa"
+msgstr "Mostra el trànsit de xarxa"
 
 #: ../panel-plugin/utils.c:78
 msgid "B"
