@@ -8,13 +8,14 @@
 # Igor <f2404@yandex.ru>, 2017
 # Sergey Alyoshin <alyoshin.s@gmail.com>, 2014
 # Sergey Fedoseev <fedoseev.sergey@gmail.com>, 2005
+# Zmicer Turok <zmicerturok@gmail.com>, 2019
 # Zmicer Turok <zmicerturok@gmail.com >, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 12:31+0200\n"
-"PO-Revision-Date: 2018-06-23 18:29+0000\n"
+"PO-Revision-Date: 2019-01-16 08:50+0000\n"
 "Last-Translator: Zmicer Turok <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +39,7 @@ msgstr "Невядомая памылка."
 
 #: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "Прылада Linux  ‘/proc/net/dev’ не знойдзена."
+msgstr "Прылада Linux  ‘/proc/net/dev’ не знойдзеная."
 
 #: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
@@ -133,7 +134,7 @@ msgstr "Значэнні"
 
 #: ../panel-plugin/netload.c:1188
 msgid "Bars and values"
-msgstr "Радкі і згачэнні"
+msgstr "Радкі і значэнні"
 
 #: ../panel-plugin/netload.c:1230
 msgid "_Colorize values"
