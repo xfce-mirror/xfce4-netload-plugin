@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Daniel Muñiz Fontoira <dani@damufo.com>, 2018
+# Daniel Muñiz Fontoira <dani@damufo.com>, 2018-2019
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2006,2008-2009
 # Xosé, 2018
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 12:31+0200\n"
-"PO-Revision-Date: 2018-08-03 11:21+0000\n"
+"PO-Revision-Date: 2019-08-02 09:07+0000\n"
 "Last-Translator: Daniel Muñiz Fontoira <dani@damufo.com>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -55,7 +55,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr "<< %s >> (%s)\nMedia das últimas %d  medicións cun intervalo de %.2f s:\nRecibidos:%s\nEnviados:%s\nTotal: %s"
+msgstr "<< %s >> (%s)\nMedia das últimas %d  medicións cun intervalo de %.2f s:\nEntrante:%s\nSaínte:%s\nTotal: %s"
 
 #: ../panel-plugin/netload.c:258
 msgid "no IP address"
@@ -90,7 +90,7 @@ msgstr "Monitor de rede"
 
 #: ../panel-plugin/netload.c:1019
 msgid "_Text to display:"
-msgstr "_Texto a mostrar:"
+msgstr "_Texto a amosar:"
 
 #: ../panel-plugin/netload.c:1050
 msgid "Network _device:"
@@ -106,7 +106,7 @@ msgstr "s"
 
 #: ../panel-plugin/netload.c:1104
 msgid "Show values as _bits"
-msgstr "Mostrar os valores como _bits"
+msgstr "Amosar os valores como _bits"
 
 #: ../panel-plugin/netload.c:1118
 msgid "_Automatic maximum"
@@ -138,7 +138,7 @@ msgstr "_Colorear os valores"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr "Mostrar o tráfico de rede"
+msgstr "Amosar o tráfico de rede"
 
 #: ../panel-plugin/utils.c:78
 msgid "B"
