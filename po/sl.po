@@ -1,0 +1,171 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Arnold Marko <arnold.marko@gmail.com>, 2019
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-09 12:31+0200\n"
+"PO-Revision-Date: 2019-11-07 20:36+0000\n"
+"Last-Translator: Arnold Marko <arnold.marko@gmail.com>\n"
+"Language-Team: Slovenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. Defaults
+#: ../panel-plugin/netload.c:42
+msgid "Net"
+msgstr "Mreža"
+
+#: ../panel-plugin/netload.c:61
+msgid "Xfce4-Netload-Plugin"
+msgstr "Xfce4-Netload-vtičnik"
+
+#: ../panel-plugin/netload.c:64
+msgid "Unknown error."
+msgstr "Neznana napaka."
+
+#: ../panel-plugin/netload.c:65
+msgid "Linux proc device '/proc/net/dev' not found."
+msgstr "Linux proc naprava '/proc/net/dev' ni bila najdena."
+
+#: ../panel-plugin/netload.c:66
+msgid "Interface was not found."
+msgstr "Vemsnik ni bil najden"
+
+#: ../panel-plugin/netload.c:168
+#, c-format
+msgid "<< %s >> (Interface down)"
+msgstr "<< %s >> (nedelujoč vmesnik)"
+
+#: ../panel-plugin/netload.c:255
+#, c-format
+msgid ""
+"<< %s >> (%s)\n"
+"Average of last %d measures\n"
+"with an interval of %.2fs:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
+msgstr "<< %s >> (%s)\nPovprečje zadnjih %d meritev\nz intervalom %.2fs:\nVhod: %s\nIzhod: %s\nSkupaj: %s"
+
+#: ../panel-plugin/netload.c:258
+msgid "no IP address"
+msgstr "in IP naslova"
+
+#: ../panel-plugin/netload.c:642
+#, c-format
+msgid ""
+"%s: Error in initializing:\n"
+"%s"
+msgstr "%s: Napak pri inicializaciji:\n%s"
+
+#: ../panel-plugin/netload.c:980
+msgid "Bar color (i_ncoming):"
+msgstr "Barva stolpca (_vhod)"
+
+#: ../panel-plugin/netload.c:981
+msgid "Bar color (_outgoing):"
+msgstr "Barva stolpca (izh_od)"
+
+#: ../panel-plugin/netload.c:984
+msgid "Maximum (inco_ming):"
+msgstr "Maksimalno (_vhod):"
+
+#: ../panel-plugin/netload.c:985
+msgid "Maximum (o_utgoing):"
+msgstr "Maksimalno (i_zhod):"
+
+#: ../panel-plugin/netload.c:990 ../panel-plugin/netload.desktop.in.in.h:1
+msgid "Network Monitor"
+msgstr "Prikazovalnik omrežja"
+
+#: ../panel-plugin/netload.c:1019
+msgid "_Text to display:"
+msgstr "_Tekst za prikaz:"
+
+#: ../panel-plugin/netload.c:1050
+msgid "Network _device:"
+msgstr "Omrežna _naprava:"
+
+#: ../panel-plugin/netload.c:1077
+msgid "Update _interval:"
+msgstr "Osvežitveni _interval:"
+
+#: ../panel-plugin/netload.c:1090
+msgid "s"
+msgstr "s"
+
+#: ../panel-plugin/netload.c:1104
+msgid "Show values as _bits"
+msgstr "Prikaži vrednost kot _bite"
+
+#: ../panel-plugin/netload.c:1118
+msgid "_Automatic maximum"
+msgstr "S_amodejni maksimum"
+
+#: ../panel-plugin/netload.c:1152
+msgid "KiB/s"
+msgstr "KiB/s"
+
+#: ../panel-plugin/netload.c:1177
+msgid "_Present data as:"
+msgstr "_Predstavi podatke kot:"
+
+#: ../panel-plugin/netload.c:1186
+msgid "Bars"
+msgstr "Stolpce"
+
+#: ../panel-plugin/netload.c:1187
+msgid "Values"
+msgstr "Vrenosti"
+
+#: ../panel-plugin/netload.c:1188
+msgid "Bars and values"
+msgstr "Stolpce in vrednosti"
+
+#: ../panel-plugin/netload.c:1230
+msgid "_Colorize values"
+msgstr "O_barvaj vrednosti"
+
+#: ../panel-plugin/netload.desktop.in.in.h:2
+msgid "Show network traffic"
+msgstr "Prikaži omrežni promet"
+
+#: ../panel-plugin/utils.c:78
+msgid "B"
+msgstr "B"
+
+#: ../panel-plugin/utils.c:78
+msgid "KiB"
+msgstr "KiB"
+
+#: ../panel-plugin/utils.c:78
+msgid "MiB"
+msgstr "MiB"
+
+#: ../panel-plugin/utils.c:78
+msgid "GiB"
+msgstr "GiB"
+
+#: ../panel-plugin/utils.c:79
+msgid "bps"
+msgstr "b/s"
+
+#: ../panel-plugin/utils.c:79
+msgid "Kbps"
+msgstr "Kb/s"
+
+#: ../panel-plugin/utils.c:79
+msgid "Mbps"
+msgstr "Mb/s"
+
+#: ../panel-plugin/utils.c:79
+msgid "Gbps"
+msgstr "Gb/s"
