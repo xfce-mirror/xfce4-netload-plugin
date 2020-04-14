@@ -5,7 +5,7 @@
 # Translators:
 # Daniel Nylander <po@danielnylander.se>, 2006,2008
 # Påvel Nicklasson <pavel@frimix.se>, 2015
-# peterdenk <peter@skypay.se>, 2014
+# peterdenk <peter.denk@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
