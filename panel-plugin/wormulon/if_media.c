@@ -36,7 +36,11 @@ int get_if_speed (char *ifstring)
     int speed=ERR_IFACE_NO_SPEED;
     int s; /* socket */
     struct ifmediareq ifmr;
+#if defined(__OpenBSD__)
+    uint64_t *media_list;
+#else
     int *media_list;
+#endif
     int type, physical;
 
     if ((s = socket(AF_INET, SOCK_DGRAM, 0)) == NULL)
@@ -60,7 +64,7 @@ int get_if_speed (char *ifstring)
         return ERR_IFACE_NO_SPEED;
     }
 
-    media_list = (int *)malloc(ifmr.ifm_count * sizeof(int));
+    media_list = malloc(ifmr.ifm_count * sizeof(*media_list));
     if (media_list == NULL)
         fprintf(stderr, "malloc() error in if_media.c\n");
     ifmr.ifm_ulist = media_list;
