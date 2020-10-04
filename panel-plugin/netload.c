@@ -109,7 +109,7 @@ typedef struct
     GtkWidget *update_spinner;
     
     /* Network device */
-    GtkWidget *net_entry;
+    GtkWidget *net_combo;
     
     /* Maximum */
     GtkWidget *max_use_label;
@@ -791,7 +791,7 @@ static void monitor_apply_options(t_global_monitor *global)
         g_free(global->monitor->options.network_device);
     }
     global->monitor->options.network_device =
-        g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->net_entry)));
+        gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(global->monitor->net_combo));
     
     for( i = 0; i < SUM; i++ )
     {
@@ -836,22 +836,6 @@ static void max_label_changed(GtkWidget *button, t_global_monitor *global)
 
     setup_monitor(global, FALSE);
     DBG("max_label_changed");
-}
-
-
-/* ---------------------------------------------------------------------------------------------- */
-static void network_changed(GtkWidget *button, t_global_monitor *global)
-{
-    if (global->monitor->options.network_device)
-    {
-        g_free(global->monitor->options.network_device);
-    }
-
-    global->monitor->options.network_device =
-        g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->net_entry)));
-
-    setup_monitor(global, FALSE);
-    DBG("network_changed");
 }
 
 
@@ -963,6 +947,48 @@ monitor_dialog_response (GtkWidget *dlg, int response, t_global_monitor *global)
     monitor_write_config (global->plugin, global);
 }
 
+static gboolean add_interface(const gchar *name, gpointer ignore, t_global_monitor *global)
+{
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(global->monitor->net_combo), name);
+    if (!strcmp(name, global->monitor->options.network_device)) {
+        GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(global->monitor->net_combo));
+        gint n_items = gtk_tree_model_iter_n_children(model, NULL);
+        gtk_combo_box_set_active(GTK_COMBO_BOX(global->monitor->net_combo), n_items - 1);
+    }
+
+    return FALSE;
+}
+
+static gint monitor_populate_interface_list(t_global_monitor *global)
+{
+    gint   count = 0;
+#if defined(__linux__) || defined(__OpenBSD__) || defined(__FreeBSD__) || defined(__NetBSD__)
+    struct ifaddrs *ifaces = NULL;
+
+    if (getifaddrs(&ifaces) == 0)
+    {
+        GTree *found_ifaces = g_tree_new((GCompareFunc) strcmp);
+
+        for (struct ifaddrs *iface = ifaces; iface != NULL; iface = iface->ifa_next)
+        {
+            if (iface->ifa_name != NULL && g_tree_lookup(found_ifaces, iface->ifa_name) == NULL)
+            {
+                DBG("Found interface: %s", start);
+                g_tree_insert(found_ifaces, iface->ifa_name, GUINT_TO_POINTER(TRUE));
+                ++count;
+            }
+        }
+
+        g_tree_foreach(found_ifaces, (GTraverseFunc) add_interface, global);
+
+        g_tree_unref(found_ifaces);
+        freeifaddrs(ifaces);
+    }
+#endif /* __linux__ || __OpenBSD__ || __FreeBSD__ || __NetBSD__ */
+
+    return count;
+}
+
 static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
     GtkWidget        *dlg;
@@ -975,7 +1001,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     GtkWidget        *color_label[SUM];
     gint             present_data_active;
     GtkSizeGroup     *sg;
-    gint             i;
+    gint             i, n_interfaces;
     gchar            buffer[BUFSIZ];
     gchar            *color_text[] = { 
                         N_("Bar color (i_ncoming):"), 
@@ -1055,18 +1081,21 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_box_pack_start(GTK_BOX(net_hbox), GTK_WIDGET(device_label),
                        FALSE, FALSE, 0);
 
-    global->monitor->net_entry = gtk_entry_new();
+    global->monitor->net_combo = gtk_combo_box_text_new_with_entry();
+    n_interfaces = monitor_populate_interface_list(global);
     gtk_label_set_mnemonic_widget(GTK_LABEL(device_label),
-                                  global->monitor->net_entry);
-    gtk_entry_set_max_length(GTK_ENTRY(global->monitor->net_entry),
-                             MAX_LENGTH);
-    gtk_entry_set_text(GTK_ENTRY(global->monitor->net_entry),
-                       global->monitor->options.network_device);
-    gtk_widget_show(global->monitor->opt_entry);
-
-    gtk_box_pack_start(GTK_BOX(net_hbox), GTK_WIDGET(global->monitor->net_entry),
+                                  global->monitor->net_combo);
+    if (gtk_combo_box_get_active(GTK_COMBO_BOX(global->monitor->net_combo)) == -1 &&
+        global->monitor->options.network_device[0] != '\0')
+    {
+        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(global->monitor->net_combo),
+                                       global->monitor->options.network_device);
+        gtk_combo_box_set_active(GTK_COMBO_BOX(global->monitor->net_combo), n_interfaces);
+    }
+    gtk_widget_show(global->monitor->net_combo);
+    gtk_box_pack_start(GTK_BOX(net_hbox), GTK_WIDGET(global->monitor->net_combo),
                        FALSE, FALSE, 0);
-    
+
     gtk_size_group_add_widget(sg, device_label);
 
     gtk_widget_show_all(GTK_WIDGET(net_hbox));
@@ -1267,8 +1296,6 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
             G_CALLBACK(label_changed), global);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_present_data_combobox), "changed",
             G_CALLBACK(present_data_combobox_changed), global);
-    g_signal_connect(GTK_WIDGET(global->monitor->net_entry), "activate",
-            G_CALLBACK(network_changed), global);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_as_bits), "toggled",
             G_CALLBACK(as_bits_toggled), global);
 
