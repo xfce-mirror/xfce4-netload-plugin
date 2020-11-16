@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Emin Tufan <etcetin@gmail.com>, 2020
 # Jeff Bailes <thepizzaking@gmail.com>, 2007
 # Natavan Mirzayeva <mirzayevanatavan@gmail.com>, 2014
 # Necdet Yücel <necdetyucel@gmail.com>, 2013-2014,2017
@@ -11,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 12:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
-"Last-Translator: Necdet Yücel <necdetyucel@gmail.com>\n"
+"PO-Revision-Date: 2020-11-16 01:43+0000\n"
+"Last-Translator: Emin Tufan <etcetin@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/xfce/xfce-panel-plugins/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +28,7 @@ msgstr "Ağ"
 
 #: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
-msgstr "Xfce4-Ağ Trafiği-Eklentisi"
+msgstr "Xfce4 Ağ Trafiği Eklentisi"
 
 #: ../panel-plugin/netload.c:64
 msgid "Unknown error."
@@ -35,7 +36,7 @@ msgstr "Bilinmeyen hata."
 
 #: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "Linux proc device '/proc/net/dev' bulunamadı."
+msgstr "Linux proc aygıtı '/proc/net/dev' bulunamadı."
 
 #: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
@@ -55,11 +56,11 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr "<< %s >> (%s)\nSon %d ölçümün ortalaması\n%.2fs aralığı ile:\nGelen: %s\nGiden: %s\nToplam: %s"
+msgstr "<< %s >> (%s)\nSon %d ölçümün ortalaması\n%.2fs aralık ile:\nGelen: %s\nGiden: %s\nToplam: %s"
 
 #: ../panel-plugin/netload.c:258
 msgid "no IP address"
-msgstr "IP adres yok"
+msgstr "IP adresi yok"
 
 #: ../panel-plugin/netload.c:642
 #, c-format
@@ -70,39 +71,39 @@ msgstr "%s: Başlatılırken hata:\n%s"
 
 #: ../panel-plugin/netload.c:980
 msgid "Bar color (i_ncoming):"
-msgstr "Çubuk rengi (indirme):"
+msgstr "Çubuk rengi (_gelen):"
 
 #: ../panel-plugin/netload.c:981
 msgid "Bar color (_outgoing):"
-msgstr "Çubuk rengi (gönderme):"
+msgstr "Çubuk rengi (g_iden):"
 
 #: ../panel-plugin/netload.c:984
 msgid "Maximum (inco_ming):"
-msgstr "En yüksek hız (indirme):"
+msgstr "En yüksek hız (g_elen):"
 
 #: ../panel-plugin/netload.c:985
 msgid "Maximum (o_utgoing):"
-msgstr "En yüksek hız (gönderme):"
+msgstr "En yüksek hız (gi_den):"
 
 #: ../panel-plugin/netload.c:990 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
-msgstr "Ağ ekranı"
+msgstr "Ağ Gözlemcisi"
 
 #: ../panel-plugin/netload.c:1019
 msgid "_Text to display:"
-msgstr "İsim göster:"
+msgstr "Gösterilecek _metin:"
 
 #: ../panel-plugin/netload.c:1050
 msgid "Network _device:"
-msgstr "Ağ donanımı: (ör: eth0)"
+msgstr "Ağ _aygıtı:"
 
 #: ../panel-plugin/netload.c:1077
 msgid "Update _interval:"
-msgstr "Güncelleme süresi:"
+msgstr "Güncelleme _aralığı:"
 
 #: ../panel-plugin/netload.c:1090
 msgid "s"
-msgstr "s"
+msgstr "sn"
 
 #: ../panel-plugin/netload.c:1104
 msgid "Show values as _bits"
@@ -110,7 +111,7 @@ msgstr "Değerleri _bit olarak görüntüle"
 
 #: ../panel-plugin/netload.c:1118
 msgid "_Automatic maximum"
-msgstr "_Otomatik maksimum"
+msgstr "_Kendiliğinden azami"
 
 #: ../panel-plugin/netload.c:1152
 msgid "KiB/s"
@@ -118,7 +119,7 @@ msgstr "KiB/s"
 
 #: ../panel-plugin/netload.c:1177
 msgid "_Present data as:"
-msgstr "_Veriyi bu şekilde göster:"
+msgstr "_Veriyi şöyle göster:"
 
 #: ../panel-plugin/netload.c:1186
 msgid "Bars"
@@ -138,7 +139,7 @@ msgstr "Değerleri _renklendir"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr "Ağ trafiğini gösterir"
+msgstr "Ağ trafiğini göster"
 
 #: ../panel-plugin/utils.c:78
 msgid "B"
