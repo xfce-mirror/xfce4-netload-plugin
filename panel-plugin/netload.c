@@ -149,8 +149,9 @@ typedef struct
 
 static void set_progressbar_csscolor(GtkWidget*, GdkRGBA*);
 /* ---------------------------------------------------------------------------------------------- */
-static gboolean update_monitors(t_global_monitor *global)
+static gboolean update_monitors(gpointer user_data)
 {
+   t_global_monitor *global = user_data;
     char buffer[SUM+1][BUFSIZ];
     char buffer_panel[SUM][BUFSIZ];
     gchar caption[BUFSIZ];
@@ -284,8 +285,7 @@ static void run_update (t_global_monitor *global)
 
     if (global->monitor->options.update_interval > 0)
     {
-        global->timeout_id =  g_timeout_add( global->monitor->options.update_interval, 
-            (GSourceFunc)update_monitors, global);
+        global->timeout_id = g_timeout_add(global->monitor->options.update_interval, update_monitors, global);
     }
 }
 
