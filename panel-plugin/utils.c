@@ -34,6 +34,7 @@
 #define BUFSIZ 512
 #endif
 
+#include "utils.h"
 /* ---------------------------------------------------------------------------------------------- */
 unsigned long min_array( unsigned long array[], int size )
 {
