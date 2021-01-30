@@ -11,7 +11,7 @@ m4_define([netload_version],[1.3.2])
 
 AC_INIT([xfce4-netload-plugin], [netload_version],
 	[xfce-dev@xfce.org])
-AM_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIRS([m4])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
