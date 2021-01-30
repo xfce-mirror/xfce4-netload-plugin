@@ -180,7 +180,7 @@ static gboolean update_monitors(t_global_monitor *global)
         /* correct value to be from 1 ... 100 */
         global->monitor->history[i][0] = net[i];
 
-        if (global->monitor->history[i][0] < 0)
+        if ((gint) global->monitor->history[i][0] < 0)
         {
             global->monitor->history[i][0] = 0;
         }
