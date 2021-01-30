@@ -10,6 +10,7 @@ autom4te.cache/
 config.*
 configure
 configure.ac
+compile
 depcomp
 install-sh
 intltool-extract.in
@@ -17,12 +18,13 @@ intltool-merge.in
 intltool-update.in
 libtool
 ltmain.sh
+m4/
 missing
 mkinstalldirs
 panel-plugin/*.desktop
 panel-plugin/*.desktop.in
 po/*.gmo
-po/.intltool-merge-cache
+po/.intltool-merge-cache*
 po/stamp-it
 po/Makefile.in.in
 po/POTFILES
