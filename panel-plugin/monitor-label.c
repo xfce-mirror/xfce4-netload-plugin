@@ -38,8 +38,6 @@ struct _XnlpMonitorLabel
 
 G_DEFINE_TYPE (XnlpMonitorLabel, xnlp_monitor_label, GTK_TYPE_LABEL)
 
-static void     xnlp_monitor_label_constructed          (GObject *object);
-
 static void     cb_label_changed                        (GObject *object,
                                                          GParamSpec *pspec,
                                                          gpointer user_data);
@@ -49,7 +47,6 @@ static void     cb_label_changed                        (GObject *object,
 static void
 xnlp_monitor_label_class_init (XnlpMonitorLabelClass *klass)
 {
-        GObjectClass *class = G_OBJECT_CLASS (klass);
         xnlp_monitor_label_parent_class = g_type_class_peek_parent (klass);
 }
 

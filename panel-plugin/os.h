@@ -50,7 +50,7 @@
 #  include <sys/mib.h>
 #  include <arpa/inet.h>
 #  include <net/if.h>
-#elif __APPLE__             /* Mac OS X */
+#elif defined (__APPLE__)             /* Mac OS X */
 #  include <stdio.h>
 #  include <stdlib.h>
 #  include <stdarg.h>
@@ -76,7 +76,7 @@
 #  include <net/if_media.h>
 #  include <net/if_mib.h>
 #  include <arpa/inet.h>
-#elif __DragonFly__           /* D R A G O N F L Y */
+#elif defined (__DragonFly__)           /* D R A G O N F L Y */
 #  include <stdio.h>
 #  include <stdlib.h>
 #  include <stdarg.h>
@@ -98,7 +98,7 @@
 #  include <net/if_media.h>
 #  include <net/if_mib.h>
 #  include <arpa/inet.h>
-#elif __FreeBSD__ || __FreeBSD_kernel__           /* F R E E B S D */
+#elif defined (__FreeBSD__) || defined (__FreeBSD_kernel__)           /* F R E E B S D */
 #  include <stdio.h>
 #  include <stdlib.h>
 #  include <stdarg.h>
@@ -121,7 +121,7 @@
 #  include <net/if_mib.h>
 #  include <arpa/inet.h>
 #  include <ifaddrs.h>
-#elif __NetBSD__            /* N E T B S D */
+#elif defined (__NetBSD__)            /* N E T B S D */
 #  include <stdio.h>
 #  include <sys/param.h>
 #  include <sys/sysctl.h>
@@ -146,7 +146,7 @@
 #  include <arpa/inet.h>
 #  include <net/if.h>
 #  include <ifaddrs.h>
-#elif __OpenBSD__ || __MicroBSD__           /* O P E N B S D */
+#elif defined (__OpenBSD__) || defined (__MicroBSD__)           /* O P E N B S D */
 #  include <stdio.h>
 #  include <sys/param.h>
 #  include <sys/sysctl.h>
@@ -170,7 +170,7 @@
 #  include <net/route.h>
 #  include <arpa/inet.h>
 #  include <ifaddrs.h>
-#elif __linux__             /* L I N U X */
+#elif defined (__linux__)             /* L I N U X */
 #  include <stdio.h>
 #  include <sys/param.h>
 #  include <stdlib.h>
@@ -190,7 +190,7 @@
 #  include <net/if.h>
 #  include <arpa/inet.h>
 #  include <ifaddrs.h>
-#elif __Solaris__           /* S O L A R I S */
+#elif defined (__Solaris__)           /* S O L A R I S */
 #  include <stdio.h>
 #  define _WIDEC_H
 #  include <sys/param.h>
