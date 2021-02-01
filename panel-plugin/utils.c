@@ -30,6 +30,8 @@
 #include <config.h>
 #endif
 
+#include "utils.h"
+
 #ifndef BUFSIZ
 #define BUFSIZ 512
 #endif
@@ -119,7 +121,7 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     
     /* get the number of integer characters */
     count = numberOfIntegerChars = ( digits > 0
-                        ? ( strstr( buffer, localeinfo->decimal_point ) - buffer )
+                        ? (unsigned int)( strstr( buffer, localeinfo->decimal_point ) - buffer )
                         :   strlen( buffer ) );
     
     

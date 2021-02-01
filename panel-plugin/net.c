@@ -178,7 +178,6 @@ int get_interface_up(netdata* data)
 {
     int sockfd;
     struct ifreq ifr;
-    struct sockaddr_in *p_sa;
         
     /* if the update count is non-zero */ 
     if (data->up_update_count > 0)
@@ -194,7 +193,7 @@ int get_interface_up(netdata* data)
         return FALSE;
     }
     
-    snprintf(ifr.ifr_name, IF_NAMESIZE, "%s", data->ifdata.if_name);
+    g_snprintf(ifr.ifr_name, IF_NAMESIZE, "%s", data->ifdata.if_name);
     if (ioctl(sockfd, SIOCGIFFLAGS, &ifr) != 0)
     {
         DBG("Error in ioctl(sockfd): %s", strerror(errno));
@@ -231,7 +230,7 @@ char* get_ip_address(netdata* data)
         return NULL;
     }
     
-    snprintf(ifr.ifr_name, IF_NAMESIZE, "%s", data->ifdata.if_name);
+    g_snprintf(ifr.ifr_name, IF_NAMESIZE, "%s", data->ifdata.if_name);
     if (ioctl(sockfd, SIOCGIFADDR, &ifr) != 0)
     {
 	    if (errno != EADDRNOTAVAIL)
