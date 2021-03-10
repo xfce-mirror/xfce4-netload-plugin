@@ -1,4 +1,4 @@
-SUBDIRS = 24x24 48x48 scalable
+SUBDIRS = 16x16 32x32 128x128 scalable
 
 gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor
 
@@ -15,4 +15,3 @@ install-data-hook:
 
 uninstall-local:
 	-rm $(datadir)/icons/hicolor/icon-theme.cache
-

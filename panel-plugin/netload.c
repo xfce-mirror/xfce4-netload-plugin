@@ -538,11 +538,11 @@ static void set_progressbar_csscolor(GtkWidget* pbar, GdkRGBA* color)
 {
     gchar * css;
 #if GTK_CHECK_VERSION (3, 20, 0)
-    css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; }",
+    css = g_strdup_printf("progressbar progress { background-color: %s; border-color: %s; background-image: none; }",
 #else
-    css = g_strdup_printf(".progressbar progress { background-color: %s; background-image: none; }",
+    css = g_strdup_printf(".progressbar progress { background-color: %s; border-color: %s; background-image: none; }",
 #endif
-                          gdk_rgba_to_string(color));
+                          gdk_rgba_to_string(color), gdk_rgba_to_string(color));
     DBG("setting pbar css to %s", css);
     gtk_css_provider_load_from_data (g_object_get_data(G_OBJECT(pbar),"css_provider"), css, strlen(css), NULL);
     g_free(css);
@@ -940,11 +940,36 @@ static void change_color_out(GtkWidget *button, t_global_monitor *global)
 static void
 monitor_dialog_response (GtkWidget *dlg, int response, t_global_monitor *global)
 {
+    if (response == GTK_RESPONSE_HELP) {
+        xfce_dialog_show_help (GTK_WINDOW (dlg), PACKAGE_VERSION, NULL, NULL);
+    }
+    else {
+        monitor_apply_options (global);
+        gtk_widget_destroy (dlg);
+        xfce_panel_plugin_unblock_menu (global->plugin);
+        monitor_write_config (global->plugin, global);
+    }
+}
 
-    monitor_apply_options (global);
-    gtk_widget_destroy (dlg);
-    xfce_panel_plugin_unblock_menu (global->plugin);
-    monitor_write_config (global->plugin, global);
+static void
+monitor_show_about (XfcePanelPlugin *plugin, t_global_monitor *global)
+{
+    const gchar *auth[] = {
+      "Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>",
+      "Bernhard Walle <bernhard.walle@gmx.de>",
+      "Hendrik Scholz <hscholz@raisdorf.net> (Wormulon code base)",
+      "Florian Rivoal <frivoal@xfce.org>",
+      "Simon Steinbeiß <simon@xfce.org>", NULL };
+
+    gtk_show_about_dialog (NULL,
+      "logo-icon-name", "org.xfce.panel.netload",
+      "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
+      "version", PACKAGE_VERSION,
+      "program-name", PACKAGE_NAME,
+      "comments", _("Monitor CPU load, swap usage and memory footprint"),
+      "website", "https://docs.xfce.org/panel-plugins/xfce4-netload-plugin/start",
+      "copyright", _("Copyright (c) 2003-2021\n"),
+      "authors", auth, NULL);
 }
 
 static gboolean add_interface(const gchar *name, gpointer ignore, t_global_monitor *global)
@@ -1003,35 +1028,36 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     GtkSizeGroup     *sg;
     gint             i, n_interfaces;
     gchar            buffer[BUFSIZ];
-    gchar            *color_text[] = { 
-                        N_("Bar color (i_ncoming):"), 
-                        N_("Bar color (_outgoing):") 
+    gchar            *color_text[] = {
+                        N_("Bar color (i_ncoming):"),
+                        N_("Bar color (_outgoing):")
                      };
     gchar            *maximum_text_label[] = {
                         N_("Maximum (inco_ming):"),
                         N_("Maximum (o_utgoing):")
                      };
-    
+
     xfce_panel_plugin_block_menu (plugin);
-    
-    dlg = xfce_titled_dialog_new_with_buttons (_("Network Monitor"), NULL,
-                                               GTK_DIALOG_DESTROY_WITH_PARENT,
-                                               "gtk-close", GTK_RESPONSE_OK,
-                                               NULL);
-    
-    gtk_window_set_icon_name (GTK_WINDOW (dlg), "xfce4-settings");
+
+    dlg = xfce_titled_dialog_new_with_mixed_buttons (_("Network Monitor"), NULL,
+                                                     GTK_DIALOG_DESTROY_WITH_PARENT,
+                                                     "window-close-symbolic", _("_Close"), GTK_RESPONSE_OK,
+                                                     "help-browser", _("_Help"), GTK_RESPONSE_HELP,
+                                                     NULL);
+
+    gtk_window_set_icon_name (GTK_WINDOW (dlg), "org.xfce.panel.netload");
     g_signal_connect (dlg, "response", G_CALLBACK (monitor_dialog_response),
                       global);
 
     global->opt_dialog = dlg;
-    
+
     global_vbox = GTK_BOX (gtk_box_new(GTK_ORIENTATION_VERTICAL, 6));
     gtk_container_set_border_width (GTK_CONTAINER (global_vbox), 12);
     gtk_widget_show(GTK_WIDGET (global_vbox));
     gtk_box_pack_start(GTK_BOX (gtk_dialog_get_content_area(GTK_DIALOG(dlg))), GTK_WIDGET (global_vbox), TRUE, TRUE, 0);
-    
+
     sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
-    
+
     vbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 6));
     gtk_widget_show(GTK_WIDGET(vbox));
 
@@ -1313,20 +1339,23 @@ static void netload_construct (XfcePanelPlugin *plugin)
     global = monitor_new(plugin);
 
     monitor_read_config (plugin, global);
-    
+
     g_signal_connect (plugin, "free-data", G_CALLBACK (monitor_free), global);
-    
+
     g_signal_connect (plugin, "save", G_CALLBACK (monitor_write_config), global);
-    
+
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin", G_CALLBACK (monitor_create_options), global);
-    
+
+    xfce_panel_plugin_menu_show_about (plugin);
+    g_signal_connect (plugin, "about", G_CALLBACK (monitor_show_about), global);
+
     g_signal_connect (plugin, "size-changed", G_CALLBACK (monitor_set_size), global);
-    
+
     g_signal_connect (plugin, "mode-changed", G_CALLBACK (monitor_set_mode), global);
-    
+
     gtk_container_add(GTK_CONTAINER(plugin), global->ebox);
-    
+
     run_update( global );
 }
 
