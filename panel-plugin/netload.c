@@ -940,6 +940,16 @@ static void change_color_out(GtkWidget *button, t_global_monitor *global)
 static void
 monitor_dialog_response (GtkWidget *dlg, int response, t_global_monitor *global)
 {
+    if (response == GTK_RESPONSE_HELP) {
+        xfce_dialog_show_help (GTK_WINDOW (dlg), PACKAGE_VERSION, NULL, NULL);
+    }
+    else {
+        monitor_apply_options (global);
+        gtk_widget_destroy (dlg);
+        xfce_panel_plugin_unblock_menu (global->plugin);
+        monitor_write_config (global->plugin, global);
+    }
+}
 
     monitor_apply_options (global);
     gtk_widget_destroy (dlg);
@@ -1003,35 +1013,36 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     GtkSizeGroup     *sg;
     gint             i, n_interfaces;
     gchar            buffer[BUFSIZ];
-    gchar            *color_text[] = { 
-                        N_("Bar color (i_ncoming):"), 
-                        N_("Bar color (_outgoing):") 
+    gchar            *color_text[] = {
+                        N_("Bar color (i_ncoming):"),
+                        N_("Bar color (_outgoing):")
                      };
     gchar            *maximum_text_label[] = {
                         N_("Maximum (inco_ming):"),
                         N_("Maximum (o_utgoing):")
                      };
-    
+
     xfce_panel_plugin_block_menu (plugin);
-    
-    dlg = xfce_titled_dialog_new_with_buttons (_("Network Monitor"), NULL,
-                                               GTK_DIALOG_DESTROY_WITH_PARENT,
-                                               "gtk-close", GTK_RESPONSE_OK,
-                                               NULL);
-    
-    gtk_window_set_icon_name (GTK_WINDOW (dlg), "xfce4-settings");
+
+    dlg = xfce_titled_dialog_new_with_mixed_buttons (_("Network Monitor"), NULL,
+                                                     GTK_DIALOG_DESTROY_WITH_PARENT,
+                                                     "window-close-symbolic", _("_Close"), GTK_RESPONSE_OK,
+                                                     "help-browser", _("_Help"), GTK_RESPONSE_HELP,
+                                                     NULL);
+
+    gtk_window_set_icon_name (GTK_WINDOW (dlg), "org.xfce.panel.netload");
     g_signal_connect (dlg, "response", G_CALLBACK (monitor_dialog_response),
                       global);
 
     global->opt_dialog = dlg;
-    
+
     global_vbox = GTK_BOX (gtk_box_new(GTK_ORIENTATION_VERTICAL, 6));
     gtk_container_set_border_width (GTK_CONTAINER (global_vbox), 12);
     gtk_widget_show(GTK_WIDGET (global_vbox));
     gtk_box_pack_start(GTK_BOX (gtk_dialog_get_content_area(GTK_DIALOG(dlg))), GTK_WIDGET (global_vbox), TRUE, TRUE, 0);
-    
+
     sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
-    
+
     vbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 6));
     gtk_widget_show(GTK_WIDGET(vbox));
 
