@@ -7,7 +7,17 @@ dnl Copyright 2010 Florian Rivoal <frivoal@xfce.org>
 dnl Copyright 2014 Mike Massonnet <mmassonnet@xfce.org>
 dnl
 
-m4_define([netload_version],[1.3.2])
+dnl ***************************
+dnl *** Version information ***
+dnl ***************************
+m4_define([netload_version_major], [1])
+m4_define([netload_version_minor], [3])
+m4_define([netload_version_micro], [2])
+m4_define([netload_version_build], [@REVISION@])
+m4_define([netload_version_tag], [git])
+m4_define([netload_version], [netload_version_major().netload_version_minor().netload_version_micro()ifelse(netload_version_tag(), [git], [netload_version_tag()-netload_version_build()], [netload_version_tag()])])
+
+m4_define([netload_debug_default], [ifelse(netload_version_tag(), [git], [yes], [minimum])])
 
 AC_INIT([xfce4-netload-plugin], [netload_version],
 	[xfce-dev@xfce.org])
