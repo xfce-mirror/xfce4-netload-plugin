@@ -951,10 +951,25 @@ monitor_dialog_response (GtkWidget *dlg, int response, t_global_monitor *global)
     }
 }
 
-    monitor_apply_options (global);
-    gtk_widget_destroy (dlg);
-    xfce_panel_plugin_unblock_menu (global->plugin);
-    monitor_write_config (global->plugin, global);
+static void
+monitor_show_about (XfcePanelPlugin *plugin, t_global_monitor *global)
+{
+    const gchar *auth[] = {
+      "Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>",
+      "Bernhard Walle <bernhard.walle@gmx.de>",
+      "Hendrik Scholz <hscholz@raisdorf.net> (Wormulon code base)",
+      "Florian Rivoal <frivoal@xfce.org>",
+      "Simon Steinbeiß <simon@xfce.org>", NULL };
+
+    gtk_show_about_dialog (NULL,
+      "logo-icon-name", "org.xfce.panel.netload",
+      "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
+      "version", PACKAGE_VERSION,
+      "program-name", PACKAGE_NAME,
+      "comments", _("Monitor CPU load, swap usage and memory footprint"),
+      "website", "https://docs.xfce.org/panel-plugins/xfce4-netload-plugin/start",
+      "copyright", _("Copyright (c) 2003-2021\n"),
+      "authors", auth, NULL);
 }
 
 static gboolean add_interface(const gchar *name, gpointer ignore, t_global_monitor *global)
@@ -1324,20 +1339,23 @@ static void netload_construct (XfcePanelPlugin *plugin)
     global = monitor_new(plugin);
 
     monitor_read_config (plugin, global);
-    
+
     g_signal_connect (plugin, "free-data", G_CALLBACK (monitor_free), global);
-    
+
     g_signal_connect (plugin, "save", G_CALLBACK (monitor_write_config), global);
-    
+
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin", G_CALLBACK (monitor_create_options), global);
-    
+
+    xfce_panel_plugin_menu_show_about (plugin);
+    g_signal_connect (plugin, "about", G_CALLBACK (monitor_show_about), global);
+
     g_signal_connect (plugin, "size-changed", G_CALLBACK (monitor_set_size), global);
-    
+
     g_signal_connect (plugin, "mode-changed", G_CALLBACK (monitor_set_mode), global);
-    
+
     gtk_container_add(GTK_CONTAINER(plugin), global->ebox);
-    
+
     run_update( global );
 }
 
