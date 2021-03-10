@@ -538,11 +538,11 @@ static void set_progressbar_csscolor(GtkWidget* pbar, GdkRGBA* color)
 {
     gchar * css;
 #if GTK_CHECK_VERSION (3, 20, 0)
-    css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; }",
+    css = g_strdup_printf("progressbar progress { background-color: %s; border-color: %s; background-image: none; }",
 #else
-    css = g_strdup_printf(".progressbar progress { background-color: %s; background-image: none; }",
+    css = g_strdup_printf(".progressbar progress { background-color: %s; border-color: %s; background-image: none; }",
 #endif
-                          gdk_rgba_to_string(color));
+                          gdk_rgba_to_string(color), gdk_rgba_to_string(color));
     DBG("setting pbar css to %s", css);
     gtk_css_provider_load_from_data (g_object_get_data(G_OBJECT(pbar),"css_provider"), css, strlen(css), NULL);
     g_free(css);
