@@ -76,6 +76,7 @@ typedef struct
     gboolean auto_max;
     gulong   max[SUM];
     gint     update_interval;
+    gint     digits;
     GdkRGBA  color[SUM];
     gchar    *label_text;
     gchar    *network_device;
@@ -126,7 +127,10 @@ typedef struct
     GtkWidget *opt_button[SUM];
     GtkWidget *opt_da[SUM];
     GtkWidget *opt_colorize_values;
-    
+
+    /* Digits */
+    GtkBox    *opt_digit_spinner_hbox;
+    GtkWidget *opt_digit_spinner;
 } t_monitor;
 
 
@@ -244,11 +248,11 @@ static gboolean update_monitors(gpointer user_data)
         if (global->monitor->options.show_bars)
             gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor->status[i]), temp);
 
-        format_byte_humanreadable( buffer[i], BUFSIZ - 1, display[i], 2, global->monitor->options.values_as_bits );
-        format_byte_humanreadable( buffer_panel[i], BUFSIZ - 1, display[i], 2, global->monitor->options.values_as_bits );
+        format_byte_humanreadable( buffer[i], BUFSIZ - 1, display[i], global->monitor->options.digits, global->monitor->options.values_as_bits );
+        format_byte_humanreadable( buffer_panel[i], BUFSIZ - 1, display[i], global->monitor->options.digits, global->monitor->options.values_as_bits );
     }
     
-    format_byte_humanreadable( buffer[TOT], BUFSIZ - 1, (display[IN]+display[OUT]), 2, global->monitor->options.values_as_bits );
+    format_byte_humanreadable( buffer[TOT], BUFSIZ - 1, (display[IN]+display[OUT]), global->monitor->options.digits, global->monitor->options.values_as_bits );
     
     {
         char* ip = get_ip_address(&(global->monitor->data));
@@ -720,6 +724,9 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
 
     global->monitor->options.values_as_bits = xfce_rc_read_bool_entry (rc, "Values_As_Bits", FALSE);
 
+    global->monitor->options.digits =
+        xfce_rc_read_int_entry (rc, "Digits", 2);
+
     DBG("monitor_read_config");
     setup_monitor(global, TRUE);
 
@@ -769,6 +776,8 @@ static void monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *glob
 
     xfce_rc_write_bool_entry (rc, "Values_As_Bits", global->monitor->options.values_as_bits);
 
+    xfce_rc_write_int_entry (rc, "Digits", global->monitor->options.digits);
+
     xfce_rc_close (rc);
 }
 
@@ -803,6 +812,9 @@ static void monitor_apply_options(t_global_monitor *global)
         (gint)(gtk_spin_button_get_value( 
             GTK_SPIN_BUTTON(global->monitor->update_spinner) ) * 1000 + 0.5);
     
+    global->monitor->options.digits = (gint)(gtk_spin_button_get_value(
+        GTK_SPIN_BUTTON(global->monitor->opt_digit_spinner)));
+
     setup_monitor(global, FALSE);
     DBG("monitor_apply_options_cb");
 }
@@ -872,6 +884,8 @@ static void present_data_combobox_changed(GtkWidget *combobox, t_global_monitor 
     global->monitor->options.show_values = (option == 1 || option == 2);
     
     gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_colorize_values),
+                             global->monitor->options.show_values);
+    gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_digit_spinner_hbox),
                              global->monitor->options.show_values);
 
     setup_monitor(global, FALSE);
@@ -951,6 +965,15 @@ monitor_dialog_response (GtkWidget *dlg, int response, t_global_monitor *global)
     }
 }
 
+/* ---------------------------------------------------------------------------------------------- */
+static void digits_spinner_changed(GtkWidget *spinner, t_global_monitor *global)
+{
+    global->monitor->options.digits = (gint) gtk_spin_button_get_value(
+                                            GTK_SPIN_BUTTON(global->monitor->opt_digit_spinner));
+    setup_monitor(global, FALSE);
+    DBG("digits spinner changed");
+}
+
 static void
 monitor_show_about (XfcePanelPlugin *plugin, t_global_monitor *global)
 {
@@ -1023,6 +1046,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     GtkBox           *bits_hbox;
     GtkBox           *update_hbox;
     GtkWidget        *update_label, *update_unit_label;
+    GtkWidget        *digit_label;
     GtkWidget        *color_label[SUM];
     gint             present_data_active;
     GtkSizeGroup     *sg;
@@ -1307,6 +1331,30 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_widget_set_valign(GTK_WIDGET(vbox), GTK_ALIGN_START);
 
     gtk_box_pack_start( GTK_BOX(global_vbox), GTK_WIDGET(vbox), FALSE, FALSE, 0);
+
+    /* Number of digits */
+    global->monitor->opt_digit_spinner_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12));
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
+                        GTK_WIDGET(global->monitor->opt_digit_spinner_hbox), FALSE, FALSE, 0);
+
+    digit_label = gtk_label_new_with_mnemonic(_("_Digits number:"));
+    gtk_label_set_xalign (GTK_LABEL (digit_label), 0.0f);
+    gtk_widget_set_valign(digit_label, GTK_ALIGN_CENTER);
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_digit_spinner_hbox), GTK_WIDGET(digit_label), FALSE, FALSE, 0);
+
+    global->monitor->opt_digit_spinner = gtk_spin_button_new_with_range (0, 5, 1); // a maximum of five seems reasonable
+    gtk_label_set_mnemonic_widget(GTK_LABEL(digit_label),
+                                  global->monitor->opt_digit_spinner);
+    gtk_spin_button_set_digits(GTK_SPIN_BUTTON(global->monitor->opt_digit_spinner), 0);
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(global->monitor->opt_digit_spinner),
+                            global->monitor->options.digits );
+    gtk_widget_set_sensitive(GTK_WIDGET(global->monitor->opt_digit_spinner_hbox),
+                            global->monitor->options.show_values);
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_digit_spinner_hbox), GTK_WIDGET(global->monitor->opt_digit_spinner),
+        FALSE, FALSE, 0);
+
+    gtk_widget_show_all(GTK_WIDGET(global->monitor->opt_digit_spinner_hbox));
+    gtk_size_group_add_widget(sg, digit_label);
     
     g_signal_connect(GTK_WIDGET(global->monitor->max_use_label), "toggled",
             G_CALLBACK(max_label_toggled), global);
@@ -1324,6 +1372,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
             G_CALLBACK(present_data_combobox_changed), global);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_as_bits), "toggled",
             G_CALLBACK(as_bits_toggled), global);
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_digit_spinner), "changed",
+            G_CALLBACK(digits_spinner_changed), global);
 
     gtk_widget_show (dlg);
 }
