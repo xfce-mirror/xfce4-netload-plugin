@@ -416,10 +416,10 @@ static void monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
     }
 
     gtk_widget_destroy(global->tooltip_text);
-
-    g_free(global);
     
     close_netload( &(global->monitor->data) );
+
+    g_free(global);
 }
 
 
