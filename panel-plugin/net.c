@@ -217,7 +217,7 @@ char* get_ip_address(netdata* data)
     struct sockaddr_in *p_sa;
         
     /* use cached value if possible and if the update count is non-zero */ 
-    if (data->ip_address && data->ip_update_count > 0)
+    if (data->ip_address[0] && data->ip_update_count > 0)
     {
         data->ip_update_count--;
         return data->ip_address;
