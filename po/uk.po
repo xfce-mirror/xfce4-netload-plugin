@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 12:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
+"POT-Creation-Date: 2021-03-11 00:47+0100\n"
+"PO-Revision-Date: 2021-03-10 23:48+0000\n"
 "Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -41,12 +41,12 @@ msgstr "Не знайдено Linux пристрій '/proc/net/dev'."
 msgid "Interface was not found."
 msgstr "Інтерфейс не існує."
 
-#: ../panel-plugin/netload.c:168
+#: ../panel-plugin/netload.c:169
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Інтерфейс відключено)"
 
-#: ../panel-plugin/netload.c:255
+#: ../panel-plugin/netload.c:256
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -57,82 +57,98 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nСереднє значення за останні %d виміри\nз інтервалом %.2fs:\nВхідний: %s кБайт/с\nВихідний: %s кБайт/с\nЗагалом: %s кБайт/с "
 
-#: ../panel-plugin/netload.c:258
+#: ../panel-plugin/netload.c:259
 msgid "no IP address"
 msgstr "немає IP адреси"
 
-#: ../panel-plugin/netload.c:642
+#: ../panel-plugin/netload.c:643
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Помилка ініціалізації:\n%s"
 
-#: ../panel-plugin/netload.c:980
+#: ../panel-plugin/netload.c:969
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Стежити за навантаженням процесора, використанням файлу підкачки і основною пам'яттю"
+
+#: ../panel-plugin/netload.c:971
+msgid "Copyright (c) 2003-2021\n"
+msgstr "Авторські права (c) 2003-2021\n"
+
+#: ../panel-plugin/netload.c:1032
 msgid "Bar color (i_ncoming):"
 msgstr "Колір (вхід_ний):"
 
-#: ../panel-plugin/netload.c:981
+#: ../panel-plugin/netload.c:1033
 msgid "Bar color (_outgoing):"
 msgstr "Колір (вихі_дний):"
 
-#: ../panel-plugin/netload.c:984
+#: ../panel-plugin/netload.c:1036
 msgid "Maximum (inco_ming):"
 msgstr "Максимум (в_хідний):"
 
-#: ../panel-plugin/netload.c:985
+#: ../panel-plugin/netload.c:1037
 msgid "Maximum (o_utgoing):"
 msgstr "Максимум (в_ихідний):"
 
-#: ../panel-plugin/netload.c:990 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:1042 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Спостереження за мережею"
 
-#: ../panel-plugin/netload.c:1019
+#: ../panel-plugin/netload.c:1044
+msgid "_Close"
+msgstr "_Закрити"
+
+#: ../panel-plugin/netload.c:1045
+msgid "_Help"
+msgstr "_Допомога"
+
+#: ../panel-plugin/netload.c:1072
 msgid "_Text to display:"
 msgstr "_Відображуваний текст:"
 
-#: ../panel-plugin/netload.c:1050
+#: ../panel-plugin/netload.c:1103
 msgid "Network _device:"
 msgstr "Мережевий _пристрій:"
 
-#: ../panel-plugin/netload.c:1077
+#: ../panel-plugin/netload.c:1134
 msgid "Update _interval:"
 msgstr "Інтервал _оновлення:"
 
-#: ../panel-plugin/netload.c:1090
+#: ../panel-plugin/netload.c:1148
 msgid "s"
 msgstr "с"
 
-#: ../panel-plugin/netload.c:1104
+#: ../panel-plugin/netload.c:1163
 msgid "Show values as _bits"
 msgstr "Показати значення в _бітах"
 
-#: ../panel-plugin/netload.c:1118
+#: ../panel-plugin/netload.c:1177
 msgid "_Automatic maximum"
 msgstr "А_втоматичний максимум"
 
-#: ../panel-plugin/netload.c:1152
+#: ../panel-plugin/netload.c:1212
 msgid "KiB/s"
 msgstr "КіБ/с"
 
-#: ../panel-plugin/netload.c:1177
+#: ../panel-plugin/netload.c:1238
 msgid "_Present data as:"
 msgstr "Показати дані як:"
 
-#: ../panel-plugin/netload.c:1186
+#: ../panel-plugin/netload.c:1248
 msgid "Bars"
 msgstr "Шкала"
 
-#: ../panel-plugin/netload.c:1187
+#: ../panel-plugin/netload.c:1249
 msgid "Values"
 msgstr "Значення"
 
-#: ../panel-plugin/netload.c:1188
+#: ../panel-plugin/netload.c:1250
 msgid "Bars and values"
 msgstr "Шкала і значення"
 
-#: ../panel-plugin/netload.c:1230
+#: ../panel-plugin/netload.c:1293
 msgid "_Colorize values"
 msgstr "_Значення в кольорі"
 
@@ -140,34 +156,34 @@ msgstr "_Значення в кольорі"
 msgid "Show network traffic"
 msgstr "Відображати мережеву активність"
 
-#: ../panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:81
 msgid "B"
 msgstr "Б"
 
-#: ../panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:81
 msgid "KiB"
 msgstr "КіБ"
 
-#: ../panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:81
 msgid "MiB"
 msgstr "МіБ"
 
-#: ../panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:81
 msgid "GiB"
 msgstr "ГіБ"
 
-#: ../panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:82
 msgid "bps"
 msgstr "біт/с"
 
-#: ../panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:82
 msgid "Kbps"
 msgstr "Кбіт/с"
 
-#: ../panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:82
 msgid "Mbps"
 msgstr "Мбіт/с"
 
-#: ../panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:82
 msgid "Gbps"
 msgstr "Гбіт/с"
