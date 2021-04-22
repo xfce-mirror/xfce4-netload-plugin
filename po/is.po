@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 12:31+0200\n"
-"PO-Revision-Date: 2019-05-10 11:27+0000\n"
+"POT-Creation-Date: 2021-03-11 00:47+0100\n"
+"PO-Revision-Date: 2021-03-10 23:48+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic (http://www.transifex.com/xfce/xfce-panel-plugins/language/is/)\n"
 "MIME-Version: 1.0\n"
@@ -40,12 +40,12 @@ msgstr "Linux proc tækið '/proc/net/dev' fannst ekki."
 msgid "Interface was not found."
 msgstr "Netkortið fannst ekki."
 
-#: ../panel-plugin/netload.c:168
+#: ../panel-plugin/netload.c:169
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (nettæki niðri)"
 
-#: ../panel-plugin/netload.c:255
+#: ../panel-plugin/netload.c:256
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -56,82 +56,98 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nMeðaltal síðustu %d mælinga\ná %.2fs fresti:\nInn: %s\nÚt: %s\nAlls: %s"
 
-#: ../panel-plugin/netload.c:258
+#: ../panel-plugin/netload.c:259
 msgid "no IP address"
 msgstr "ekkert IP vistfang"
 
-#: ../panel-plugin/netload.c:642
+#: ../panel-plugin/netload.c:643
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Villa við frumstillingu:\n%s"
 
-#: ../panel-plugin/netload.c:980
+#: ../panel-plugin/netload.c:969
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Fylgjast með örgjörvaálagi, diskminni og vinnsluminni"
+
+#: ../panel-plugin/netload.c:971
+msgid "Copyright (c) 2003-2021\n"
+msgstr ""
+
+#: ../panel-plugin/netload.c:1032
 msgid "Bar color (i_ncoming):"
 msgstr "Litur súlu (i_nn):"
 
-#: ../panel-plugin/netload.c:981
+#: ../panel-plugin/netload.c:1033
 msgid "Bar color (_outgoing):"
 msgstr "Litur súlu (ú_t):"
 
-#: ../panel-plugin/netload.c:984
+#: ../panel-plugin/netload.c:1036
 msgid "Maximum (inco_ming):"
 msgstr "Hámark (_inn):"
 
-#: ../panel-plugin/netload.c:985
+#: ../panel-plugin/netload.c:1037
 msgid "Maximum (o_utgoing):"
 msgstr "Há_mark (út):"
 
-#: ../panel-plugin/netload.c:990 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:1042 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Netkerfisvaktari"
 
-#: ../panel-plugin/netload.c:1019
+#: ../panel-plugin/netload.c:1044
+msgid "_Close"
+msgstr "_Loka"
+
+#: ../panel-plugin/netload.c:1045
+msgid "_Help"
+msgstr "_Hjálp"
+
+#: ../panel-plugin/netload.c:1072
 msgid "_Text to display:"
 msgstr "_Texti til birtingar:"
 
-#: ../panel-plugin/netload.c:1050
+#: ../panel-plugin/netload.c:1103
 msgid "Network _device:"
 msgstr "Net_kort:"
 
-#: ../panel-plugin/netload.c:1077
+#: ../panel-plugin/netload.c:1134
 msgid "Update _interval:"
 msgstr "Upp_færslutíðni:"
 
-#: ../panel-plugin/netload.c:1090
+#: ../panel-plugin/netload.c:1148
 msgid "s"
 msgstr "sek"
 
-#: ../panel-plugin/netload.c:1104
+#: ../panel-plugin/netload.c:1163
 msgid "Show values as _bits"
 msgstr "Sýna gildi sem _bita"
 
-#: ../panel-plugin/netload.c:1118
+#: ../panel-plugin/netload.c:1177
 msgid "_Automatic maximum"
 msgstr "Sjálfvirkt _hámark"
 
-#: ../panel-plugin/netload.c:1152
+#: ../panel-plugin/netload.c:1212
 msgid "KiB/s"
 msgstr "KiB/sek"
 
-#: ../panel-plugin/netload.c:1177
+#: ../panel-plugin/netload.c:1238
 msgid "_Present data as:"
 msgstr "Setja _gögn fram sem:"
 
-#: ../panel-plugin/netload.c:1186
+#: ../panel-plugin/netload.c:1248
 msgid "Bars"
 msgstr "Súlur"
 
-#: ../panel-plugin/netload.c:1187
+#: ../panel-plugin/netload.c:1249
 msgid "Values"
 msgstr "Gildi"
 
-#: ../panel-plugin/netload.c:1188
+#: ../panel-plugin/netload.c:1250
 msgid "Bars and values"
 msgstr "Súlur og gildi"
 
-#: ../panel-plugin/netload.c:1230
+#: ../panel-plugin/netload.c:1293
 msgid "_Colorize values"
 msgstr "_Lita gildi"
 
@@ -139,34 +155,34 @@ msgstr "_Lita gildi"
 msgid "Show network traffic"
 msgstr "Birta netumferð"
 
-#: ../panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:81
 msgid "B"
 msgstr "B"
 
-#: ../panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:81
 msgid "KiB"
 msgstr "KiB"
 
-#: ../panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:81
 msgid "MiB"
 msgstr "MiB"
 
-#: ../panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:81
 msgid "GiB"
 msgstr "GiB"
 
-#: ../panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:82
 msgid "bps"
 msgstr "bás"
 
-#: ../panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:82
 msgid "Kbps"
 msgstr "Kbps"
 
-#: ../panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:82
 msgid "Mbps"
 msgstr "Mbps"
 
-#: ../panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:82
 msgid "Gbps"
 msgstr "Gbps"
