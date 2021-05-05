@@ -336,6 +336,7 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
     if (global->timeout_id)
     {
         g_source_remove(global->timeout_id);
+        global->timeout_id = 0;
     }
 
     if (mode == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
@@ -408,6 +409,7 @@ static void monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
     if (global->timeout_id)
     {
         g_source_remove(global->timeout_id);
+        global->timeout_id = 0;
     }
 
     if (global->monitor->options.label_text)
@@ -554,7 +556,10 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     gint i;
 
     if (global->timeout_id)
+    {
         g_source_remove(global->timeout_id);
+        global->timeout_id = 0;
+    }
 
     /* Show title label? */
     if (global->monitor->options.use_label)
