@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-11 00:47+0100\n"
-"PO-Revision-Date: 2021-03-13 10:18+0000\n"
+"PO-Revision-Date: 2021-05-09 09:40+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Red"
 
 #: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
-msgstr "Complemento de la carga de la red de Xfce4"
+msgstr "Complemento de Xfce4 para la carga de la red"
 
 #: ../panel-plugin/netload.c:64
 msgid "Unknown error."
@@ -105,7 +105,7 @@ msgstr "_Cerrar"
 
 #: ../panel-plugin/netload.c:1045
 msgid "_Help"
-msgstr "_Ayuda"
+msgstr "Ay_uda"
 
 #: ../panel-plugin/netload.c:1072
 msgid "_Text to display:"
@@ -125,7 +125,7 @@ msgstr " s"
 
 #: ../panel-plugin/netload.c:1163
 msgid "Show values as _bits"
-msgstr "Mostrar valores como _bits"
+msgstr "Mostrar los valores como _bits"
 
 #: ../panel-plugin/netload.c:1177
 msgid "_Automatic maximum"
@@ -137,7 +137,7 @@ msgstr " KiB/s"
 
 #: ../panel-plugin/netload.c:1238
 msgid "_Present data as:"
-msgstr "_Presentar los datos como:"
+msgstr "_Mostrar los datos como:"
 
 #: ../panel-plugin/netload.c:1248
 msgid "Bars"
@@ -157,7 +157,7 @@ msgstr "_Colorear los valores"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr "Mostrar el tráfico de red"
+msgstr "Mostrar el tráfico de la red"
 
 #: ../panel-plugin/utils.c:81
 msgid "B"
