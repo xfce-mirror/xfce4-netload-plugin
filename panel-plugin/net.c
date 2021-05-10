@@ -214,8 +214,11 @@ char* get_ip_address(netdata* data)
 {
     int sockfd;
     struct ifreq ifr;
-    struct sockaddr_in *p_sa;
-        
+    union {
+        struct sockaddr *addr;
+        struct sockaddr_in *p_sa;
+    } sa;
+
     /* use cached value if possible and if the update count is non-zero */ 
     if (data->ip_address && data->ip_update_count > 0)
     {
@@ -241,18 +244,18 @@ char* get_ip_address(netdata* data)
         return NULL;
     }
     close(sockfd);
-    
-    p_sa = (struct sockaddr_in*) &ifr.ifr_addr;
-    
-    if (!inet_ntop(AF_INET, &p_sa->sin_addr, data->ip_address, IP_ADDRESS_LENGTH))
+
+    sa.addr = &ifr.ifr_addr;
+
+    if (!inet_ntop(AF_INET, &(sa.p_sa->sin_addr), data->ip_address, IP_ADDRESS_LENGTH))
     {
         DBG("Error in inet_ntop: %s", strerror(errno));
         return NULL;
     }
-    
+
     /* now updated */
     data->ip_update_count = IP_UPDATE_INTERVAL;
-    
+
     return data->ip_address;
 }
 
