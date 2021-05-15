@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-11 00:47+0100\n"
-"PO-Revision-Date: 2021-05-09 09:40+0000\n"
+"PO-Revision-Date: 2021-05-15 10:39+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Red"
 
 #: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
-msgstr "Complemento de Xfce4 para la carga de la red"
+msgstr "Complemento para la carga de la red de Xfce4"
 
 #: ../panel-plugin/netload.c:64
 msgid "Unknown error."
@@ -85,15 +85,15 @@ msgstr "Color de la barra (e_ntrante):"
 
 #: ../panel-plugin/netload.c:1033
 msgid "Bar color (_outgoing):"
-msgstr "C_olor de la barra (saliente):"
+msgstr "Color de la barra (s_aliente):"
 
 #: ../panel-plugin/netload.c:1036
 msgid "Maximum (inco_ming):"
-msgstr "_Máximo (entrante)"
+msgstr "Máximo (_entrante)"
 
 #: ../panel-plugin/netload.c:1037
 msgid "Maximum (o_utgoing):"
-msgstr "Máximo (sa_liente)"
+msgstr "Máximo (_saliente)"
 
 #: ../panel-plugin/netload.c:1042 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
@@ -113,7 +113,7 @@ msgstr "_Texto para mostrar:"
 
 #: ../panel-plugin/netload.c:1103
 msgid "Network _device:"
-msgstr "Dispositivo _de red:"
+msgstr "_Dispositivo de red:"
 
 #: ../panel-plugin/netload.c:1134
 msgid "Update _interval:"
@@ -121,7 +121,7 @@ msgstr "_Intervalo de actualización:"
 
 #: ../panel-plugin/netload.c:1148
 msgid "s"
-msgstr " s"
+msgstr "s"
 
 #: ../panel-plugin/netload.c:1163
 msgid "Show values as _bits"
@@ -129,15 +129,15 @@ msgstr "Mostrar los valores como _bits"
 
 #: ../panel-plugin/netload.c:1177
 msgid "_Automatic maximum"
-msgstr "Máximo _automático"
+msgstr "_Máximo automático"
 
 #: ../panel-plugin/netload.c:1212
 msgid "KiB/s"
-msgstr " KiB/s"
+msgstr "KiB/s"
 
 #: ../panel-plugin/netload.c:1238
 msgid "_Present data as:"
-msgstr "_Mostrar los datos como:"
+msgstr "_Presentar los datos como:"
 
 #: ../panel-plugin/netload.c:1248
 msgid "Bars"
@@ -153,40 +153,40 @@ msgstr "Barras y valores"
 
 #: ../panel-plugin/netload.c:1293
 msgid "_Colorize values"
-msgstr "_Colorear los valores"
+msgstr "Colorear los _valores"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
-msgstr "Mostrar el tráfico de la red"
+msgstr "Muestra el tráfico de la red"
 
 #: ../panel-plugin/utils.c:81
 msgid "B"
-msgstr " B"
+msgstr "B"
 
 #: ../panel-plugin/utils.c:81
 msgid "KiB"
-msgstr " KiB"
+msgstr "KiB"
 
 #: ../panel-plugin/utils.c:81
 msgid "MiB"
-msgstr " MiB"
+msgstr "MiB"
 
 #: ../panel-plugin/utils.c:81
 msgid "GiB"
-msgstr " GiB"
+msgstr "GiB"
 
 #: ../panel-plugin/utils.c:82
 msgid "bps"
-msgstr " bps"
+msgstr "bps"
 
 #: ../panel-plugin/utils.c:82
 msgid "Kbps"
-msgstr " Kbps"
+msgstr "Kbps"
 
 #: ../panel-plugin/utils.c:82
 msgid "Mbps"
-msgstr " Mbps"
+msgstr "Mbps"
 
 #: ../panel-plugin/utils.c:82
 msgid "Gbps"
-msgstr " Gbps"
+msgstr "Gbps"
