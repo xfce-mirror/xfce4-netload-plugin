@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-11 00:47+0100\n"
-"PO-Revision-Date: 2021-05-15 10:39+0000\n"
+"PO-Revision-Date: 2021-05-22 08:17+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Red"
 
 #: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
-msgstr "Complemento para la carga de la red de Xfce4"
+msgstr "Carga de la red de Xfce4"
 
 #: ../panel-plugin/netload.c:64
 msgid "Unknown error."
