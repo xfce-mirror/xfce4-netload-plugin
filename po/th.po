@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2013
-# Theppitak Karoonboonyanan <theppitak@gmail.com>, 2013,2017
+# Theppitak Karoonboonyanan <theppitak@gmail.com>, 2013,2017,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-11 00:47+0100\n"
-"PO-Revision-Date: 2021-03-10 23:48+0000\n"
+"PO-Revision-Date: 2021-06-29 08:46+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
 "Language-Team: Thai (http://www.transifex.com/xfce/xfce-panel-plugins/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,7 @@ msgstr "เฝ้าสังเกตโหลดของซีพียู, �
 
 #: ../panel-plugin/netload.c:971
 msgid "Copyright (c) 2003-2021\n"
-msgstr ""
+msgstr "Copyright (c) 2003-2021\n"
 
 #: ../panel-plugin/netload.c:1032
 msgid "Bar color (i_ncoming):"
