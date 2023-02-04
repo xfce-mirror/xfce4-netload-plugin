@@ -18,6 +18,10 @@
  *
  * ------------------------------------------------------------------------------------------------- 
  */
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
@@ -25,10 +29,6 @@
 #include <glib.h>
 #include <glib/gprintf.h>
 #include <glib/gi18n.h>
-
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
 
 #include "utils.h"
 
