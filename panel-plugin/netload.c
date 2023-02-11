@@ -729,8 +729,7 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
 
     global->monitor->options.values_as_bits = xfce_rc_read_bool_entry (rc, "Values_As_Bits", FALSE);
 
-    global->monitor->options.digits =
-        xfce_rc_read_int_entry (rc, "Digits", 2);
+    global->monitor->options.digits = xfce_rc_read_int_entry (rc, "Digits", 2);
 
     DBG("monitor_read_config");
     setup_monitor(global, TRUE);
@@ -1343,11 +1342,11 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                         GTK_WIDGET(global->monitor->opt_digit_spinner_hbox), FALSE, FALSE, 0);
 
     digit_label = gtk_label_new_with_mnemonic(_("_Digits number:"));
-    gtk_label_set_xalign (GTK_LABEL (digit_label), 0.0f);
+    gtk_label_set_xalign(GTK_LABEL(digit_label), 0.0f);
     gtk_widget_set_valign(digit_label, GTK_ALIGN_CENTER);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_digit_spinner_hbox), GTK_WIDGET(digit_label), FALSE, FALSE, 0);
 
-    global->monitor->opt_digit_spinner = gtk_spin_button_new_with_range (0, 5, 1); // a maximum of five seems reasonable
+    global->monitor->opt_digit_spinner = gtk_spin_button_new_with_range(0, 5, 1); // a maximum of five seems reasonable
     gtk_label_set_mnemonic_widget(GTK_LABEL(digit_label),
                                   global->monitor->opt_digit_spinner);
     gtk_spin_button_set_digits(GTK_SPIN_BUTTON(global->monitor->opt_digit_spinner), 0);
