@@ -4,16 +4,17 @@
 # 
 # Translators:
 # Elishai Eliyahu <elishai@mailfence.com>, 2017
-# GenghisKhan <genghiskhan@gmx.ca>, 2015
+# Elishai Eliyahu <elishai@mailfence.com>, 2023
+# gk <genghiskhan@gmx.ca>, 2015
 # Hebrew speakers the world over, 2013
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-11 00:47+0100\n"
-"PO-Revision-Date: 2021-03-16 17:36+0000\n"
-"Last-Translator: Elishai Eliyahu <elishai@mailfence.com>\n"
+"POT-Creation-Date: 2023-02-12 00:49+0100\n"
+"PO-Revision-Date: 2013-07-03 19:08+0000\n"
+"Last-Translator: Elishai Eliyahu <elishai@mailfence.com>, 2023\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,12 +43,12 @@ msgstr "התקן Linux proc ‏'‎/proc/net/dev' לא נמצא."
 msgid "Interface was not found."
 msgstr "ממשק לא נמצא."
 
-#: ../panel-plugin/netload.c:169
+#: ../panel-plugin/netload.c:173
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "‏<< %s >> (ממשק מושבת)"
 
-#: ../panel-plugin/netload.c:256
+#: ../panel-plugin/netload.c:260
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -58,100 +59,104 @@ msgid ""
 "Total: %s"
 msgstr "‏<< %s >> ‏(%s)\nממוצע של %d מדידות אחרונות\nבתדירות של %.2f ש׳:\nנכנסת: %s\nיוצאת: %s\nסך הכול: %s"
 
-#: ../panel-plugin/netload.c:259
+#: ../panel-plugin/netload.c:263
 msgid "no IP address"
 msgstr "אין כתובת ‏IP"
 
-#: ../panel-plugin/netload.c:643
+#: ../panel-plugin/netload.c:652
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "‏%s: שגיאה באתחול:\n%s"
 
-#: ../panel-plugin/netload.c:969
+#: ../panel-plugin/netload.c:996
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "עקוב אחר עומס מעבד, שימוש הֶחְלֵף וטביעת רגל זיכרון"
 
-#: ../panel-plugin/netload.c:971
+#: ../panel-plugin/netload.c:998
 msgid "Copyright (c) 2003-2021\n"
 msgstr "זכויות יוצרים (c) 2003-2021\n"
 
-#: ../panel-plugin/netload.c:1032
+#: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
 msgstr "צבע עמודה (נ_כנסת):"
 
-#: ../panel-plugin/netload.c:1033
+#: ../panel-plugin/netload.c:1061
 msgid "Bar color (_outgoing):"
 msgstr "צבע עמודה (יו_צאת):"
 
-#: ../panel-plugin/netload.c:1036
+#: ../panel-plugin/netload.c:1064
 msgid "Maximum (inco_ming):"
 msgstr "מרבי (_נכנסת):"
 
-#: ../panel-plugin/netload.c:1037
+#: ../panel-plugin/netload.c:1065
 msgid "Maximum (o_utgoing):"
 msgstr "מרבי (_יוצאת):"
 
-#: ../panel-plugin/netload.c:1042 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:1070 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "צג רשת"
 
-#: ../panel-plugin/netload.c:1044
+#: ../panel-plugin/netload.c:1072
 msgid "_Close"
 msgstr "_סגור"
 
-#: ../panel-plugin/netload.c:1045
+#: ../panel-plugin/netload.c:1073
 msgid "_Help"
 msgstr "_עזרה"
 
-#: ../panel-plugin/netload.c:1072
+#: ../panel-plugin/netload.c:1100
 msgid "_Text to display:"
 msgstr "_טקסט להצגה:"
 
-#: ../panel-plugin/netload.c:1103
+#: ../panel-plugin/netload.c:1131
 msgid "Network _device:"
 msgstr "התקן _רשת:"
 
-#: ../panel-plugin/netload.c:1134
+#: ../panel-plugin/netload.c:1162
 msgid "Update _interval:"
 msgstr "ת_דירות עדכון:"
 
-#: ../panel-plugin/netload.c:1148
+#: ../panel-plugin/netload.c:1176
 msgid "s"
 msgstr "ש׳"
 
-#: ../panel-plugin/netload.c:1163
+#: ../panel-plugin/netload.c:1191
 msgid "Show values as _bits"
 msgstr "הצג ערכים בתור סי_בית"
 
-#: ../panel-plugin/netload.c:1177
+#: ../panel-plugin/netload.c:1205
 msgid "_Automatic maximum"
 msgstr "ערך מרבי _אוטומטי"
 
-#: ../panel-plugin/netload.c:1212
+#: ../panel-plugin/netload.c:1240
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1238
+#: ../panel-plugin/netload.c:1266
 msgid "_Present data as:"
 msgstr "ה_צג נתונים בתור:"
 
-#: ../panel-plugin/netload.c:1248
+#: ../panel-plugin/netload.c:1276
 msgid "Bars"
 msgstr "שורות"
 
-#: ../panel-plugin/netload.c:1249
+#: ../panel-plugin/netload.c:1277
 msgid "Values"
 msgstr "ערכים"
 
-#: ../panel-plugin/netload.c:1250
+#: ../panel-plugin/netload.c:1278
 msgid "Bars and values"
 msgstr "שורות וערכים"
 
-#: ../panel-plugin/netload.c:1293
+#: ../panel-plugin/netload.c:1321
 msgid "_Colorize values"
 msgstr "צ_בע ערכים"
+
+#: ../panel-plugin/netload.c:1344
+msgid "_Digits number:"
+msgstr "מספר _ספרות:"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
