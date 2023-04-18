@@ -19,8 +19,8 @@ m4_define([netload_version], [netload_version_major().netload_version_minor().ne
 
 m4_define([netload_debug_default], [ifelse(netload_version_tag(), [git], [yes], [minimum])])
 
-AC_INIT([xfce4-netload-plugin], [netload_version],
-	[xfce-dev@xfce.org])
+AC_COPYRIGHT([Copyright (c) 2003-2023 The Xfce development team. All rights reserved.])
+AC_INIT([xfce4-netload-plugin], [netload_version], [https://gitlab.xfce.org/panel-plugins/xfce4-netload-plugin])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIRS([m4])
 AC_PREREQ([2.50])

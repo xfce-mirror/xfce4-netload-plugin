@@ -995,7 +995,7 @@ monitor_show_about (XfcePanelPlugin *plugin, t_global_monitor *global)
       "program-name", PACKAGE_NAME,
       "comments", _("Monitor CPU load, swap usage and memory footprint"),
       "website", "https://docs.xfce.org/panel-plugins/xfce4-netload-plugin/start",
-      "copyright", _("Copyright (c) 2003-2021\n"),
+      "copyright", "Copyright \302\251 2003-2023 The Xfce development team",
       "authors", auth, NULL);
 }
 
