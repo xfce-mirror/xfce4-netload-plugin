@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-11 00:47+0100\n"
-"PO-Revision-Date: 2021-03-10 23:48+0000\n"
-"Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>\n"
-"Language-Team: Basque (http://www.transifex.com/xfce/xfce-panel-plugins/language/eu/)\n"
+"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"PO-Revision-Date: 2013-07-03 19:08+0000\n"
+"Last-Translator: beriain, 2021\n"
+"Language-Team: Basque (http://app.transifex.com/xfce/xfce-panel-plugins/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -40,12 +40,12 @@ msgstr "Ez da '/proc/net/dev' Linux proc gailua aurkitu."
 msgid "Interface was not found."
 msgstr "Ez da interfazea aurkitu."
 
-#: ../panel-plugin/netload.c:169
+#: ../panel-plugin/netload.c:173
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Interfazea deskonektaturik)"
 
-#: ../panel-plugin/netload.c:256
+#: ../panel-plugin/netload.c:260
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -56,100 +56,100 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nAzken %d neurketen bataz bestekoa\n%.2fs ko tartearekin:\nSartu: %s\nIrten: %s\nGuztira: %s"
 
-#: ../panel-plugin/netload.c:259
+#: ../panel-plugin/netload.c:263
 msgid "no IP address"
 msgstr "ez dago IP helbiderik"
 
-#: ../panel-plugin/netload.c:643
+#: ../panel-plugin/netload.c:652
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Errorea abiaraztean:\n%s"
 
-#: ../panel-plugin/netload.c:969
+#: ../panel-plugin/netload.c:996
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "CPU lan-zama, swap erabilera eta memoria egoera monitorizatu."
 
-#: ../panel-plugin/netload.c:971
-msgid "Copyright (c) 2003-2021\n"
-msgstr "Copyright (c) 2003-2021\n"
-
-#: ../panel-plugin/netload.c:1032
+#: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
 msgstr "Barra kolorea (s_arrera):"
 
-#: ../panel-plugin/netload.c:1033
+#: ../panel-plugin/netload.c:1061
 msgid "Bar color (_outgoing):"
 msgstr "Barra kolorea (_irteera):"
 
-#: ../panel-plugin/netload.c:1036
+#: ../panel-plugin/netload.c:1064
 msgid "Maximum (inco_ming):"
 msgstr "Gehienezkoa (_sarrera):"
 
-#: ../panel-plugin/netload.c:1037
+#: ../panel-plugin/netload.c:1065
 msgid "Maximum (o_utgoing):"
 msgstr "Gehienezkoa (i_rteera):"
 
-#: ../panel-plugin/netload.c:1042 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:1070 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Sare monitorea"
 
-#: ../panel-plugin/netload.c:1044
+#: ../panel-plugin/netload.c:1072
 msgid "_Close"
 msgstr "_Itxi"
 
-#: ../panel-plugin/netload.c:1045
+#: ../panel-plugin/netload.c:1073
 msgid "_Help"
 msgstr "_Laguntza"
 
-#: ../panel-plugin/netload.c:1072
+#: ../panel-plugin/netload.c:1100
 msgid "_Text to display:"
 msgstr "Bistaratzeko _testua:"
 
-#: ../panel-plugin/netload.c:1103
+#: ../panel-plugin/netload.c:1131
 msgid "Network _device:"
 msgstr "Sare _gailua:"
 
-#: ../panel-plugin/netload.c:1134
+#: ../panel-plugin/netload.c:1162
 msgid "Update _interval:"
 msgstr "Eguneratze _tartea:"
 
-#: ../panel-plugin/netload.c:1148
+#: ../panel-plugin/netload.c:1176
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1163
+#: ../panel-plugin/netload.c:1191
 msgid "Show values as _bits"
 msgstr "Balioak _bit bezala erakutsi"
 
-#: ../panel-plugin/netload.c:1177
+#: ../panel-plugin/netload.c:1205
 msgid "_Automatic maximum"
 msgstr "_Gehienezko automatikoa"
 
-#: ../panel-plugin/netload.c:1212
+#: ../panel-plugin/netload.c:1240
 msgid "KiB/s"
 msgstr "KB/s"
 
-#: ../panel-plugin/netload.c:1238
+#: ../panel-plugin/netload.c:1266
 msgid "_Present data as:"
 msgstr "_Bistarazi datuak:"
 
-#: ../panel-plugin/netload.c:1248
+#: ../panel-plugin/netload.c:1276
 msgid "Bars"
 msgstr "Barrak"
 
-#: ../panel-plugin/netload.c:1249
+#: ../panel-plugin/netload.c:1277
 msgid "Values"
 msgstr "Balioak"
 
-#: ../panel-plugin/netload.c:1250
+#: ../panel-plugin/netload.c:1278
 msgid "Bars and values"
 msgstr "Barra eta balioak"
 
-#: ../panel-plugin/netload.c:1293
+#: ../panel-plugin/netload.c:1321
 msgid "_Colorize values"
 msgstr "_Koloreztatuko balioak"
+
+#: ../panel-plugin/netload.c:1344
+msgid "_Digits number:"
+msgstr ""
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
