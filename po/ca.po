@@ -12,10 +12,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-11 00:47+0100\n"
-"PO-Revision-Date: 2021-03-10 23:48+0000\n"
-"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
-"Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
+"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"PO-Revision-Date: 2013-07-03 19:08+0000\n"
+"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2017-2018\n"
+"Language-Team: Catalan (http://app.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,12 +43,12 @@ msgstr "No s'ha trobat el dispositiu proc de Linux «/proc/net/dev»."
 msgid "Interface was not found."
 msgstr "No s'ha trobat la interfície."
 
-#: ../panel-plugin/netload.c:169
+#: ../panel-plugin/netload.c:173
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "«%s» (interfície caiguda)"
 
-#: ../panel-plugin/netload.c:256
+#: ../panel-plugin/netload.c:260
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -59,100 +59,100 @@ msgid ""
 "Total: %s"
 msgstr "«%s» (%s)\nMitjana de les últimes %d mesures\namb un interval de %.2f s:\nEntrada: %s\nSortida: %s\nTotal: %s"
 
-#: ../panel-plugin/netload.c:259
+#: ../panel-plugin/netload.c:263
 msgid "no IP address"
 msgstr "sense adreça IP"
 
-#: ../panel-plugin/netload.c:643
+#: ../panel-plugin/netload.c:652
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Error en la inicialització:\n%s"
 
-#: ../panel-plugin/netload.c:969
+#: ../panel-plugin/netload.c:996
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitora la càrrega de la CPU, l'ús de la memòria d'intercanvi i l'empremta de la memòria"
 
-#: ../panel-plugin/netload.c:971
-msgid "Copyright (c) 2003-2021\n"
-msgstr "Drets d'autor (c) 2003-2021\n"
-
-#: ../panel-plugin/netload.c:1032
+#: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
 msgstr "Color de la barra (e_ntrada):"
 
-#: ../panel-plugin/netload.c:1033
+#: ../panel-plugin/netload.c:1061
 msgid "Bar color (_outgoing):"
 msgstr "Color de la barra (s_ortida):"
 
-#: ../panel-plugin/netload.c:1036
+#: ../panel-plugin/netload.c:1064
 msgid "Maximum (inco_ming):"
 msgstr "Màxim (_entrada):"
 
-#: ../panel-plugin/netload.c:1037
+#: ../panel-plugin/netload.c:1065
 msgid "Maximum (o_utgoing):"
 msgstr "Màxim (_sortida):"
 
-#: ../panel-plugin/netload.c:1042 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:1070 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Monitor de la xarxa"
 
-#: ../panel-plugin/netload.c:1044
+#: ../panel-plugin/netload.c:1072
 msgid "_Close"
 msgstr "Tan_ca"
 
-#: ../panel-plugin/netload.c:1045
+#: ../panel-plugin/netload.c:1073
 msgid "_Help"
 msgstr "_Ajuda"
 
-#: ../panel-plugin/netload.c:1072
+#: ../panel-plugin/netload.c:1100
 msgid "_Text to display:"
 msgstr "_Text a mostrar:"
 
-#: ../panel-plugin/netload.c:1103
+#: ../panel-plugin/netload.c:1131
 msgid "Network _device:"
 msgstr "_Dispositiu de xarxa:"
 
-#: ../panel-plugin/netload.c:1134
+#: ../panel-plugin/netload.c:1162
 msgid "Update _interval:"
 msgstr "_Interval d'actualització:"
 
-#: ../panel-plugin/netload.c:1148
+#: ../panel-plugin/netload.c:1176
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1163
+#: ../panel-plugin/netload.c:1191
 msgid "Show values as _bits"
 msgstr "Mostra els valors com a _bits"
 
-#: ../panel-plugin/netload.c:1177
+#: ../panel-plugin/netload.c:1205
 msgid "_Automatic maximum"
 msgstr "Màxim _automàtic"
 
-#: ../panel-plugin/netload.c:1212
+#: ../panel-plugin/netload.c:1240
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1238
+#: ../panel-plugin/netload.c:1266
 msgid "_Present data as:"
 msgstr "_Mostra les dades com:"
 
-#: ../panel-plugin/netload.c:1248
+#: ../panel-plugin/netload.c:1276
 msgid "Bars"
 msgstr "Barres"
 
-#: ../panel-plugin/netload.c:1249
+#: ../panel-plugin/netload.c:1277
 msgid "Values"
 msgstr "Valors"
 
-#: ../panel-plugin/netload.c:1250
+#: ../panel-plugin/netload.c:1278
 msgid "Bars and values"
 msgstr "Barres i valors"
 
-#: ../panel-plugin/netload.c:1293
+#: ../panel-plugin/netload.c:1321
 msgid "_Colorize values"
 msgstr "A_coloreix els valors"
+
+#: ../panel-plugin/netload.c:1344
+msgid "_Digits number:"
+msgstr ""
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
