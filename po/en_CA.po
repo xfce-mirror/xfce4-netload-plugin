@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-28 15:07+0100\n"
+"POT-Creation-Date: 2023-04-19 01:17+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: Steve Harris <steve@jbs.ca>, 2023\n"
-"Language-Team: English (Canada) (http://www.transifex.com/xfce/xfce-panel-plugins/language/en_CA/)\n"
+"Language-Team: English (Canada) (http://app.transifex.com/xfce/xfce-panel-plugins/language/en_CA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -40,12 +40,12 @@ msgstr "Linux proc device '/proc/net/dev' not found."
 msgid "Interface was not found."
 msgstr "Interface was not found."
 
-#: ../panel-plugin/netload.c:169
+#: ../panel-plugin/netload.c:173
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Interface down)"
 
-#: ../panel-plugin/netload.c:256
+#: ../panel-plugin/netload.c:260
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -56,100 +56,100 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nAverage of last %d measures\nwith an interval of %.2fs:\nIncoming: %s\nOutgoing: %s\nTotal: %s"
 
-#: ../panel-plugin/netload.c:259
+#: ../panel-plugin/netload.c:263
 msgid "no IP address"
 msgstr "no IP address"
 
-#: ../panel-plugin/netload.c:648
+#: ../panel-plugin/netload.c:652
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Error in initializing:\n%s"
 
-#: ../panel-plugin/netload.c:974
+#: ../panel-plugin/netload.c:996
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitor CPU load, swap usage and memory footprint"
 
-#: ../panel-plugin/netload.c:976
-msgid "Copyright (c) 2003-2021\n"
-msgstr "Copyright (c) 2003-2021\n"
-
-#: ../panel-plugin/netload.c:1037
+#: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
 msgstr "Bar colour (i_ncoming):"
 
-#: ../panel-plugin/netload.c:1038
+#: ../panel-plugin/netload.c:1061
 msgid "Bar color (_outgoing):"
 msgstr "Bar colour (_outgoing):"
 
-#: ../panel-plugin/netload.c:1041
+#: ../panel-plugin/netload.c:1064
 msgid "Maximum (inco_ming):"
 msgstr "Maximum (inco_ming):"
 
-#: ../panel-plugin/netload.c:1042
+#: ../panel-plugin/netload.c:1065
 msgid "Maximum (o_utgoing):"
 msgstr "Maximum (o_utgoing):"
 
-#: ../panel-plugin/netload.c:1047 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:1070 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
 msgstr "Network Monitor"
 
-#: ../panel-plugin/netload.c:1049
+#: ../panel-plugin/netload.c:1072
 msgid "_Close"
 msgstr "_Close"
 
-#: ../panel-plugin/netload.c:1050
+#: ../panel-plugin/netload.c:1073
 msgid "_Help"
 msgstr "_Help"
 
-#: ../panel-plugin/netload.c:1077
+#: ../panel-plugin/netload.c:1100
 msgid "_Text to display:"
 msgstr "_Text to display:"
 
-#: ../panel-plugin/netload.c:1108
+#: ../panel-plugin/netload.c:1131
 msgid "Network _device:"
 msgstr "Network _device:"
 
-#: ../panel-plugin/netload.c:1139
+#: ../panel-plugin/netload.c:1162
 msgid "Update _interval:"
 msgstr "Update _interval:"
 
-#: ../panel-plugin/netload.c:1153
+#: ../panel-plugin/netload.c:1176
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1168
+#: ../panel-plugin/netload.c:1191
 msgid "Show values as _bits"
 msgstr "Show values as _bits"
 
-#: ../panel-plugin/netload.c:1182
+#: ../panel-plugin/netload.c:1205
 msgid "_Automatic maximum"
 msgstr "_Automatic maximum"
 
-#: ../panel-plugin/netload.c:1217
+#: ../panel-plugin/netload.c:1240
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1243
+#: ../panel-plugin/netload.c:1266
 msgid "_Present data as:"
 msgstr "_Present data as:"
 
-#: ../panel-plugin/netload.c:1253
+#: ../panel-plugin/netload.c:1276
 msgid "Bars"
 msgstr "Bars"
 
-#: ../panel-plugin/netload.c:1254
+#: ../panel-plugin/netload.c:1277
 msgid "Values"
 msgstr "Values"
 
-#: ../panel-plugin/netload.c:1255
+#: ../panel-plugin/netload.c:1278
 msgid "Bars and values"
 msgstr "Bars and values"
 
-#: ../panel-plugin/netload.c:1298
+#: ../panel-plugin/netload.c:1321
 msgid "_Colorize values"
 msgstr "_Colourize values"
+
+#: ../panel-plugin/netload.c:1344
+msgid "_Digits number:"
+msgstr ""
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
