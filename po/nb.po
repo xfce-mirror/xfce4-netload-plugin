@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-12 00:49+0100\n"
+"POT-Creation-Date: 2023-04-19 01:17+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: heskjestad <cato@heskjestad.xyz>, 2023\n"
 "Language-Team: Norwegian Bokmål (http://app.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
@@ -74,10 +74,6 @@ msgstr "%s: Feil under klargjøring:\n%s"
 #: ../panel-plugin/netload.c:996
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Viser CPU-belastning, vekselfilbruk og minneavtrykk"
-
-#: ../panel-plugin/netload.c:998
-msgid "Copyright (c) 2003-2021\n"
-msgstr "Opphavsrett (c) 2003-2021\n"
 
 #: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
