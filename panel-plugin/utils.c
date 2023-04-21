@@ -78,7 +78,7 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     char* str = string;
     char buffer[BUFSIZ], formatstring[BUFSIZ];
     char* bufptr = buffer;
-    char* unit_names[] = { N_("B"), N_("KiB"), N_("MiB"), N_("GiB") };
+    char* unit_names[] = { N_("Bps"), N_("KiBps"), N_("MiBps"), N_("GiBps") };
     char* unit_names_bits[] = { N_("bps"), N_("Kbps"), N_("Mbps"), N_("Gbps") };
     unsigned int uidx = 0;
     double number_displayed = 0;
