@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2023-04-22 00:49+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2023\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_TW/)\n"
@@ -157,20 +157,20 @@ msgid "Show network traffic"
 msgstr "顯示網路流量"
 
 #: ../panel-plugin/utils.c:81
-msgid "B"
-msgstr "B"
+msgid "Bps"
+msgstr ""
 
 #: ../panel-plugin/utils.c:81
-msgid "KiB"
-msgstr "KiB"
+msgid "KiBps"
+msgstr ""
 
 #: ../panel-plugin/utils.c:81
-msgid "MiB"
-msgstr "MiB"
+msgid "MiBps"
+msgstr ""
 
 #: ../panel-plugin/utils.c:81
-msgid "GiB"
-msgstr "GiB"
+msgid "GiBps"
+msgstr ""
 
 #: ../panel-plugin/utils.c:82
 msgid "bps"
