@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-22 00:49+0200\n"
+"POT-Creation-Date: 2023-04-22 12:50+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: Gordon Freeman, 2023\n"
 "Language-Team: Ukrainian (http://app.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
@@ -70,8 +70,8 @@ msgid ""
 msgstr "%s: Помилка ініціалізації:\n%s"
 
 #: ../panel-plugin/netload.c:996
-msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Стежити за навантаженням процесора, використанням файлу підкачки і основною пам'яттю"
+msgid "Display the current load of a network interface in the panel"
+msgstr ""
 
 #: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
