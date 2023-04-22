@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2023-04-22 00:49+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: Marek Adamski, 2023\n"
 "Language-Team: Polish (http://app.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
@@ -46,7 +46,7 @@ msgstr "Nie odnaleziono interfejsu."
 #: ../panel-plugin/netload.c:173
 #, c-format
 msgid "<< %s >> (Interface down)"
-msgstr "%s: (interfejs wyłączony)"
+msgstr "<< %s >> (interfejs wyłączony)"
 
 #: ../panel-plugin/netload.c:260
 #, c-format
@@ -104,7 +104,7 @@ msgstr "_Pomoc"
 
 #: ../panel-plugin/netload.c:1100
 msgid "_Text to display:"
-msgstr "Etykieta:"
+msgstr "E_tykieta:"
 
 #: ../panel-plugin/netload.c:1131
 msgid "Network _device:"
@@ -159,20 +159,20 @@ msgid "Show network traffic"
 msgstr "Dostarcza informacje na temat obciążenia połączeń sieciowych"
 
 #: ../panel-plugin/utils.c:81
-msgid "B"
-msgstr "B"
+msgid "Bps"
+msgstr "B/s"
 
 #: ../panel-plugin/utils.c:81
-msgid "KiB"
-msgstr "KiB"
+msgid "KiBps"
+msgstr "Kib/s"
 
 #: ../panel-plugin/utils.c:81
-msgid "MiB"
-msgstr "MiB"
+msgid "MiBps"
+msgstr "Mib/s"
 
 #: ../panel-plugin/utils.c:81
-msgid "GiB"
-msgstr "GiB"
+msgid "GiBps"
+msgstr "Gib/s"
 
 #: ../panel-plugin/utils.c:82
 msgid "bps"
@@ -180,7 +180,7 @@ msgstr "b/s"
 
 #: ../panel-plugin/utils.c:82
 msgid "Kbps"
-msgstr "Kb/s"
+msgstr "kb/s"
 
 #: ../panel-plugin/utils.c:82
 msgid "Mbps"
