@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-22 00:49+0200\n"
+"POT-Creation-Date: 2023-04-22 12:50+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: beriain, 2021\n"
 "Language-Team: Basque (http://app.transifex.com/xfce/xfce-panel-plugins/language/eu/)\n"
@@ -68,8 +68,8 @@ msgid ""
 msgstr "%s: Errorea abiaraztean:\n%s"
 
 #: ../panel-plugin/netload.c:996
-msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "CPU lan-zama, swap erabilera eta memoria egoera monitorizatu."
+msgid "Display the current load of a network interface in the panel"
+msgstr ""
 
 #: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
