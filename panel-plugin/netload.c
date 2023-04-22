@@ -993,7 +993,7 @@ monitor_show_about (XfcePanelPlugin *plugin, t_global_monitor *global)
       "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
       "version", PACKAGE_VERSION,
       "program-name", PACKAGE_NAME,
-      "comments", _("Monitor CPU load, swap usage and memory footprint"),
+      "comments", _("Display the current load of a network interface in the panel"),
       "website", "https://docs.xfce.org/panel-plugins/xfce4-netload-plugin/start",
       "copyright", "Copyright \302\251 2003-2023 The Xfce development team",
       "authors", auth, NULL);
