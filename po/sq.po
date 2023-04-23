@@ -69,7 +69,7 @@ msgstr "%s: Gabim në gatitje:\n%s"
 
 #: ../panel-plugin/netload.c:996
 msgid "Display the current load of a network interface in the panel"
-msgstr ""
+msgstr "Shfaq te paneli ngarkesën e çastit të një ndërfaqeje rrjeti"
 
 #: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
