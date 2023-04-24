@@ -44,7 +44,7 @@ msgstr "找不到介面。"
 #: ../panel-plugin/netload.c:173
 #, c-format
 msgid "<< %s >> (Interface down)"
-msgstr "<< %s >> (介面 down)"
+msgstr "<< %s >>（介面 down）"
 
 #: ../panel-plugin/netload.c:260
 #, c-format
@@ -70,23 +70,23 @@ msgstr "%s：初始化發生錯誤：\n%s"
 
 #: ../panel-plugin/netload.c:996
 msgid "Display the current load of a network interface in the panel"
-msgstr ""
+msgstr "顯示面板中顯示網路介面的目前負載"
 
 #: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
-msgstr "條色彩 (傳入)(_N)："
+msgstr "長條色彩（傳入）(_N)："
 
 #: ../panel-plugin/netload.c:1061
 msgid "Bar color (_outgoing):"
-msgstr "條色彩 (傳出)(_O)："
+msgstr "長條色彩（傳出）(_O)："
 
 #: ../panel-plugin/netload.c:1064
 msgid "Maximum (inco_ming):"
-msgstr "最大 (傳入)(_M)："
+msgstr "最大（傳入）(_M)："
 
 #: ../panel-plugin/netload.c:1065
 msgid "Maximum (o_utgoing):"
-msgstr "最大 (傳出)(_U)："
+msgstr "最大（傳出）(_U)："
 
 #: ../panel-plugin/netload.c:1070 ../panel-plugin/netload.desktop.in.in.h:1
 msgid "Network Monitor"
@@ -110,7 +110,7 @@ msgstr "網路裝置(_D)："
 
 #: ../panel-plugin/netload.c:1162
 msgid "Update _interval:"
-msgstr "更新時間隔(_I)："
+msgstr "更新間隔(_I)："
 
 #: ../panel-plugin/netload.c:1176
 msgid "s"
@@ -158,19 +158,19 @@ msgstr "顯示網路流量"
 
 #: ../panel-plugin/utils.c:81
 msgid "Bps"
-msgstr ""
+msgstr "Bps"
 
 #: ../panel-plugin/utils.c:81
 msgid "KiBps"
-msgstr ""
+msgstr "KiBps"
 
 #: ../panel-plugin/utils.c:81
 msgid "MiBps"
-msgstr ""
+msgstr "MiBps"
 
 #: ../panel-plugin/utils.c:81
 msgid "GiBps"
-msgstr ""
+msgstr "GiBps"
 
 #: ../panel-plugin/utils.c:82
 msgid "bps"
