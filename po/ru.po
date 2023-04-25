@@ -74,7 +74,7 @@ msgstr "%s: ошибка инициализации:\n%s"
 
 #: ../panel-plugin/netload.c:996
 msgid "Display the current load of a network interface in the panel"
-msgstr ""
+msgstr "Отображение текущей нагрузки сетевого интерфейса на панели"
 
 #: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
