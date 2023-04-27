@@ -68,7 +68,7 @@ msgstr "%s: Грешка при покретању:\n%s"
 
 #: ../panel-plugin/netload.c:996
 msgid "Display the current load of a network interface in the panel"
-msgstr ""
+msgstr "Приказуј тренутно оптерећење сучеља мреже на полици"
 
 #: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
@@ -148,7 +148,7 @@ msgstr "_Обоји вредности"
 
 #: ../panel-plugin/netload.c:1344
 msgid "_Digits number:"
-msgstr "_Број цифара"
+msgstr "_Број цифара:"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
@@ -156,19 +156,19 @@ msgstr "Приказуј проток мрежних података"
 
 #: ../panel-plugin/utils.c:81
 msgid "Bps"
-msgstr ""
+msgstr "Bps"
 
 #: ../panel-plugin/utils.c:81
 msgid "KiBps"
-msgstr ""
+msgstr "KiBps"
 
 #: ../panel-plugin/utils.c:81
 msgid "MiBps"
-msgstr ""
+msgstr "MiBps"
 
 #: ../panel-plugin/utils.c:81
 msgid "GiBps"
-msgstr ""
+msgstr "GiBps"
 
 #: ../panel-plugin/utils.c:82
 msgid "bps"
