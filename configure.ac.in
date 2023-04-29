@@ -14,7 +14,7 @@ m4_define([netload_version_major], [1])
 m4_define([netload_version_minor], [4])
 m4_define([netload_version_micro], [1])
 m4_define([netload_version_build], [@REVISION@])
-m4_define([netload_version_tag], [])
+m4_define([netload_version_tag], [git])
 m4_define([netload_version], [netload_version_major().netload_version_minor().netload_version_micro()ifelse(netload_version_tag(), [git], [netload_version_tag()-netload_version_build()], [netload_version_tag()])])
 
 m4_define([netload_debug_default], [ifelse(netload_version_tag(), [git], [yes], [minimum])])
