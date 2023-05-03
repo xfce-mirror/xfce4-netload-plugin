@@ -70,7 +70,7 @@ msgstr "%s: 초기화 도중 오류 발생:\n%s"
 
 #: ../panel-plugin/netload.c:996
 msgid "Display the current load of a network interface in the panel"
-msgstr ""
+msgstr "패널에 현재 네트워크 인터페이스 부하량을 표시합니다"
 
 #: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
@@ -158,19 +158,19 @@ msgstr "네트워크 상태를 표시합니다"
 
 #: ../panel-plugin/utils.c:81
 msgid "Bps"
-msgstr ""
+msgstr "Bps"
 
 #: ../panel-plugin/utils.c:81
 msgid "KiBps"
-msgstr ""
+msgstr "KiBps"
 
 #: ../panel-plugin/utils.c:81
 msgid "MiBps"
-msgstr ""
+msgstr "MiBps"
 
 #: ../panel-plugin/utils.c:81
 msgid "GiBps"
-msgstr ""
+msgstr "GiBps"
 
 #: ../panel-plugin/utils.c:82
 msgid "bps"
