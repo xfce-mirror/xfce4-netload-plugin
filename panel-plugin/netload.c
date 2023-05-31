@@ -875,6 +875,7 @@ static void as_bits_toggled(GtkWidget *check_button, t_global_monitor *global)
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_as_bits),
                                  global->monitor->options.values_as_bits);
 
+    setup_monitor(global, FALSE);
     DBG("label_toggled");
 }
 
