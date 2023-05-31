@@ -30,8 +30,6 @@ struct _XnlpMonitorLabel
         GtkLabel                parent;
         /*<private>*/
         GtkCssProvider          *css_provider;
-        gint                    count_width;
-        gint                    count_height;
         gint                    width;
         gint                    height;
 };
@@ -53,8 +51,6 @@ xnlp_monitor_label_class_init (XnlpMonitorLabelClass *klass)
 static void
 xnlp_monitor_label_init (XnlpMonitorLabel *label)
 {
-        label->count_width = 0;
-        label->count_height = 0;
         label->width = 0;
         label->height = 0;
         label->css_provider = gtk_css_provider_new ();
@@ -82,33 +78,19 @@ cb_label_changed (GObject *object, GParamSpec *pspec, gpointer user_data)
         if (minimum_size.width >= label->width)
         {
                 label->width = minimum_size.width;
-                label->count_width = 0;
-        }
-        else if (label->count_width > 10)
-        {
-                label->width = minimum_size.width;
-                label->count_width = 0;
         }
         else
         {
                 minimum_size.width = label->width;
-                label->count_width++;
         }
 
         if (minimum_size.height >= label->height)
         {
                 label->height = minimum_size.height;
-                label->count_height = 0;
-        }
-        else if (label->count_height > 10)
-        {
-                label->height = minimum_size.height;
-                label->count_height = 0;
         }
         else
         {
                 minimum_size.height = label->height;
-                label->count_height++;
         }
 
         gtk_widget_set_size_request (widget, minimum_size.width, minimum_size.height);
@@ -159,8 +141,6 @@ xnlp_monitor_label_set_color (XnlpMonitorLabel *label, GdkRGBA* color)
 void
 xnlp_monitor_label_reinit_size_request (XnlpMonitorLabel *label)
 {
-        label->count_width = 0;
-        label->count_height = 0;
         label->width = 0;
         label->height = 0;
 
