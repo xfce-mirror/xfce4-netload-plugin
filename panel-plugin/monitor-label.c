@@ -84,11 +84,11 @@ cb_label_changed (GObject *object, GParamSpec *pspec, gpointer user_data)
                 label->width = minimum_size.width;
                 label->count_width = 0;
         }
-        else if (label->count_width > 10)
-        {
-                label->width = minimum_size.width;
-                label->count_width = 0;
-        }
+        /* else if (label->count_width > 10) */
+        /* { */
+        /*         label->width = minimum_size.width; */
+        /*         label->count_width = 0; */
+        /* } */
         else
         {
                 minimum_size.width = label->width;
@@ -100,11 +100,11 @@ cb_label_changed (GObject *object, GParamSpec *pspec, gpointer user_data)
                 label->height = minimum_size.height;
                 label->count_height = 0;
         }
-        else if (label->count_height > 10)
-        {
-                label->height = minimum_size.height;
-                label->count_height = 0;
-        }
+        /* else if (label->count_height > 10) */
+        /* { */
+        /*         label->height = minimum_size.height; */
+        /*         label->count_height = 0; */
+        /* } */
         else
         {
                 minimum_size.height = label->height;
