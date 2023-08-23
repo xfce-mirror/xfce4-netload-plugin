@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-22 12:50+0200\n"
+"POT-Creation-Date: 2023-05-30 00:54+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: heskjestad <cato@heskjestad.xyz>, 2023\n"
 "Language-Team: Norwegian Bokmål (http://app.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
@@ -73,7 +73,7 @@ msgstr "%s: Feil under klargjøring:\n%s"
 
 #: ../panel-plugin/netload.c:996
 msgid "Display the current load of a network interface in the panel"
-msgstr ""
+msgstr "Vis gjeldende last til nettverksgrensesnittet i panelet"
 
 #: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
@@ -161,19 +161,19 @@ msgstr "Viser nettverkstrafikk"
 
 #: ../panel-plugin/utils.c:81
 msgid "Bps"
-msgstr ""
+msgstr "Bps"
 
 #: ../panel-plugin/utils.c:81
 msgid "KiBps"
-msgstr ""
+msgstr "KiBps"
 
 #: ../panel-plugin/utils.c:81
 msgid "MiBps"
-msgstr ""
+msgstr "MiBps"
 
 #: ../panel-plugin/utils.c:81
 msgid "GiBps"
-msgstr ""
+msgstr "GiBps"
 
 #: ../panel-plugin/utils.c:82
 msgid "bps"
