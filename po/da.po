@@ -150,7 +150,7 @@ msgstr "_Farvelæg værdier"
 
 #: ../panel-plugin/netload.c:1344
 msgid "_Digits number:"
-msgstr ""
+msgstr "_Antal cifre:"
 
 #: ../panel-plugin/netload.desktop.in.in.h:2
 msgid "Show network traffic"
