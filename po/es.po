@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Casper, 2023
 # César Enrique García <cquike@gmail.com>, 2016
 # Hernan Gabriel Alvarez Guerra <hernan.alvarez.guerra@gmail.com>, 2014
 # mc <correomc2000-ing@yahoo.es>, 2013
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-22 12:50+0200\n"
+"POT-Creation-Date: 2023-05-30 00:54+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
-"Last-Translator: Toni Estévez <toni.estevez@gmail.com>, 2021,2023\n"
+"Last-Translator: Casper, 2023\n"
 "Language-Team: Spanish (http://app.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,7 +74,7 @@ msgstr "%s: Error en la inicialización:\n%s"
 
 #: ../panel-plugin/netload.c:996
 msgid "Display the current load of a network interface in the panel"
-msgstr ""
+msgstr "Mostrar la carga actual de una interfaz de red en el panel"
 
 #: ../panel-plugin/netload.c:1060
 msgid "Bar color (i_ncoming):"
@@ -161,19 +162,19 @@ msgstr "Muestra el tráfico de la red"
 
 #: ../panel-plugin/utils.c:81
 msgid "Bps"
-msgstr ""
+msgstr "Bps"
 
 #: ../panel-plugin/utils.c:81
 msgid "KiBps"
-msgstr ""
+msgstr "KiBps"
 
 #: ../panel-plugin/utils.c:81
 msgid "MiBps"
-msgstr ""
+msgstr "MiBps"
 
 #: ../panel-plugin/utils.c:81
 msgid "GiBps"
-msgstr ""
+msgstr "GiBps"
 
 #: ../panel-plugin/utils.c:82
 msgid "bps"
