@@ -1,8 +1,8 @@
 [Xfce Panel]
 Type=X-XFCE-PanelPlugin
 Encoding=UTF-8
-_Name=Network Monitor
-_Comment=Show network traffic
+Name=Network Monitor
+Comment=Show network traffic
 Icon=org.xfce.panel.netload
 X-XFCE-Module=netload
 X-XFCE-Internal=FALSE
