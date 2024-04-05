@@ -19,7 +19,6 @@ m4/
 missing
 mkinstalldirs
 panel-plugin/*.desktop
-panel-plugin/*.desktop.in
 po/*.gmo
 po/stamp-it
 po/Makefile.in.in
