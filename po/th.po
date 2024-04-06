@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-netload-plugin package.
 # 
 # Translators:
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2013
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 00:52+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-06 12:54+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>, 2013,2017,2021\n"
 "Language-Team: Thai (http://app.transifex.com/xfce/xfce-panel-plugins/language/th/)\n"
@@ -20,32 +20,32 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Defaults
-#: ../panel-plugin/netload.c:42
+#: panel-plugin/netload.c:42
 msgid "Net"
 msgstr "เน็ต"
 
-#: ../panel-plugin/netload.c:61
+#: panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-Netload-Plugin"
 
-#: ../panel-plugin/netload.c:64
+#: panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "ข้อผิดพลาดไม่ทราบสาเหตุ"
 
-#: ../panel-plugin/netload.c:65
+#: panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "ไม่พบอุปกรณ์ '/proc/net/dev' ของลินุกซ์"
 
-#: ../panel-plugin/netload.c:66
+#: panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "ไม่พบอินเทอร์เฟซเครือข่าย"
 
-#: ../panel-plugin/netload.c:173
+#: panel-plugin/netload.c:173
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (อินเทอร์เฟซปิดอยู่)"
 
-#: ../panel-plugin/netload.c:260
+#: panel-plugin/netload.c:260
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -56,129 +56,133 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nค่าเฉลี่ยของการวัด %d ครั้ง\nด้วยระยะเวลาห่างกัน %.2f วิ:\nขาเข้า: %s\nขาออก: %s\nรวม: %s"
 
-#: ../panel-plugin/netload.c:263
+#: panel-plugin/netload.c:263
 msgid "no IP address"
 msgstr "ไม่มีที่อยู่ไอพี"
 
-#: ../panel-plugin/netload.c:652
+#: panel-plugin/netload.c:652
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: เกิดข้อผิดพลาดขณะตั้งต้นทำงาน:\n%s"
 
-#: ../panel-plugin/netload.c:997
+#: panel-plugin/netload.c:997
 msgid "Display the current load of a network interface in the panel"
 msgstr ""
 
-#: ../panel-plugin/netload.c:1061
+#: panel-plugin/netload.c:1061
 msgid "Bar color (i_ncoming):"
 msgstr "สีแถบ (ขาเ_ข้า):"
 
-#: ../panel-plugin/netload.c:1062
+#: panel-plugin/netload.c:1062
 msgid "Bar color (_outgoing):"
 msgstr "สีแถบ (ขา_ออก):"
 
-#: ../panel-plugin/netload.c:1065
+#: panel-plugin/netload.c:1065
 msgid "Maximum (inco_ming):"
 msgstr "ค่าสูงสุด (ขาเข้_า):"
 
-#: ../panel-plugin/netload.c:1066
+#: panel-plugin/netload.c:1066
 msgid "Maximum (o_utgoing):"
 msgstr "ค่าสูงสุด (ขาออ_ก):"
 
-#: ../panel-plugin/netload.c:1071
+#: panel-plugin/netload.c:1071 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
 msgstr "เครื่องมือเฝ้าสังเกตเครือข่าย"
 
-#: ../panel-plugin/netload.c:1073
+#: panel-plugin/netload.c:1073
 msgid "_Close"
 msgstr "ปิ_ด"
 
-#: ../panel-plugin/netload.c:1074
+#: panel-plugin/netload.c:1074
 msgid "_Help"
 msgstr "_วิธีใช้"
 
-#: ../panel-plugin/netload.c:1101
+#: panel-plugin/netload.c:1101
 msgid "_Text to display:"
 msgstr "ข้อ_ความที่จะแสดง:"
 
-#: ../panel-plugin/netload.c:1132
+#: panel-plugin/netload.c:1132
 msgid "Network _device:"
 msgstr "อุ_ปกรณ์เครือข่าย:"
 
-#: ../panel-plugin/netload.c:1163
+#: panel-plugin/netload.c:1163
 msgid "Update _interval:"
 msgstr "_ระยะเวลาการปรับข้อมูล:"
 
-#: ../panel-plugin/netload.c:1177
+#: panel-plugin/netload.c:1177
 msgid "s"
 msgstr "วินาที"
 
-#: ../panel-plugin/netload.c:1192
+#: panel-plugin/netload.c:1192
 msgid "Show values as _bits"
 msgstr "แสดงค่าเป็น_บิต"
 
-#: ../panel-plugin/netload.c:1206
+#: panel-plugin/netload.c:1206
 msgid "_Automatic maximum"
 msgstr "ตั้งค่าสูงสุดโดยอัตโนมั_ติ"
 
-#: ../panel-plugin/netload.c:1241
+#: panel-plugin/netload.c:1241
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1267
+#: panel-plugin/netload.c:1267
 msgid "_Present data as:"
 msgstr "แสด_งข้อมูลในแบบ:"
 
-#: ../panel-plugin/netload.c:1277
+#: panel-plugin/netload.c:1277
 msgid "Bars"
 msgstr "แถบ"
 
-#: ../panel-plugin/netload.c:1278
+#: panel-plugin/netload.c:1278
 msgid "Values"
 msgstr "ค่า"
 
-#: ../panel-plugin/netload.c:1279
+#: panel-plugin/netload.c:1279
 msgid "Bars and values"
 msgstr "แถบและค่า"
 
-#: ../panel-plugin/netload.c:1322
+#: panel-plugin/netload.c:1322
 msgid "_Colorize values"
 msgstr "ใช้_สีแสดงค่า"
 
-#: ../panel-plugin/netload.c:1345
+#: panel-plugin/netload.c:1345
 msgid "_Digits number:"
 msgstr ""
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/netload.desktop.in:6
+msgid "Show network traffic"
+msgstr "แสดงปริมาณการจราจรเครือข่าย"
+
+#: panel-plugin/utils.c:81
 msgid "Bps"
 msgstr ""
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/utils.c:81
 msgid "KiBps"
 msgstr ""
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/utils.c:81
 msgid "MiBps"
 msgstr ""
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/utils.c:81
 msgid "GiBps"
 msgstr ""
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "bps"
 msgstr "bps"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "Kbps"
 msgstr "Kbps"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "Mbps"
 msgstr "Mbps"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "Gbps"
 msgstr "Gbps"
