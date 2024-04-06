@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 00:54+0200\n"
+"POT-Creation-Date: 2024-04-06 00:52+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: scootergrisen, 2017,2019-2020,2023\n"
 "Language-Team: Danish (http://app.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
@@ -68,93 +68,89 @@ msgid ""
 "%s"
 msgstr "%s: Fejl ved initiering:\n%s"
 
-#: ../panel-plugin/netload.c:996
+#: ../panel-plugin/netload.c:997
 msgid "Display the current load of a network interface in the panel"
 msgstr "Vis den nuværende belastning af en netværksgrænseflade i panelet"
 
-#: ../panel-plugin/netload.c:1060
+#: ../panel-plugin/netload.c:1061
 msgid "Bar color (i_ncoming):"
 msgstr "Bjælkefarve (i_ndkommende):"
 
-#: ../panel-plugin/netload.c:1061
+#: ../panel-plugin/netload.c:1062
 msgid "Bar color (_outgoing):"
 msgstr "Bjælkefarve (_udgående):"
 
-#: ../panel-plugin/netload.c:1064
+#: ../panel-plugin/netload.c:1065
 msgid "Maximum (inco_ming):"
 msgstr "Maksimum (indk_ommende):"
 
-#: ../panel-plugin/netload.c:1065
+#: ../panel-plugin/netload.c:1066
 msgid "Maximum (o_utgoing):"
 msgstr "Maksimum (_udgående):"
 
-#: ../panel-plugin/netload.c:1070 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:1071
 msgid "Network Monitor"
 msgstr "Overvågning af netværk"
 
-#: ../panel-plugin/netload.c:1072
+#: ../panel-plugin/netload.c:1073
 msgid "_Close"
 msgstr "_Luk"
 
-#: ../panel-plugin/netload.c:1073
+#: ../panel-plugin/netload.c:1074
 msgid "_Help"
 msgstr "_Hjælp"
 
-#: ../panel-plugin/netload.c:1100
+#: ../panel-plugin/netload.c:1101
 msgid "_Text to display:"
 msgstr "_Tekst som skal vises:"
 
-#: ../panel-plugin/netload.c:1131
+#: ../panel-plugin/netload.c:1132
 msgid "Network _device:"
 msgstr "Netværks_enhed:"
 
-#: ../panel-plugin/netload.c:1162
+#: ../panel-plugin/netload.c:1163
 msgid "Update _interval:"
 msgstr "Opdaterings_interval:"
 
-#: ../panel-plugin/netload.c:1176
+#: ../panel-plugin/netload.c:1177
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1191
+#: ../panel-plugin/netload.c:1192
 msgid "Show values as _bits"
 msgstr "Vis værdier som _bit"
 
-#: ../panel-plugin/netload.c:1205
+#: ../panel-plugin/netload.c:1206
 msgid "_Automatic maximum"
 msgstr "_Automatisk maksimum"
 
-#: ../panel-plugin/netload.c:1240
+#: ../panel-plugin/netload.c:1241
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1266
+#: ../panel-plugin/netload.c:1267
 msgid "_Present data as:"
 msgstr "_Vis data som:"
 
-#: ../panel-plugin/netload.c:1276
+#: ../panel-plugin/netload.c:1277
 msgid "Bars"
 msgstr "Bjælker"
 
-#: ../panel-plugin/netload.c:1277
+#: ../panel-plugin/netload.c:1278
 msgid "Values"
 msgstr "Værdier"
 
-#: ../panel-plugin/netload.c:1278
+#: ../panel-plugin/netload.c:1279
 msgid "Bars and values"
 msgstr "Bjælker og værdier"
 
-#: ../panel-plugin/netload.c:1321
+#: ../panel-plugin/netload.c:1322
 msgid "_Colorize values"
 msgstr "_Farvelæg værdier"
 
-#: ../panel-plugin/netload.c:1344
+#: ../panel-plugin/netload.c:1345
 msgid "_Digits number:"
 msgstr "_Antal cifre:"
-
-#: ../panel-plugin/netload.desktop.in.in.h:2
-msgid "Show network traffic"
-msgstr "Vis netværkstrafik"
 
 #: ../panel-plugin/utils.c:81
 msgid "Bps"
