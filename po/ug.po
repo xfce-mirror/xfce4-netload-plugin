@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-22 12:50+0200\n"
+"POT-Creation-Date: 2024-04-06 00:52+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Uyghur (http://app.transifex.com/xfce/xfce-panel-plugins/language/ug/)\n"
@@ -65,93 +65,89 @@ msgid ""
 "%s"
 msgstr "%s: دەسلەپلەشتۈرۈشتە خاتالىق كۆرۈلدى:\n%s"
 
-#: ../panel-plugin/netload.c:996
+#: ../panel-plugin/netload.c:997
 msgid "Display the current load of a network interface in the panel"
 msgstr ""
 
-#: ../panel-plugin/netload.c:1060
+#: ../panel-plugin/netload.c:1061
 msgid "Bar color (i_ncoming):"
 msgstr "بالداق رېڭى (كىرىش)(_N):"
 
-#: ../panel-plugin/netload.c:1061
+#: ../panel-plugin/netload.c:1062
 msgid "Bar color (_outgoing):"
 msgstr "بالداق رېڭى  (چىقىش)(_O):"
 
-#: ../panel-plugin/netload.c:1064
+#: ../panel-plugin/netload.c:1065
 msgid "Maximum (inco_ming):"
 msgstr "ئەڭ چوڭ (كىرىش)(_M):"
 
-#: ../panel-plugin/netload.c:1065
+#: ../panel-plugin/netload.c:1066
 msgid "Maximum (o_utgoing):"
 msgstr "ئەڭ چوڭ (چىقىش)(_U):"
 
-#: ../panel-plugin/netload.c:1070 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:1071
 msgid "Network Monitor"
 msgstr "تور كۆزەتكۈ"
 
-#: ../panel-plugin/netload.c:1072
+#: ../panel-plugin/netload.c:1073
 msgid "_Close"
 msgstr ""
 
-#: ../panel-plugin/netload.c:1073
+#: ../panel-plugin/netload.c:1074
 msgid "_Help"
 msgstr ""
 
-#: ../panel-plugin/netload.c:1100
+#: ../panel-plugin/netload.c:1101
 msgid "_Text to display:"
 msgstr "كۆرسىتىدىغان تېكىست(_T)"
 
-#: ../panel-plugin/netload.c:1131
+#: ../panel-plugin/netload.c:1132
 msgid "Network _device:"
 msgstr "تور ئۈسكۈنىسى(_D):"
 
-#: ../panel-plugin/netload.c:1162
+#: ../panel-plugin/netload.c:1163
 msgid "Update _interval:"
 msgstr "يېڭىلاش ئىنتېرۋالى(_I):"
 
-#: ../panel-plugin/netload.c:1176
+#: ../panel-plugin/netload.c:1177
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1191
+#: ../panel-plugin/netload.c:1192
 msgid "Show values as _bits"
 msgstr ""
 
-#: ../panel-plugin/netload.c:1205
+#: ../panel-plugin/netload.c:1206
 msgid "_Automatic maximum"
 msgstr "ئۆزلۈكىدىن ئەڭ چوڭ(_A)"
 
-#: ../panel-plugin/netload.c:1240
+#: ../panel-plugin/netload.c:1241
 msgid "KiB/s"
 msgstr "ك ب/س"
 
-#: ../panel-plugin/netload.c:1266
+#: ../panel-plugin/netload.c:1267
 msgid "_Present data as:"
 msgstr "سانلىق-مەلۇماتلارنى كۆرسىتىش شەكلى:"
 
-#: ../panel-plugin/netload.c:1276
+#: ../panel-plugin/netload.c:1277
 msgid "Bars"
 msgstr "بالداقلار"
 
-#: ../panel-plugin/netload.c:1277
+#: ../panel-plugin/netload.c:1278
 msgid "Values"
 msgstr "قىممەتلەر"
 
-#: ../panel-plugin/netload.c:1278
+#: ../panel-plugin/netload.c:1279
 msgid "Bars and values"
 msgstr "بالداقلار ۋە قىممەتلەر"
 
-#: ../panel-plugin/netload.c:1321
+#: ../panel-plugin/netload.c:1322
 msgid "_Colorize values"
 msgstr "رەڭلىكلەشتۈرۈش قىممىتى(_C)"
 
-#: ../panel-plugin/netload.c:1344
+#: ../panel-plugin/netload.c:1345
 msgid "_Digits number:"
 msgstr ""
-
-#: ../panel-plugin/netload.desktop.in.in.h:2
-msgid "Show network traffic"
-msgstr "تور قىستاڭچىلىقىنى كۆرسىتىدۇ"
 
 #: ../panel-plugin/utils.c:81
 msgid "Bps"
