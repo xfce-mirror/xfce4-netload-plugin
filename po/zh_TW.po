@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-netload-plugin package.
 # 
 # Translators:
 # 黃柏諺 <s8321414@gmail.com>, 2014,2017
@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 00:52+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-06 12:54+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2023\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_TW/)\n"
@@ -21,32 +21,32 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Defaults
-#: ../panel-plugin/netload.c:42
+#: panel-plugin/netload.c:42
 msgid "Net"
 msgstr "網路"
 
-#: ../panel-plugin/netload.c:61
+#: panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-Netload-Plugin"
 
-#: ../panel-plugin/netload.c:64
+#: panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "未知錯誤。"
 
-#: ../panel-plugin/netload.c:65
+#: panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "找不到 Linux proc 裝置「/proc/net/dev」。"
 
-#: ../panel-plugin/netload.c:66
+#: panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "找不到介面。"
 
-#: ../panel-plugin/netload.c:173
+#: panel-plugin/netload.c:173
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >>（介面 down）"
 
-#: ../panel-plugin/netload.c:260
+#: panel-plugin/netload.c:260
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -57,129 +57,133 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\n最近 %d 次測量平均\n間隔 %.2fs：\n傳入：%s\n傳出：%s\n總計：%s"
 
-#: ../panel-plugin/netload.c:263
+#: panel-plugin/netload.c:263
 msgid "no IP address"
 msgstr "無 IP 位址"
 
-#: ../panel-plugin/netload.c:652
+#: panel-plugin/netload.c:652
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s：初始化發生錯誤：\n%s"
 
-#: ../panel-plugin/netload.c:997
+#: panel-plugin/netload.c:997
 msgid "Display the current load of a network interface in the panel"
 msgstr "顯示面板中顯示網路介面的目前負載"
 
-#: ../panel-plugin/netload.c:1061
+#: panel-plugin/netload.c:1061
 msgid "Bar color (i_ncoming):"
 msgstr "長條色彩（傳入）(_N)："
 
-#: ../panel-plugin/netload.c:1062
+#: panel-plugin/netload.c:1062
 msgid "Bar color (_outgoing):"
 msgstr "長條色彩（傳出）(_O)："
 
-#: ../panel-plugin/netload.c:1065
+#: panel-plugin/netload.c:1065
 msgid "Maximum (inco_ming):"
 msgstr "最大（傳入）(_M)："
 
-#: ../panel-plugin/netload.c:1066
+#: panel-plugin/netload.c:1066
 msgid "Maximum (o_utgoing):"
 msgstr "最大（傳出）(_U)："
 
-#: ../panel-plugin/netload.c:1071
+#: panel-plugin/netload.c:1071 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
 msgstr "網路監視器"
 
-#: ../panel-plugin/netload.c:1073
+#: panel-plugin/netload.c:1073
 msgid "_Close"
 msgstr "關閉(_C)"
 
-#: ../panel-plugin/netload.c:1074
+#: panel-plugin/netload.c:1074
 msgid "_Help"
 msgstr "說明(_H)"
 
-#: ../panel-plugin/netload.c:1101
+#: panel-plugin/netload.c:1101
 msgid "_Text to display:"
 msgstr "要顯示的文字(_T)："
 
-#: ../panel-plugin/netload.c:1132
+#: panel-plugin/netload.c:1132
 msgid "Network _device:"
 msgstr "網路裝置(_D)："
 
-#: ../panel-plugin/netload.c:1163
+#: panel-plugin/netload.c:1163
 msgid "Update _interval:"
 msgstr "更新間隔(_I)："
 
-#: ../panel-plugin/netload.c:1177
+#: panel-plugin/netload.c:1177
 msgid "s"
 msgstr "秒"
 
-#: ../panel-plugin/netload.c:1192
+#: panel-plugin/netload.c:1192
 msgid "Show values as _bits"
 msgstr "以位元顯示值(_B)"
 
-#: ../panel-plugin/netload.c:1206
+#: panel-plugin/netload.c:1206
 msgid "_Automatic maximum"
 msgstr "自動最大(_A)"
 
-#: ../panel-plugin/netload.c:1241
+#: panel-plugin/netload.c:1241
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1267
+#: panel-plugin/netload.c:1267
 msgid "_Present data as:"
 msgstr "顯示資料為(_P)："
 
-#: ../panel-plugin/netload.c:1277
+#: panel-plugin/netload.c:1277
 msgid "Bars"
 msgstr "條"
 
-#: ../panel-plugin/netload.c:1278
+#: panel-plugin/netload.c:1278
 msgid "Values"
 msgstr "值"
 
-#: ../panel-plugin/netload.c:1279
+#: panel-plugin/netload.c:1279
 msgid "Bars and values"
 msgstr "條與值"
 
-#: ../panel-plugin/netload.c:1322
+#: panel-plugin/netload.c:1322
 msgid "_Colorize values"
 msgstr "色彩化值(_C)"
 
-#: ../panel-plugin/netload.c:1345
+#: panel-plugin/netload.c:1345
 msgid "_Digits number:"
 msgstr "位數(_D)："
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/netload.desktop.in:6
+msgid "Show network traffic"
+msgstr "顯示網路流量"
+
+#: panel-plugin/utils.c:81
 msgid "Bps"
 msgstr "Bps"
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/utils.c:81
 msgid "KiBps"
 msgstr "KiBps"
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/utils.c:81
 msgid "MiBps"
 msgstr "MiBps"
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/utils.c:81
 msgid "GiBps"
 msgstr "GiBps"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "bps"
 msgstr "bps"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "Kbps"
 msgstr "Kbps"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "Mbps"
 msgstr "Mbps"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "Gbps"
 msgstr "Gbps"
