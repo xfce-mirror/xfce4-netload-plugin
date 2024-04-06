@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-netload-plugin package.
 # 
 # Translators:
 # Alois Nešpor <info@aloisnespor.info>, 2013
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 00:52+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-06 12:54+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>, 2014,2017\n"
 "Language-Team: Czech (http://app.transifex.com/xfce/xfce-panel-plugins/language/cs/)\n"
@@ -20,32 +20,32 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #. Defaults
-#: ../panel-plugin/netload.c:42
+#: panel-plugin/netload.c:42
 msgid "Net"
 msgstr "Síť"
 
-#: ../panel-plugin/netload.c:61
+#: panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-Netload-Plugin"
 
-#: ../panel-plugin/netload.c:64
+#: panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Neznámá chyba"
 
-#: ../panel-plugin/netload.c:65
+#: panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Nenalezeno linuxové proc zařízení  '/proc/net/dev'."
 
-#: ../panel-plugin/netload.c:66
+#: panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "Rozhraní nebylo nalezeno"
 
-#: ../panel-plugin/netload.c:173
+#: panel-plugin/netload.c:173
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Rozhraní je vypnuté)"
 
-#: ../panel-plugin/netload.c:260
+#: panel-plugin/netload.c:260
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -56,129 +56,133 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nPrůměr posledních %d měření\ns intervalem %.2f s:\nPříchozí: %s\nOdchozí: %s\nCelkem: %s"
 
-#: ../panel-plugin/netload.c:263
+#: panel-plugin/netload.c:263
 msgid "no IP address"
 msgstr "žádná IP adresa"
 
-#: ../panel-plugin/netload.c:652
+#: panel-plugin/netload.c:652
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Chyba při initializaci:⏎\n%s"
 
-#: ../panel-plugin/netload.c:997
+#: panel-plugin/netload.c:997
 msgid "Display the current load of a network interface in the panel"
 msgstr ""
 
-#: ../panel-plugin/netload.c:1061
+#: panel-plugin/netload.c:1061
 msgid "Bar color (i_ncoming):"
 msgstr "Barva sloupce (p_říchozí):"
 
-#: ../panel-plugin/netload.c:1062
+#: panel-plugin/netload.c:1062
 msgid "Bar color (_outgoing):"
 msgstr "Barva sloupce (_odchozí):"
 
-#: ../panel-plugin/netload.c:1065
+#: panel-plugin/netload.c:1065
 msgid "Maximum (inco_ming):"
 msgstr "Maximum (pří_chozí):"
 
-#: ../panel-plugin/netload.c:1066
+#: panel-plugin/netload.c:1066
 msgid "Maximum (o_utgoing):"
 msgstr "Maximum (od_chozí):"
 
-#: ../panel-plugin/netload.c:1071
+#: panel-plugin/netload.c:1071 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
 msgstr "Sledování sítě"
 
-#: ../panel-plugin/netload.c:1073
+#: panel-plugin/netload.c:1073
 msgid "_Close"
 msgstr "_Zavřít"
 
-#: ../panel-plugin/netload.c:1074
+#: panel-plugin/netload.c:1074
 msgid "_Help"
 msgstr "_Nápověda"
 
-#: ../panel-plugin/netload.c:1101
+#: panel-plugin/netload.c:1101
 msgid "_Text to display:"
 msgstr "_Zobrazit text:"
 
-#: ../panel-plugin/netload.c:1132
+#: panel-plugin/netload.c:1132
 msgid "Network _device:"
 msgstr "Síťové _zařízení:"
 
-#: ../panel-plugin/netload.c:1163
+#: panel-plugin/netload.c:1163
 msgid "Update _interval:"
 msgstr "_Interval aktualizace:"
 
-#: ../panel-plugin/netload.c:1177
+#: panel-plugin/netload.c:1177
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1192
+#: panel-plugin/netload.c:1192
 msgid "Show values as _bits"
 msgstr "Zo_brazit jednotky jako bity"
 
-#: ../panel-plugin/netload.c:1206
+#: panel-plugin/netload.c:1206
 msgid "_Automatic maximum"
 msgstr "_Automatické maximum"
 
-#: ../panel-plugin/netload.c:1241
+#: panel-plugin/netload.c:1241
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1267
+#: panel-plugin/netload.c:1267
 msgid "_Present data as:"
 msgstr "_Prezentovat data jako:"
 
-#: ../panel-plugin/netload.c:1277
+#: panel-plugin/netload.c:1277
 msgid "Bars"
 msgstr "Sloupce"
 
-#: ../panel-plugin/netload.c:1278
+#: panel-plugin/netload.c:1278
 msgid "Values"
 msgstr "Hodnoty"
 
-#: ../panel-plugin/netload.c:1279
+#: panel-plugin/netload.c:1279
 msgid "Bars and values"
 msgstr "Sloupce a hodnoty"
 
-#: ../panel-plugin/netload.c:1322
+#: panel-plugin/netload.c:1322
 msgid "_Colorize values"
 msgstr "_Obarvit hodnoty"
 
-#: ../panel-plugin/netload.c:1345
+#: panel-plugin/netload.c:1345
 msgid "_Digits number:"
 msgstr ""
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/netload.desktop.in:6
+msgid "Show network traffic"
+msgstr "Zobrazit síťový provoz"
+
+#: panel-plugin/utils.c:81
 msgid "Bps"
 msgstr ""
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/utils.c:81
 msgid "KiBps"
 msgstr ""
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/utils.c:81
 msgid "MiBps"
 msgstr ""
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/utils.c:81
 msgid "GiBps"
 msgstr ""
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "bps"
 msgstr "b/s"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "Kbps"
 msgstr "Kb/s"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "Mbps"
 msgstr "Mb/s"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "Gbps"
 msgstr "Gb/s"
