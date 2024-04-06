@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-netload-plugin package.
 # 
 # Translators:
 # AlexanderFilev, 2014
@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 00:52+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-06 12:54+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: Zmicer Turok <zmicerturok@gmail.com >, 2018\n"
 "Language-Team: Belarusian (http://app.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
@@ -26,32 +26,32 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #. Defaults
-#: ../panel-plugin/netload.c:42
+#: panel-plugin/netload.c:42
 msgid "Net"
 msgstr "Сетка"
 
-#: ../panel-plugin/netload.c:61
+#: panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Убудова сеткавай актыўнасці Xfce4"
 
-#: ../panel-plugin/netload.c:64
+#: panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Невядомая памылка."
 
-#: ../panel-plugin/netload.c:65
+#: panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Прылада Linux  ‘/proc/net/dev’ не знойдзеная."
 
-#: ../panel-plugin/netload.c:66
+#: panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "Інтэрфейс не знойдзены."
 
-#: ../panel-plugin/netload.c:173
+#: panel-plugin/netload.c:173
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "Інтэрфейс «%s» выключаны"
 
-#: ../panel-plugin/netload.c:260
+#: panel-plugin/netload.c:260
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -62,129 +62,133 @@ msgid ""
 "Total: %s"
 msgstr "«%s» (%s)\nСярэдняе значэнне апошніх %d вымярэнняў\nз інтэрвалам %.2f с:\nУваходны: %s\nВыходны: %s\nАгулам: %s"
 
-#: ../panel-plugin/netload.c:263
+#: panel-plugin/netload.c:263
 msgid "no IP address"
 msgstr "IP-адрас адсутнічае"
 
-#: ../panel-plugin/netload.c:652
+#: panel-plugin/netload.c:652
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: памылка ініцыялізацыі:\n%s"
 
-#: ../panel-plugin/netload.c:997
+#: panel-plugin/netload.c:997
 msgid "Display the current load of a network interface in the panel"
 msgstr ""
 
-#: ../panel-plugin/netload.c:1061
+#: panel-plugin/netload.c:1061
 msgid "Bar color (i_ncoming):"
 msgstr "Колер радка (_уваходны):"
 
-#: ../panel-plugin/netload.c:1062
+#: panel-plugin/netload.c:1062
 msgid "Bar color (_outgoing):"
 msgstr "Колер радка (_выходны):"
 
-#: ../panel-plugin/netload.c:1065
+#: panel-plugin/netload.c:1065
 msgid "Maximum (inco_ming):"
 msgstr "Максімум (_уваходны):"
 
-#: ../panel-plugin/netload.c:1066
+#: panel-plugin/netload.c:1066
 msgid "Maximum (o_utgoing):"
 msgstr "Максімум (_выходны):"
 
-#: ../panel-plugin/netload.c:1071
+#: panel-plugin/netload.c:1071 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
 msgstr "Сеткавы манітор"
 
-#: ../panel-plugin/netload.c:1073
+#: panel-plugin/netload.c:1073
 msgid "_Close"
 msgstr "_Закрыць"
 
-#: ../panel-plugin/netload.c:1074
+#: panel-plugin/netload.c:1074
 msgid "_Help"
 msgstr "_Даведка"
 
-#: ../panel-plugin/netload.c:1101
+#: panel-plugin/netload.c:1101
 msgid "_Text to display:"
 msgstr "_Тэкст:"
 
-#: ../panel-plugin/netload.c:1132
+#: panel-plugin/netload.c:1132
 msgid "Network _device:"
 msgstr "Сеткавая _прылада:"
 
-#: ../panel-plugin/netload.c:1163
+#: panel-plugin/netload.c:1163
 msgid "Update _interval:"
 msgstr "Інтэрвал _абнаўлення:"
 
-#: ../panel-plugin/netload.c:1177
+#: panel-plugin/netload.c:1177
 msgid "s"
 msgstr "с"
 
-#: ../panel-plugin/netload.c:1192
+#: panel-plugin/netload.c:1192
 msgid "Show values as _bits"
 msgstr "Значэнні ў бі_тах"
 
-#: ../panel-plugin/netload.c:1206
+#: panel-plugin/netload.c:1206
 msgid "_Automatic maximum"
 msgstr "_Аўтаматычна вызначаць максімум"
 
-#: ../panel-plugin/netload.c:1241
+#: panel-plugin/netload.c:1241
 msgid "KiB/s"
 msgstr "Кб/с"
 
-#: ../panel-plugin/netload.c:1267
+#: panel-plugin/netload.c:1267
 msgid "_Present data as:"
 msgstr "_Адлюстроўваць як:"
 
-#: ../panel-plugin/netload.c:1277
+#: panel-plugin/netload.c:1277
 msgid "Bars"
 msgstr "Радкі"
 
-#: ../panel-plugin/netload.c:1278
+#: panel-plugin/netload.c:1278
 msgid "Values"
 msgstr "Значэнні"
 
-#: ../panel-plugin/netload.c:1279
+#: panel-plugin/netload.c:1279
 msgid "Bars and values"
 msgstr "Радкі і значэнні"
 
-#: ../panel-plugin/netload.c:1322
+#: panel-plugin/netload.c:1322
 msgid "_Colorize values"
 msgstr "_Каляровыя значэнні"
 
-#: ../panel-plugin/netload.c:1345
+#: panel-plugin/netload.c:1345
 msgid "_Digits number:"
 msgstr ""
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/netload.desktop.in:6
+msgid "Show network traffic"
+msgstr "Паказваць сеткавы трафік"
+
+#: panel-plugin/utils.c:81
 msgid "Bps"
 msgstr ""
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/utils.c:81
 msgid "KiBps"
 msgstr ""
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/utils.c:81
 msgid "MiBps"
 msgstr ""
 
-#: ../panel-plugin/utils.c:81
+#: panel-plugin/utils.c:81
 msgid "GiBps"
 msgstr ""
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "bps"
 msgstr "біт/с"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "Kbps"
 msgstr "Кбіт/с"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "Mbps"
 msgstr "Мбіт/с"
 
-#: ../panel-plugin/utils.c:82
+#: panel-plugin/utils.c:82
 msgid "Gbps"
 msgstr "Гбіт/с"
