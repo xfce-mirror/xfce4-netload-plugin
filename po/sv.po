@@ -4,16 +4,16 @@
 # 
 # Translators:
 # Daniel Nylander <po@danielnylander.se>, 2006,2008
-# Luna Jernberg <bittin@cafe8bitar.se>, 2023
+# Luna Jernberg <droidbittin@gmail.com>, 2023
 # Påvel Nicklasson <pavel@frimix.se>, 2015
 # peterdenk <peter.denk@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-22 12:50+0200\n"
+"POT-Creation-Date: 2024-04-06 00:52+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
-"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>, 2023\n"
+"Last-Translator: Luna Jernberg <droidbittin@gmail.com>, 2023\n"
 "Language-Team: Swedish (http://app.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,93 +69,89 @@ msgid ""
 "%s"
 msgstr "%s: Fel vid initiering:\n%s"
 
-#: ../panel-plugin/netload.c:996
+#: ../panel-plugin/netload.c:997
 msgid "Display the current load of a network interface in the panel"
 msgstr "Visa den aktuella belastningen av ett nätverksgränssnitt i panelen"
 
-#: ../panel-plugin/netload.c:1060
+#: ../panel-plugin/netload.c:1061
 msgid "Bar color (i_ncoming):"
 msgstr "Radfärg (in_kommande):"
 
-#: ../panel-plugin/netload.c:1061
+#: ../panel-plugin/netload.c:1062
 msgid "Bar color (_outgoing):"
 msgstr "Radfärg (_utgående)"
 
-#: ../panel-plugin/netload.c:1064
+#: ../panel-plugin/netload.c:1065
 msgid "Maximum (inco_ming):"
 msgstr "Maximum (inko_mmande)"
 
-#: ../panel-plugin/netload.c:1065
+#: ../panel-plugin/netload.c:1066
 msgid "Maximum (o_utgoing):"
 msgstr "Maximum (u_tgående)"
 
-#: ../panel-plugin/netload.c:1070 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:1071
 msgid "Network Monitor"
 msgstr "Nätverksövervakning"
 
-#: ../panel-plugin/netload.c:1072
+#: ../panel-plugin/netload.c:1073
 msgid "_Close"
 msgstr "_Stäng"
 
-#: ../panel-plugin/netload.c:1073
+#: ../panel-plugin/netload.c:1074
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: ../panel-plugin/netload.c:1100
+#: ../panel-plugin/netload.c:1101
 msgid "_Text to display:"
 msgstr "_Text att visa:"
 
-#: ../panel-plugin/netload.c:1131
+#: ../panel-plugin/netload.c:1132
 msgid "Network _device:"
 msgstr "Nätverks_enhet:"
 
-#: ../panel-plugin/netload.c:1162
+#: ../panel-plugin/netload.c:1163
 msgid "Update _interval:"
 msgstr "Uppdaterings_intervall:"
 
-#: ../panel-plugin/netload.c:1176
+#: ../panel-plugin/netload.c:1177
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1191
+#: ../panel-plugin/netload.c:1192
 msgid "Show values as _bits"
 msgstr "Visa värden i _bitar"
 
-#: ../panel-plugin/netload.c:1205
+#: ../panel-plugin/netload.c:1206
 msgid "_Automatic maximum"
 msgstr "_Automatiskt maximum"
 
-#: ../panel-plugin/netload.c:1240
+#: ../panel-plugin/netload.c:1241
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1266
+#: ../panel-plugin/netload.c:1267
 msgid "_Present data as:"
 msgstr "_Presentera data som:"
 
-#: ../panel-plugin/netload.c:1276
+#: ../panel-plugin/netload.c:1277
 msgid "Bars"
 msgstr "Rader"
 
-#: ../panel-plugin/netload.c:1277
+#: ../panel-plugin/netload.c:1278
 msgid "Values"
 msgstr "Värden"
 
-#: ../panel-plugin/netload.c:1278
+#: ../panel-plugin/netload.c:1279
 msgid "Bars and values"
 msgstr "Rader och värden"
 
-#: ../panel-plugin/netload.c:1321
+#: ../panel-plugin/netload.c:1322
 msgid "_Colorize values"
 msgstr "_Färglägg värden"
 
-#: ../panel-plugin/netload.c:1344
+#: ../panel-plugin/netload.c:1345
 msgid "_Digits number:"
 msgstr ""
-
-#: ../panel-plugin/netload.desktop.in.in.h:2
-msgid "Show network traffic"
-msgstr "Visa nätverkstrafik"
 
 #: ../panel-plugin/utils.c:81
 msgid "Bps"
