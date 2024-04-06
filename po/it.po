@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-22 12:50+0200\n"
+"POT-Creation-Date: 2024-04-06 00:52+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2023\n"
 "Language-Team: Italian (http://app.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
@@ -71,93 +71,89 @@ msgid ""
 "%s"
 msgstr "%s: Errore durante l'inizializzazione:\n%s"
 
-#: ../panel-plugin/netload.c:996
+#: ../panel-plugin/netload.c:997
 msgid "Display the current load of a network interface in the panel"
 msgstr "Mostra l'attuale carico dell'interfaccia di rete nel pannello"
 
-#: ../panel-plugin/netload.c:1060
+#: ../panel-plugin/netload.c:1061
 msgid "Bar color (i_ncoming):"
 msgstr "Colore della barra (in e_ntrata):"
 
-#: ../panel-plugin/netload.c:1061
+#: ../panel-plugin/netload.c:1062
 msgid "Bar color (_outgoing):"
 msgstr "Colore della barra (in u_scita):"
 
-#: ../panel-plugin/netload.c:1064
+#: ../panel-plugin/netload.c:1065
 msgid "Maximum (inco_ming):"
 msgstr "Massimo (in _entrata):"
 
-#: ../panel-plugin/netload.c:1065
+#: ../panel-plugin/netload.c:1066
 msgid "Maximum (o_utgoing):"
 msgstr "Massimo (in _uscita):"
 
-#: ../panel-plugin/netload.c:1070 ../panel-plugin/netload.desktop.in.in.h:1
+#: ../panel-plugin/netload.c:1071
 msgid "Network Monitor"
 msgstr "Monitor del carico di rete"
 
-#: ../panel-plugin/netload.c:1072
+#: ../panel-plugin/netload.c:1073
 msgid "_Close"
 msgstr "_Chiudi"
 
-#: ../panel-plugin/netload.c:1073
+#: ../panel-plugin/netload.c:1074
 msgid "_Help"
 msgstr "_Aiuto"
 
-#: ../panel-plugin/netload.c:1100
+#: ../panel-plugin/netload.c:1101
 msgid "_Text to display:"
 msgstr "_Testo da mostrare:"
 
-#: ../panel-plugin/netload.c:1131
+#: ../panel-plugin/netload.c:1132
 msgid "Network _device:"
 msgstr "_Dispositivo di rete:"
 
-#: ../panel-plugin/netload.c:1162
+#: ../panel-plugin/netload.c:1163
 msgid "Update _interval:"
 msgstr "Intervallo di a_ggiornamento:"
 
-#: ../panel-plugin/netload.c:1176
+#: ../panel-plugin/netload.c:1177
 msgid "s"
 msgstr "sec"
 
-#: ../panel-plugin/netload.c:1191
+#: ../panel-plugin/netload.c:1192
 msgid "Show values as _bits"
 msgstr "Mostra i valori in _bit"
 
-#: ../panel-plugin/netload.c:1205
+#: ../panel-plugin/netload.c:1206
 msgid "_Automatic maximum"
 msgstr "Massimo _automatico"
 
-#: ../panel-plugin/netload.c:1240
+#: ../panel-plugin/netload.c:1241
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1266
+#: ../panel-plugin/netload.c:1267
 msgid "_Present data as:"
 msgstr "_Mostra i dati come:"
 
-#: ../panel-plugin/netload.c:1276
+#: ../panel-plugin/netload.c:1277
 msgid "Bars"
 msgstr "Barre"
 
-#: ../panel-plugin/netload.c:1277
+#: ../panel-plugin/netload.c:1278
 msgid "Values"
 msgstr "Valori"
 
-#: ../panel-plugin/netload.c:1278
+#: ../panel-plugin/netload.c:1279
 msgid "Bars and values"
 msgstr "Barre e valori"
 
-#: ../panel-plugin/netload.c:1321
+#: ../panel-plugin/netload.c:1322
 msgid "_Colorize values"
 msgstr "Colora i _valori"
 
-#: ../panel-plugin/netload.c:1344
+#: ../panel-plugin/netload.c:1345
 msgid "_Digits number:"
 msgstr "Numero di _cifre:"
-
-#: ../panel-plugin/netload.desktop.in.in.h:2
-msgid "Show network traffic"
-msgstr "Mostra il traffico di rete"
 
 #: ../panel-plugin/utils.c:81
 msgid "Bps"
