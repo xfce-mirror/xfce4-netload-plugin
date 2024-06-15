@@ -10,20 +10,14 @@ dnl
 dnl ***************************
 dnl *** Version information ***
 dnl ***************************
-m4_define([netload_version_major], [1])
-m4_define([netload_version_minor], [4])
-m4_define([netload_version_micro], [1])
-m4_define([netload_version_build], [@REVISION@])
-m4_define([netload_version_tag], [git])
-m4_define([netload_version], [netload_version_major().netload_version_minor().netload_version_micro()ifelse(netload_version_tag(), [git], [netload_version_tag()-netload_version_build()], [netload_version_tag()])])
-
-m4_define([netload_debug_default], [ifelse(netload_version_tag(), [git], [yes], [minimum])])
+XDT_VERSION_INIT([1.4.1], [git])
 
 AC_COPYRIGHT([Copyright (c) 2003-2023 The Xfce development team. All rights reserved.])
-AC_INIT([xfce4-netload-plugin], [netload_version], [https://gitlab.xfce.org/panel-plugins/xfce4-netload-plugin])
+AC_INIT([xfce4-netload-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-netload-plugin])
+AC_REVISION([xdt_version_build])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIRS([m4])
-AC_PREREQ([2.50])
+AC_PREREQ([2.69])
 AC_CANONICAL_TARGET()
 
 AM_INIT_AUTOMAKE([1.8 no-dist-gzip dist-bzip2 foreign])
@@ -78,7 +72,7 @@ AM_GNU_GETTEXT([external])
 AM_GNU_GETTEXT_VERSION([0.19.8])
 
 dnl Check for debugging support
-XDT_FEATURE_DEBUG()
+XDT_FEATURE_DEBUG([xdt_debug_default])
 
 AC_CONFIG_FILES([
 Makefile

@@ -1,3 +1,4 @@
+*~
 *.la
 *.lo
 .deps/
@@ -9,7 +10,6 @@ aclocal.m4
 autom4te.cache/
 config.*
 configure
-configure.ac
 compile
 depcomp
 install-sh
