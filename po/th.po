@@ -69,7 +69,7 @@ msgstr "%s: เกิดข้อผิดพลาดขณะตั้งต�
 
 #: panel-plugin/netload.c:997
 msgid "Display the current load of a network interface in the panel"
-msgstr ""
+msgstr "แสดงโหลดปัจจุบันของช่องเชื่อมต่อเครือข่ายในพาเนล"
 
 #: panel-plugin/netload.c:1061
 msgid "Bar color (i_ncoming):"
@@ -149,7 +149,7 @@ msgstr "ใช้_สีแสดงค่า"
 
 #: panel-plugin/netload.c:1345
 msgid "_Digits number:"
-msgstr ""
+msgstr "จำนวนหฅัก_ทศนิยม:"
 
 #: panel-plugin/netload.desktop.in:6
 msgid "Show network traffic"
@@ -157,19 +157,19 @@ msgstr "แสดงปริมาณการจราจรเครือข
 
 #: panel-plugin/utils.c:81
 msgid "Bps"
-msgstr ""
+msgstr "Bps"
 
 #: panel-plugin/utils.c:81
 msgid "KiBps"
-msgstr ""
+msgstr "KiBps"
 
 #: panel-plugin/utils.c:81
 msgid "MiBps"
-msgstr ""
+msgstr "MiBps"
 
 #: panel-plugin/utils.c:81
 msgid "GiBps"
-msgstr ""
+msgstr "GiBps"
 
 #: panel-plugin/utils.c:82
 msgid "bps"
