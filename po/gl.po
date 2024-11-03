@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Daniel Muñiz Fontoira <dani@damufo.eu>, 2018-2019,2021
+# Daniel Muñiz Fontoira <dani@damufo.eu>, 2024
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2006,2008-2009
 # Xosé, 2018
 msgid ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-06 12:54+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
-"Last-Translator: Daniel Muñiz Fontoira <dani@damufo.eu>, 2018-2019,2021\n"
+"Last-Translator: Daniel Muñiz Fontoira <dani@damufo.eu>, 2024\n"
 "Language-Team: Galician (http://app.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,7 +71,7 @@ msgstr "%s: Erro ao inicializar:\n%s"
 
 #: panel-plugin/netload.c:997
 msgid "Display the current load of a network interface in the panel"
-msgstr ""
+msgstr " Amosa no panel a carga actual dunha interface de rede"
 
 #: panel-plugin/netload.c:1061
 msgid "Bar color (i_ncoming):"
@@ -150,7 +151,7 @@ msgstr "_Colorear os valores"
 
 #: panel-plugin/netload.c:1345
 msgid "_Digits number:"
-msgstr ""
+msgstr "Número de _díxitos:"
 
 #: panel-plugin/netload.desktop.in:6
 msgid "Show network traffic"
@@ -158,19 +159,19 @@ msgstr "Amosar o tráfico de rede"
 
 #: panel-plugin/utils.c:81
 msgid "Bps"
-msgstr ""
+msgstr "Bps"
 
 #: panel-plugin/utils.c:81
 msgid "KiBps"
-msgstr ""
+msgstr "KiBps"
 
 #: panel-plugin/utils.c:81
 msgid "MiBps"
-msgstr ""
+msgstr "MiBps"
 
 #: panel-plugin/utils.c:81
 msgid "GiBps"
-msgstr ""
+msgstr "GiBps"
 
 #: panel-plugin/utils.c:82
 msgid "bps"
