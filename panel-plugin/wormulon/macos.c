@@ -23,7 +23,7 @@ void init_osspecific(netdata* data)
     data->mib_name2[5] = 0;
     
 #ifdef DEBUG
-    fprintf( stderr, "The netload plugin was initialized for NetBSD.\n" );
+    fprintf( stderr, "The netload plugin was initialized for Darwin.\n" );
 #endif
 }
 
