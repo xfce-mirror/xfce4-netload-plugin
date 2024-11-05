@@ -49,8 +49,8 @@
 # include "wormulon/hpux.h"
 # include "wormulon/hpux.c"
 #elif defined(__APPLE__)
-# include "src/macos.h"
-# include "src/macos.c"
+# include "wormulon/macos.h"
+# include "wormulon/macos.c"
 #elif (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__FreeBSD_kernel__))
 # include "wormulon/freebsd.h"
 # include "wormulon/freebsd.c"
