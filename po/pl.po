@@ -57,7 +57,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr "<< %s >> (%s)\nŚrednia ostatnich %d pomiarów\nw odstępie %.2fs:\nPrzychodzące: %s kB/s\nWychodzące: %s kB/s\nŁącznie: %s kB/s"
+msgstr "<< %s >> (%s)\nŚrednia ostatnich %d pomiarów\nw odstępie %.2fs:\nPrzychodzące: %s kB/s\nWychodzące: %s kB/s\nŁącznie: %s kB/s"
 
 #: panel-plugin/netload.c:263
 msgid "no IP address"
@@ -120,7 +120,7 @@ msgstr "s"
 
 #: panel-plugin/netload.c:1192
 msgid "Show values as _bits"
-msgstr "Pokaż wartości w _bitach"
+msgstr "Pokaż wartości w _bitach"
 
 #: panel-plugin/netload.c:1206
 msgid "_Automatic maximum"
@@ -144,7 +144,7 @@ msgstr "Wartości"
 
 #: panel-plugin/netload.c:1279
 msgid "Bars and values"
-msgstr "Słupki i wartości"
+msgstr "Słupki i wartości"
 
 #: panel-plugin/netload.c:1322
 msgid "_Colorize values"
