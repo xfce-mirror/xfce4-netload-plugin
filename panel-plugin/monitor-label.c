@@ -117,20 +117,12 @@ xnlp_monitor_label_set_color (XnlpMonitorLabel *label, GdkRGBA* color)
     gchar * css;
     if (color != NULL)
     {
-#if GTK_CHECK_VERSION (3, 20, 0)
         css = g_strdup_printf("label { color: %s; }",
-#else
-        css = g_strdup_printf(".label { color: %s; }",
-#endif
                               gdk_rgba_to_string(color));
     }
     else
     {
-#if GTK_CHECK_VERSION (3, 20, 0)
         css = g_strdup_printf("label { color: inherit; }");
-#else
-        css = g_strdup_printf(".label { color: inherit; }");
-#endif
     }
     gtk_css_provider_load_from_data (label->css_provider, css, strlen(css), NULL);
     DBG("setting label css: %s", gtk_css_provider_to_string (label->css_provider));
@@ -146,4 +138,3 @@ xnlp_monitor_label_reinit_size_request (XnlpMonitorLabel *label)
 
         gtk_widget_set_size_request (GTK_WIDGET (label), -1, -1);
 }
-
