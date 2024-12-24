@@ -12,7 +12,7 @@ dnl *** Version information ***
 dnl ***************************
 XDT_VERSION_INIT([1.4.1], [git])
 
-AC_COPYRIGHT([Copyright (c) 2003-2023 The Xfce development team. All rights reserved.])
+AC_COPYRIGHT([Copyright (c) 2003-2024 The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-netload-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-netload-plugin])
 AC_REVISION([xdt_version_build])
 AC_CONFIG_HEADERS([config.h])

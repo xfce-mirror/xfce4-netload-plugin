@@ -963,7 +963,7 @@ monitor_show_about (XfcePanelPlugin *plugin, t_global_monitor *global)
       "program-name", PACKAGE_NAME,
       "comments", _("Display the current load of a network interface in the panel"),
       "website", "https://docs.xfce.org/panel-plugins/xfce4-netload-plugin/start",
-      "copyright", "Copyright \302\251 2003-2023 The Xfce development team",
+      "copyright", "Copyright \302\251 2003-2024 The Xfce development team",
       "authors", auth, NULL);
 }
 
