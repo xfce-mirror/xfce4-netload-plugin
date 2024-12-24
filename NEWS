@@ -1,3 +1,24 @@
+1.4.2 (2024-12-24)
+=====
+- Update copyright year
+- build: Bump dependency versions and fix deprecation warnings
+- Fix Darwin build
+- build: Use XDT_VERSION_INIT and get rid of configure.ac.in
+- I18n: Update po/LINGUAS list
+- desktop: Remove extra layer of input
+- build: Get rid of intltool
+- monitor-label: Do not resize the label width after speed falls
+- Update plugin size also on as_bits_toggled
+- Translation Updates:
+  Albanian, Arabic, Basque, Belarusian, Bulgarian, Catalan, Chinese
+  (China), Chinese (Taiwan), Croatian, Czech, Danish, Dutch, Eastern
+  Armenian, English (Australia), English (Canada), English (United
+  Kingdom), Estonian, Finnish, French, Galician, German, Greek, Hebrew,
+  Hungarian, Icelandic, Indonesian, Interlingue, Italian, Japanese,
+  Korean, Lithuanian, Malay, Norwegian Bokmål, Occitan (post 1500),
+  Polish, Portuguese, Portuguese (Brazil), Romanian, Russian, Serbian,
+  Slovak, Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian, Uyghur
+
 1.4.1 (2023-04-29)
 =====
 - Fix wrong description in about dialog
