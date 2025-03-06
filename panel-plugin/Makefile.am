@@ -18,7 +18,8 @@ libnetload_la_SOURCES =							\
 libnetload_la_CFLAGS =							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	@LIBXFCE4PANEL_CFLAGS@						\
-	@LIBXFCE4UI_CFLAGS@
+	@LIBXFCE4UI_CFLAGS@						\
+	@LIBXFCE4UTIL_CFLAGS@
 
 libnetload_la_LDFLAGS =							\
 	-avoid-version							\
@@ -30,7 +31,8 @@ libnetload_la_LDFLAGS =							\
 libnetload_la_LIBADD =							\
 	@SOLLIBS@							\
 	@LIBXFCE4PANEL_LIBS@						\
-	@LIBXFCE4UI_LIBS@
+	@LIBXFCE4UI_LIBS@						\
+	@LIBXFCE4UTIL_LIBS@
 
 check_PROGRAMS = commandline
 commandline_SOURCES = commandline.c utils.c utils.h net.c net.h
