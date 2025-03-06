@@ -55,7 +55,7 @@ AC_PROG_GCC_TRADITIONAL
 AC_TYPE_SIZE_T
 
 AC_CHECK_LIB(kstat, kstat_open, SOLLIBS="-lkstat -lsocket", SOLLIBS="")
-AC_CHECK_LIB(nsl, kstat_open, SOLLIBS="$SOLLIBS -linet_ntop", SOLLIBS="$SOLLIBS")
+AC_CHECK_LIB(nsl, inet_ntop, SOLLIBS="$SOLLIBS -lnsl", SOLLIBS="$SOLLIBS")
 AC_SUBST(SOLLIBS)
 
 dnl configure the panel plugin
