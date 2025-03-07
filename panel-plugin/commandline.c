@@ -36,8 +36,10 @@
 
 netdata data;
 
+_Noreturn void sig_end_handler (int sig);
+
 /* ---------------------------------------------------------------------------------------------- */
-void sig_end_handler (int sig)
+_Noreturn void sig_end_handler (int sig)
 {
     close_netload(&data);
     exit(0);
