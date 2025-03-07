@@ -17,6 +17,8 @@ libnetload_la_SOURCES =							\
 
 libnetload_la_CFLAGS =							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
+	@GLIB_CFLAGS@							\
+	@GTK_CFLAGS@							\
 	@LIBXFCE4PANEL_CFLAGS@						\
 	@LIBXFCE4UI_CFLAGS@						\
 	@LIBXFCE4UTIL_CFLAGS@
@@ -30,14 +32,20 @@ libnetload_la_LDFLAGS =							\
 
 libnetload_la_LIBADD =							\
 	@SOLLIBS@							\
+	@GLIB_LIBS@							\
+	@GTK_LIBS@							\
 	@LIBXFCE4PANEL_LIBS@						\
 	@LIBXFCE4UI_LIBS@						\
 	@LIBXFCE4UTIL_LIBS@
 
 check_PROGRAMS = commandline
 commandline_SOURCES = commandline.c utils.c utils.h net.c net.h
-commandline_CFLAGS = @LIBXFCE4PANEL_CFLAGS@
-commandline_LDADD = @LIBXFCE4PANEL_LIBS@
+commandline_CFLAGS =							\
+	@GLIB_CFLAGS@							\
+	@LIBXFCE4UTIL_CFLAGS@
+commandline_LDADD =							\
+	@GLIB_LIBS@							\
+	@LIBXFCE4UTIL_LIBS@
 
 # .desktop file
 #
