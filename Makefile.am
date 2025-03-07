@@ -18,4 +18,8 @@ dist-hook: ChangeLog
 
 EXTRA_DIST = 								\
 	README								\
+	meson.build							\
+	meson_options.txt						\
+	po/meson.build							\
+	xfce-revision.h.in						\
 	$(NULL)
