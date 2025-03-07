@@ -56,6 +56,7 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
 EXTRA_DIST = 								\
 	wormulon commandline.c						\
+	meson.build							\
 	$(desktop_in_files)
 
 DISTCLEANFILES =							\
