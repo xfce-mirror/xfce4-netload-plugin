@@ -927,7 +927,7 @@ static void
 monitor_dialog_response (GtkWidget *dlg, int response, t_global_monitor *global)
 {
     if (response == GTK_RESPONSE_HELP) {
-        xfce_dialog_show_help (GTK_WINDOW (dlg), PACKAGE_VERSION, NULL, NULL);
+        xfce_dialog_show_help (GTK_WINDOW (dlg), PACKAGE_NAME, NULL, NULL);
     }
     else {
         monitor_apply_options (global);
