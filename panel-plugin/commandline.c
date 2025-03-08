@@ -36,6 +36,8 @@
 
 netdata data;
 
+void sig_end_handler (int sig) G_GNUC_NORETURN;
+
 /* ---------------------------------------------------------------------------------------------- */
 void sig_end_handler (int sig)
 {

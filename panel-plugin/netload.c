@@ -22,6 +22,9 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#ifdef HAVE_XFCE_REVISION_H
+#include "xfce-revision.h"
+#endif
 
 #include "net.h"
 #include "utils.h"
@@ -927,7 +930,7 @@ static void
 monitor_dialog_response (GtkWidget *dlg, int response, t_global_monitor *global)
 {
     if (response == GTK_RESPONSE_HELP) {
-        xfce_dialog_show_help (GTK_WINDOW (dlg), PACKAGE_VERSION, NULL, NULL);
+        xfce_dialog_show_help (GTK_WINDOW (dlg), PACKAGE_NAME, NULL, NULL);
     }
     else {
         monitor_apply_options (global);
@@ -959,11 +962,11 @@ monitor_show_about (XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_show_about_dialog (NULL,
       "logo-icon-name", "org.xfce.panel.netload",
       "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
-      "version", PACKAGE_VERSION,
+      "version", VERSION_FULL,
       "program-name", PACKAGE_NAME,
       "comments", _("Display the current load of a network interface in the panel"),
       "website", "https://docs.xfce.org/panel-plugins/xfce4-netload-plugin/start",
-      "copyright", "Copyright \302\251 2003-2024 The Xfce development team",
+      "copyright", "Copyright \302\251 2003-" COPYRIGHT_YEAR " The Xfce development team",
       "authors", auth, NULL);
 }
 
