@@ -11,7 +11,7 @@ dnl ***************************
 dnl *** Version information ***
 dnl ***************************
 m4_define([copyright_year], [2025])
-XDT_VERSION_INIT([1.4.2], [git])
+XDT_VERSION_INIT([1.5.0])
 
 AC_COPYRIGHT([Copyright (c) 2003-copyright_year() The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-netload-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-netload-plugin])
