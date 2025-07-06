@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Steve Harris <steve@jbs.ca>, 2020
-# Steve Harris <steve@jbs.ca>, 2023
+# Steve Harris <steve@jbs.ca>, 2023,2025
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-06 12:54+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
-"Last-Translator: Steve Harris <steve@jbs.ca>, 2023\n"
+"Last-Translator: Steve Harris <steve@jbs.ca>, 2023,2025\n"
 "Language-Team: English (Canada) (http://app.transifex.com/xfce/xfce-panel-plugins/language/en_CA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,7 +69,7 @@ msgstr "%s: Error in initializing:\n%s"
 
 #: panel-plugin/netload.c:997
 msgid "Display the current load of a network interface in the panel"
-msgstr ""
+msgstr "Display the current load of a network interface in the panel"
 
 #: panel-plugin/netload.c:1061
 msgid "Bar color (i_ncoming):"
@@ -149,7 +149,7 @@ msgstr "_Colourize values"
 
 #: panel-plugin/netload.c:1345
 msgid "_Digits number:"
-msgstr ""
+msgstr "_Digits number:"
 
 #: panel-plugin/netload.desktop.in:6
 msgid "Show network traffic"
@@ -157,19 +157,19 @@ msgstr "Show network traffic"
 
 #: panel-plugin/utils.c:81
 msgid "Bps"
-msgstr ""
+msgstr "Bps"
 
 #: panel-plugin/utils.c:81
 msgid "KiBps"
-msgstr ""
+msgstr "KiBps"
 
 #: panel-plugin/utils.c:81
 msgid "MiBps"
-msgstr ""
+msgstr "MiBps"
 
 #: panel-plugin/utils.c:81
 msgid "GiBps"
-msgstr ""
+msgstr "GiBps"
 
 #: panel-plugin/utils.c:82
 msgid "bps"
