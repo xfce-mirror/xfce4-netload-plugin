@@ -78,8 +78,8 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     char* str = string;
     char buffer[BUFSIZ], formatstring[BUFSIZ];
     char* bufptr = buffer;
-    char* unit_names[] = { N_("B"), N_("KiB"), N_("MiB"), N_("GiB") };
-    char* unit_names_bits[] = { N_("b"), N_("Kb"), N_("Mb"), N_("Gb") };
+    char* unit_names[] = { N_("B"), N_("KiB"), N_("MiB"), N_("GiB"), N_("TiB") };
+    char* unit_names_bits[] = { N_("b"), N_("Kb"), N_("Mb"), N_("Gb"), N_("Tb") };
     unsigned int uidx = 0;
     double number_displayed = 0;
     double thousand_divider = as_bits ? 1000 : 1024;
@@ -100,12 +100,6 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     if (digits < 0 || digits >= 10)
     {
         digits = 2;
-    }
-    
-    /* 1 digit for values above MiB/s unit size */
-    if (digits > 1 && number_displayed > thousand_divider * thousand_divider)
-    {
-        digits = 1;
     }
 
     /* calculate number and appropriate unit size for display */
