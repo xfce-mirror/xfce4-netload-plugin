@@ -74,6 +74,7 @@ typedef struct
     gboolean use_label;
     gboolean show_bars;
     gboolean show_values;
+    gboolean show_cumulative;
     gboolean values_as_bits;
     gboolean colorize_values;
     gboolean auto_max;
@@ -92,10 +93,14 @@ typedef struct
     GtkWidget  *label;
     GtkWidget  *rcv_label;
     GtkWidget  *sent_label;
+    GtkWidget  *cumulative_label;
+    GtkWidget  *rcv_cumulative_label;
+    GtkWidget  *sent_cumulative_label;
     GtkWidget  *status[SUM];
 
     gulong     history[SUM][HISTSIZE_STORE];
     gulong     net_max[SUM];
+    gulong     net_cumulative[SUM];
     
     t_monitor_options options;
     
@@ -108,6 +113,7 @@ typedef struct
     GtkBox    *opt_hbox;
     GtkWidget *opt_use_label;
     GtkWidget *opt_as_bits;
+    GtkWidget *opt_cumulative;
     
     /* Update interval */
     GtkWidget *update_spinner;
@@ -161,9 +167,14 @@ static gboolean update_monitors(gpointer user_data)
    t_global_monitor *global = user_data;
     char buffer[SUM+1][BUFSIZ];
     char buffer_panel[SUM][BUFSIZ];
+    char buffer_cumulative[SUM+1][BUFSIZ];
+    char buffer_cumulative_panel[SUM][BUFSIZ];
     gchar caption[BUFSIZ];
+    gchar caption_cumulative[BUFSIZ];
     gchar received[BUFSIZ];
     gchar sent[BUFSIZ];
+    gchar received_cumulative[BUFSIZ];
+    gchar sent_cumulative[BUFSIZ];
     gulong net[SUM+1];
     gulong display[SUM+1], max;
     guint64 histcalculate;
@@ -185,6 +196,10 @@ static gboolean update_monitors(gpointer user_data)
 
     for (i = 0; i < SUM; i++)
     {
+        /* update cumulative */
+        /* since cumulative is in units rather than units/second, we need to multiply the current value by how long the interval is. */
+        global->monitor->net_cumulative[i] += net[i] * global->monitor->options.update_interval / 1000;
+
         /* correct value to be from 1 ... 100 */
         global->monitor->history[i][0] = net[i];
 
@@ -251,21 +266,35 @@ static gboolean update_monitors(gpointer user_data)
         if (global->monitor->options.show_bars)
             gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor->status[i]), temp);
 
-        format_byte_humanreadable( buffer[i], BUFSIZ - 1, display[i], global->monitor->options.digits, global->monitor->options.values_as_bits );
-        format_byte_humanreadable( buffer_panel[i], BUFSIZ - 1, display[i], global->monitor->options.digits, global->monitor->options.values_as_bits );
+        format_byte_humanreadable( buffer[i], BUFSIZ - 1, display[i], global->monitor->options.digits, global->monitor->options.values_as_bits, TRUE );
+        format_byte_humanreadable( buffer_panel[i], BUFSIZ - 1, display[i], global->monitor->options.digits, global->monitor->options.values_as_bits, TRUE );
+
+        if (global->monitor->options.show_cumulative) {
+            format_byte_humanreadable( buffer_cumulative[i], BUFSIZ - 1, global->monitor->net_cumulative[i], global->monitor->options.digits, global->monitor->options.values_as_bits, FALSE );
+            format_byte_humanreadable( buffer_cumulative_panel[i], BUFSIZ - 1, global->monitor->net_cumulative[i], global->monitor->options.digits, global->monitor->options.values_as_bits, FALSE );
+        }
     }
     
-    format_byte_humanreadable( buffer[TOT], BUFSIZ - 1, (display[IN]+display[OUT]), global->monitor->options.digits, global->monitor->options.values_as_bits );
+    format_byte_humanreadable( buffer[TOT], BUFSIZ - 1, (display[IN]+display[OUT]), global->monitor->options.digits, global->monitor->options.values_as_bits, TRUE );
     
+    if (global->monitor->options.show_cumulative)
+        format_byte_humanreadable( buffer_cumulative[TOT], BUFSIZ - 1, (global->monitor->net_cumulative[IN]+global->monitor->net_cumulative[OUT]), global->monitor->options.digits, global->monitor->options.values_as_bits, TRUE );
+
     {
         char* ip = get_ip_address(&(global->monitor->data));
+        if (global->monitor->options.show_cumulative) {
+            g_snprintf(caption_cumulative, sizeof(caption_cumulative),
+                    _("\nCumulative: Incoming - %s, Outgoing - %s, Total - %s"),
+                        buffer_cumulative[IN], buffer_cumulative[OUT], buffer_cumulative[TOT]);
+        }
         g_snprintf(caption, sizeof(caption), 
                    _("<< %s >> (%s)\nAverage of last %d measures\n"
                      "with an interval of %.2fs:\n"
-                     "Incoming: %s\nOutgoing: %s\nTotal: %s"),
+                     "Current: Incoming - %s, Outgoing - %s, Total - %s"
+                     "%s"),
                     get_name(&(global->monitor->data)), ip ? ip : _("no IP address"),
                     HISTSIZE_CALCULATE, global->monitor->options.update_interval / 1000.0,
-                    buffer[IN], buffer[OUT], buffer[TOT]);
+                    buffer[IN], buffer[OUT], buffer[TOT], global->monitor->options.show_cumulative ? caption_cumulative : "");
         gtk_label_set_text(GTK_LABEL(global->tooltip_text), caption);
 
         if (global->monitor->options.show_values)
@@ -274,6 +303,12 @@ static gboolean update_monitors(gpointer user_data)
             gtk_label_set_text(GTK_LABEL(global->monitor->rcv_label), received);
             g_snprintf(sent, sizeof(sent), "%s", buffer_panel[OUT]);
             gtk_label_set_text(GTK_LABEL(global->monitor->sent_label), sent);
+            if (global->monitor->options.show_cumulative) {
+                g_snprintf(received_cumulative, sizeof(received_cumulative), "%s", buffer_cumulative_panel[IN]);
+                gtk_label_set_text(GTK_LABEL(global->monitor->rcv_cumulative_label), received_cumulative);
+                g_snprintf(sent_cumulative, sizeof(sent_cumulative), "%s", buffer_cumulative_panel[OUT]);
+                gtk_label_set_text(GTK_LABEL(global->monitor->sent_cumulative_label), sent_cumulative);
+            }
         }
     }
 
@@ -326,6 +361,9 @@ static gboolean monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_mon
 
     xnlp_monitor_label_reinit_size_request(XNLP_MONITOR_LABEL(global->monitor->rcv_label));
     xnlp_monitor_label_reinit_size_request(XNLP_MONITOR_LABEL(global->monitor->sent_label));
+    xnlp_monitor_label_reinit_size_request(XNLP_MONITOR_LABEL(global->monitor->cumulative_label));
+    xnlp_monitor_label_reinit_size_request(XNLP_MONITOR_LABEL(global->monitor->rcv_cumulative_label));
+    xnlp_monitor_label_reinit_size_request(XNLP_MONITOR_LABEL(global->monitor->sent_cumulative_label));
     gtk_container_set_border_width(GTK_CONTAINER(global->box), size > 26 ? 2 : 1);
 
     return TRUE;
@@ -355,8 +393,17 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_END);
         gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_CENTER);
         gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_START);
+        gtk_widget_set_halign(global->monitor->cumulative_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->cumulative_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_halign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->rcv_cumulative_label,GTK_ALIGN_END);
+        gtk_widget_set_halign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->sent_cumulative_label,GTK_ALIGN_START);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->cumulative_label), 0);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_cumulative_label), 0);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->sent_cumulative_label), 0);
         for (i = 0; i < SUM; i++)
         {
             gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_HORIZONTAL);
@@ -372,8 +419,17 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_END);
         gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_CENTER);
         gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_START);
+        gtk_widget_set_halign(global->monitor->cumulative_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->cumulative_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_halign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->rcv_cumulative_label,GTK_ALIGN_END);
+        gtk_widget_set_halign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->sent_cumulative_label,GTK_ALIGN_START);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 270);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 270);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->cumulative_label), 270);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_cumulative_label), 270);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->sent_cumulative_label), 270);
         for (i = 0; i < SUM; i++)
         {
             gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_HORIZONTAL);
@@ -387,10 +443,19 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
         gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_END);
         gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_START);
-        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_START);
+        gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_halign(global->monitor->cumulative_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_valign(global->monitor->cumulative_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_halign(global->monitor->rcv_cumulative_label,GTK_ALIGN_END);
+        gtk_widget_set_valign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
+        gtk_widget_set_halign(global->monitor->sent_cumulative_label,GTK_ALIGN_START);
+        gtk_widget_set_valign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->cumulative_label), 0);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_cumulative_label), 0);
+        gtk_label_set_angle(GTK_LABEL(global->monitor->sent_cumulative_label), 0);
         for (i = 0; i < SUM; i++)
         {
             gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_VERTICAL);
@@ -464,6 +529,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     global->monitor->options.show_bars = TRUE;
     global->monitor->options.auto_max = TRUE;
     global->monitor->options.update_interval = UPDATE_TIMEOUT;
+    global->monitor->options.show_cumulative = FALSE;
     
     for (i = 0; i < SUM; i++)
     {
@@ -475,6 +541,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
         global->monitor->history[i][3] = 0;
 
         global->monitor->net_max[i]    = INIT_MAX;
+        global->monitor->net_cumulative[i] = 0;
         
         global->monitor->options.max[i] = INIT_MAX;
     }
@@ -494,6 +561,12 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     /* Create sent and received labels */
     global->monitor->rcv_label = xnlp_monitor_label_new("-");
     global->monitor->sent_label = xnlp_monitor_label_new("-");
+
+    global->monitor->cumulative_label = xnlp_monitor_label_new("Cumulative");
+
+    global->monitor->rcv_cumulative_label = xnlp_monitor_label_new("-");
+    global->monitor->sent_cumulative_label = xnlp_monitor_label_new("-");
+
     gtk_box_pack_start(GTK_BOX(global->box),
                        GTK_WIDGET(global->monitor->rcv_label),
                        TRUE, FALSE, 2);
@@ -533,6 +606,16 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
                        GTK_WIDGET(global->monitor->sent_label),
                        TRUE, FALSE, 2);
 
+    gtk_box_pack_start(GTK_BOX(global->box),
+                       GTK_WIDGET(global->monitor->cumulative_label),
+                       TRUE, FALSE, 2);
+    gtk_box_pack_start(GTK_BOX(global->box),
+                       GTK_WIDGET(global->monitor->rcv_cumulative_label),
+                       TRUE, FALSE, 2);
+    gtk_box_pack_start(GTK_BOX(global->box),
+                       GTK_WIDGET(global->monitor->sent_cumulative_label),
+                       TRUE, FALSE, 2);
+
     gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
 
     return global;
@@ -568,16 +651,29 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     else
         gtk_widget_hide(global->monitor->label);
 
-    /* Show values? */
+    /* Show current? */
     if (global->monitor->options.show_values)
     {
         gtk_widget_show(global->monitor->rcv_label);
         gtk_widget_show(global->monitor->sent_label);
+
     }
     else
     {
         gtk_widget_hide(global->monitor->rcv_label);
         gtk_widget_hide(global->monitor->sent_label);
+    }
+
+    /* Show cumulative? */
+    if (global->monitor->options.show_values && global->monitor->options.show_cumulative) {
+        gtk_widget_show(global->monitor->cumulative_label);
+        gtk_widget_show(global->monitor->rcv_cumulative_label);
+        gtk_widget_show(global->monitor->sent_cumulative_label);
+    }
+    else {
+        gtk_widget_hide(global->monitor->cumulative_label);
+        gtk_widget_hide(global->monitor->rcv_cumulative_label);
+        gtk_widget_hide(global->monitor->sent_cumulative_label);
     }
 
     if (global->monitor->options.colorize_values)
@@ -586,12 +682,18 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
                              &global->monitor->options.color[IN]);
         xnlp_monitor_label_set_color(XNLP_MONITOR_LABEL(global->monitor->sent_label),
                              &global->monitor->options.color[OUT]);
+        xnlp_monitor_label_set_color(XNLP_MONITOR_LABEL(global->monitor->rcv_cumulative_label),
+                             &global->monitor->options.color[IN]);
+        xnlp_monitor_label_set_color(XNLP_MONITOR_LABEL(global->monitor->sent_cumulative_label),
+                             &global->monitor->options.color[OUT]);
     }
     else
     {
         DBG("resetting label colors");
         xnlp_monitor_label_set_color(XNLP_MONITOR_LABEL(global->monitor->rcv_label), NULL);
         xnlp_monitor_label_set_color(XNLP_MONITOR_LABEL(global->monitor->sent_label), NULL);
+        xnlp_monitor_label_set_color(XNLP_MONITOR_LABEL(global->monitor->rcv_cumulative_label), NULL);
+        xnlp_monitor_label_set_color(XNLP_MONITOR_LABEL(global->monitor->sent_cumulative_label), NULL);
     }
 
     /* Setup the progress bars */
@@ -694,8 +796,9 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
     
     global->monitor->options.auto_max = xfce_rc_read_bool_entry (rc, "Auto_Max", TRUE);
     
-    global->monitor->options.update_interval = 
-        xfce_rc_read_int_entry (rc, "Update_Interval", UPDATE_TIMEOUT);
+    global->monitor->options.update_interval = xfce_rc_read_int_entry (rc, "Update_Interval", UPDATE_TIMEOUT);
+
+    global->monitor->options.show_cumulative = xfce_rc_read_int_entry (rc, "Show_Cumulative", FALSE);
 
     global->monitor->options.values_as_bits = xfce_rc_read_bool_entry (rc, "Values_As_Bits", FALSE);
 
@@ -747,6 +850,8 @@ static void monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *glob
     xfce_rc_write_bool_entry (rc, "Auto_Max", global->monitor->options.auto_max);
     
     xfce_rc_write_int_entry (rc, "Update_Interval", global->monitor->options.update_interval);
+
+    xfce_rc_write_int_entry (rc, "Show_Cumulative", global->monitor->options.show_cumulative);
 
     xfce_rc_write_bool_entry (rc, "Values_As_Bits", global->monitor->options.values_as_bits);
 
@@ -836,6 +941,17 @@ static void label_toggled(GtkWidget *check_button, t_global_monitor *global)
 
     setup_monitor(global, FALSE);
     DBG("label_toggled");
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+static void cumulative_toggled(GtkWidget *check_button, t_global_monitor *global)
+{
+    global->monitor->options.show_cumulative = !global->monitor->options.show_cumulative;
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_cumulative),
+                                 global->monitor->options.show_cumulative);
+
+    setup_monitor(global, FALSE);
+    DBG("cumulative_toggled");
 }
 
 /* ---------------------------------------------------------------------------------------------- */
@@ -1020,6 +1136,7 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     GtkWidget        *sep1, *sep2;
     GtkBox           *bits_hbox;
     GtkBox           *update_hbox;
+    GtkBox           *cumulative_hbox;
     GtkWidget        *update_label, *update_unit_label;
     GtkWidget        *digit_label;
     GtkWidget        *color_label[SUM];
@@ -1152,6 +1269,21 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_widget_show_all(GTK_WIDGET(update_hbox));
     gtk_size_group_add_widget(sg, update_label);
     
+    /* Show cumulative values */
+    cumulative_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12));
+    gtk_widget_show(GTK_WIDGET(cumulative_hbox));
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
+                       GTK_WIDGET(cumulative_hbox), FALSE, FALSE, 0);
+
+    global->monitor->opt_cumulative =
+        gtk_check_button_new_with_mnemonic(_("Show _cumulative values"));
+    gtk_widget_show(global->monitor->opt_cumulative);
+    gtk_box_pack_start(GTK_BOX(cumulative_hbox), GTK_WIDGET(global->monitor->opt_cumulative),
+                       FALSE, FALSE, 0);
+
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_cumulative),
+                                 global->monitor->options.show_cumulative);
+
     /* Show values as bits */
     bits_hbox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12));
     gtk_widget_show(GTK_WIDGET(bits_hbox));
@@ -1345,6 +1477,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
             G_CALLBACK(label_changed), global);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_present_data_combobox), "changed",
             G_CALLBACK(present_data_combobox_changed), global);
+    g_signal_connect(GTK_WIDGET(global->monitor->opt_cumulative), "toggled",
+            G_CALLBACK(cumulative_toggled), global);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_as_bits), "toggled",
             G_CALLBACK(as_bits_toggled), global);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_digit_spinner), "changed",
