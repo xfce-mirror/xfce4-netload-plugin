@@ -73,13 +73,13 @@ unsigned long max_array( unsigned long array[], int size )
 
 
 /* ---------------------------------------------------------------------------------------------- */
-char* format_byte_humanreadable(char* string, int stringsize, double number, int digits, gboolean as_bits)
+char* format_byte_humanreadable(char* string, int stringsize, double number, int digits, gboolean as_bits, gboolean ps)
 {
     char* str = string;
     char buffer[BUFSIZ], formatstring[BUFSIZ];
     char* bufptr = buffer;
-    char* unit_names[] = { N_("Bps"), N_("KiBps"), N_("MiBps"), N_("GiBps") };
-    char* unit_names_bits[] = { N_("bps"), N_("Kbps"), N_("Mbps"), N_("Gbps") };
+    char* unit_names[] = { N_("B"), N_("KiB"), N_("MiB"), N_("GiB") };
+    char* unit_names_bits[] = { N_("b"), N_("Kb"), N_("Mb"), N_("Gb") };
     unsigned int uidx = 0;
     double number_displayed = 0;
     double thousand_divider = as_bits ? 1000 : 1024;
@@ -161,6 +161,9 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     
     /* Add the unit name */
     g_strlcat(string, as_bits ? _(unit_names_bits[uidx]) : _(unit_names[uidx]), stringsize);
+
+    /* Per second? */
+    g_strlcat(string, ps ? N_("ps") : N_(""), stringsize);
 
     return string;
 }
