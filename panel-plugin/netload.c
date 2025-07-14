@@ -96,6 +96,7 @@ typedef struct
 
     gulong     history[SUM][HISTSIZE_STORE];
     gulong     net_max[SUM];
+    gulong     net_cumulative[SUM];
     
     t_monitor_options options;
     
@@ -185,6 +186,10 @@ static gboolean update_monitors(gpointer user_data)
 
     for (i = 0; i < SUM; i++)
     {
+        /* update cumulative */
+        /* since cumulative is in units rather than units/second, we need to multiply the current value by how long the interval is. */
+        global->monitor->net_cumulative[i] += net[i] * global->monitor->options.update_interval / 1000;
+
         /* correct value to be from 1 ... 100 */
         global->monitor->history[i][0] = net[i];
 
@@ -475,6 +480,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
         global->monitor->history[i][3] = 0;
 
         global->monitor->net_max[i]    = INIT_MAX;
+        global->monitor->net_cumulative[i] = 0;
         
         global->monitor->options.max[i] = INIT_MAX;
     }
