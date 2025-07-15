@@ -272,6 +272,16 @@ static gboolean update_monitors(gpointer user_data)
         if (global->monitor->options.show_cumulative) {
             format_byte_humanreadable( buffer_cumulative[i], BUFSIZ - 1, global->monitor->net_cumulative[i], global->monitor->options.digits, global->monitor->options.values_as_bits, FALSE );
             format_byte_humanreadable( buffer_cumulative_panel[i], BUFSIZ - 1, global->monitor->net_cumulative[i], global->monitor->options.digits, global->monitor->options.values_as_bits, FALSE );
+        if (global->monitor->options.show_cumulative)
+        {
+            format_byte_humanreadable(buffer_cumulative[i], BUFSIZ - 1,
+                                      global->monitor->net_cumulative[i],
+                                      global->monitor->options.digits,
+                                      global->monitor->options.values_as_bits, FALSE);
+            format_byte_humanreadable(buffer_cumulative_panel[i], BUFSIZ - 1,
+                                      global->monitor->net_cumulative[i],
+                                      global->monitor->options.digits,
+                                      global->monitor->options.values_as_bits, FALSE);
         }
     }
     
