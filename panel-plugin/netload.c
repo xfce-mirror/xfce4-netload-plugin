@@ -197,7 +197,8 @@ static gboolean update_monitors(gpointer user_data)
     for (i = 0; i < SUM; i++)
     {
         /* update cumulative */
-        /* since cumulative is in units rather than units/second, we need to multiply the current value by how long the interval is. */
+        /* since cumulative is in units rather than units/second, we need to
+         * multiply the current value by how long the interval is. */
         global->monitor->net_cumulative[i] += net[i] * global->monitor->options.update_interval / 1000;
 
         /* correct value to be from 1 ... 100 */
@@ -266,35 +267,55 @@ static gboolean update_monitors(gpointer user_data)
         if (global->monitor->options.show_bars)
             gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor->status[i]), temp);
 
-        format_byte_humanreadable( buffer[i], BUFSIZ - 1, display[i], global->monitor->options.digits, global->monitor->options.values_as_bits, TRUE );
-        format_byte_humanreadable( buffer_panel[i], BUFSIZ - 1, display[i], global->monitor->options.digits, global->monitor->options.values_as_bits, TRUE );
+        format_byte_humanreadable(buffer[i], BUFSIZ - 1, display[i],
+                                  global->monitor->options.digits,
+                                  global->monitor->options.values_as_bits, TRUE);
 
-        if (global->monitor->options.show_cumulative) {
-            format_byte_humanreadable( buffer_cumulative[i], BUFSIZ - 1, global->monitor->net_cumulative[i], global->monitor->options.digits, global->monitor->options.values_as_bits, FALSE );
-            format_byte_humanreadable( buffer_cumulative_panel[i], BUFSIZ - 1, global->monitor->net_cumulative[i], global->monitor->options.digits, global->monitor->options.values_as_bits, FALSE );
+        format_byte_humanreadable(buffer_panel[i], BUFSIZ - 1, display[i],
+                                  global->monitor->options.digits,
+                                  global->monitor->options.values_as_bits, TRUE);
+
+        if (global->monitor->options.show_cumulative)
+        {
+            format_byte_humanreadable(buffer_cumulative[i], BUFSIZ - 1,
+                                      global->monitor->net_cumulative[i],
+                                      global->monitor->options.digits,
+                                      global->monitor->options.values_as_bits, FALSE);
+            format_byte_humanreadable(buffer_cumulative_panel[i], BUFSIZ - 1,
+                                      global->monitor->net_cumulative[i],
+                                      global->monitor->options.digits,
+                                      global->monitor->options.values_as_bits, FALSE);
         }
     }
     
-    format_byte_humanreadable( buffer[TOT], BUFSIZ - 1, (display[IN]+display[OUT]), global->monitor->options.digits, global->monitor->options.values_as_bits, TRUE );
+    format_byte_humanreadable(buffer[TOT], BUFSIZ - 1,
+                              (display[IN]+display[OUT]),
+                              global->monitor->options.digits,
+                              global->monitor->options.values_as_bits, TRUE);
     
     if (global->monitor->options.show_cumulative)
-        format_byte_humanreadable( buffer_cumulative[TOT], BUFSIZ - 1, (global->monitor->net_cumulative[IN]+global->monitor->net_cumulative[OUT]), global->monitor->options.digits, global->monitor->options.values_as_bits, TRUE );
+        format_byte_humanreadable(buffer_cumulative[TOT], BUFSIZ - 1,
+                                  (global->monitor->net_cumulative[IN]+global->monitor->net_cumulative[OUT]),
+                                  global->monitor->options.digits, global->monitor->options.values_as_bits, FALSE);
 
     {
         char* ip = get_ip_address(&(global->monitor->data));
-        if (global->monitor->options.show_cumulative) {
-            g_snprintf(caption_cumulative, sizeof(caption_cumulative),
-                    _("\nCumulative: Incoming - %s, Outgoing - %s, Total - %s"),
-                        buffer_cumulative[IN], buffer_cumulative[OUT], buffer_cumulative[TOT]);
-        }
         g_snprintf(caption, sizeof(caption), 
                    _("<< %s >> (%s)\nAverage of last %d measures\n"
                      "with an interval of %.2fs:\n"
-                     "Current: Incoming - %s, Outgoing - %s, Total - %s"
-                     "%s"),
+                     "Incoming: %s\nOutgoing: %s\nTotal: %s"),
                     get_name(&(global->monitor->data)), ip ? ip : _("no IP address"),
                     HISTSIZE_CALCULATE, global->monitor->options.update_interval / 1000.0,
-                    buffer[IN], buffer[OUT], buffer[TOT], global->monitor->options.show_cumulative ? caption_cumulative : "");
+                    buffer[IN], buffer[OUT], buffer[TOT]);
+        if (global->monitor->options.show_cumulative)
+        {
+            g_snprintf(caption_cumulative, sizeof(caption_cumulative),
+                       _("%s\nCumulative:\n"
+                         "Incoming: %s\nOutgoing: %s\nTotal: %s"),
+                        caption,
+                        buffer_cumulative[IN], buffer_cumulative[OUT], buffer_cumulative[TOT]);
+            g_strlcpy(&caption[0], &caption_cumulative[0], BUFSIZ - 1);
+        }
         gtk_label_set_text(GTK_LABEL(global->tooltip_text), caption);
 
         if (global->monitor->options.show_values)
@@ -303,7 +324,8 @@ static gboolean update_monitors(gpointer user_data)
             gtk_label_set_text(GTK_LABEL(global->monitor->rcv_label), received);
             g_snprintf(sent, sizeof(sent), "%s", buffer_panel[OUT]);
             gtk_label_set_text(GTK_LABEL(global->monitor->sent_label), sent);
-            if (global->monitor->options.show_cumulative) {
+            if (global->monitor->options.show_cumulative)
+            {
                 g_snprintf(received_cumulative, sizeof(received_cumulative), "%s", buffer_cumulative_panel[IN]);
                 gtk_label_set_text(GTK_LABEL(global->monitor->rcv_cumulative_label), received_cumulative);
                 g_snprintf(sent_cumulative, sizeof(sent_cumulative), "%s", buffer_cumulative_panel[OUT]);
@@ -665,12 +687,14 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     }
 
     /* Show cumulative? */
-    if (global->monitor->options.show_values && global->monitor->options.show_cumulative) {
+    if (global->monitor->options.show_values && global->monitor->options.show_cumulative)
+    {
         gtk_widget_show(global->monitor->cumulative_label);
         gtk_widget_show(global->monitor->rcv_cumulative_label);
         gtk_widget_show(global->monitor->sent_cumulative_label);
     }
-    else {
+    else
+    {
         gtk_widget_hide(global->monitor->cumulative_label);
         gtk_widget_hide(global->monitor->rcv_cumulative_label);
         gtk_widget_hide(global->monitor->sent_cumulative_label);
@@ -796,7 +820,8 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
     
     global->monitor->options.auto_max = xfce_rc_read_bool_entry (rc, "Auto_Max", TRUE);
     
-    global->monitor->options.update_interval = xfce_rc_read_int_entry (rc, "Update_Interval", UPDATE_TIMEOUT);
+    global->monitor->options.update_interval =
+        xfce_rc_read_int_entry (rc, "Update_Interval", UPDATE_TIMEOUT);
 
     global->monitor->options.show_cumulative = xfce_rc_read_int_entry (rc, "Show_Cumulative", FALSE);
 
