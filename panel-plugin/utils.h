@@ -34,7 +34,7 @@
  * @param   digits      the number of digits after the decimal point
  * @return  the string to allow concatening buffers or <code>null</code>
  */
-char* format_byte_humanreadable( char* string, int stringsize, double number, int digits, gboolean as_bits );
+char* format_byte_humanreadable( char* string, int stringsize, double number, int digits, gboolean as_bits, gboolean ps);
 
 /**
  * Returns the minimum of the array. The array must contain at least one element.
