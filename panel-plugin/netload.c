@@ -266,31 +266,49 @@ static gboolean update_monitors(gpointer user_data)
         if (global->monitor->options.show_bars)
             gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor->status[i]), temp);
 
-        format_byte_humanreadable( buffer[i], BUFSIZ - 1, display[i], global->monitor->options.digits, global->monitor->options.values_as_bits, TRUE );
-        format_byte_humanreadable( buffer_panel[i], BUFSIZ - 1, display[i], global->monitor->options.digits, global->monitor->options.values_as_bits, TRUE );
+        format_byte_humanreadable(buffer[i], BUFSIZ - 1, display[i],
+                                  global->monitor->options.digits,
+                                  global->monitor->options.values_as_bits, TRUE);
 
-        if (global->monitor->options.show_cumulative) {
-            format_byte_humanreadable( buffer_cumulative[i], BUFSIZ - 1, global->monitor->net_cumulative[i], global->monitor->options.digits, global->monitor->options.values_as_bits, FALSE );
-            format_byte_humanreadable( buffer_cumulative_panel[i], BUFSIZ - 1, global->monitor->net_cumulative[i], global->monitor->options.digits, global->monitor->options.values_as_bits, FALSE );
+        format_byte_humanreadable(buffer_panel[i], BUFSIZ - 1, display[i],
+                                  global->monitor->options.digits,
+                                  global->monitor->options.values_as_bits, TRUE );
+
+        if (global->monitor->options.show_cumulative)
+        {
+            format_byte_humanreadable(buffer_cumulative[i], BUFSIZ - 1,
+                                      global->monitor->net_cumulative[i],
+                                      global->monitor->options.digits,
+                                      global->monitor->options.values_as_bits, FALSE);
+            format_byte_humanreadable(buffer_cumulative_panel[i], BUFSIZ - 1,
+                                      global->monitor->net_cumulative[i],
+                                      global->monitor->options.digits,
+                                      global->monitor->options.values_as_bits, FALSE);
         }
     }
     
-    format_byte_humanreadable( buffer[TOT], BUFSIZ - 1, (display[IN]+display[OUT]), global->monitor->options.digits, global->monitor->options.values_as_bits, TRUE );
+    format_byte_humanreadable(buffer[TOT], BUFSIZ - 1,
+                              (display[IN]+display[OUT]),
+                              global->monitor->options.digits,
+                              global->monitor->options.values_as_bits, TRUE);
     
     if (global->monitor->options.show_cumulative)
-        format_byte_humanreadable( buffer_cumulative[TOT], BUFSIZ - 1, (global->monitor->net_cumulative[IN]+global->monitor->net_cumulative[OUT]), global->monitor->options.digits, global->monitor->options.values_as_bits, TRUE );
+        format_byte_humanreadable(buffer_cumulative[TOT], BUFSIZ - 1,
+                                  (global->monitor->net_cumulative[IN]+global->monitor->net_cumulative[OUT]),
+                                  global->monitor->options.digits, global->monitor->options.values_as_bits, FALSE );
 
     {
         char* ip = get_ip_address(&(global->monitor->data));
         if (global->monitor->options.show_cumulative) {
             g_snprintf(caption_cumulative, sizeof(caption_cumulative),
-                    _("\nCumulative: Incoming - %s, Outgoing - %s, Total - %s"),
-                        buffer_cumulative[IN], buffer_cumulative[OUT], buffer_cumulative[TOT]);
+                    _("\nCumulative:\n"
+                      "Incoming: %s\nOutgoing: %s\nTotal: %s"),
+                      buffer_cumulative[IN], buffer_cumulative[OUT], buffer_cumulative[TOT]);
         }
         g_snprintf(caption, sizeof(caption), 
                    _("<< %s >> (%s)\nAverage of last %d measures\n"
                      "with an interval of %.2fs:\n"
-                     "Current: Incoming - %s, Outgoing - %s, Total - %s"
+                     "Incoming: %s\nOutgoing: %s\nTotal: %s"
                      "%s"),
                     get_name(&(global->monitor->data)), ip ? ip : _("no IP address"),
                     HISTSIZE_CALCULATE, global->monitor->options.update_interval / 1000.0,
