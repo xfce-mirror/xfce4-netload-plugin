@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-06 12:54+0200\n"
+"POT-Creation-Date: 2025-07-16 12:52+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: Andrei Stepanov, 2023\n"
 "Language-Team: Russian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ru/)\n"
@@ -45,12 +45,12 @@ msgstr "Не найдено Linux устройство ‘/proc/net/dev’."
 msgid "Interface was not found."
 msgstr "Интерфейс не найден."
 
-#: panel-plugin/netload.c:173
+#: panel-plugin/netload.c:184
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "Интерфейс «%s» выключен"
 
-#: panel-plugin/netload.c:260
+#: panel-plugin/netload.c:301
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -61,98 +61,112 @@ msgid ""
 "Total: %s"
 msgstr "«%s» (%s)\nСреднее последних %d измерений\nс интервалом %.2f с:\nВходящий: %s\nИсходящий: %s\nВсего: %s"
 
-#: panel-plugin/netload.c:263
+#: panel-plugin/netload.c:304
 msgid "no IP address"
 msgstr "нет IP-адреса"
 
-#: panel-plugin/netload.c:652
+#: panel-plugin/netload.c:310
+#, c-format
+msgid ""
+"%s\n"
+"Cumulative:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
+msgstr ""
+
+#: panel-plugin/netload.c:744
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: ошибка инициализации:\n%s"
 
-#: panel-plugin/netload.c:997
+#: panel-plugin/netload.c:1103
 msgid "Display the current load of a network interface in the panel"
 msgstr "Отображение текущей нагрузки сетевого интерфейса на панели"
 
-#: panel-plugin/netload.c:1061
+#: panel-plugin/netload.c:1168
 msgid "Bar color (i_ncoming):"
 msgstr "Цвет индикатора (_входящий):"
 
-#: panel-plugin/netload.c:1062
+#: panel-plugin/netload.c:1169
 msgid "Bar color (_outgoing):"
 msgstr "Цвет индикатора (и_сходящий):"
 
-#: panel-plugin/netload.c:1065
+#: panel-plugin/netload.c:1172
 msgid "Maximum (inco_ming):"
 msgstr "Максимум (в_ходящий):"
 
-#: panel-plugin/netload.c:1066
+#: panel-plugin/netload.c:1173
 msgid "Maximum (o_utgoing):"
 msgstr "Максимум (_исходящий):"
 
-#: panel-plugin/netload.c:1071 panel-plugin/netload.desktop.in:5
+#: panel-plugin/netload.c:1181 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
 msgstr "Сетевой монитор"
 
-#: panel-plugin/netload.c:1073
+#: panel-plugin/netload.c:1183
 msgid "_Close"
 msgstr "_Закрыть"
 
-#: panel-plugin/netload.c:1074
+#: panel-plugin/netload.c:1184
 msgid "_Help"
 msgstr "_Справка"
 
-#: panel-plugin/netload.c:1101
+#: panel-plugin/netload.c:1210
 msgid "_Text to display:"
 msgstr "_Подпись:"
 
-#: panel-plugin/netload.c:1132
+#: panel-plugin/netload.c:1241
 msgid "Network _device:"
 msgstr "Сетевое _устройство:"
 
-#: panel-plugin/netload.c:1163
+#: panel-plugin/netload.c:1272
 msgid "Update _interval:"
 msgstr "Интервал о_бновления:"
 
-#: panel-plugin/netload.c:1177
+#: panel-plugin/netload.c:1286
 msgid "s"
 msgstr "с"
 
-#: panel-plugin/netload.c:1192
+#: panel-plugin/netload.c:1301
+msgid "Show _cumulative values"
+msgstr ""
+
+#: panel-plugin/netload.c:1316
 msgid "Show values as _bits"
 msgstr "Значения в би_тах"
 
-#: panel-plugin/netload.c:1206
+#: panel-plugin/netload.c:1330
 msgid "_Automatic maximum"
 msgstr "_Автоматически определять максимум"
 
-#: panel-plugin/netload.c:1241
+#: panel-plugin/netload.c:1365
 msgid "KiB/s"
 msgstr "КиБ/с"
 
-#: panel-plugin/netload.c:1267
+#: panel-plugin/netload.c:1391
 msgid "_Present data as:"
 msgstr "Представ_ление в виде:"
 
-#: panel-plugin/netload.c:1277
+#: panel-plugin/netload.c:1401
 msgid "Bars"
 msgstr "Столбцов"
 
-#: panel-plugin/netload.c:1278
+#: panel-plugin/netload.c:1402
 msgid "Values"
 msgstr "Значений"
 
-#: panel-plugin/netload.c:1279
+#: panel-plugin/netload.c:1403
 msgid "Bars and values"
 msgstr "Столбцов и значений"
 
-#: panel-plugin/netload.c:1322
+#: panel-plugin/netload.c:1446
 msgid "_Colorize values"
 msgstr "_Цветные значения"
 
-#: panel-plugin/netload.c:1345
+#: panel-plugin/netload.c:1469
 msgid "_Digits number:"
 msgstr "_Число цифр:"
 
@@ -160,34 +174,82 @@ msgstr "_Число цифр:"
 msgid "Show network traffic"
 msgstr "Показывать сетевой трафик"
 
-#: panel-plugin/utils.c:81
+#: panel-plugin/utils.c:77
+msgid "B"
+msgstr "Б"
+
+#: panel-plugin/utils.c:77
+msgid "KiB"
+msgstr "КиБ"
+
+#: panel-plugin/utils.c:77
+msgid "MiB"
+msgstr "МиБ"
+
+#: panel-plugin/utils.c:77
+msgid "GiB"
+msgstr "ГиБ"
+
+#: panel-plugin/utils.c:77
+msgid "TiB"
+msgstr ""
+
+#: panel-plugin/utils.c:78
+msgid "b"
+msgstr ""
+
+#: panel-plugin/utils.c:78
+msgid "Kb"
+msgstr ""
+
+#: panel-plugin/utils.c:78
+msgid "Mb"
+msgstr ""
+
+#: panel-plugin/utils.c:78
+msgid "Gb"
+msgstr ""
+
+#: panel-plugin/utils.c:78
+msgid "Tb"
+msgstr ""
+
+#: panel-plugin/utils.c:79
 msgid "Bps"
 msgstr "Б/c"
 
-#: panel-plugin/utils.c:81
+#: panel-plugin/utils.c:79
 msgid "KiBps"
 msgstr "КиБ/c"
 
-#: panel-plugin/utils.c:81
+#: panel-plugin/utils.c:79
 msgid "MiBps"
 msgstr "МиБ/c"
 
-#: panel-plugin/utils.c:81
+#: panel-plugin/utils.c:79
 msgid "GiBps"
 msgstr "ГиБ/c"
 
-#: panel-plugin/utils.c:82
+#: panel-plugin/utils.c:79
+msgid "TiBps"
+msgstr ""
+
+#: panel-plugin/utils.c:80
 msgid "bps"
 msgstr "бит/с"
 
-#: panel-plugin/utils.c:82
+#: panel-plugin/utils.c:80
 msgid "Kbps"
 msgstr "Кбит/с"
 
-#: panel-plugin/utils.c:82
+#: panel-plugin/utils.c:80
 msgid "Mbps"
 msgstr "Мбит/с"
 
-#: panel-plugin/utils.c:82
+#: panel-plugin/utils.c:80
 msgid "Gbps"
 msgstr "Гбит/с"
+
+#: panel-plugin/utils.c:80
+msgid "Tbps"
+msgstr ""
