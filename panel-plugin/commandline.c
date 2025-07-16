@@ -23,10 +23,6 @@
  * I wrote it because with this I'm able to test on systems with no GUI. Since I'm only running
  * Linux but develop for other Operating systems this is important!
  */
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include <unistd.h>
 #include <stdio.h>
 #include <signal.h>
