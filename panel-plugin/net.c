@@ -29,10 +29,6 @@
  * number of operating systems quickly without a library! Without him only 
  * Linux and FreeBSD (with foreign code from IceWM) would be supported.
  */
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include <libxfce4util/libxfce4util.h>
 
 
