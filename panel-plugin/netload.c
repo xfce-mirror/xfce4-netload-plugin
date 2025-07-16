@@ -197,7 +197,8 @@ static gboolean update_monitors(gpointer user_data)
     for (i = 0; i < SUM; i++)
     {
         /* update cumulative */
-        /* since cumulative is in units rather than units/second, we need to multiply the current value by how long the interval is. */
+        /* since cumulative is in units rather than units/second, we need to
+         * multiply the current value by how long the interval is. */
         global->monitor->net_cumulative[i] += net[i] * global->monitor->options.update_interval / 1000;
 
         /* correct value to be from 1 ... 100 */
@@ -272,7 +273,7 @@ static gboolean update_monitors(gpointer user_data)
 
         format_byte_humanreadable(buffer_panel[i], BUFSIZ - 1, display[i],
                                   global->monitor->options.digits,
-                                  global->monitor->options.values_as_bits, TRUE );
+                                  global->monitor->options.values_as_bits, TRUE);
 
         if (global->monitor->options.show_cumulative)
         {
@@ -295,11 +296,12 @@ static gboolean update_monitors(gpointer user_data)
     if (global->monitor->options.show_cumulative)
         format_byte_humanreadable(buffer_cumulative[TOT], BUFSIZ - 1,
                                   (global->monitor->net_cumulative[IN]+global->monitor->net_cumulative[OUT]),
-                                  global->monitor->options.digits, global->monitor->options.values_as_bits, FALSE );
+                                  global->monitor->options.digits, global->monitor->options.values_as_bits, FALSE);
 
     {
         char* ip = get_ip_address(&(global->monitor->data));
-        if (global->monitor->options.show_cumulative) {
+        if (global->monitor->options.show_cumulative)
+        {
             g_snprintf(caption_cumulative, sizeof(caption_cumulative),
                     _("\nCumulative:\n"
                       "Incoming: %s\nOutgoing: %s\nTotal: %s"),
@@ -321,7 +323,8 @@ static gboolean update_monitors(gpointer user_data)
             gtk_label_set_text(GTK_LABEL(global->monitor->rcv_label), received);
             g_snprintf(sent, sizeof(sent), "%s", buffer_panel[OUT]);
             gtk_label_set_text(GTK_LABEL(global->monitor->sent_label), sent);
-            if (global->monitor->options.show_cumulative) {
+            if (global->monitor->options.show_cumulative)
+            {
                 g_snprintf(received_cumulative, sizeof(received_cumulative), "%s", buffer_cumulative_panel[IN]);
                 gtk_label_set_text(GTK_LABEL(global->monitor->rcv_cumulative_label), received_cumulative);
                 g_snprintf(sent_cumulative, sizeof(sent_cumulative), "%s", buffer_cumulative_panel[OUT]);
@@ -683,12 +686,14 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     }
 
     /* Show cumulative? */
-    if (global->monitor->options.show_values && global->monitor->options.show_cumulative) {
+    if (global->monitor->options.show_values && global->monitor->options.show_cumulative)
+    {
         gtk_widget_show(global->monitor->cumulative_label);
         gtk_widget_show(global->monitor->rcv_cumulative_label);
         gtk_widget_show(global->monitor->sent_cumulative_label);
     }
-    else {
+    else
+    {
         gtk_widget_hide(global->monitor->cumulative_label);
         gtk_widget_hide(global->monitor->rcv_cumulative_label);
         gtk_widget_hide(global->monitor->sent_cumulative_label);
