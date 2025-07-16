@@ -523,7 +523,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     gint i;
     GtkCssProvider *css_provider;
 
-    global = g_new(t_global_monitor, 1);
+    global = g_new0(t_global_monitor, 1);
     global->timeout_id = 0;
     global->ebox = gtk_event_box_new();
     gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->ebox), FALSE);
@@ -1072,7 +1072,6 @@ monitor_dialog_response (GtkWidget *dlg, int response, t_global_monitor *global)
     else {
         monitor_apply_options (global);
         gtk_widget_destroy (dlg);
-        xfce_panel_plugin_unblock_menu (global->plugin);
         monitor_write_config (global->plugin, global);
     }
 }
@@ -1174,19 +1173,21 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
                         N_("Maximum (o_utgoing):")
                      };
 
-    xfce_panel_plugin_block_menu (plugin);
+    if (global->opt_dialog != NULL) {
+        gtk_window_present (GTK_WINDOW (global->opt_dialog));
+        return;
+    }
 
-    dlg = xfce_titled_dialog_new_with_mixed_buttons (_("Network Monitor"), NULL,
+    global->opt_dialog = dlg = xfce_titled_dialog_new_with_mixed_buttons (_("Network Monitor"), NULL,
                                                      GTK_DIALOG_DESTROY_WITH_PARENT,
                                                      "window-close-symbolic", _("_Close"), GTK_RESPONSE_OK,
                                                      "help-browser", _("_Help"), GTK_RESPONSE_HELP,
                                                      NULL);
+    g_object_add_weak_pointer (G_OBJECT (global->opt_dialog), (gpointer *) &global->opt_dialog);
 
     gtk_window_set_icon_name (GTK_WINDOW (dlg), "org.xfce.panel.netload");
     g_signal_connect (dlg, "response", G_CALLBACK (monitor_dialog_response),
                       global);
-
-    global->opt_dialog = dlg;
 
     global_vbox = GTK_BOX (gtk_box_new(GTK_ORIENTATION_VERTICAL, 6));
     gtk_container_set_border_width (GTK_CONTAINER (global_vbox), 12);
