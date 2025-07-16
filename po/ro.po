@@ -5,14 +5,14 @@
 # Translators:
 # Marius Ghita, 2023
 # Marius Ghita, 2023
-# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024-2025
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-06 12:54+0200\n"
+"POT-Creation-Date: 2025-07-16 12:52+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
-"Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024\n"
+"Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024-2025\n"
 "Language-Team: Romanian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,12 +41,12 @@ msgstr "Dispozitivul proc Linux „/proc/net/dev” nu a fost găsit."
 msgid "Interface was not found."
 msgstr "Interfața nu a fost găsită."
 
-#: panel-plugin/netload.c:173
+#: panel-plugin/netload.c:184
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Interfață inactivă, „căzută”)"
 
-#: panel-plugin/netload.c:260
+#: panel-plugin/netload.c:301
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -57,98 +57,112 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nMedia ultimelor %d măsurători\ncu un interval de %.2fs:\nIntrare: %s\nIeșire: %s\nTotal: %s"
 
-#: panel-plugin/netload.c:263
+#: panel-plugin/netload.c:304
 msgid "no IP address"
 msgstr "nici o adresă IP"
 
-#: panel-plugin/netload.c:652
+#: panel-plugin/netload.c:310
+#, c-format
+msgid ""
+"%s\n"
+"Cumulative:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
+msgstr "%s\nCumulativ:\nPrimire:   %s\nTrimitere: %s\nTotal:     %s"
+
+#: panel-plugin/netload.c:744
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Eroare la inițializarea:\n%s"
 
-#: panel-plugin/netload.c:997
+#: panel-plugin/netload.c:1103
 msgid "Display the current load of a network interface in the panel"
 msgstr "Afișează încărcarea curentă a unei interfețe de rețea în panou"
 
-#: panel-plugin/netload.c:1061
+#: panel-plugin/netload.c:1168
 msgid "Bar color (i_ncoming):"
 msgstr "Culoarea barei (de i_ntrare):"
 
-#: panel-plugin/netload.c:1062
+#: panel-plugin/netload.c:1169
 msgid "Bar color (_outgoing):"
 msgstr "Cul_oarea barei (de ieșire):"
 
-#: panel-plugin/netload.c:1065
+#: panel-plugin/netload.c:1172
 msgid "Maximum (inco_ming):"
 msgstr "_Maxim (intrare):"
 
-#: panel-plugin/netload.c:1066
+#: panel-plugin/netload.c:1173
 msgid "Maximum (o_utgoing):"
 msgstr "Ma_xim (ieșire):"
 
-#: panel-plugin/netload.c:1071 panel-plugin/netload.desktop.in:5
+#: panel-plugin/netload.c:1181 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
 msgstr "Monitor de rețea"
 
-#: panel-plugin/netload.c:1073
+#: panel-plugin/netload.c:1183
 msgid "_Close"
 msgstr "În_chide"
 
-#: panel-plugin/netload.c:1074
+#: panel-plugin/netload.c:1184
 msgid "_Help"
 msgstr "_Ajutor"
 
-#: panel-plugin/netload.c:1101
+#: panel-plugin/netload.c:1210
 msgid "_Text to display:"
 msgstr "_Textul de afișat:"
 
-#: panel-plugin/netload.c:1132
+#: panel-plugin/netload.c:1241
 msgid "Network _device:"
 msgstr "_Dispozitivul de rețea:"
 
-#: panel-plugin/netload.c:1163
+#: panel-plugin/netload.c:1272
 msgid "Update _interval:"
 msgstr "_Interval de actualizare:"
 
-#: panel-plugin/netload.c:1177
+#: panel-plugin/netload.c:1286
 msgid "s"
 msgstr "s"
 
-#: panel-plugin/netload.c:1192
-msgid "Show values as _bits"
-msgstr "Afișează valorile ca și _biți"
+#: panel-plugin/netload.c:1301
+msgid "Show _cumulative values"
+msgstr "Afișează valorile _cumulative"
 
-#: panel-plugin/netload.c:1206
+#: panel-plugin/netload.c:1316
+msgid "Show values as _bits"
+msgstr "Afișează valorile ca _biți"
+
+#: panel-plugin/netload.c:1330
 msgid "_Automatic maximum"
 msgstr "_Automatic maxim"
 
-#: panel-plugin/netload.c:1241
+#: panel-plugin/netload.c:1365
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: panel-plugin/netload.c:1267
+#: panel-plugin/netload.c:1391
 msgid "_Present data as:"
 msgstr "_Prezintă datele ca:"
 
-#: panel-plugin/netload.c:1277
+#: panel-plugin/netload.c:1401
 msgid "Bars"
 msgstr "Bare"
 
-#: panel-plugin/netload.c:1278
+#: panel-plugin/netload.c:1402
 msgid "Values"
 msgstr "Valori"
 
-#: panel-plugin/netload.c:1279
+#: panel-plugin/netload.c:1403
 msgid "Bars and values"
 msgstr "Bare și valori"
 
-#: panel-plugin/netload.c:1322
+#: panel-plugin/netload.c:1446
 msgid "_Colorize values"
 msgstr "_Colorează valorile"
 
-#: panel-plugin/netload.c:1345
+#: panel-plugin/netload.c:1469
 msgid "_Digits number:"
 msgstr "Număr _zecimale:"
 
@@ -156,34 +170,82 @@ msgstr "Număr _zecimale:"
 msgid "Show network traffic"
 msgstr "Afișează traficul de rețea"
 
-#: panel-plugin/utils.c:81
+#: panel-plugin/utils.c:77
+msgid "B"
+msgstr "o"
+
+#: panel-plugin/utils.c:77
+msgid "KiB"
+msgstr "Kio"
+
+#: panel-plugin/utils.c:77
+msgid "MiB"
+msgstr "Mio"
+
+#: panel-plugin/utils.c:77
+msgid "GiB"
+msgstr "Gio"
+
+#: panel-plugin/utils.c:77
+msgid "TiB"
+msgstr "Tio"
+
+#: panel-plugin/utils.c:78
+msgid "b"
+msgstr "o"
+
+#: panel-plugin/utils.c:78
+msgid "Kb"
+msgstr "ko"
+
+#: panel-plugin/utils.c:78
+msgid "Mb"
+msgstr "Mb"
+
+#: panel-plugin/utils.c:78
+msgid "Gb"
+msgstr "Gb"
+
+#: panel-plugin/utils.c:78
+msgid "Tb"
+msgstr "Tb"
+
+#: panel-plugin/utils.c:79
 msgid "Bps"
-msgstr "Bps"
+msgstr "ops"
 
-#: panel-plugin/utils.c:81
+#: panel-plugin/utils.c:79
 msgid "KiBps"
-msgstr "KiBps"
+msgstr "Kiops"
 
-#: panel-plugin/utils.c:81
+#: panel-plugin/utils.c:79
 msgid "MiBps"
-msgstr "MiBps"
+msgstr "Miops"
 
-#: panel-plugin/utils.c:81
+#: panel-plugin/utils.c:79
 msgid "GiBps"
-msgstr "GiBps"
+msgstr "Giops"
 
-#: panel-plugin/utils.c:82
+#: panel-plugin/utils.c:79
+msgid "TiBps"
+msgstr "Tiops"
+
+#: panel-plugin/utils.c:80
 msgid "bps"
 msgstr "bps"
 
-#: panel-plugin/utils.c:82
+#: panel-plugin/utils.c:80
 msgid "Kbps"
 msgstr "Kbps"
 
-#: panel-plugin/utils.c:82
+#: panel-plugin/utils.c:80
 msgid "Mbps"
 msgstr "Mbps"
 
-#: panel-plugin/utils.c:82
+#: panel-plugin/utils.c:80
 msgid "Gbps"
 msgstr "Gbps"
+
+#: panel-plugin/utils.c:80
+msgid "Tbps"
+msgstr "Tbps"
