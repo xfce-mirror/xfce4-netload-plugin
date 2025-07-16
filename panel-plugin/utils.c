@@ -73,13 +73,15 @@ unsigned long max_array( unsigned long array[], int size )
 
 
 /* ---------------------------------------------------------------------------------------------- */
-char* format_byte_humanreadable(char* string, int stringsize, double number, int digits, gboolean as_bits)
+char* format_byte_humanreadable(char* string, int stringsize, double number, int digits, gboolean as_bits, gboolean ps)
 {
     char* str = string;
     char buffer[BUFSIZ], formatstring[BUFSIZ];
     char* bufptr = buffer;
-    char* unit_names[] = { N_("Bps"), N_("KiBps"), N_("MiBps"), N_("GiBps") };
-    char* unit_names_bits[] = { N_("bps"), N_("Kbps"), N_("Mbps"), N_("Gbps") };
+    char* unit_names[] = { N_("B"), N_("KiB"), N_("MiB"), N_("GiB"), N_("TiB") };
+    char* unit_names_bits[] = { N_("b"), N_("Kb"), N_("Mb"), N_("Gb"), N_("Tb") };
+    char* unit_names_ps[] = { N_("Bps"), N_("KiBps"), N_("MiBps"), N_("GiBps"), N_("TiBps") };
+    char* unit_names_bits_ps[] = { N_("bps"), N_("Kbps"), N_("Mbps"), N_("Gbps"), N_("Tbps") };
     unsigned int uidx = 0;
     double number_displayed = 0;
     double thousand_divider = as_bits ? 1000 : 1024;
@@ -100,12 +102,6 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     if (digits < 0 || digits >= 10)
     {
         digits = 2;
-    }
-    
-    /* 1 digit for values above MiB/s unit size */
-    if (digits > 1 && number_displayed > thousand_divider * thousand_divider)
-    {
-        digits = 1;
     }
 
     /* calculate number and appropriate unit size for display */
@@ -160,7 +156,8 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     *str = 0;
     
     /* Add the unit name */
-    g_strlcat(string, as_bits ? _(unit_names_bits[uidx]) : _(unit_names[uidx]), stringsize);
+    g_strlcat(string, ps ? (as_bits ? _(unit_names_bits_ps[uidx]) : _(unit_names_ps[uidx])) :
+              (as_bits ? _(unit_names_bits[uidx]) : _(unit_names[uidx])), stringsize);
 
     return string;
 }

@@ -75,10 +75,10 @@ int main(int argc, char* argv[])
     for (;;)
     {
         get_current_netload(&data, &in, &out, &tot);
-        format_byte_humanreadable(bufIn, 20, (double)in, 0, FALSE);
-        format_byte_humanreadable(bufOut, 20, (double)out, 0, FALSE);
-        format_byte_humanreadable(bufTot, 20, (double)tot, 2, TRUE);
-        format_byte_humanreadable(bufBS, 20, 12235345.0, 2, TRUE);
+        format_byte_humanreadable(bufIn, 20, (double)in, 0, FALSE, TRUE);
+        format_byte_humanreadable(bufOut, 20, (double)out, 0, FALSE, TRUE);
+        format_byte_humanreadable(bufTot, 20, (double)tot, 2, TRUE, TRUE);
+        format_byte_humanreadable(bufBS, 20, 12235345.0, 2, TRUE, TRUE);
         printf("Current netload:\nIN : %s\nOUT: %s\nTOT: %s\nBS: %s\nIP: %s\n",
             bufIn, bufOut, bufTot, bufBS, get_ip_address(&data));
         sleep(1);
