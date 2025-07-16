@@ -678,7 +678,6 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     {
         gtk_widget_show(global->monitor->rcv_label);
         gtk_widget_show(global->monitor->sent_label);
-
     }
     else
     {
@@ -820,7 +819,7 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
     
     global->monitor->options.auto_max = xfce_rc_read_bool_entry (rc, "Auto_Max", TRUE);
     
-    global->monitor->options.update_interval =
+    global->monitor->options.update_interval = 
         xfce_rc_read_int_entry (rc, "Update_Interval", UPDATE_TIMEOUT);
 
     global->monitor->options.show_cumulative = xfce_rc_read_int_entry (rc, "Show_Cumulative", FALSE);
