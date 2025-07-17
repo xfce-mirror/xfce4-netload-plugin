@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-netload-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # Hugo Carvalho <hugokarvalho@hotmail.com>, 2023,2025
@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-16 12:52+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-17 00:53+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>, 2023,2025\n"
 "Language-Team: Portuguese (http://app.transifex.com/xfce/xfce-panel-plugins/language/pt/)\n"
@@ -22,32 +22,32 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #. Defaults
-#: panel-plugin/netload.c:42
+#: ../panel-plugin/netload.c:42
 msgid "Net"
 msgstr "Rede"
 
-#: panel-plugin/netload.c:61
+#: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Plugin Xfce4 Netload"
 
-#: panel-plugin/netload.c:64
+#: ../panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Erro desconhecido."
 
-#: panel-plugin/netload.c:65
+#: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Dispositivo proc \"/proc/net/dev\" não encontrado."
 
-#: panel-plugin/netload.c:66
+#: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "Interface não encontrada."
 
-#: panel-plugin/netload.c:184
+#: ../panel-plugin/netload.c:184
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Interface desligada)"
 
-#: panel-plugin/netload.c:301
+#: ../panel-plugin/netload.c:301
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -58,11 +58,11 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nMédia das últimas %d medições\ncom um intervalo de %.2fs:\nRecebidos: %s\nEnviados: %s\nTotal: %s"
 
-#: panel-plugin/netload.c:304
+#: ../panel-plugin/netload.c:304
 msgid "no IP address"
 msgstr "sem endereço IP"
 
-#: panel-plugin/netload.c:310
+#: ../panel-plugin/netload.c:310
 #, c-format
 msgid ""
 "%s\n"
@@ -72,181 +72,177 @@ msgid ""
 "Total: %s"
 msgstr "%s\nAcumulado:\nA receber: %s\nA enviar: %s\nTotal: %s"
 
-#: panel-plugin/netload.c:744
+#: ../panel-plugin/netload.c:744
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: erro ao iniciar:\n%s"
 
-#: panel-plugin/netload.c:1103
+#: ../panel-plugin/netload.c:1103
 msgid "Display the current load of a network interface in the panel"
 msgstr "Mostrar a carga atual de uma interface de rede no painel"
 
-#: panel-plugin/netload.c:1168
+#: ../panel-plugin/netload.c:1168
 msgid "Bar color (i_ncoming):"
 msgstr "Cor da barra (rece_bidos) :"
 
-#: panel-plugin/netload.c:1169
+#: ../panel-plugin/netload.c:1169
 msgid "Bar color (_outgoing):"
 msgstr "Cor da barra (enviad_os) :"
 
-#: panel-plugin/netload.c:1172
+#: ../panel-plugin/netload.c:1172
 msgid "Maximum (inco_ming):"
 msgstr "Máximo (recebi_dos):"
 
-#: panel-plugin/netload.c:1173
+#: ../panel-plugin/netload.c:1173
 msgid "Maximum (o_utgoing):"
 msgstr "Máximo (e_nviados):"
 
-#: panel-plugin/netload.c:1181 panel-plugin/netload.desktop.in:5
+#: ../panel-plugin/netload.c:1181
 msgid "Network Monitor"
 msgstr "Monitor de rede"
 
-#: panel-plugin/netload.c:1183
+#: ../panel-plugin/netload.c:1183
 msgid "_Close"
 msgstr "Fe_char"
 
-#: panel-plugin/netload.c:1184
+#: ../panel-plugin/netload.c:1184
 msgid "_Help"
 msgstr "_Ajuda"
 
-#: panel-plugin/netload.c:1210
+#: ../panel-plugin/netload.c:1210
 msgid "_Text to display:"
 msgstr "_Texto a exibir:"
 
-#: panel-plugin/netload.c:1241
+#: ../panel-plugin/netload.c:1241
 msgid "Network _device:"
 msgstr "_Dispositivo de rede:"
 
-#: panel-plugin/netload.c:1272
+#: ../panel-plugin/netload.c:1272
 msgid "Update _interval:"
 msgstr "_Intervalo de atualização:"
 
-#: panel-plugin/netload.c:1286
+#: ../panel-plugin/netload.c:1286
 msgid "s"
 msgstr "s"
 
-#: panel-plugin/netload.c:1301
+#: ../panel-plugin/netload.c:1301
 msgid "Show _cumulative values"
 msgstr "Mostrar valores a_cumulados"
 
-#: panel-plugin/netload.c:1316
+#: ../panel-plugin/netload.c:1316
 msgid "Show values as _bits"
 msgstr "Mostrar valores como _bits"
 
-#: panel-plugin/netload.c:1330
+#: ../panel-plugin/netload.c:1330
 msgid "_Automatic maximum"
 msgstr "Máximo _automático"
 
-#: panel-plugin/netload.c:1365
+#: ../panel-plugin/netload.c:1365
 msgid "KiB/s"
 msgstr "KB/s"
 
-#: panel-plugin/netload.c:1391
+#: ../panel-plugin/netload.c:1391
 msgid "_Present data as:"
 msgstr "A_presentar os dados como:"
 
-#: panel-plugin/netload.c:1401
+#: ../panel-plugin/netload.c:1401
 msgid "Bars"
 msgstr "Barras"
 
-#: panel-plugin/netload.c:1402
+#: ../panel-plugin/netload.c:1402
 msgid "Values"
 msgstr "Valores"
 
-#: panel-plugin/netload.c:1403
+#: ../panel-plugin/netload.c:1403
 msgid "Bars and values"
 msgstr "Barras e valores"
 
-#: panel-plugin/netload.c:1446
+#: ../panel-plugin/netload.c:1446
 msgid "_Colorize values"
 msgstr "_Colorir valores"
 
-#: panel-plugin/netload.c:1469
+#: ../panel-plugin/netload.c:1469
 msgid "_Digits number:"
 msgstr "Número de _dígitos:"
 
-#: panel-plugin/netload.desktop.in:6
-msgid "Show network traffic"
-msgstr "Mostrar tráfego de rede"
-
-#: panel-plugin/utils.c:77
+#: ../panel-plugin/utils.c:77
 msgid "B"
 msgstr "B"
 
-#: panel-plugin/utils.c:77
+#: ../panel-plugin/utils.c:77
 msgid "KiB"
 msgstr "KB"
 
-#: panel-plugin/utils.c:77
+#: ../panel-plugin/utils.c:77
 msgid "MiB"
 msgstr "MB"
 
-#: panel-plugin/utils.c:77
+#: ../panel-plugin/utils.c:77
 msgid "GiB"
 msgstr "GB"
 
-#: panel-plugin/utils.c:77
+#: ../panel-plugin/utils.c:77
 msgid "TiB"
 msgstr "TiB"
 
-#: panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:78
 msgid "b"
 msgstr "b"
 
-#: panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:78
 msgid "Kb"
 msgstr "Kb"
 
-#: panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:78
 msgid "Mb"
 msgstr "Mb"
 
-#: panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:78
 msgid "Gb"
 msgstr "Gb"
 
-#: panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:78
 msgid "Tb"
 msgstr "Tb"
 
-#: panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:79
 msgid "Bps"
 msgstr "Bps"
 
-#: panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:79
 msgid "KiBps"
 msgstr "KiBps"
 
-#: panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:79
 msgid "MiBps"
 msgstr "MiBps"
 
-#: panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:79
 msgid "GiBps"
 msgstr "GiBps"
 
-#: panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:79
 msgid "TiBps"
 msgstr "TiBps"
 
-#: panel-plugin/utils.c:80
+#: ../panel-plugin/utils.c:80
 msgid "bps"
 msgstr "bps"
 
-#: panel-plugin/utils.c:80
+#: ../panel-plugin/utils.c:80
 msgid "Kbps"
 msgstr "Kbps"
 
-#: panel-plugin/utils.c:80
+#: ../panel-plugin/utils.c:80
 msgid "Mbps"
 msgstr "Mbps"
 
-#: panel-plugin/utils.c:80
+#: ../panel-plugin/utils.c:80
 msgid "Gbps"
 msgstr "Gbps"
 
-#: panel-plugin/utils.c:80
+#: ../panel-plugin/utils.c:80
 msgid "Tbps"
 msgstr "Tbps"
