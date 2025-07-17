@@ -1,16 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-netload-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Priit Jõerüüt <transifex@joeruut.com>, 2021,2023
+# Priit Jõerüüt <transifex@joeruut.com>, 2021,2023,2025
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-16 12:52+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-17 00:53+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
-"Last-Translator: Priit Jõerüüt <transifex@joeruut.com>, 2021,2023\n"
+"Last-Translator: Priit Jõerüüt <transifex@joeruut.com>, 2021,2023,2025\n"
 "Language-Team: Estonian (http://app.transifex.com/xfce/xfce-panel-plugins/language/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,32 +19,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Defaults
-#: panel-plugin/netload.c:42
+#: ../panel-plugin/netload.c:42
 msgid "Net"
 msgstr "Võrguliiklus"
 
-#: panel-plugin/netload.c:61
+#: ../panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-võrguliikluse-jälgija"
 
-#: panel-plugin/netload.c:64
+#: ../panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Teadmata viga"
 
-#: panel-plugin/netload.c:65
+#: ../panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Linuxi „/proc/net/dev“ ei leidu."
 
-#: panel-plugin/netload.c:66
+#: ../panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "Võrguliidest ei leidu."
 
-#: panel-plugin/netload.c:184
+#: ../panel-plugin/netload.c:184
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (võrguliides ei tööta)"
 
-#: panel-plugin/netload.c:301
+#: ../panel-plugin/netload.c:301
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -55,11 +55,11 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nViimase %d mõõtmise keskmine\nvälbaga %.2fs:\nVastuvõetud: %s\nSaadetud: %s\nKokku: %s"
 
-#: panel-plugin/netload.c:304
+#: ../panel-plugin/netload.c:304
 msgid "no IP address"
 msgstr "IP-aadressi pole"
 
-#: panel-plugin/netload.c:310
+#: ../panel-plugin/netload.c:310
 #, c-format
 msgid ""
 "%s\n"
@@ -67,183 +67,179 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
+msgstr "%s\nKumulatiivne:\nSisenev: %s\nVäljuv: %s\nKokku: %s"
 
-#: panel-plugin/netload.c:744
+#: ../panel-plugin/netload.c:744
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Viga lähtestamisel:\n%s"
 
-#: panel-plugin/netload.c:1103
+#: ../panel-plugin/netload.c:1103
 msgid "Display the current load of a network interface in the panel"
 msgstr "Kuva ribal võrguliideste liikluskoormust"
 
-#: panel-plugin/netload.c:1168
+#: ../panel-plugin/netload.c:1168
 msgid "Bar color (i_ncoming):"
 msgstr "Tulba värv (_vastuvõetud andmemaht):"
 
-#: panel-plugin/netload.c:1169
+#: ../panel-plugin/netload.c:1169
 msgid "Bar color (_outgoing):"
 msgstr "Tulba värv (_saadetud andmemaht):"
 
-#: panel-plugin/netload.c:1172
+#: ../panel-plugin/netload.c:1172
 msgid "Maximum (inco_ming):"
 msgstr "Maksimum (va_stuvõetud andmemaht):"
 
-#: panel-plugin/netload.c:1173
+#: ../panel-plugin/netload.c:1173
 msgid "Maximum (o_utgoing):"
 msgstr "Maksimum (saa_detud andmemaht):"
 
-#: panel-plugin/netload.c:1181 panel-plugin/netload.desktop.in:5
+#: ../panel-plugin/netload.c:1181
 msgid "Network Monitor"
 msgstr "Võrgujälgija"
 
-#: panel-plugin/netload.c:1183
+#: ../panel-plugin/netload.c:1183
 msgid "_Close"
 msgstr "_Sulge"
 
-#: panel-plugin/netload.c:1184
+#: ../panel-plugin/netload.c:1184
 msgid "_Help"
 msgstr "_Abi"
 
-#: panel-plugin/netload.c:1210
+#: ../panel-plugin/netload.c:1210
 msgid "_Text to display:"
 msgstr "Kuvatav _tekst:"
 
-#: panel-plugin/netload.c:1241
+#: ../panel-plugin/netload.c:1241
 msgid "Network _device:"
 msgstr "Võrgusea_de:"
 
-#: panel-plugin/netload.c:1272
+#: ../panel-plugin/netload.c:1272
 msgid "Update _interval:"
 msgstr "Värskendamise välp:"
 
-#: panel-plugin/netload.c:1286
+#: ../panel-plugin/netload.c:1286
 msgid "s"
 msgstr "s"
 
-#: panel-plugin/netload.c:1301
+#: ../panel-plugin/netload.c:1301
 msgid "Show _cumulative values"
-msgstr ""
+msgstr "Näita _kumulatiivseid väärtusi"
 
-#: panel-plugin/netload.c:1316
+#: ../panel-plugin/netload.c:1316
 msgid "Show values as _bits"
 msgstr "Näita väärtust _bittides"
 
-#: panel-plugin/netload.c:1330
+#: ../panel-plugin/netload.c:1330
 msgid "_Automatic maximum"
 msgstr "_Automaatne maksimum"
 
-#: panel-plugin/netload.c:1365
+#: ../panel-plugin/netload.c:1365
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: panel-plugin/netload.c:1391
+#: ../panel-plugin/netload.c:1391
 msgid "_Present data as:"
 msgstr "_Esita andmeid kui:"
 
-#: panel-plugin/netload.c:1401
+#: ../panel-plugin/netload.c:1401
 msgid "Bars"
 msgstr "Tulbad"
 
-#: panel-plugin/netload.c:1402
+#: ../panel-plugin/netload.c:1402
 msgid "Values"
 msgstr "Väärtused"
 
-#: panel-plugin/netload.c:1403
+#: ../panel-plugin/netload.c:1403
 msgid "Bars and values"
 msgstr "Tulbad ja väärtused"
 
-#: panel-plugin/netload.c:1446
+#: ../panel-plugin/netload.c:1446
 msgid "_Colorize values"
 msgstr "Värv_i väärtused"
 
-#: panel-plugin/netload.c:1469
+#: ../panel-plugin/netload.c:1469
 msgid "_Digits number:"
 msgstr "_Näidu number:"
 
-#: panel-plugin/netload.desktop.in:6
-msgid "Show network traffic"
-msgstr "Näita võrguliiklust"
-
-#: panel-plugin/utils.c:77
+#: ../panel-plugin/utils.c:77
 msgid "B"
 msgstr "B"
 
-#: panel-plugin/utils.c:77
+#: ../panel-plugin/utils.c:77
 msgid "KiB"
 msgstr "KiB"
 
-#: panel-plugin/utils.c:77
+#: ../panel-plugin/utils.c:77
 msgid "MiB"
 msgstr "MiB"
 
-#: panel-plugin/utils.c:77
+#: ../panel-plugin/utils.c:77
 msgid "GiB"
 msgstr "GiB"
 
-#: panel-plugin/utils.c:77
+#: ../panel-plugin/utils.c:77
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
-#: panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:78
 msgid "b"
-msgstr ""
+msgstr "b"
 
-#: panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:78
 msgid "Kb"
-msgstr ""
+msgstr "Kb"
 
-#: panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:78
 msgid "Mb"
-msgstr ""
+msgstr "Mb"
 
-#: panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:78
 msgid "Gb"
-msgstr ""
+msgstr "Gb"
 
-#: panel-plugin/utils.c:78
+#: ../panel-plugin/utils.c:78
 msgid "Tb"
-msgstr ""
+msgstr "Tb"
 
-#: panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:79
 msgid "Bps"
 msgstr "Bps"
 
-#: panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:79
 msgid "KiBps"
 msgstr "KiBps"
 
-#: panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:79
 msgid "MiBps"
 msgstr "MiBps"
 
-#: panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:79
 msgid "GiBps"
 msgstr "GiBps"
 
-#: panel-plugin/utils.c:79
+#: ../panel-plugin/utils.c:79
 msgid "TiBps"
-msgstr ""
+msgstr "TiBps"
 
-#: panel-plugin/utils.c:80
+#: ../panel-plugin/utils.c:80
 msgid "bps"
 msgstr "bps"
 
-#: panel-plugin/utils.c:80
+#: ../panel-plugin/utils.c:80
 msgid "Kbps"
 msgstr "Kbps"
 
-#: panel-plugin/utils.c:80
+#: ../panel-plugin/utils.c:80
 msgid "Mbps"
 msgstr "Mbps"
 
-#: panel-plugin/utils.c:80
+#: ../panel-plugin/utils.c:80
 msgid "Gbps"
 msgstr "Gbps"
 
-#: panel-plugin/utils.c:80
+#: ../panel-plugin/utils.c:80
 msgid "Tbps"
-msgstr ""
+msgstr "Tbps"
