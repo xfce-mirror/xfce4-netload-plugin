@@ -67,7 +67,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
+msgstr "%s\nНакупљено:\nДолазни: %s\nОдлазни: %s\nУкупно: %s"
 
 #: panel-plugin/netload.c:744
 #, c-format
@@ -126,7 +126,7 @@ msgstr "s"
 
 #: panel-plugin/netload.c:1301
 msgid "Show _cumulative values"
-msgstr ""
+msgstr "Приказуј _накупљене вредности"
 
 #: panel-plugin/netload.c:1316
 msgid "Show values as _bits"
@@ -186,27 +186,27 @@ msgstr "GiB"
 
 #: panel-plugin/utils.c:77
 msgid "TiB"
-msgstr ""
+msgstr "ТиБ"
 
 #: panel-plugin/utils.c:78
 msgid "b"
-msgstr ""
+msgstr "б"
 
 #: panel-plugin/utils.c:78
 msgid "Kb"
-msgstr ""
+msgstr "Кб"
 
 #: panel-plugin/utils.c:78
 msgid "Mb"
-msgstr ""
+msgstr "Мб"
 
 #: panel-plugin/utils.c:78
 msgid "Gb"
-msgstr ""
+msgstr "Гб"
 
 #: panel-plugin/utils.c:78
 msgid "Tb"
-msgstr ""
+msgstr "Тб"
 
 #: panel-plugin/utils.c:79
 msgid "Bps"
@@ -226,7 +226,7 @@ msgstr "GiBps"
 
 #: panel-plugin/utils.c:79
 msgid "TiBps"
-msgstr ""
+msgstr "ТиБпс"
 
 #: panel-plugin/utils.c:80
 msgid "bps"
@@ -246,4 +246,4 @@ msgstr "Gbps"
 
 #: panel-plugin/utils.c:80
 msgid "Tbps"
-msgstr ""
+msgstr "Тбпс"
