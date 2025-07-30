@@ -82,7 +82,7 @@ msgstr "%s: Błąd inicjowania:\n%s"
 
 #: panel-plugin/netload.c:1103
 msgid "Display the current load of a network interface in the panel"
-msgstr "Wyświetlanie aktualnego obciążenia interfejsu sieciowego w panelu"
+msgstr "Wyświetlanie aktualnego obciążenia interfejsu sieciowego w panelu."
 
 #: panel-plugin/netload.c:1168
 msgid "Bar color (i_ncoming):"
