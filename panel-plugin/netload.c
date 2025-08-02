@@ -201,11 +201,6 @@ static gboolean update_monitors(gpointer user_data)
         /* correct value to be from 1 ... 100 */
         global->monitor->history[i][0] = net[i];
 
-        if ((gint) global->monitor->history[i][0] < 0)
-        {
-            global->monitor->history[i][0] = 0;
-        }
-
         histcalculate = 0;
         for( j = 0; j < HISTSIZE_CALCULATE; j++ )
         {
