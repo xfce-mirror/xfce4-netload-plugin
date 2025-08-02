@@ -129,20 +129,20 @@ void get_current_netload(netdata* data, unsigned long *in, unsigned long *out, u
     get_stat(data);
     if (data->backup_in > data->stats.rx_bytes)
     {
-        data->cur_in = (int)( data->stats.rx_bytes / delta_t + 0.5);
+        data->cur_in = (long long)(data->stats.rx_bytes / delta_t + 0.5);
     }
     else
     {
-        data->cur_in = (int)( (data->stats.rx_bytes - data->backup_in) / delta_t + 0.5);
+        data->cur_in = (long long)( (data->stats.rx_bytes - data->backup_in) / delta_t + 0.5);
     }
 	
     if (data->backup_out > data->stats.tx_bytes)
     {
-        data->cur_out = (int)( data->stats.tx_bytes / delta_t + 0.5);
+        data->cur_out = (long long)( data->stats.tx_bytes / delta_t + 0.5);
     }
     else
     {
-        data->cur_out = (int)( (data->stats.tx_bytes - data->backup_out) / delta_t + 0.5);
+        data->cur_out = (long long)( (data->stats.tx_bytes - data->backup_out) / delta_t + 0.5);
     }
 
     if (in != NULL && out != NULL && tot != NULL)
