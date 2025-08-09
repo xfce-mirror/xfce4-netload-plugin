@@ -49,6 +49,7 @@
 #define HISTSIZE_STORE 20
 
 static gchar* DEFAULT_COLOR[] = { "#FF4F00", "#FFE500" };
+static GdkRGBA CUMULATIVE_LABEL_COLOR = {0.7, 0.7, 0.7, 1.0};
 
 #define UPDATE_TIMEOUT 250
 #define MAX_LENGTH 32
@@ -680,6 +681,7 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     /* Show cumulative? */
     if (global->monitor->options.show_values && global->monitor->options.show_cumulative)
     {
+        xnlp_monitor_label_set_color(XNLP_MONITOR_LABEL(global->monitor->cumulative_label), &CUMULATIVE_LABEL_COLOR);
         gtk_widget_show(global->monitor->cumulative_label);
         gtk_widget_show(global->monitor->rcv_cumulative_label);
         gtk_widget_show(global->monitor->sent_cumulative_label);
