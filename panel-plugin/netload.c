@@ -88,11 +88,13 @@ typedef struct
 typedef struct
 {
     GtkWidget  *label;
+
     GtkWidget  *rcv_label;
     GtkWidget  *sent_label;
-    GtkWidget  *cumulative_label;
+
     GtkWidget  *rcv_cumulative_label;
     GtkWidget  *sent_cumulative_label;
+    
     GtkWidget  *status[SUM];
 
     gulong     history[SUM][HISTSIZE_STORE];
@@ -148,6 +150,8 @@ typedef struct
     GtkWidget         *box;
     GtkWidget         *ebox_bars;
     GtkWidget         *box_bars;
+    GtkWidget         *box_rcv;
+    GtkWidget         *box_sent;
     GtkWidget         *tooltip_text;
     guint             timeout_id;
     t_monitor         *monitor;
@@ -375,7 +379,6 @@ static gboolean monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_mon
 
     xnlp_monitor_label_reinit_size_request(XNLP_MONITOR_LABEL(global->monitor->rcv_label));
     xnlp_monitor_label_reinit_size_request(XNLP_MONITOR_LABEL(global->monitor->sent_label));
-    xnlp_monitor_label_reinit_size_request(XNLP_MONITOR_LABEL(global->monitor->cumulative_label));
     xnlp_monitor_label_reinit_size_request(XNLP_MONITOR_LABEL(global->monitor->rcv_cumulative_label));
     xnlp_monitor_label_reinit_size_request(XNLP_MONITOR_LABEL(global->monitor->sent_cumulative_label));
     gtk_container_set_border_width(GTK_CONTAINER(global->box), size > 26 ? 2 : 1);
@@ -403,21 +406,12 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), GTK_ORIENTATION_VERTICAL);
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_bars), GTK_ORIENTATION_VERTICAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
-        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_END);
-        gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_START);
-        gtk_widget_set_halign(global->monitor->cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_halign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->rcv_cumulative_label,GTK_ALIGN_END);
-        gtk_widget_set_halign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->sent_cumulative_label,GTK_ALIGN_START);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
-        gtk_label_set_angle(GTK_LABEL(global->monitor->cumulative_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_cumulative_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_cumulative_label), 0);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_rcv), GTK_ORIENTATION_VERTICAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_sent), GTK_ORIENTATION_VERTICAL);
         for (i = 0; i < SUM; i++)
         {
             gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_HORIZONTAL);
@@ -429,21 +423,12 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), GTK_ORIENTATION_VERTICAL);
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_bars), GTK_ORIENTATION_VERTICAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 270);
-        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_END);
-        gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_START);
-        gtk_widget_set_halign(global->monitor->cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_halign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->rcv_cumulative_label,GTK_ALIGN_END);
-        gtk_widget_set_halign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->sent_cumulative_label,GTK_ALIGN_START);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 270);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 270);
-        gtk_label_set_angle(GTK_LABEL(global->monitor->cumulative_label), 270);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_cumulative_label), 270);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_cumulative_label), 270);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_rcv), GTK_ORIENTATION_HORIZONTAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_sent), GTK_ORIENTATION_HORIZONTAL);
         for (i = 0; i < SUM; i++)
         {
             gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_HORIZONTAL);
@@ -455,21 +440,12 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), GTK_ORIENTATION_HORIZONTAL);
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_bars), GTK_ORIENTATION_HORIZONTAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
-        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_END);
-        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_START);
-        gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_halign(global->monitor->cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_halign(global->monitor->rcv_cumulative_label,GTK_ALIGN_END);
-        gtk_widget_set_valign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_halign(global->monitor->sent_cumulative_label,GTK_ALIGN_START);
-        gtk_widget_set_valign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
-        gtk_label_set_angle(GTK_LABEL(global->monitor->cumulative_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_cumulative_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_cumulative_label), 0);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_rcv), GTK_ORIENTATION_VERTICAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_sent), GTK_ORIENTATION_VERTICAL);
         for (i = 0; i < SUM; i++)
         {
             gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor->status[i]),GTK_ORIENTATION_VERTICAL);
@@ -561,7 +537,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     }
 
     /* Create widget containers */
-    global->box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+    global->box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 4);
     gtk_container_set_border_width(GTK_CONTAINER(global->box), 2);
     gtk_widget_show(GTK_WIDGET(global->box));
 
@@ -575,15 +551,25 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     /* Create sent and received labels */
     global->monitor->rcv_label = xnlp_monitor_label_new("-");
     global->monitor->sent_label = xnlp_monitor_label_new("-");
-
-    global->monitor->cumulative_label = xnlp_monitor_label_new("Cumulative");
-
     global->monitor->rcv_cumulative_label = xnlp_monitor_label_new("-");
     global->monitor->sent_cumulative_label = xnlp_monitor_label_new("-");
 
-    gtk_box_pack_start(GTK_BOX(global->box),
+    global->box_rcv = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+
+    gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
+    gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
+    gtk_widget_set_halign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
+    gtk_widget_set_valign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
+
+    gtk_box_pack_start(GTK_BOX(global->box_rcv),
                        GTK_WIDGET(global->monitor->rcv_label),
-                       TRUE, FALSE, 2);
+                       TRUE, FALSE, 0);
+    
+    gtk_box_pack_start(GTK_BOX(global->box_rcv),
+                       GTK_WIDGET(global->monitor->rcv_cumulative_label),
+                       TRUE, FALSE, 0);
+
+    gtk_container_add(GTK_CONTAINER(global->box), GTK_WIDGET(global->box_rcv));
 
     /* Create the progress bars */
     global->ebox_bars = gtk_event_box_new();
@@ -615,20 +601,23 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     gtk_container_add(GTK_CONTAINER(global->ebox_bars), GTK_WIDGET(global->box_bars));
     gtk_container_add(GTK_CONTAINER(global->box), GTK_WIDGET(global->ebox_bars));
 
-    /* Append sent label after the progress bars */
-    gtk_box_pack_start(GTK_BOX(global->box),
-                       GTK_WIDGET(global->monitor->sent_label),
-                       TRUE, FALSE, 2);
+    /* Append labels for sent after the progress bars */
+    global->box_sent = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 
-    gtk_box_pack_start(GTK_BOX(global->box),
-                       GTK_WIDGET(global->monitor->cumulative_label),
-                       TRUE, FALSE, 2);
-    gtk_box_pack_start(GTK_BOX(global->box),
-                       GTK_WIDGET(global->monitor->rcv_cumulative_label),
-                       TRUE, FALSE, 2);
-    gtk_box_pack_start(GTK_BOX(global->box),
+    gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_CENTER);
+    gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_CENTER);
+    gtk_widget_set_halign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
+    gtk_widget_set_valign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
+
+    gtk_box_pack_start(GTK_BOX(global->box_sent),
+                       GTK_WIDGET(global->monitor->sent_label),
+                       TRUE, FALSE, 0);
+
+    gtk_box_pack_start(GTK_BOX(global->box_sent),
                        GTK_WIDGET(global->monitor->sent_cumulative_label),
-                       TRUE, FALSE, 2);
+                       TRUE, FALSE, 0);
+
+    gtk_container_add(GTK_CONTAINER(global->box), GTK_WIDGET(global->box_sent));
 
     gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
 
@@ -668,11 +657,15 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     /* Show current? */
     if (global->monitor->options.show_values)
     {
+        gtk_widget_show(global->box_rcv);
+        gtk_widget_show(global->box_sent);
         gtk_widget_show(global->monitor->rcv_label);
         gtk_widget_show(global->monitor->sent_label);
     }
     else
     {
+        gtk_widget_hide(global->box_rcv);
+        gtk_widget_hide(global->box_sent);
         gtk_widget_hide(global->monitor->rcv_label);
         gtk_widget_hide(global->monitor->sent_label);
     }
@@ -680,13 +673,11 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     /* Show cumulative? */
     if (global->monitor->options.show_values && global->monitor->options.show_cumulative)
     {
-        gtk_widget_show(global->monitor->cumulative_label);
         gtk_widget_show(global->monitor->rcv_cumulative_label);
         gtk_widget_show(global->monitor->sent_cumulative_label);
     }
     else
     {
-        gtk_widget_hide(global->monitor->cumulative_label);
         gtk_widget_hide(global->monitor->rcv_cumulative_label);
         gtk_widget_hide(global->monitor->sent_cumulative_label);
     }
