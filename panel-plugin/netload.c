@@ -563,11 +563,11 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
 
     gtk_box_pack_start(GTK_BOX(global->box_rcv),
                        GTK_WIDGET(global->monitor->rcv_label),
-                       TRUE, FALSE, 1);
+                       TRUE, FALSE, 0);
     
     gtk_box_pack_start(GTK_BOX(global->box_rcv),
                        GTK_WIDGET(global->monitor->rcv_cumulative_label),
-                       TRUE, FALSE, 1);
+                       TRUE, FALSE, 0);
 
     gtk_container_add(GTK_CONTAINER(global->box), GTK_WIDGET(global->box_rcv));
 
@@ -611,11 +611,11 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
 
     gtk_box_pack_start(GTK_BOX(global->box_sent),
                        GTK_WIDGET(global->monitor->sent_label),
-                       TRUE, FALSE, 1);
+                       TRUE, FALSE, 0);
 
     gtk_box_pack_start(GTK_BOX(global->box_sent),
                        GTK_WIDGET(global->monitor->sent_cumulative_label),
-                       TRUE, FALSE, 1);
+                       TRUE, FALSE, 0);
 
     gtk_container_add(GTK_CONTAINER(global->box), GTK_WIDGET(global->box_sent));
 
