@@ -406,14 +406,6 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), GTK_ORIENTATION_VERTICAL);
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_bars), GTK_ORIENTATION_VERTICAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
-        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_END);
-        gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_START);
-        gtk_widget_set_halign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->rcv_cumulative_label,GTK_ALIGN_END);
-        gtk_widget_set_halign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->sent_cumulative_label,GTK_ALIGN_START);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_cumulative_label), 0);
@@ -431,14 +423,6 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), GTK_ORIENTATION_VERTICAL);
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_bars), GTK_ORIENTATION_VERTICAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 270);
-        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_END);
-        gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_START);
-        gtk_widget_set_halign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->rcv_cumulative_label,GTK_ALIGN_END);
-        gtk_widget_set_halign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_valign(global->monitor->sent_cumulative_label,GTK_ALIGN_START);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 270);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 270);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_cumulative_label), 270);
@@ -456,14 +440,6 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), GTK_ORIENTATION_HORIZONTAL);
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box_bars), GTK_ORIENTATION_HORIZONTAL);
         gtk_label_set_angle(GTK_LABEL(global->monitor->label), 0);
-        gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_END);
-        gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_START);
-        gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_halign(global->monitor->rcv_cumulative_label,GTK_ALIGN_END);
-        gtk_widget_set_valign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
-        gtk_widget_set_halign(global->monitor->sent_cumulative_label,GTK_ALIGN_START);
-        gtk_widget_set_valign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->sent_label), 0);
         gtk_label_set_angle(GTK_LABEL(global->monitor->rcv_cumulative_label), 0);
@@ -561,7 +537,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     }
 
     /* Create widget containers */
-    global->box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+    global->box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 4);
     gtk_container_set_border_width(GTK_CONTAINER(global->box), 2);
     gtk_widget_show(GTK_WIDGET(global->box));
 
@@ -580,13 +556,18 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
 
     global->box_rcv = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 
+    gtk_widget_set_halign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
+    gtk_widget_set_valign(global->monitor->rcv_label,GTK_ALIGN_CENTER);
+    gtk_widget_set_halign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
+    gtk_widget_set_valign(global->monitor->rcv_cumulative_label,GTK_ALIGN_CENTER);
+
     gtk_box_pack_start(GTK_BOX(global->box_rcv),
                        GTK_WIDGET(global->monitor->rcv_label),
-                       TRUE, FALSE, 2);
+                       TRUE, FALSE, 1);
     
     gtk_box_pack_start(GTK_BOX(global->box_rcv),
                        GTK_WIDGET(global->monitor->rcv_cumulative_label),
-                       TRUE, FALSE, 2);
+                       TRUE, FALSE, 1);
 
     gtk_container_add(GTK_CONTAINER(global->box), GTK_WIDGET(global->box_rcv));
 
@@ -623,13 +604,18 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     /* Append labels for sent after the progress bars */
     global->box_sent = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 
+    gtk_widget_set_halign(global->monitor->sent_label,GTK_ALIGN_CENTER);
+    gtk_widget_set_valign(global->monitor->sent_label,GTK_ALIGN_CENTER);
+    gtk_widget_set_halign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
+    gtk_widget_set_valign(global->monitor->sent_cumulative_label,GTK_ALIGN_CENTER);
+
     gtk_box_pack_start(GTK_BOX(global->box_sent),
                        GTK_WIDGET(global->monitor->sent_label),
-                       TRUE, FALSE, 2);
+                       TRUE, FALSE, 1);
 
     gtk_box_pack_start(GTK_BOX(global->box_sent),
                        GTK_WIDGET(global->monitor->sent_cumulative_label),
-                       TRUE, FALSE, 2);
+                       TRUE, FALSE, 1);
 
     gtk_container_add(GTK_CONTAINER(global->box), GTK_WIDGET(global->box_sent));
 
