@@ -754,7 +754,7 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
     char *file;
     XfceRc *rc;
     
-    if (!(file = xfce_panel_plugin_save_location (plugin, TRUE)))
+    if (!(file = xfce_panel_plugin_lookup_rc_file (plugin)))
         return;
     
     rc = xfce_rc_simple_open (file, FALSE);
