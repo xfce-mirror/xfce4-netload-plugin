@@ -69,7 +69,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
+msgstr "%s\nAkkumulerede:\nIndkommende: %s\nUdgående: %s\nSamlet: %s"
 
 #: panel-plugin/netload.c:744
 #, c-format
@@ -128,7 +128,7 @@ msgstr "s"
 
 #: panel-plugin/netload.c:1301
 msgid "Show _cumulative values"
-msgstr ""
+msgstr "Vis _akkumulerede værdier"
 
 #: panel-plugin/netload.c:1316
 msgid "Show values as _bits"
