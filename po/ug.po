@@ -101,11 +101,11 @@ msgstr "تور كۆزەتكۈ"
 
 #: panel-plugin/netload.c:1183
 msgid "_Close"
-msgstr ""
+msgstr "ياپ(_C)"
 
 #: panel-plugin/netload.c:1184
 msgid "_Help"
-msgstr ""
+msgstr "ياردەم(_H)"
 
 #: panel-plugin/netload.c:1210
 msgid "_Text to display:"
