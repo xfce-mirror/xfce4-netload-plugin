@@ -20,7 +20,7 @@ msgstr ""
 #. Defaults
 #: panel-plugin/netload.c:42
 msgid "Net"
-msgstr ""
+msgstr "تور"
 
 #: panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
@@ -32,11 +32,11 @@ msgstr "نامەلۇم خاتالىق."
 
 #: panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "لىنۇكىس proc ئۈسكۈنىسى  '/proc/net/dev' تېپىلمىدى"
+msgstr "‪Linux proc‬ ئۈسكۈنىسى«proc/net/dev/» تېپىلمىدى."
 
 #: panel-plugin/netload.c:66
 msgid "Interface was not found."
-msgstr "ئارايۈز تېپىلمىدى"
+msgstr "ئارايۈز تېپىلمىدى."
 
 #: panel-plugin/netload.c:184
 #, c-format
@@ -52,7 +52,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr "<< %s >> (%s)\nئەڭ ئاخىرقى %d قېتىملىق ئۆلچەشنىڭ ئوتتۇرىچە قىممىتى:\nئۆلچەش ئىنتېرۋالى %.2fs:\nكىرىش: %s \nچىقىش: %s\nجەمئىي: %s"
+msgstr "<< %s >> (%s)\nئەڭ ئاخىرقى %d قېتىملىق ئۆلچەشنىڭ ئوتتۇرىچە قىممىتى:\nئۆلچەش ئارىلىقى %.2fs:\nكىرىش: %s \nچىقىش: %s\nجەمئىي: %s"
 
 #: panel-plugin/netload.c:304
 msgid "no IP address"
@@ -66,7 +66,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
+msgstr "%s\nجۇغلانمىسى:\nكىرىش: %s\nچىقىش: %s\nجەمئىي: %s"
 
 #: panel-plugin/netload.c:744
 #, c-format
@@ -77,7 +77,7 @@ msgstr "%s: دەسلەپلەشتۈرۈشتە خاتالىق كۆرۈلدى:\n%s"
 
 #: panel-plugin/netload.c:1103
 msgid "Display the current load of a network interface in the panel"
-msgstr ""
+msgstr "كۆزنەكچىدە تور ئارايۈزىنىڭ نۆۋەتتىكى يۈكىنى كۆرسىتىدۇ"
 
 #: panel-plugin/netload.c:1168
 msgid "Bar color (i_ncoming):"
@@ -97,7 +97,7 @@ msgstr "ئەڭ چوڭ (چىقىش)(_U):"
 
 #: panel-plugin/netload.c:1181 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
-msgstr "تور كۆزەتكۈ"
+msgstr "تور كۆزەتكۈچ"
 
 #: panel-plugin/netload.c:1183
 msgid "_Close"
@@ -117,7 +117,7 @@ msgstr "تور ئۈسكۈنىسى(_D):"
 
 #: panel-plugin/netload.c:1272
 msgid "Update _interval:"
-msgstr "يېڭىلاش ئىنتېرۋالى(_I):"
+msgstr "يېڭىلاش ئارىلىقى(_I):"
 
 #: panel-plugin/netload.c:1286
 msgid "s"
@@ -125,11 +125,11 @@ msgstr "s"
 
 #: panel-plugin/netload.c:1301
 msgid "Show _cumulative values"
-msgstr ""
+msgstr "يىغىندا قىممەتنى كۆرسەت(_C)"
 
 #: panel-plugin/netload.c:1316
 msgid "Show values as _bits"
-msgstr ""
+msgstr "قىممىتىنى بىت بويىچە  كۆرسەت(_B)"
 
 #: panel-plugin/netload.c:1330
 msgid "_Automatic maximum"
@@ -137,23 +137,23 @@ msgstr "ئۆزلۈكىدىن ئەڭ چوڭ(_A)"
 
 #: panel-plugin/netload.c:1365
 msgid "KiB/s"
-msgstr "ك ب/س"
+msgstr "KiB/s"
 
 #: panel-plugin/netload.c:1391
 msgid "_Present data as:"
-msgstr "سانلىق-مەلۇماتلارنى كۆرسىتىش شەكلى:"
+msgstr "سانلىق-مەلۇماتلارنى كۆرسىتىش شەكلى(_P):"
 
 #: panel-plugin/netload.c:1401
 msgid "Bars"
-msgstr "بالداقلار"
+msgstr "بالداق"
 
 #: panel-plugin/netload.c:1402
 msgid "Values"
-msgstr "قىممەتلەر"
+msgstr "قىممەت"
 
 #: panel-plugin/netload.c:1403
 msgid "Bars and values"
-msgstr "بالداقلار ۋە قىممەتلەر"
+msgstr "بالداق ۋە قىممەت"
 
 #: panel-plugin/netload.c:1446
 msgid "_Colorize values"
@@ -161,7 +161,7 @@ msgstr "رەڭلىكلەشتۈرۈش قىممىتى(_C)"
 
 #: panel-plugin/netload.c:1469
 msgid "_Digits number:"
-msgstr ""
+msgstr "خانە سانى(_D):"
 
 #: panel-plugin/netload.desktop.in:6
 msgid "Show network traffic"
@@ -169,80 +169,80 @@ msgstr "تور قىستاڭچىلىقىنى كۆرسىتىدۇ"
 
 #: panel-plugin/utils.c:77
 msgid "B"
-msgstr "بايت"
+msgstr "B"
 
 #: panel-plugin/utils.c:77
 msgid "KiB"
-msgstr "كىلوبايت"
+msgstr "KiB"
 
 #: panel-plugin/utils.c:77
 msgid "MiB"
-msgstr "مېگابايت"
+msgstr "MiB"
 
 #: panel-plugin/utils.c:77
 msgid "GiB"
-msgstr "گىگابايت"
+msgstr "GiB"
 
 #: panel-plugin/utils.c:77
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 #: panel-plugin/utils.c:78
 msgid "b"
-msgstr ""
+msgstr "b"
 
 #: panel-plugin/utils.c:78
 msgid "Kb"
-msgstr ""
+msgstr "Kb"
 
 #: panel-plugin/utils.c:78
 msgid "Mb"
-msgstr ""
+msgstr "Mb"
 
 #: panel-plugin/utils.c:78
 msgid "Gb"
-msgstr ""
+msgstr "Gb"
 
 #: panel-plugin/utils.c:78
 msgid "Tb"
-msgstr ""
+msgstr "Tb"
 
 #: panel-plugin/utils.c:79
 msgid "Bps"
-msgstr ""
+msgstr "Bps"
 
 #: panel-plugin/utils.c:79
 msgid "KiBps"
-msgstr ""
+msgstr "KiBps"
 
 #: panel-plugin/utils.c:79
 msgid "MiBps"
-msgstr ""
+msgstr "MiBps"
 
 #: panel-plugin/utils.c:79
 msgid "GiBps"
-msgstr ""
+msgstr "GiBps"
 
 #: panel-plugin/utils.c:79
 msgid "TiBps"
-msgstr ""
+msgstr "TiBps"
 
 #: panel-plugin/utils.c:80
 msgid "bps"
-msgstr ""
+msgstr "bps"
 
 #: panel-plugin/utils.c:80
 msgid "Kbps"
-msgstr ""
+msgstr "Kbps"
 
 #: panel-plugin/utils.c:80
 msgid "Mbps"
-msgstr ""
+msgstr "Mbps"
 
 #: panel-plugin/utils.c:80
 msgid "Gbps"
-msgstr ""
+msgstr "Gbps"
 
 #: panel-plugin/utils.c:80
 msgid "Tbps"
-msgstr ""
+msgstr "Tbps"
