@@ -164,7 +164,7 @@ msgstr "_Colorar las valors"
 
 #: panel-plugin/netload.c:1469
 msgid "_Digits number:"
-msgstr ""
+msgstr "_Nombre de chifras :"
 
 #: panel-plugin/netload.desktop.in:6
 msgid "Show network traffic"
@@ -188,64 +188,64 @@ msgstr "Gio"
 
 #: panel-plugin/utils.c:77
 msgid "TiB"
-msgstr ""
+msgstr "Tio"
 
 #: panel-plugin/utils.c:78
 msgid "b"
-msgstr ""
+msgstr "b"
 
 #: panel-plugin/utils.c:78
 msgid "Kb"
-msgstr ""
+msgstr "Kb"
 
 #: panel-plugin/utils.c:78
 msgid "Mb"
-msgstr ""
+msgstr "Mb"
 
 #: panel-plugin/utils.c:78
 msgid "Gb"
-msgstr ""
+msgstr "Gb"
 
 #: panel-plugin/utils.c:78
 msgid "Tb"
-msgstr ""
+msgstr "Tb"
 
 #: panel-plugin/utils.c:79
 msgid "Bps"
-msgstr ""
+msgstr "o/s"
 
 #: panel-plugin/utils.c:79
 msgid "KiBps"
-msgstr ""
+msgstr "Kio/s"
 
 #: panel-plugin/utils.c:79
 msgid "MiBps"
-msgstr ""
+msgstr "Mio/s"
 
 #: panel-plugin/utils.c:79
 msgid "GiBps"
-msgstr ""
+msgstr "Gio/s"
 
 #: panel-plugin/utils.c:79
 msgid "TiBps"
-msgstr ""
+msgstr "Tio/s"
 
 #: panel-plugin/utils.c:80
 msgid "bps"
-msgstr "bps"
+msgstr "b/s"
 
 #: panel-plugin/utils.c:80
 msgid "Kbps"
-msgstr "Kbps"
+msgstr "Kb/s"
 
 #: panel-plugin/utils.c:80
 msgid "Mbps"
-msgstr "Mbps"
+msgstr "Mb/s"
 
 #: panel-plugin/utils.c:80
 msgid "Gbps"
-msgstr "Gbps"
+msgstr "Gb/s"
 
 #: panel-plugin/utils.c:80
 msgid "Tbps"
-msgstr ""
+msgstr "Tb/s"
