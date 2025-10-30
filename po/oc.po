@@ -5,13 +5,14 @@
 # Translators:
 # Cédric Valmary <cvalmary@yahoo.fr>, 2016
 # Cédric Valmary <cvalmary@yahoo.fr>, 2013
+# Quentin PAGÈS, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-07-18 11:07+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
-"Last-Translator: Cédric Valmary <cvalmary@yahoo.fr>, 2016\n"
+"Last-Translator: Quentin PAGÈS, 2025\n"
 "Language-Team: Occitan (post 1500) (http://app.transifex.com/xfce/xfce-panel-plugins/language/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 #. Defaults
 #: panel-plugin/netload.c:42
 msgid "Net"
-msgstr ""
+msgstr "Ret"
 
 #: panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
@@ -68,7 +69,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
+msgstr "%s\nCumul :\nDintrant : %s\nSortissent : %s\nTotal : %s"
 
 #: panel-plugin/netload.c:744
 #, c-format
@@ -79,7 +80,7 @@ msgstr "%s : Error pendent l'inicializacion :\n%s"
 
 #: panel-plugin/netload.c:1103
 msgid "Display the current load of a network interface in the panel"
-msgstr ""
+msgstr "Visualizar la carga actuala d'una interfàcia ret dins lo panèl"
 
 #: panel-plugin/netload.c:1168
 msgid "Bar color (i_ncoming):"
@@ -127,7 +128,7 @@ msgstr "s"
 
 #: panel-plugin/netload.c:1301
 msgid "Show _cumulative values"
-msgstr ""
+msgstr "Mostrar las valors _cumulativas"
 
 #: panel-plugin/netload.c:1316
 msgid "Show values as _bits"
