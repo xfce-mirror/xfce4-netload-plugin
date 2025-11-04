@@ -83,7 +83,7 @@ msgstr "%s: Error en la inicialització:\n%s"
 
 #: panel-plugin/netload.c:1103
 msgid "Display the current load of a network interface in the panel"
-msgstr "Mostra la càrrega actual d'una interfície de xarxa al tauler"
+msgstr "Mostra la càrrega actual d'una interfície de xarxa al panell"
 
 #: panel-plugin/netload.c:1168
 msgid "Bar color (i_ncoming):"
