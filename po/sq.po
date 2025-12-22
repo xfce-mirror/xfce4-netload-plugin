@@ -68,7 +68,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
+msgstr "%sShtuese:Ardhëse: %sIkse: %sGjithsej: %s"
 
 #: panel-plugin/netload.c:744
 #, c-format
@@ -127,7 +127,7 @@ msgstr "s"
 
 #: panel-plugin/netload.c:1301
 msgid "Show _cumulative values"
-msgstr ""
+msgstr "Shfaq vlera _shtuese"
 
 #: panel-plugin/netload.c:1316
 msgid "Show values as _bits"
