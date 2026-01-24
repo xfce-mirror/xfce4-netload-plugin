@@ -1,47 +1,51 @@
-# Kazakh translation for xfce4-netload-plugin.
-# Copyright (C) 2010 Xfce team
-# This file is distributed under the same license as the Xfce package.
-# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-netload-plugin package.
+# 
+# Translators:
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010
 msgid ""
 msgstr ""
-"Project-Id-Version: master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:09+0100\n"
-"PO-Revision-Date: 2010-08-13 14:37+0600\n"
-"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
-"Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
-"Language: kk\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:07+0200\n"
+"PO-Revision-Date: 2013-07-03 19:08+0000\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010\n"
+"Language-Team: Kazakh (http://app.transifex.com/xfce/xfce-panel-plugins/language/kk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural= (n != 1);\n"
-"X-Poedit-Language: Kazakh\n"
-"X-Poedit-Country: KAZAKHSTAN\n"
+"Language: kk\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: ../panel-plugin/netload.c:62
+#. Defaults
+#: panel-plugin/netload.c:42
+msgid "Net"
+msgstr "Желі"
+
+#: panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
 msgstr "Xfce4-Netload-Plugin"
 
-#: ../panel-plugin/netload.c:65
+#: panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Белгісіз қате."
 
-#: ../panel-plugin/netload.c:66
+#: panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
 msgstr "Linux proc құрылғысы '/proc/net/dev' табылмады."
 
-#: ../panel-plugin/netload.c:67
+#: panel-plugin/netload.c:66
 msgid "Interface was not found."
 msgstr "Интерфейс табылмады."
 
-#: ../panel-plugin/netload.c:168
+#: panel-plugin/netload.c:184
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Интерфейс сөндірулі)"
 
-#: ../panel-plugin/netload.c:255
-#, fuzzy, c-format
+#: panel-plugin/netload.c:301
+#, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures\n"
@@ -49,141 +53,197 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
-"<< %s >> (%s)\n"
-"Соңғы %d өлшеудің орташа мәні:\n"
-"Кіріс: %s kByte/s\n"
-"Шығыс: %s kByte/s\n"
-"Жалпы: %s kByte/s"
+msgstr "<< %s >> (%s)\nСоңғы %d өлшеудің орташа мәні\n%.2fс аралығымен:\nКіріс: %s\nШығыс: %s\nБарлығы: %s"
 
-#: ../panel-plugin/netload.c:258
+#: panel-plugin/netload.c:304
 msgid "no IP address"
 msgstr "IP адресі жоқ"
 
-#: ../panel-plugin/netload.c:585
-#, fuzzy, c-format
+#: panel-plugin/netload.c:310
+#, c-format
+msgid ""
+"%s\n"
+"Cumulative:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
+msgstr "%s\nЖиынтық:\nКіріс: %s\nШығыс: %s\nБарлығы: %s"
+
+#: panel-plugin/netload.c:744
+#, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr ""
-"%s: Іске қосу қатесі:\n"
-"%s"
+msgstr "%s: Инициализациялау қатесі:\n%s"
 
-#: ../panel-plugin/netload.c:914
-msgid "Select color"
-msgstr "Түсті таңдаңыз"
+#: panel-plugin/netload.c:1103
+msgid "Display the current load of a network interface in the panel"
+msgstr "Панельде желілік интерфейстің ағымдағы жүктемесін көрсету"
 
-#: ../panel-plugin/netload.c:981
-#, fuzzy
+#: panel-plugin/netload.c:1168
 msgid "Bar color (i_ncoming):"
-msgstr "Баған түсі (шығыс)"
+msgstr "Баған түсі (_кіріс):"
 
-#: ../panel-plugin/netload.c:982
-#, fuzzy
+#: panel-plugin/netload.c:1169
 msgid "Bar color (_outgoing):"
-msgstr "Баған түсі (кіріс)"
+msgstr "Баған түсі (_шығыс):"
 
-#: ../panel-plugin/netload.c:985
-#, fuzzy
+#: panel-plugin/netload.c:1172
 msgid "Maximum (inco_ming):"
-msgstr "Максимум (кіріс)"
+msgstr "Максимум (кірі_с):"
 
-#: ../panel-plugin/netload.c:986
-#, fuzzy
+#: panel-plugin/netload.c:1173
 msgid "Maximum (o_utgoing):"
-msgstr "Максимум (шығыс)"
+msgstr "Максимум (ш_ығыс):"
 
-#: ../panel-plugin/netload.c:991 ../panel-plugin/netload.desktop.in.in.h:1
+#: panel-plugin/netload.c:1181 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
 msgstr "Желілік бақылаушы"
 
-#: ../panel-plugin/netload.c:1020
-#, fuzzy
+#: panel-plugin/netload.c:1183
+msgid "_Close"
+msgstr "_Жабу"
+
+#: panel-plugin/netload.c:1184
+msgid "_Help"
+msgstr "Кө_мек"
+
+#: panel-plugin/netload.c:1210
 msgid "_Text to display:"
-msgstr "Көрсету үшін мәтін:"
+msgstr "Көрсетілетін _мәтін:"
 
-#: ../panel-plugin/netload.c:1049
-#, fuzzy
+#: panel-plugin/netload.c:1241
 msgid "Network _device:"
-msgstr "Желілік құрылғы:"
+msgstr "Желілік құ_рылғы:"
 
-#: ../panel-plugin/netload.c:1074
-#, fuzzy
+#: panel-plugin/netload.c:1272
 msgid "Update _interval:"
-msgstr "Жаңарту мерзімі:"
+msgstr "Жаңарту _аралығы:"
 
-#: ../panel-plugin/netload.c:1087
+#: panel-plugin/netload.c:1286
 msgid "s"
 msgstr "с"
 
-#: ../panel-plugin/netload.c:1101
+#: panel-plugin/netload.c:1301
+msgid "Show _cumulative values"
+msgstr "Жи_ынтық мәндерді көрсету"
+
+#: panel-plugin/netload.c:1316
 msgid "Show values as _bits"
-msgstr ""
+msgstr "Мәндерді _бит түрінде көрсету"
 
-#: ../panel-plugin/netload.c:1115
-#, fuzzy
+#: panel-plugin/netload.c:1330
 msgid "_Automatic maximum"
-msgstr "Автомаксимум"
+msgstr "_Автоматты максимум"
 
-#: ../panel-plugin/netload.c:1149
+#: panel-plugin/netload.c:1365
 msgid "KiB/s"
-msgstr ""
+msgstr "КиБ/с"
 
-#: ../panel-plugin/netload.c:1174
+#: panel-plugin/netload.c:1391
 msgid "_Present data as:"
-msgstr ""
+msgstr "Деректерді қалай ұсы_ну:"
 
-#: ../panel-plugin/netload.c:1183
+#: panel-plugin/netload.c:1401
 msgid "Bars"
-msgstr ""
+msgstr "Жолақтар"
 
-#: ../panel-plugin/netload.c:1184
+#: panel-plugin/netload.c:1402
 msgid "Values"
-msgstr ""
+msgstr "Мәндер"
 
-#: ../panel-plugin/netload.c:1185
+#: panel-plugin/netload.c:1403
 msgid "Bars and values"
-msgstr ""
+msgstr "Бағандар мен мәндер"
 
-#: ../panel-plugin/netload.c:1235
+#: panel-plugin/netload.c:1446
 msgid "_Colorize values"
-msgstr ""
+msgstr "Мәндерді _түрлендіру"
 
-#: ../panel-plugin/netload.desktop.in.in.h:2
+#: panel-plugin/netload.c:1469
+msgid "_Digits number:"
+msgstr "Сан_дар саны:"
+
+#: panel-plugin/netload.desktop.in:6
 msgid "Show network traffic"
 msgstr "Желілік трафикті көрсету"
 
-#: ../panel-plugin/utils.c:78
+#: panel-plugin/utils.c:77
 msgid "B"
-msgstr ""
+msgstr "Б"
 
-#: ../panel-plugin/utils.c:78
+#: panel-plugin/utils.c:77
 msgid "KiB"
-msgstr ""
+msgstr "КиБ"
 
-#: ../panel-plugin/utils.c:78
+#: panel-plugin/utils.c:77
 msgid "MiB"
-msgstr ""
+msgstr "МиБ"
 
-#: ../panel-plugin/utils.c:78
+#: panel-plugin/utils.c:77
 msgid "GiB"
-msgstr ""
+msgstr "ГиБ"
 
-#: ../panel-plugin/utils.c:79
+#: panel-plugin/utils.c:77
+msgid "TiB"
+msgstr "ТиБ"
+
+#: panel-plugin/utils.c:78
+msgid "b"
+msgstr "бит"
+
+#: panel-plugin/utils.c:78
+msgid "Kb"
+msgstr "Кбит"
+
+#: panel-plugin/utils.c:78
+msgid "Mb"
+msgstr "Мбит"
+
+#: panel-plugin/utils.c:78
+msgid "Gb"
+msgstr "Гбит"
+
+#: panel-plugin/utils.c:78
+msgid "Tb"
+msgstr "Тбит"
+
+#: panel-plugin/utils.c:79
+msgid "Bps"
+msgstr "Б/с"
+
+#: panel-plugin/utils.c:79
+msgid "KiBps"
+msgstr "КиБ/с"
+
+#: panel-plugin/utils.c:79
+msgid "MiBps"
+msgstr "МиБ/с"
+
+#: panel-plugin/utils.c:79
+msgid "GiBps"
+msgstr "ГиБ/с"
+
+#: panel-plugin/utils.c:79
+msgid "TiBps"
+msgstr "ТиБ/с"
+
+#: panel-plugin/utils.c:80
 msgid "bps"
-msgstr ""
+msgstr "бит/с"
 
-#: ../panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "Kbps"
-msgstr ""
+msgstr "Кбит/с"
 
-#: ../panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "Mbps"
-msgstr ""
+msgstr "Мбит/с"
 
-#: ../panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "Gbps"
-msgstr ""
+msgstr "Гбит/с"
 
-#~ msgid "kByte/s"
-#~ msgstr "КБайт/с"
+#: panel-plugin/utils.c:80
+msgid "Tbps"
+msgstr "Тбит/с"
