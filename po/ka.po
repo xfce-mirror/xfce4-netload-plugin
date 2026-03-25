@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-netload-plugin package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:07+0200\n"
+"PO-Revision-Date: 2013-07-03 19:08+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Georgian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ka/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#. Defaults
+#: panel-plugin/netload.c:42
+msgid "Net"
+msgstr "ქსელი"
+
+#: panel-plugin/netload.c:61
+msgid "Xfce4-Netload-Plugin"
+msgstr "Xfce4-Netload-Plugin"
+
+#: panel-plugin/netload.c:64
+msgid "Unknown error."
+msgstr "უცნობი შეცდომა."
+
+#: panel-plugin/netload.c:65
+msgid "Linux proc device '/proc/net/dev' not found."
+msgstr "Linux-ის proc-ის მოწყობილობა '/proc/net/dev' აღმოჩენილი არაა."
+
+#: panel-plugin/netload.c:66
+msgid "Interface was not found."
+msgstr "ინტერფეისი აღმოჩენილი არაა."
+
+#: panel-plugin/netload.c:184
+#, c-format
+msgid "<< %s >> (Interface down)"
+msgstr "<< %s >> (ინტერფეისი გამორთულია)"
+
+#: panel-plugin/netload.c:301
+#, c-format
+msgid ""
+"<< %s >> (%s)\n"
+"Average of last %d measures\n"
+"with an interval of %.2fs:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
+msgstr "<< %s >> (%s)\nსაშუალო ბოლო %d გაზომვიდან\nინტერვალით %.2fწმ:\nშემომავალი: %s\nგამავალი: %s\nსულ: %s"
+
+#: panel-plugin/netload.c:304
+msgid "no IP address"
+msgstr "IP მისამართის გარეშე"
+
+#: panel-plugin/netload.c:310
+#, c-format
+msgid ""
+"%s\n"
+"Cumulative:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
+msgstr "%s\nდაგროვებული:\nშემომავალი: %s\nგამავალი: %s\nსულ: %s"
+
+#: panel-plugin/netload.c:744
+#, c-format
+msgid ""
+"%s: Error in initializing:\n"
+"%s"
+msgstr "%s: ინიციალიზაციის შეცდომა:\n%s"
+
+#: panel-plugin/netload.c:1103
+msgid "Display the current load of a network interface in the panel"
+msgstr "ქსელის ინტერფეისის მიმდინარე დატვირთვის ჩვენება პანელზე"
+
+#: panel-plugin/netload.c:1168
+msgid "Bar color (i_ncoming):"
+msgstr "პა_ნელის ფერი (შემომავალი):"
+
+#: panel-plugin/netload.c:1169
+msgid "Bar color (_outgoing):"
+msgstr "პანელის ფერი (_გამავალი):"
+
+#: panel-plugin/netload.c:1172
+msgid "Maximum (inco_ming):"
+msgstr "_მაქს. (შემომავალი):"
+
+#: panel-plugin/netload.c:1173
+msgid "Maximum (o_utgoing):"
+msgstr "მაქს. (გამა_ვალი):"
+
+#: panel-plugin/netload.c:1181 panel-plugin/netload.desktop.in:5
+msgid "Network Monitor"
+msgstr "ქსელის მონიტორინგი"
+
+#: panel-plugin/netload.c:1183
+msgid "_Close"
+msgstr "და_ხურვა"
+
+#: panel-plugin/netload.c:1184
+msgid "_Help"
+msgstr "_დახმარება"
+
+#: panel-plugin/netload.c:1210
+msgid "_Text to display:"
+msgstr "საჩვენებელი _ტექსტი:"
+
+#: panel-plugin/netload.c:1241
+msgid "Network _device:"
+msgstr "ქსელური მო_წყობილობა:"
+
+#: panel-plugin/netload.c:1272
+msgid "Update _interval:"
+msgstr "განახლების _ინტერვალი:"
+
+#: panel-plugin/netload.c:1286
+msgid "s"
+msgstr "წმ"
+
+#: panel-plugin/netload.c:1301
+msgid "Show _cumulative values"
+msgstr "_კუმულატიური მნიშვნელობების ჩვენება"
+
+#: panel-plugin/netload.c:1316
+msgid "Show values as _bits"
+msgstr "მნიშვნელობების _ბიტებში ჩვენება"
+
+#: panel-plugin/netload.c:1330
+msgid "_Automatic maximum"
+msgstr "_ავტომატური მაქსიმული"
+
+#: panel-plugin/netload.c:1365
+msgid "KiB/s"
+msgstr "კიბ/წმ"
+
+#: panel-plugin/netload.c:1391
+msgid "_Present data as:"
+msgstr "მონაცემების _წარმოდგენა, როგორც:"
+
+#: panel-plugin/netload.c:1401
+msgid "Bars"
+msgstr "ბარი"
+
+#: panel-plugin/netload.c:1402
+msgid "Values"
+msgstr "მნიშვნელობები"
+
+#: panel-plugin/netload.c:1403
+msgid "Bars and values"
+msgstr "ზოლები და მნიშვნელობები"
+
+#: panel-plugin/netload.c:1446
+msgid "_Colorize values"
+msgstr "მნიშვნელობების გა_ფერადება"
+
+#: panel-plugin/netload.c:1469
+msgid "_Digits number:"
+msgstr "_ციფრების რაოდენობა:"
+
+#: panel-plugin/netload.desktop.in:6
+msgid "Show network traffic"
+msgstr "ქსელური ტრაფიკის ჩვენება"
+
+#: panel-plugin/utils.c:77
+msgid "B"
+msgstr "B"
+
+#: panel-plugin/utils.c:77
+msgid "KiB"
+msgstr "კიბ"
+
+#: panel-plugin/utils.c:77
+msgid "MiB"
+msgstr "მიბ"
+
+#: panel-plugin/utils.c:77
+msgid "GiB"
+msgstr "გიბ"
+
+#: panel-plugin/utils.c:77
+msgid "TiB"
+msgstr "ტიბ"
+
+#: panel-plugin/utils.c:78
+msgid "b"
+msgstr "ბ"
+
+#: panel-plugin/utils.c:78
+msgid "Kb"
+msgstr "კბ"
+
+#: panel-plugin/utils.c:78
+msgid "Mb"
+msgstr "მბ"
+
+#: panel-plugin/utils.c:78
+msgid "Gb"
+msgstr "გბ"
+
+#: panel-plugin/utils.c:78
+msgid "Tb"
+msgstr "ტბ"
+
+#: panel-plugin/utils.c:79
+msgid "Bps"
+msgstr "ბ/წმ"
+
+#: panel-plugin/utils.c:79
+msgid "KiBps"
+msgstr "კიბ/წმ"
+
+#: panel-plugin/utils.c:79
+msgid "MiBps"
+msgstr "მიბ/წმ"
+
+#: panel-plugin/utils.c:79
+msgid "GiBps"
+msgstr "გიბ/წმ"
+
+#: panel-plugin/utils.c:79
+msgid "TiBps"
+msgstr "ტიბ/წმ"
+
+#: panel-plugin/utils.c:80
+msgid "bps"
+msgstr "ბწმ"
+
+#: panel-plugin/utils.c:80
+msgid "Kbps"
+msgstr "კბწმ"
+
+#: panel-plugin/utils.c:80
+msgid "Mbps"
+msgstr "მბწმ"
+
+#: panel-plugin/utils.c:80
+msgid "Gbps"
+msgstr "გბწმ"
+
+#: panel-plugin/utils.c:80
+msgid "Tbps"
+msgstr "ტბწმ"
