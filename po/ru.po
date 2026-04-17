@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-netload-plugin package.
 # 
 # Translators:
-# Andrei Stepanov, 2023
+# Andrei Stepanov, 2023,2026
 # Dima Smirnov <arch@cnc-parts.info>, 2010
 # AlexanderFilev, 2014
 # Igor <f2404@yandex.ru>, 2017
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-07-18 11:07+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
-"Last-Translator: Andrei Stepanov, 2023\n"
+"Last-Translator: Andrei Stepanov, 2023,2026\n"
 "Language-Team: Russian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,7 +73,7 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
+msgstr "%s\nСуммарно:\nПрием: %s\nОтправка: %s\nВсего: %s"
 
 #: panel-plugin/netload.c:744
 #, c-format
@@ -132,7 +132,7 @@ msgstr "с"
 
 #: panel-plugin/netload.c:1301
 msgid "Show _cumulative values"
-msgstr ""
+msgstr "Показывать _суммарные значения"
 
 #: panel-plugin/netload.c:1316
 msgid "Show values as _bits"
@@ -192,27 +192,27 @@ msgstr "ГиБ"
 
 #: panel-plugin/utils.c:77
 msgid "TiB"
-msgstr ""
+msgstr "ТиБ"
 
 #: panel-plugin/utils.c:78
 msgid "b"
-msgstr ""
+msgstr "б"
 
 #: panel-plugin/utils.c:78
 msgid "Kb"
-msgstr ""
+msgstr "Кб"
 
 #: panel-plugin/utils.c:78
 msgid "Mb"
-msgstr ""
+msgstr "Мб"
 
 #: panel-plugin/utils.c:78
 msgid "Gb"
-msgstr ""
+msgstr "Гб"
 
 #: panel-plugin/utils.c:78
 msgid "Tb"
-msgstr ""
+msgstr "Тб"
 
 #: panel-plugin/utils.c:79
 msgid "Bps"
@@ -232,7 +232,7 @@ msgstr "ГиБ/c"
 
 #: panel-plugin/utils.c:79
 msgid "TiBps"
-msgstr ""
+msgstr "ТиБ/с"
 
 #: panel-plugin/utils.c:80
 msgid "bps"
@@ -252,4 +252,4 @@ msgstr "Гбит/с"
 
 #: panel-plugin/utils.c:80
 msgid "Tbps"
-msgstr ""
+msgstr "Тб/с"
