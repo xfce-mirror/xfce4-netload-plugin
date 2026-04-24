@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-netload-plugin package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:07+0200\n"
+"PO-Revision-Date: 2013-07-03 19:08+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Lao (http://app.transifex.com/xfce/xfce-panel-plugins/language/lo/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Defaults
+#: panel-plugin/netload.c:42
+msgid "Net"
+msgstr "ເຄືອຂ່າຍ"
+
+#: panel-plugin/netload.c:61
+msgid "Xfce4-Netload-Plugin"
+msgstr "ປລັກອິນ Xfce4-Netload"
+
+#: panel-plugin/netload.c:64
+msgid "Unknown error."
+msgstr "ຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ຈັກ."
+
+#: panel-plugin/netload.c:65
+msgid "Linux proc device '/proc/net/dev' not found."
+msgstr "ບໍ່ພົບອຸປະກອນ Linux proc '/proc/net/dev'."
+
+#: panel-plugin/netload.c:66
+msgid "Interface was not found."
+msgstr "ບໍ່ພົບອິນເຕີເຟສ."
+
+#: panel-plugin/netload.c:184
+#, c-format
+msgid "<< %s >> (Interface down)"
+msgstr "<< %s >> (ອິນເຕີເຟສປິດຢູ່)"
+
+#: panel-plugin/netload.c:301
+#, c-format
+msgid ""
+"<< %s >> (%s)\n"
+"Average of last %d measures\n"
+"with an interval of %.2fs:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
+msgstr "<< %s >> (%s)\nຄ່າສະເລ່ຍຂອງການວັດແທກ %d ຄັ້ງຫຼ້າສຸດ\nດ້ວຍໄລຍະຫ່າງ %.2fs:\nຂາເຂົ້າ: %s\nຂາອອກ: %s\nລວມ: %s"
+
+#: panel-plugin/netload.c:304
+msgid "no IP address"
+msgstr "ບໍ່ມີທີ່ຢູ່ IP"
+
+#: panel-plugin/netload.c:310
+#, c-format
+msgid ""
+"%s\n"
+"Cumulative:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
+msgstr "%s\nສະສົມ:\nຂາເຂົ້າ: %s\nຂາອອກ: %s\nລວມ: %s"
+
+#: panel-plugin/netload.c:744
+#, c-format
+msgid ""
+"%s: Error in initializing:\n"
+"%s"
+msgstr "%s: ເກີດຂໍ້ຜິດພາດໃນການເລີ່ມຕົ້ນ:\n%s"
+
+#: panel-plugin/netload.c:1103
+msgid "Display the current load of a network interface in the panel"
+msgstr "ສະແດງປະລິມານການໃຊ້ງານເຄືອຂ່າຍປັດຈຸບັນໃນແຖບພາເນລ"
+
+#: panel-plugin/netload.c:1168
+msgid "Bar color (i_ncoming):"
+msgstr "ສີແຖບ (ຂາ_ເຂົ້າ):"
+
+#: panel-plugin/netload.c:1169
+msgid "Bar color (_outgoing):"
+msgstr "ສີແຖບ (ຂາ_ອອກ):"
+
+#: panel-plugin/netload.c:1172
+msgid "Maximum (inco_ming):"
+msgstr "ສູງສຸດ (ຂາ_ເຂົ້າ):"
+
+#: panel-plugin/netload.c:1173
+msgid "Maximum (o_utgoing):"
+msgstr "ສູງສຸດ (ຂາ_ອອກ):"
+
+#: panel-plugin/netload.c:1181 panel-plugin/netload.desktop.in:5
+msgid "Network Monitor"
+msgstr "ໂຕກວດສອບເຄືອຂ່າຍ"
+
+#: panel-plugin/netload.c:1183
+msgid "_Close"
+msgstr "_ປິດ"
+
+#: panel-plugin/netload.c:1184
+msgid "_Help"
+msgstr "_ຊ່ວຍເຫຼືອ"
+
+#: panel-plugin/netload.c:1210
+msgid "_Text to display:"
+msgstr "_ຂໍ້ຄວາມທີ່ຈະສະແດງ:"
+
+#: panel-plugin/netload.c:1241
+msgid "Network _device:"
+msgstr "ອຸ_ປະກອນເຄືອຂ່າຍ:"
+
+#: panel-plugin/netload.c:1272
+msgid "Update _interval:"
+msgstr "ໄລຍະຫ່າງການ_ອັບເດດ:"
+
+#: panel-plugin/netload.c:1286
+msgid "s"
+msgstr "ວ."
+
+#: panel-plugin/netload.c:1301
+msgid "Show _cumulative values"
+msgstr "ສະແດງຄ່າ_ສະສົມ"
+
+#: panel-plugin/netload.c:1316
+msgid "Show values as _bits"
+msgstr "ສະແດງຄ່າເປັນ_ບິດ"
+
+#: panel-plugin/netload.c:1330
+msgid "_Automatic maximum"
+msgstr "ຄ່າສູງສຸດແບບ_ອັດຕະໂນມັດ"
+
+#: panel-plugin/netload.c:1365
+msgid "KiB/s"
+msgstr "KiB/s"
+
+#: panel-plugin/netload.c:1391
+msgid "_Present data as:"
+msgstr "_ສະແດງຂໍ້ມູນເປັນ:"
+
+#: panel-plugin/netload.c:1401
+msgid "Bars"
+msgstr "ແຖບ"
+
+#: panel-plugin/netload.c:1402
+msgid "Values"
+msgstr "ຄ່າເລກ"
+
+#: panel-plugin/netload.c:1403
+msgid "Bars and values"
+msgstr "ແຖບ ແລະ ຄ່າເລກ"
+
+#: panel-plugin/netload.c:1446
+msgid "_Colorize values"
+msgstr "ໃສ່_ສີໃຫ້ຄ່າເລກ"
+
+#: panel-plugin/netload.c:1469
+msgid "_Digits number:"
+msgstr "ຈຳນວນ_ຕົວເລກ:"
+
+#: panel-plugin/netload.desktop.in:6
+msgid "Show network traffic"
+msgstr "ສະແດງການຮັບ-ສົ່ງຂໍ້ມູນເຄືອຂ່າຍ"
+
+#: panel-plugin/utils.c:77
+msgid "B"
+msgstr "B"
+
+#: panel-plugin/utils.c:77
+msgid "KiB"
+msgstr "KiB"
+
+#: panel-plugin/utils.c:77
+msgid "MiB"
+msgstr "MiB"
+
+#: panel-plugin/utils.c:77
+msgid "GiB"
+msgstr "GiB"
+
+#: panel-plugin/utils.c:77
+msgid "TiB"
+msgstr "TiB"
+
+#: panel-plugin/utils.c:78
+msgid "b"
+msgstr "b"
+
+#: panel-plugin/utils.c:78
+msgid "Kb"
+msgstr "Kb"
+
+#: panel-plugin/utils.c:78
+msgid "Mb"
+msgstr "Mb"
+
+#: panel-plugin/utils.c:78
+msgid "Gb"
+msgstr "Gb"
+
+#: panel-plugin/utils.c:78
+msgid "Tb"
+msgstr "Tb"
+
+#: panel-plugin/utils.c:79
+msgid "Bps"
+msgstr "Bps"
+
+#: panel-plugin/utils.c:79
+msgid "KiBps"
+msgstr "KiBps"
+
+#: panel-plugin/utils.c:79
+msgid "MiBps"
+msgstr "MiBps"
+
+#: panel-plugin/utils.c:79
+msgid "GiBps"
+msgstr "GiBps"
+
+#: panel-plugin/utils.c:79
+msgid "TiBps"
+msgstr "TiBps"
+
+#: panel-plugin/utils.c:80
+msgid "bps"
+msgstr "bps"
+
+#: panel-plugin/utils.c:80
+msgid "Kbps"
+msgstr "Kbps"
+
+#: panel-plugin/utils.c:80
+msgid "Mbps"
+msgstr "Mbps"
+
+#: panel-plugin/utils.c:80
+msgid "Gbps"
+msgstr "Gbps"
+
+#: panel-plugin/utils.c:80
+msgid "Tbps"
+msgstr "Tbps"
