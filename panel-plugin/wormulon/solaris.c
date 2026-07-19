@@ -32,7 +32,6 @@ int checkinterface(netdata* data)
     char *buf;
     struct ifreq ifr, *ifrp;
     struct ifconf ifc;
-    unsigned long rx_o, tx_o;
 
     if((sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0)
     {   

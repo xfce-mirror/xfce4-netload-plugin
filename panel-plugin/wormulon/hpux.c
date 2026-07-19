@@ -55,7 +55,7 @@ int _countinterfaces(void)
 
 void _getifdata()
 {
-    int buffer, fd, val, ret = -1;
+    int fd, ret = -1;
     unsigned int len, i;
     char tmpinterfacestring[sizeof(data->ifdata.if_name)+1],*strstrmatch;
     struct nmparms params;
@@ -132,7 +132,7 @@ int get_stat(netdata* data)
     int             i,fd, ret=-1;
     unsigned int    len;
     unsigned long   rx_o, tx_o;
-    struct          nmparms params, params2;
+    struct          nmparms params;
     mib_ifEntry     *if_buf;
 
     if (data->ifdata.if_valid == 1 && (fd = open_mib("/dev/lan", O_RDWR, 0, 0)) >= 0)
