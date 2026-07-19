@@ -337,11 +337,7 @@ static gboolean update_monitors(gpointer user_data)
 /* ---------------------------------------------------------------------------------------------- */
 static void run_update (t_global_monitor *global)
 {
-    if (global->timeout_id > 0)
-    {
-        g_source_remove(global->timeout_id);
-        global->timeout_id = 0;
-    }
+    g_clear_handle_id(&global->timeout_id, g_source_remove);
 
     if (global->monitor->options.update_interval > 0)
     {
@@ -395,11 +391,7 @@ static void monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
 
     DBG("monitor_set_mode");
 
-    if (global->timeout_id)
-    {
-        g_source_remove(global->timeout_id);
-        global->timeout_id = 0;
-    }
+    g_clear_handle_id(&global->timeout_id, g_source_remove);
 
     if (mode == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
     {
@@ -468,11 +460,7 @@ static gboolean tooltip_cb(GtkWidget *widget, gint x, gint y, gboolean keyboard,
 /* ---------------------------------------------------------------------------------------------- */
 static void monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-    if (global->timeout_id)
-    {
-        g_source_remove(global->timeout_id);
-        global->timeout_id = 0;
-    }
+    g_clear_handle_id(&global->timeout_id, g_source_remove);
 
     g_free(global->monitor->options.label_text);
 
@@ -636,11 +624,7 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
 {
     gint i;
 
-    if (global->timeout_id)
-    {
-        g_source_remove(global->timeout_id);
-        global->timeout_id = 0;
-    }
+    g_clear_handle_id(&global->timeout_id, g_source_remove);
 
     /* Show title label? */
     if (global->monitor->options.use_label)
