@@ -15,16 +15,9 @@
 #include <glib-object.h>
 #include <gtk/gtk.h>
 
-#define XNLP_TYPE_MONITOR_LABEL              (xnlp_monitor_label_get_type ())
-#define XNLP_MONITOR_LABEL(obj)              (G_TYPE_CHECK_INSTANCE_CAST ((obj), XNLP_TYPE_MONITOR_LABEL, XnlpMonitorLabel))
-#define XNLP_MONITOR_LABEL_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), XNLP_TYPE_MONITOR_LABEL, XnlpMonitorLabelClass))
-#define XNLP_IS_MONITOR_LABEL(obj)           (G_TYPE_CHECK_INSTANCE_TYPE ((obj), XNLP_TYPE_MONITOR_LABEL))
-#define XNLP_IS_MONITOR_LABEL_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), XNLP_TYPE_MONITOR_LABEL))
-#define XNLP_MONITOR_LABEL_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), XNLP_TYPE_MONITOR_LABEL, XnlpMonitorLabelClass))
+#define XNLP_TYPE_MONITOR_LABEL (xnlp_monitor_label_get_type ())
+G_DECLARE_FINAL_TYPE (XnlpMonitorLabel, xnlp_monitor_label, XNLP, MONITOR_LABEL, GtkLabel)
 
-typedef struct _XnlpMonitorLabel XnlpMonitorLabel;
-
-GType           xnlp_monitor_label_get_type                  (void);
 GtkWidget *     xnlp_monitor_label_new                       (const gchar *str);
 void            xnlp_monitor_label_reinit_size_request       (XnlpMonitorLabel *label);
 void            xnlp_monitor_label_set_color                 (XnlpMonitorLabel *label, GdkRGBA* color);

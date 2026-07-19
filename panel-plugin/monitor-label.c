@@ -16,11 +16,6 @@
 
 
 
-typedef struct _XnlpMonitorLabelClass XnlpMonitorLabelClass;
-struct _XnlpMonitorLabelClass
-{
-        GtkLabelClass           parent_class;
-};
 struct _XnlpMonitorLabel
 {
         GtkLabel                parent;
