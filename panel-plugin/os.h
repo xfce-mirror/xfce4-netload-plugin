@@ -73,7 +73,6 @@
 #  include <net/route.h>
 #  include <net/if_dl.h>
 #  include <net/if.h>
-#  include <net/if_media.h>
 #  include <net/if_mib.h>
 #  include <arpa/inet.h>
 #elif defined (__DragonFly__)           /* D R A G O N F L Y */
@@ -95,7 +94,6 @@
 #  include <sys/time.h>
 #  include <netinet/in.h>
 #  include <net/if.h>
-#  include <net/if_media.h>
 #  include <net/if_mib.h>
 #  include <arpa/inet.h>
 #elif defined (__FreeBSD__) || defined (__FreeBSD_kernel__)           /* F R E E B S D */
@@ -117,7 +115,6 @@
 #  include <sys/time.h>
 #  include <netinet/in.h>
 #  include <net/if.h>
-#  include <net/if_media.h>
 #  include <net/if_mib.h>
 #  include <arpa/inet.h>
 #  include <ifaddrs.h>
@@ -140,7 +137,6 @@
 #  include <sys/time.h>
 #  include <netinet/in.h>
 #  include <net/if.h>
-#  include <net/if_media.h>
 #  include <net/route.h>
 #  include <net/if_dl.h>
 #  include <arpa/inet.h>
@@ -165,7 +161,6 @@
 #  include <sys/time.h>
 #  include <netinet/in.h>
 #  include <net/if.h>
-#  include <net/if_media.h>
 #  include <net/if_dl.h>
 #  include <net/route.h>
 #  include <arpa/inet.h>
