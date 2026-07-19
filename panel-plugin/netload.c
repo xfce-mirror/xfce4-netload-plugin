@@ -1096,7 +1096,7 @@ monitor_show_about (XfcePanelPlugin *plugin, t_global_monitor *global)
 static gboolean add_interface(const gchar *name, gpointer ignore, t_global_monitor *global)
 {
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(global->monitor->net_combo), name);
-    if (!strcmp(name, global->monitor->options.network_device)) {
+    if (strcmp(name, global->monitor->options.network_device) == 0) {
         GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(global->monitor->net_combo));
         gint n_items = gtk_tree_model_iter_n_children(model, NULL);
         gtk_combo_box_set_active(GTK_COMBO_BOX(global->monitor->net_combo), n_items - 1);

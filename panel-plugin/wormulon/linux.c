@@ -114,7 +114,7 @@ int get_stat(netdata* data)
             ptr++;
         *ptr = '\0';
         ptr++;
-        if (!strcmp(devname, (char *) data->ifdata.if_name))
+        if (strcmp(devname, (char *) data->ifdata.if_name) == 0)
         {
             /* read stats and fill struct */
             sscanf(ptr, "%lg %lu %lu %d %d %d %d %d %lg %lu %lu %d %d %d %d %d",

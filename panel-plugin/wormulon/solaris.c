@@ -80,7 +80,7 @@ int checkinterface(netdata* data)
             perror("SIOCGIFFLAGS");
             continue;
         }
-        if (!strcmp(data->ifdata.if_name, ifr.ifr_name) && (ifr.ifr_flags & IFF_UP))
+        if (strcmp(data->ifdata.if_name, ifr.ifr_name) == 0 && (ifr.ifr_flags & IFF_UP))
         {
             validinterface = TRUE;
             break;
