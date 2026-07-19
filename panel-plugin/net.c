@@ -173,7 +173,7 @@ char* get_name(netdata* data)
 int get_interface_up(netdata* data)
 {
     int sockfd;
-    struct ifreq ifr;
+    struct ifreq ifr = { 0 };
         
     /* if the update count is non-zero */ 
     if (data->up_update_count > 0)
@@ -209,7 +209,7 @@ int get_interface_up(netdata* data)
 char* get_ip_address(netdata* data)
 {
     int sockfd;
-    struct ifreq ifr;
+    struct ifreq ifr = { 0 };
     struct sockaddr_in *p_sa;
         
     /* use cached value if possible and if the update count is non-zero */ 

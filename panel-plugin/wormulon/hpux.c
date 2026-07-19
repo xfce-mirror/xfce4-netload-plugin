@@ -57,7 +57,8 @@ void _getifdata()
 {
     int fd;
     unsigned int len, i;
-    char tmpinterfacestring[sizeof(data->ifdata.if_name)+1],*strstrmatch;
+    char tmpinterfacestring[sizeof(data->ifdata.if_name)+1] = { 0 };
+    char *strstrmatch;
     struct nmparms params;
     mib_ifEntry * if_buf;
 
