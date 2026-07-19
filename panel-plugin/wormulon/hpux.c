@@ -66,8 +66,8 @@ void _getifdata()
      * The interface description is more then the pure devicename.
      * Let's do some formating to allow a propper pattern matching
      */
-    strcpy(tmpinterfacestring,data->ifdata.if_name);
-    strcat(tmpinterfacestring," ");
+    g_strlcat(tmpinterfacestring, data->ifdata.if_name, sizeof(tmpinterfacestring));
+    g_strlcat(tmpinterfacestring, " ", sizeof(tmpinterfacestring));
 
     for (i=0; i <= data->ifdata.if_amount; i++)
     {
