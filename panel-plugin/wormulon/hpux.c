@@ -55,7 +55,7 @@ int _countinterfaces(void)
 
 void _getifdata()
 {
-    int fd, ret = -1;
+    int fd;
     unsigned int len, i;
     char tmpinterfacestring[sizeof(data->ifdata.if_name)+1],*strstrmatch;
     struct nmparms params;
@@ -79,7 +79,7 @@ void _getifdata()
                 len = sizeof(mib_ifEntry);
                 params.len    = &len;
                 if_buf->ifIndex = i+1;
-                if ((ret = get_mib_info(fd, &params)) == 0) {
+                if (get_mib_info(fd, &params) == 0) {
                     /*
                      * The interface given by the user must start at the
                      * beginning of if_buf->ifDescr. If that's the case,
@@ -129,7 +129,7 @@ int checkinterface(netdata* data)
 
 int get_stat(netdata* data)
 {
-    int             i,fd, ret=-1;
+    int             i,fd;
     unsigned int    len;
     unsigned long   rx_o, tx_o;
     struct          nmparms params;
@@ -144,7 +144,7 @@ int get_stat(netdata* data)
             params.buffer = if_buf;
             len = (unsigned int) sizeof(mib_ifEntry);
             params.len    = &len;
-            if ((ret = get_mib_info(fd, &params)) == 0)
+            if (get_mib_info(fd, &params) == 0)
             {
                 rx_o = data->stats.rx_bytes; tx_o = data->stats.tx_bytes;
 
@@ -171,7 +171,7 @@ int get_stat(netdata* data)
             if ((if_ptr = (nmapi_logstat *) malloc(sizeof(nmapi_logstat) * data->ifdata.if_amount)) != 0 )
             {
                 len = (unsigned int) data->ifdata.if_amount *sizeof(nmapi_logstat);
-                if ((ret = get_logical_stat(if_ptr, &len)) == 0)
+                if (get_logical_stat(if_ptr, &len) == 0)
                 {
                     for (i=0; i <= data->ifdata.if_amount; i++)
                     {
