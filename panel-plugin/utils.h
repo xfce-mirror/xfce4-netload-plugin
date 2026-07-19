@@ -43,7 +43,7 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
  * @param   size        the size of the array
  * @return  the minimum
  */
-unsigned long min_array( unsigned long array[], int size );
+unsigned long min_array( const unsigned long array[], int size );
 
 /**
  * Returns the maximum of the array. The array must contain at least one element.
@@ -52,6 +52,6 @@ unsigned long min_array( unsigned long array[], int size );
  * @param   size        the size of the array
  * @return  the minimum
  */
-unsigned long max_array( unsigned long array[], int size );
+unsigned long max_array( const unsigned long array[], int size );
 
 #endif /* UTILS_H */

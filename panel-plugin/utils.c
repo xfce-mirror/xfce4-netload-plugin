@@ -34,7 +34,7 @@
 
 #include "utils.h"
 /* ---------------------------------------------------------------------------------------------- */
-unsigned long min_array( unsigned long array[], int size )
+unsigned long min_array( const unsigned long array[], int size )
 {
     int i;
     unsigned long min = array[0];
@@ -51,7 +51,7 @@ unsigned long min_array( unsigned long array[], int size )
 
 
 /* ---------------------------------------------------------------------------------------------- */
-unsigned long max_array( unsigned long array[], int size )
+unsigned long max_array( const unsigned long array[], int size )
 {
     int i;
     unsigned long max = array[0];
