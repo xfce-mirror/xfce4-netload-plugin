@@ -99,8 +99,11 @@ int get_stat(netdata* data)
 
     /* do not parse the first two lines as they only contain static garbage */
     fseek(proc_net_dev, 0, SEEK_SET);
-    fgets(buffer, BUFSIZE-1, proc_net_dev);
-    fgets(buffer, BUFSIZE-1, proc_net_dev);
+    if (fgets(buffer, BUFSIZE-1, proc_net_dev) == NULL || fgets(buffer, BUFSIZE-1, proc_net_dev) == NULL)
+    {
+        fprintf(stderr, "failed to read first two lines if file %s\n", PATH_NET_DEV);
+        return 1;
+    }
 
     interfacefound = 0;
     while (fgets(buffer, BUFSIZE-1, proc_net_dev) != NULL)
