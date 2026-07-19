@@ -474,10 +474,7 @@ static void monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
         global->timeout_id = 0;
     }
 
-    if (global->monitor->options.label_text)
-    {
-        g_free(global->monitor->options.label_text);
-    }
+    g_free(global->monitor->options.label_text);
 
     gtk_widget_destroy(global->tooltip_text);
     
@@ -735,10 +732,7 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
               : global->monitor->data.errorcode ]));
     }
     
-    if (global->monitor->options.old_network_device)
-    {
-        g_free(global->monitor->options.old_network_device);
-    }
+    g_free(global->monitor->options.old_network_device);
     global->monitor->options.old_network_device = g_strdup(global->monitor->options.network_device);
 
     monitor_set_mode(global->plugin, xfce_panel_plugin_get_mode(global->plugin), global);
@@ -781,15 +775,13 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
     }
     if ((value = xfce_rc_read_entry (rc, "Text", NULL)) && *value)
     {
-        if (global->monitor->options.label_text)
-            g_free(global->monitor->options.label_text);
+        g_free(global->monitor->options.label_text);
         global->monitor->options.label_text = g_strdup(value);
     }
 
     if ((value = xfce_rc_read_entry (rc, "Network_Device", NULL)) && *value)
     {
-        if (global->monitor->options.network_device)
-            g_free(global->monitor->options.network_device);
+        g_free(global->monitor->options.network_device);
         global->monitor->options.network_device = g_strdup(value);
     }    
     if ((value = xfce_rc_read_entry (rc, "Max_In", NULL)) != NULL)
@@ -874,18 +866,12 @@ static void monitor_apply_options(t_global_monitor *global)
 {
     gint i;
 
-    if (global->monitor->options.label_text)
-    {
-        g_free(global->monitor->options.label_text);
-    }
+    g_free(global->monitor->options.label_text);
 
     global->monitor->options.label_text =
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->opt_entry)));
 
-    if (global->monitor->options.network_device)
-    {
-        g_free(global->monitor->options.network_device);
-    }
+    g_free(global->monitor->options.network_device);
     global->monitor->options.network_device =
         gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(global->monitor->net_combo));
     
@@ -910,10 +896,7 @@ static void monitor_apply_options(t_global_monitor *global)
 /* ---------------------------------------------------------------------------------------------- */
 static void label_changed(GtkWidget *button, t_global_monitor *global)
 {
-    if (global->monitor->options.label_text)
-    {
-        g_free(global->monitor->options.label_text);
-    }
+    g_free(global->monitor->options.label_text);
 
     global->monitor->options.label_text =
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->opt_entry)));
