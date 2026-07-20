@@ -101,7 +101,7 @@ int get_stat(netdata* data)
     fseek(proc_net_dev, 0, SEEK_SET);
     if (fgets(buffer, BUFSIZE-1, proc_net_dev) == NULL || fgets(buffer, BUFSIZE-1, proc_net_dev) == NULL)
     {
-        fprintf(stderr, "failed to read first two lines if file %s\n", PATH_NET_DEV);
+        fprintf(stderr, "failed to read first two lines of file %s\n", PATH_NET_DEV);
         fclose(proc_net_dev);
         return 1;
     }
