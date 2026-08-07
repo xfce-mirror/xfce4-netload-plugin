@@ -108,8 +108,9 @@ xnlp_monitor_label_set_color (XnlpMonitorLabel *label, GdkRGBA* color)
     gchar * css;
     if (color != NULL)
     {
-        css = g_strdup_printf("label { color: %s; }",
-                              gdk_rgba_to_string(color));
+        gchar *color_str = gdk_rgba_to_string(color);
+        css = g_strdup_printf("label { color: %s; }", color_str);
+        g_free(color_str);
     }
     else
     {

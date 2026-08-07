@@ -612,11 +612,13 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
 /* ---------------------------------------------------------------------------------------------- */
 static void set_progressbar_csscolor(GtkWidget* pbar, GdkRGBA* color)
 {
+    gchar *color_str = gdk_rgba_to_string(color);
     gchar *css = g_strdup_printf("progressbar progress { background-color: %s; border-color: %s; background-image: none; }",
-                                 gdk_rgba_to_string(color), gdk_rgba_to_string(color));
+                                 color_str, color_str);
     DBG("setting pbar css to %s", css);
     gtk_css_provider_load_from_data (g_object_get_data(G_OBJECT(pbar),"css_provider"), css, strlen(css), NULL);
     g_free(css);
+    g_free(color_str);
 }
 
 /* ---------------------------------------------------------------------------------------------- */
@@ -816,8 +818,13 @@ static void monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *glob
     xfce_rc_write_bool_entry (rc, "Show_Bars", global->monitor->options.show_bars);
     xfce_rc_write_bool_entry (rc, "Colorize_Values", global->monitor->options.colorize_values);
 
-    xfce_rc_write_entry (rc, "Color_In", gdk_rgba_to_string(&global->monitor->options.color[IN]));
-    xfce_rc_write_entry (rc, "Color_Out", gdk_rgba_to_string(&global->monitor->options.color[OUT]));
+    gchar *color_in = gdk_rgba_to_string(&global->monitor->options.color[IN]);
+    xfce_rc_write_entry (rc, "Color_In", color_in);
+    g_free (color_in);
+
+    gchar *color_out = gdk_rgba_to_string(&global->monitor->options.color[OUT]);
+    xfce_rc_write_entry (rc, "Color_Out", color_out);
+    g_free (color_out);
 
     xfce_rc_write_entry (rc, "Text", global->monitor->options.label_text ?
                                      global->monitor->options.label_text : "");
@@ -998,7 +1005,10 @@ static void change_color(GtkWidget *button, t_global_monitor *global, gint type)
 {
     gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(button), &global->monitor->options.color[type]);
     setup_monitor(global, FALSE);
-    DBG("change_color(%d) with %s", type, gdk_rgba_to_string(&global->monitor->options.color[type]));
+
+    gchar *color_str = gdk_rgba_to_string(&global->monitor->options.color[type]);
+    DBG("change_color(%d) with %s", type, color_str);
+    g_free(color_str);
 }
 
 
