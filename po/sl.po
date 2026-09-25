@@ -211,7 +211,7 @@ msgstr "Tb"
 
 #: panel-plugin/utils.c:79
 msgid "Bps"
-msgstr "b/s"
+msgstr "B/s"
 
 #: panel-plugin/utils.c:79
 msgid "KiBps"
