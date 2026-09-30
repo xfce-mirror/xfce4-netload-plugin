@@ -162,6 +162,69 @@ typedef struct
 
 
 static void set_progressbar_csscolor(GtkWidget*, GdkRGBA*);
+
+/* ---- auto-device patch: follow the interface carrying the default route ---- */
+#define AUTO_DEVICE "auto"
+
+static gboolean is_auto_device (const gchar *device)
+{
+    return (device == NULL || device[0] == '\0' || strcmp (device, AUTO_DEVICE) == 0);
+}
+
+/* Parse /proc/net/route and return the device of the default route with the
+ * lowest metric. g_free() the result; NULL when there is no default route. */
+#ifdef __linux__
+static gchar *find_default_route_device (void)
+{
+    FILE         *f;
+    char          line[256];
+    char          iface[64];
+    unsigned long dest, metric, best = G_MAXULONG;
+    gchar        *best_if = NULL;
+
+    f = fopen ("/proc/net/route", "r");
+    if (f == NULL)
+        return NULL;
+
+    if (fgets (line, sizeof (line), f) == NULL)  /* skip header */
+    {
+        fclose (f);
+        return NULL;
+    }
+
+    while (fgets (line, sizeof (line), f) != NULL)
+    {
+        /* Iface Destination Gateway Flags RefCnt Use Metric Mask ... */
+        if (sscanf (line, "%63s %lx %*x %*x %*d %*d %lu", iface, &dest, &metric) == 3
+            && dest == 0UL && metric < best)
+        {
+            best = metric;
+            g_free (best_if);
+            best_if = g_strdup (iface);
+        }
+    }
+    fclose (f);
+    return best_if;
+}
+#else
+/* TODO: default-route lookup is not implemented for this platform yet;
+ * auto mode keeps the currently configured device there. */
+static gchar *find_default_route_device (void)
+{
+    return NULL;
+}
+#endif
+
+/* The device to hand to init_netload(): the configured one, or in auto mode
+ * the one currently carrying the default route. g_free() the result. */
+static gchar *resolve_device (const gchar *configured)
+{
+    if (!is_auto_device (configured))
+        return g_strdup (configured);
+    return find_default_route_device ();
+}
+/* ---- end auto-device patch ---- */
+
 /* ---------------------------------------------------------------------------------------------- */
 static gboolean update_monitors(gpointer user_data)
 {
@@ -181,6 +244,28 @@ static gboolean update_monitors(gpointer user_data)
     guint64 histcalculate;
     double temp;
     gint i, j;
+
+    /* auto-device patch: switch instantly when the default route moves */
+    if (is_auto_device (global->monitor->options.network_device))
+    {
+        gchar *dev = find_default_route_device ();
+        if (dev != NULL && g_strcmp0 (dev, get_name (&(global->monitor->data))) != 0)
+        {
+            if (!init_netload (&(global->monitor->data), dev))
+                global->monitor->data.ifdata.if_name[0] = '\0';
+            DBG ("auto: switched netload to %s", dev);
+        }
+        g_free (dev);
+    }
+
+    /* auto-device patch: when the label is shown, display the live device
+     * name so the user can see which interface is being followed */
+    if (global->monitor->options.use_label
+        && is_auto_device (global->monitor->options.network_device))
+    {
+        gtk_label_set_text (GTK_LABEL (global->monitor->label),
+                            get_name (&(global->monitor->data)));
+    }
 
     if (!get_interface_up(&(global->monitor->data)))
     {
@@ -706,16 +791,22 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
         gtk_widget_hide(global->ebox_bars);
     }
 
-    if (!init_netload( &(global->monitor->data), global->monitor->options.network_device)
-            && !supress_warnings)
     {
-        xfce_dialog_show_error (NULL, NULL,
-        _("%s: Error in initializing:\n%s"),
-            _(APP_NAME),
-            _(errormessages[
-                global->monitor->data.errorcode == 0 
-              ? INTERFACE_NOT_FOUND
-              : global->monitor->data.errorcode ]));
+        /* auto-device patch: resolve auto to the current default-route device;
+         * NULL = no default route (yet): init without a device, ticks re-resolve */
+        gchar *init_dev = resolve_device (global->monitor->options.network_device);
+        if (!init_netload( &(global->monitor->data), init_dev ? init_dev : "")
+            && !supress_warnings)
+        {
+            xfce_dialog_show_error (NULL, NULL,
+            _("%s: Error in initializing:\n%s"),
+                _(APP_NAME),
+                _(errormessages[
+                    global->monitor->data.errorcode == 0
+                  ? INTERFACE_NOT_FOUND
+                  : global->monitor->data.errorcode ]));
+        }
+        g_free (init_dev);
     }
     
     g_free(global->monitor->options.old_network_device);
@@ -862,9 +953,19 @@ static void monitor_apply_options(t_global_monitor *global)
     global->monitor->options.label_text =
         g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor->opt_entry)));
 
-    g_free(global->monitor->options.network_device);
-    global->monitor->options.network_device =
-        gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(global->monitor->net_combo));
+    {
+        /* auto-device patch: any "auto ..." selection keeps auto mode */
+        gchar *selected =
+            gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(global->monitor->net_combo));
+        if (selected != NULL && g_str_has_prefix (selected, AUTO_DEVICE)
+            && (selected[strlen (AUTO_DEVICE)] == '\0' || selected[strlen (AUTO_DEVICE)] == ' '))
+        {
+            g_free (selected);
+            selected = g_strdup (AUTO_DEVICE);
+        }
+        g_free (global->monitor->options.network_device);
+        global->monitor->options.network_device = selected;
+    }
     
     for( i = 0; i < SUM; i++ )
     {
@@ -1085,6 +1186,21 @@ static gboolean add_interface(const gchar *name, gpointer ignore, t_global_monit
 static gint monitor_populate_interface_list(t_global_monitor *global)
 {
     gint   count = 0;
+
+    /* auto-device patch: offer "auto" — labeled with the device it currently
+     * resolves to — and preselect it when configured */
+    {
+        gchar *cur = find_default_route_device ();
+        gchar *entry = cur ? g_strdup_printf (AUTO_DEVICE " (%s)", cur)
+                           : g_strdup (AUTO_DEVICE);
+        gtk_combo_box_text_prepend_text (GTK_COMBO_BOX_TEXT (global->monitor->net_combo),
+                                         entry);
+        if (is_auto_device (global->monitor->options.network_device))
+            gtk_combo_box_set_active (GTK_COMBO_BOX (global->monitor->net_combo), 0);
+        g_free (entry);
+        g_free (cur);
+    }
+
 #if defined(__linux__) || defined(__OpenBSD__) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__APPLE__)
     struct ifaddrs *addrs = NULL, *addr;
 
@@ -1109,7 +1225,7 @@ static gint monitor_populate_interface_list(t_global_monitor *global)
     }
 #endif /* __linux__ || __OpenBSD__ || __FreeBSD__ || __NetBSD__ || __APPLE__ */
 
-    return count;
+    return count + 1;  /* +1 for the auto entry */
 }
 
 static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
