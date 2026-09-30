@@ -195,7 +195,7 @@ static gchar *find_default_route_device (void)
     while (fgets (line, sizeof (line), f) != NULL)
     {
         /* Iface Destination Gateway Flags RefCnt Use Metric Mask ... */
-        if (sscanf (line, "%63s %lx %*lx %*x %*d %*d %lu", iface, &dest, &metric) == 3
+        if (sscanf (line, "%63s %lx %*x %*x %*d %*d %lu", iface, &dest, &metric) == 3
             && dest == 0UL && metric < best)
         {
             best = metric;
