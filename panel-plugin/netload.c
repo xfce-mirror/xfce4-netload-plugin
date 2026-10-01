@@ -794,14 +794,14 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     /* auto-device patch: resolve auto to the current default-route device;
      * NULL = no default route (yet): init without a device, ticks re-resolve */
     gchar *init_dev = resolve_device (global->monitor->options.network_device);
-    if (!init_netload( &(global->monitor->data), init_dev ? init_dev : "")
+    if (!init_netload( &(global->monitor->data), init_dev != NULL ? init_dev : "")
         && !supress_warnings)
     {
         xfce_dialog_show_error (NULL, NULL,
         _("%s: Error in initializing:\n%s"),
             _(APP_NAME),
             _(errormessages[
-                global->monitor->data.errorcode == 0
+                global->monitor->data.errorcode == 0 
               ? INTERFACE_NOT_FOUND
               : global->monitor->data.errorcode ]));
     }
@@ -1185,7 +1185,7 @@ static gint monitor_populate_interface_list(t_global_monitor *global)
     /* auto-device patch: offer "auto" — labeled with the device it currently
      * resolves to — and preselect it when configured */
     gchar *cur = find_default_route_device ();
-    gchar *entry = cur ? g_strdup_printf (AUTO_DEVICE " (%s)", cur)
+    gchar *entry = cur != NULL ? g_strdup_printf (AUTO_DEVICE " (%s)", cur)
                 : g_strdup (AUTO_DEVICE);
     gtk_combo_box_text_prepend_text (GTK_COMBO_BOX_TEXT (global->monitor->net_combo),
                                      entry);
