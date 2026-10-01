@@ -799,7 +799,7 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
         && !supress_warnings)
     {
         xfce_dialog_show_error (NULL, NULL,
-        _("%s: Error in initializing:\n%s"),
+        _("%s: Error in initialization:\n%s"),
             _(APP_NAME),
             _(errormessages[
                 global->monitor->data.errorcode == 0
