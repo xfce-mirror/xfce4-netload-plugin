@@ -21,6 +21,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
+#include <math.h>
 #include <locale.h>
 #include <glib.h>
 #include <glib/gprintf.h>
@@ -155,5 +156,46 @@ char* format_byte_humanreadable(char* string, int stringsize, double number, int
     g_strlcat(string, ps ? (as_bits ? _(unit_names_bits_ps[uidx]) : _(unit_names_ps[uidx])) :
               (as_bits ? _(unit_names_bits[uidx]) : _(unit_names[uidx])), stringsize);
 
+    return string;
+}
+
+
+/* Four ASCII cells, including padding: "   1", "2.1K", " 22K", "999M".
+ * Keep this independent of locale so the decimal separator is always one cell.
+ */
+char* format_byte_short(char* string, int stringsize, double number, gboolean as_bits)
+{
+    const char unit_names[] = { '\0', 'K', 'M', 'G', 'T', 'P' };
+    const double base = as_bits ? 1000.0 : 1024.0;
+    unsigned int unit = 0;
+    char value[32], compact[40];
+
+    if (!isfinite(number) || number < 0.0)
+        number = 0.0;
+    if (as_bits)
+        number *= 8.0;
+
+    while (number >= base && unit < G_N_ELEMENTS(unit_names) - 1)
+    {
+        number /= base;
+        unit++;
+    }
+
+    /* Rounding must not introduce a fourth numeric character. */
+    if (number >= 999.5 && unit < G_N_ELEMENTS(unit_names) - 1)
+    {
+        number /= base;
+        unit++;
+    }
+    if (number >= 999.5)
+        number = 999.0; /* P is the largest supported suffix. */
+
+    g_ascii_formatd(value, sizeof(value),
+                    unit > 0 && number < 9.95 ? "%.1f" : "%.0f", number);
+    if (unit > 0)
+        g_snprintf(compact, sizeof(compact), "%s%c", value, unit_names[unit]);
+    else
+        g_strlcpy(compact, value, sizeof(compact));
+    g_snprintf(string, stringsize, "%4s", compact);
     return string;
 }

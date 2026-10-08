@@ -36,6 +36,9 @@
  */
 char* format_byte_humanreadable(char* string, int stringsize, double number, int digits, gboolean as_bits, gboolean ps);
 
+/* Compact, right-aligned four-cell panel representation. */
+char* format_byte_short(char* string, int stringsize, double number, gboolean as_bits);
+
 /**
  * Returns the minimum of the array. The array must contain at least one element.
  * @param   array       the array which must contain at least one element. 
