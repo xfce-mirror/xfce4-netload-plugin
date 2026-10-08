@@ -80,6 +80,7 @@ typedef struct
     gint     update_interval;
     gint     digits;
     GdkRGBA  color[SUM];
+    gchar    *value_font;
     gchar    *label_text;
     gchar    *network_device;
     gchar    *old_network_device;
@@ -114,6 +115,7 @@ typedef struct
     GtkWidget *opt_use_label;
     GtkWidget *opt_as_bits;
     GtkWidget *opt_short_units;
+    GtkWidget *opt_font;
     GtkWidget *opt_cumulative;
     
     /* Update interval */
@@ -558,6 +560,7 @@ static void monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
     g_clear_handle_id(&global->timeout_id, g_source_remove);
 
+    g_free(global->monitor->options.value_font);
     g_free(global->monitor->options.label_text);
 
     gtk_widget_destroy(global->tooltip_text);
@@ -591,6 +594,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
 
     global->monitor = g_new(t_monitor, 1);
+    global->monitor->options.value_font = g_strdup("");
     global->monitor->options.label_text = g_strdup(_(DEFAULT_TEXT));
     global->monitor->options.network_device = g_strdup("");
     global->monitor->options.old_network_device = g_strdup("");
@@ -734,6 +738,15 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
                                       global->monitor->options.use_short_units);
     xnlp_monitor_label_set_short_units(XNLP_MONITOR_LABEL(global->monitor->sent_cumulative_label),
                                       global->monitor->options.use_short_units);
+
+    xnlp_monitor_label_set_font(XNLP_MONITOR_LABEL(global->monitor->rcv_label),
+                               global->monitor->options.value_font);
+    xnlp_monitor_label_set_font(XNLP_MONITOR_LABEL(global->monitor->sent_label),
+                               global->monitor->options.value_font);
+    xnlp_monitor_label_set_font(XNLP_MONITOR_LABEL(global->monitor->rcv_cumulative_label),
+                               global->monitor->options.value_font);
+    xnlp_monitor_label_set_font(XNLP_MONITOR_LABEL(global->monitor->sent_cumulative_label),
+                               global->monitor->options.value_font);
 
     /* Show title label? */
     if (global->monitor->options.use_label)
@@ -899,6 +912,9 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
 
     global->monitor->options.values_as_bits = xfce_rc_read_bool_entry (rc, "Values_As_Bits", FALSE);
 
+    g_free(global->monitor->options.value_font);
+    global->monitor->options.value_font = g_strdup(xfce_rc_read_entry(rc, "Value_Font", ""));
+
     global->monitor->options.use_short_units = xfce_rc_read_bool_entry (rc, "Use_Short_Units", FALSE);
 
     global->monitor->options.digits = xfce_rc_read_int_entry (rc, "Digits", 2);
@@ -958,6 +974,8 @@ static void monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *glob
     xfce_rc_write_int_entry (rc, "Show_Cumulative", global->monitor->options.show_cumulative);
 
     xfce_rc_write_bool_entry (rc, "Values_As_Bits", global->monitor->options.values_as_bits);
+
+    xfce_rc_write_entry (rc, "Value_Font", global->monitor->options.value_font);
 
     xfce_rc_write_bool_entry (rc, "Use_Short_Units", global->monitor->options.use_short_units);
 
@@ -1067,6 +1085,50 @@ static void as_bits_toggled(GtkWidget *check_button, t_global_monitor *global)
 
     setup_monitor(global, FALSE);
     DBG("label_toggled");
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+/* Fixed-pitch families keep compact values aligned and exactly four cells wide. */
+static gboolean value_font_filter(const PangoFontFamily *family,
+                                  const PangoFontFace *face, gpointer data)
+{
+    (void)face;
+    (void)data;
+    return pango_font_family_is_monospace((PangoFontFamily *)family);
+}
+
+static gchar *default_value_font(t_global_monitor *global)
+{
+    PangoFontDescription *desc = pango_font_description_copy(
+        pango_context_get_font_description(gtk_widget_get_pango_context(
+            global->monitor->rcv_label)));
+    gchar *font;
+
+    pango_font_description_set_family(desc, "monospace");
+    font = pango_font_description_to_string(desc);
+    pango_font_description_free(desc);
+    return font;
+}
+
+static void value_font_changed(GtkFontButton *button, t_global_monitor *global)
+{
+    g_free(global->monitor->options.value_font);
+    global->monitor->options.value_font = gtk_font_chooser_get_font(GTK_FONT_CHOOSER(button));
+    if (global->monitor->options.value_font == NULL)
+        global->monitor->options.value_font = g_strdup("");
+    setup_monitor(global, FALSE);
+}
+
+static void value_font_reset(GtkButton *button, t_global_monitor *global)
+{
+    gchar *font = default_value_font(global);
+
+    (void)button;
+    g_free(global->monitor->options.value_font);
+    global->monitor->options.value_font = g_strdup("");
+    gtk_font_chooser_set_font(GTK_FONT_CHOOSER(global->monitor->opt_font), font);
+    g_free(font);
+    setup_monitor(global, FALSE);
 }
 
 /* ---------------------------------------------------------------------------------------------- */
@@ -1266,6 +1328,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     GtkBox           *cumulative_hbox;
     GtkWidget        *update_label, *update_unit_label;
     GtkWidget        *digit_label;
+    GtkWidget        *font_box, *font_label, *font_reset;
+    gchar            *initial_font;
     GtkWidget        *color_label[SUM];
     gint             present_data_active;
     GtkSizeGroup     *sg;
@@ -1437,6 +1501,32 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
         _("Use fixed-width compact panel values, such as 2.1K, 22K and 222K. "
           "Tooltips retain full units and the configured precision."));
     gtk_widget_show(global->monitor->opt_short_units);
+
+    font_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
+    font_label = gtk_label_new_with_mnemonic(_("Value _font:"));
+    gtk_label_set_xalign(GTK_LABEL(font_label), 0.0f);
+    gtk_size_group_add_widget(sg, font_label);
+    gtk_box_pack_start(GTK_BOX(font_box), font_label, FALSE, FALSE, 0);
+    global->monitor->opt_font = gtk_font_button_new();
+    gtk_font_chooser_set_filter_func(GTK_FONT_CHOOSER(global->monitor->opt_font),
+                                     value_font_filter, NULL, NULL);
+    initial_font = global->monitor->options.value_font[0] != '\0'
+                 ? g_strdup(global->monitor->options.value_font)
+                 : default_value_font(global);
+    gtk_font_chooser_set_font(GTK_FONT_CHOOSER(global->monitor->opt_font), initial_font);
+    g_free(initial_font);
+    gtk_label_set_mnemonic_widget(GTK_LABEL(font_label), global->monitor->opt_font);
+    gtk_widget_set_tooltip_text(global->monitor->opt_font,
+        _("Choose a monospace font and size for panel values to keep them aligned."));
+    gtk_box_pack_start(GTK_BOX(font_box), global->monitor->opt_font, FALSE, FALSE, 0);
+    font_reset = gtk_button_new_with_label(_("Reset"));
+    gtk_widget_set_tooltip_text(font_reset, _("Restore the default panel value font."));
+    gtk_box_pack_start(GTK_BOX(font_box), font_reset, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), font_box, FALSE, FALSE, 0);
+    g_signal_connect(global->monitor->opt_font, "font-set",
+                     G_CALLBACK(value_font_changed), global);
+    g_signal_connect(font_reset, "clicked", G_CALLBACK(value_font_reset), global);
+    gtk_widget_show_all(font_box);
 
     sep1 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep1), FALSE, FALSE, 6);

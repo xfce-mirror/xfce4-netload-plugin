@@ -21,6 +21,7 @@ G_DECLARE_FINAL_TYPE (XnlpMonitorLabel, xnlp_monitor_label, XNLP, MONITOR_LABEL,
 GtkWidget *     xnlp_monitor_label_new                       (const gchar *str);
 void            xnlp_monitor_label_reinit_size_request       (XnlpMonitorLabel *label);
 void            xnlp_monitor_label_set_short_units          (XnlpMonitorLabel *label, gboolean enabled);
+void            xnlp_monitor_label_set_font                 (XnlpMonitorLabel *label, const gchar *font);
 void            xnlp_monitor_label_set_color                 (XnlpMonitorLabel *label, GdkRGBA* color);
 
 #endif /* !MONITOR_LABEL_H */

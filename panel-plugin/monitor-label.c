@@ -159,3 +159,29 @@ xnlp_monitor_label_set_short_units (XnlpMonitorLabel *label, gboolean enabled)
         xnlp_monitor_label_reinit_size_request (label);
         gtk_label_set_text (GTK_LABEL (label), enabled ? "   -" : "-");
 }
+
+
+void
+xnlp_monitor_label_set_font (XnlpMonitorLabel *label, const gchar *font)
+{
+        PangoAttrList *attrs = NULL;
+
+        if (font != NULL && *font != '\0')
+        {
+                PangoFontDescription *desc = pango_font_description_from_string (font);
+                attrs = pango_attr_list_new ();
+                pango_attr_list_insert (attrs, pango_attr_font_desc_new (desc));
+                pango_font_description_free (desc);
+        }
+        else if (label->short_units)
+        {
+                attrs = pango_attr_list_new ();
+                pango_attr_list_insert (attrs, pango_attr_family_new ("monospace"));
+        }
+        gtk_label_set_attributes (GTK_LABEL (label), attrs);
+        if (attrs != NULL)
+                pango_attr_list_unref (attrs);
+        xnlp_monitor_label_reinit_size_request (label);
+        if (!label->short_units)
+                cb_label_changed (G_OBJECT (label), NULL, NULL);
+}
