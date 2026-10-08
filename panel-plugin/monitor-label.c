@@ -21,6 +21,7 @@ struct _XnlpMonitorLabel
         GtkLabel                parent;
         /*<private>*/
         GtkCssProvider          *css_provider;
+        gboolean                short_units;
         gint                    width;
         gint                    height;
 };
@@ -42,6 +43,7 @@ xnlp_monitor_label_class_init (XnlpMonitorLabelClass *klass)
 static void
 xnlp_monitor_label_init (XnlpMonitorLabel *label)
 {
+        label->short_units = FALSE;
         label->width = 0;
         label->height = 0;
         label->css_provider = gtk_css_provider_new ();
@@ -62,6 +64,9 @@ cb_label_changed (GObject *object, GParamSpec *pspec, gpointer user_data)
         GtkWidget *widget = GTK_WIDGET (object);
         GtkRequisition minimum_size;
         GtkRequisition natural_size;
+
+        if (label->short_units)
+                return;
 
         gtk_widget_set_size_request (widget, -1, -1);
         gtk_widget_get_preferred_size (widget, &minimum_size, &natural_size);
@@ -129,4 +134,28 @@ xnlp_monitor_label_reinit_size_request (XnlpMonitorLabel *label)
         label->height = 0;
 
         gtk_widget_set_size_request (GTK_WIDGET (label), -1, -1);
+}
+
+
+void
+xnlp_monitor_label_set_short_units (XnlpMonitorLabel *label, gboolean enabled)
+{
+        PangoAttrList *attrs = NULL;
+
+        if (label->short_units == enabled)
+                return;
+        label->short_units = enabled;
+        if (enabled)
+        {
+                attrs = pango_attr_list_new ();
+                pango_attr_list_insert (attrs, pango_attr_family_new ("monospace"));
+        }
+        gtk_label_set_attributes (GTK_LABEL (label), attrs);
+        if (attrs != NULL)
+                pango_attr_list_unref (attrs);
+        gtk_label_set_width_chars (GTK_LABEL (label), enabled ? 4 : -1);
+        gtk_label_set_max_width_chars (GTK_LABEL (label), enabled ? 4 : -1);
+        gtk_label_set_xalign (GTK_LABEL (label), enabled ? 1.0f : 0.5f);
+        xnlp_monitor_label_reinit_size_request (label);
+        gtk_label_set_text (GTK_LABEL (label), enabled ? "   -" : "-");
 }
