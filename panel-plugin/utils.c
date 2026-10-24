@@ -168,7 +168,7 @@ char* format_byte_short(char* string, int stringsize, double number, gboolean as
     const char unit_names[] = { '\0', 'K', 'M', 'G', 'T', 'P' };
     const double base = as_bits ? 1000.0 : 1024.0;
     unsigned int unit = 0;
-    char value[32], compact[40];
+    char value[32] = { 0 }, compact[40] = { 0 };
 
     if (!isfinite(number) || number < 0.0)
         number = 0.0;
