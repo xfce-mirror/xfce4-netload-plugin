@@ -73,6 +73,7 @@ typedef struct
     gboolean show_values;
     gboolean show_cumulative;
     gboolean values_as_bits;
+    gboolean use_short_units;
     gboolean colorize_values;
     gboolean auto_max;
     gulong   max[SUM];
@@ -112,6 +113,7 @@ typedef struct
     GtkBox    *opt_hbox;
     GtkWidget *opt_use_label;
     GtkWidget *opt_as_bits;
+    GtkWidget *opt_short_units;
     GtkWidget *opt_cumulative;
     
     /* Update interval */
@@ -352,7 +354,11 @@ static gboolean update_monitors(gpointer user_data)
                                   global->monitor->options.digits,
                                   global->monitor->options.values_as_bits, TRUE);
 
-        format_byte_humanreadable(buffer_panel[i], BUFSIZ - 1, display[i],
+        if (global->monitor->options.use_short_units)
+            format_byte_short(buffer_panel[i], BUFSIZ - 1, display[i],
+                              global->monitor->options.values_as_bits);
+        else
+            format_byte_humanreadable(buffer_panel[i], BUFSIZ - 1, display[i],
                                   global->monitor->options.digits,
                                   global->monitor->options.values_as_bits, TRUE);
 
@@ -362,7 +368,12 @@ static gboolean update_monitors(gpointer user_data)
                                       global->monitor->net_cumulative[i],
                                       global->monitor->options.digits,
                                       global->monitor->options.values_as_bits, FALSE);
-            format_byte_humanreadable(buffer_cumulative_panel[i], BUFSIZ - 1,
+            if (global->monitor->options.use_short_units)
+                format_byte_short(buffer_cumulative_panel[i], BUFSIZ - 1,
+                                  global->monitor->net_cumulative[i],
+                                  global->monitor->options.values_as_bits);
+            else
+                format_byte_humanreadable(buffer_cumulative_panel[i], BUFSIZ - 1,
                                       global->monitor->net_cumulative[i],
                                       global->monitor->options.digits,
                                       global->monitor->options.values_as_bits, FALSE);
@@ -586,6 +597,7 @@ static t_global_monitor * monitor_new(XfcePanelPlugin *plugin)
     global->monitor->options.use_label = TRUE;
     global->monitor->options.show_values = FALSE;
     global->monitor->options.values_as_bits = FALSE;
+    global->monitor->options.use_short_units = FALSE;
     global->monitor->options.show_bars = TRUE;
     global->monitor->options.auto_max = TRUE;
     global->monitor->options.update_interval = UPDATE_TIMEOUT;
@@ -712,6 +724,16 @@ static void setup_monitor(t_global_monitor *global, gboolean supress_warnings)
     gint i;
 
     g_clear_handle_id(&global->timeout_id, g_source_remove);
+
+    /* Reserve all four cells before values are shown, including on startup. */
+    xnlp_monitor_label_set_short_units(XNLP_MONITOR_LABEL(global->monitor->rcv_label),
+                                      global->monitor->options.use_short_units);
+    xnlp_monitor_label_set_short_units(XNLP_MONITOR_LABEL(global->monitor->sent_label),
+                                      global->monitor->options.use_short_units);
+    xnlp_monitor_label_set_short_units(XNLP_MONITOR_LABEL(global->monitor->rcv_cumulative_label),
+                                      global->monitor->options.use_short_units);
+    xnlp_monitor_label_set_short_units(XNLP_MONITOR_LABEL(global->monitor->sent_cumulative_label),
+                                      global->monitor->options.use_short_units);
 
     /* Show title label? */
     if (global->monitor->options.use_label)
@@ -877,6 +899,8 @@ static void monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *globa
 
     global->monitor->options.values_as_bits = xfce_rc_read_bool_entry (rc, "Values_As_Bits", FALSE);
 
+    global->monitor->options.use_short_units = xfce_rc_read_bool_entry (rc, "Use_Short_Units", FALSE);
+
     global->monitor->options.digits = xfce_rc_read_int_entry (rc, "Digits", 2);
 
     DBG("monitor_read_config");
@@ -934,6 +958,8 @@ static void monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *glob
     xfce_rc_write_int_entry (rc, "Show_Cumulative", global->monitor->options.show_cumulative);
 
     xfce_rc_write_bool_entry (rc, "Values_As_Bits", global->monitor->options.values_as_bits);
+
+    xfce_rc_write_bool_entry (rc, "Use_Short_Units", global->monitor->options.use_short_units);
 
     xfce_rc_write_int_entry (rc, "Digits", global->monitor->options.digits);
 
@@ -1041,6 +1067,14 @@ static void as_bits_toggled(GtkWidget *check_button, t_global_monitor *global)
 
     setup_monitor(global, FALSE);
     DBG("label_toggled");
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+static void short_units_toggled(GtkWidget *check_button, t_global_monitor *global)
+{
+    global->monitor->options.use_short_units =
+        gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(check_button));
+    setup_monitor(global, FALSE);
 }
 
 /* ---------------------------------------------------------------------------------------------- */
@@ -1394,7 +1428,16 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_as_bits),
                                  global->monitor->options.values_as_bits);
 
-    
+    global->monitor->opt_short_units = gtk_check_button_new_with_label(_("Use short units"));
+    gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox),
+                       global->monitor->opt_short_units, FALSE, FALSE, 0);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor->opt_short_units),
+                                 global->monitor->options.use_short_units);
+    gtk_widget_set_tooltip_text(global->monitor->opt_short_units,
+        _("Use fixed-width compact panel values, such as 2.1K, 22K and 222K. "
+          "Tooltips retain full units and the configured precision."));
+    gtk_widget_show(global->monitor->opt_short_units);
+
     sep1 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     gtk_box_pack_start(GTK_BOX(global->monitor->opt_vbox), GTK_WIDGET(sep1), FALSE, FALSE, 6);
     gtk_widget_show(sep1);
@@ -1576,6 +1619,8 @@ static void monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *gl
             G_CALLBACK(cumulative_toggled), global);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_as_bits), "toggled",
             G_CALLBACK(as_bits_toggled), global);
+    g_signal_connect(global->monitor->opt_short_units, "toggled",
+            G_CALLBACK(short_units_toggled), global);
     g_signal_connect(GTK_WIDGET(global->monitor->opt_digit_spinner), "changed",
             G_CALLBACK(digits_spinner_changed), global);
 
