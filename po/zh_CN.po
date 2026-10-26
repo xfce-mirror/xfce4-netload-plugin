@@ -9,14 +9,14 @@
 # Hunt Xu <huntxu@live.cn>, 2009,2012
 # Mingcong Bai <jeffbai@aosc.xyz>, 2017
 # Vern Sun <s5unty@gmail.com>, 2007
-# 玉堂白鹤 <yjwork@qq.com>, 2014,2023,2025
+# 玉堂白鹤 <yjwork@qq.com>, 2014,2023,2025-2026
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:07+0200\n"
+"POT-Creation-Date: 2026-10-24 13:02+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
-"Last-Translator: 玉堂白鹤 <yjwork@qq.com>, 2014,2023,2025\n"
+"Last-Translator: 玉堂白鹤 <yjwork@qq.com>, 2014,2023,2025-2026\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,12 +45,12 @@ msgstr "未找到 Linux proc 设备 ‘/proc/net/dev’。"
 msgid "Interface was not found."
 msgstr "未找到网络接口。"
 
-#: panel-plugin/netload.c:184
+#: panel-plugin/netload.c:275
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (接口关闭)"
 
-#: panel-plugin/netload.c:301
+#: panel-plugin/netload.c:396
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -61,11 +61,11 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\n最近 %d个 时间段内\n%.2f 秒内的平均值:\n接收：%s\n发送：%s\n总共：%s"
 
-#: panel-plugin/netload.c:304
+#: panel-plugin/netload.c:399
 msgid "no IP address"
 msgstr "无 IP 地址"
 
-#: panel-plugin/netload.c:310
+#: panel-plugin/netload.c:405
 #, c-format
 msgid ""
 "%s\n"
@@ -75,98 +75,108 @@ msgid ""
 "Total: %s"
 msgstr "%s\n累计:\n接收: %s\n发送: %s\n总共: %s"
 
-#: panel-plugin/netload.c:744
+#: panel-plugin/netload.c:823
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s：初始化时出错：\n%s"
 
-#: panel-plugin/netload.c:1103
+#: panel-plugin/netload.c:1197
 msgid "Display the current load of a network interface in the panel"
 msgstr "在面板内显示网络接口的当前负载"
 
-#: panel-plugin/netload.c:1168
+#: panel-plugin/netload.c:1275
 msgid "Bar color (i_ncoming):"
 msgstr "柱图颜色(接收)(_N)："
 
-#: panel-plugin/netload.c:1169
+#: panel-plugin/netload.c:1276
 msgid "Bar color (_outgoing):"
 msgstr "柱图颜色(发送)(_O)："
 
-#: panel-plugin/netload.c:1172
+#: panel-plugin/netload.c:1279
 msgid "Maximum (inco_ming):"
 msgstr "最大值(接收)(_M)："
 
-#: panel-plugin/netload.c:1173
+#: panel-plugin/netload.c:1280
 msgid "Maximum (o_utgoing):"
 msgstr "最大值(发送)(_U)："
 
-#: panel-plugin/netload.c:1181 panel-plugin/netload.desktop.in:5
+#: panel-plugin/netload.c:1288 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
 msgstr "网络监视器"
 
-#: panel-plugin/netload.c:1183
+#: panel-plugin/netload.c:1290
 msgid "_Close"
 msgstr "关闭(_C)"
 
-#: panel-plugin/netload.c:1184
+#: panel-plugin/netload.c:1291
 msgid "_Help"
 msgstr "帮助(_H)"
 
-#: panel-plugin/netload.c:1210
+#: panel-plugin/netload.c:1317
 msgid "_Text to display:"
 msgstr "要显示的文字(_T)："
 
-#: panel-plugin/netload.c:1241
+#: panel-plugin/netload.c:1348
 msgid "Network _device:"
 msgstr "网络设备(_D)："
 
-#: panel-plugin/netload.c:1272
+#: panel-plugin/netload.c:1379
 msgid "Update _interval:"
 msgstr "更新间隔(_I)："
 
-#: panel-plugin/netload.c:1286
+#: panel-plugin/netload.c:1393
 msgid "s"
 msgstr "秒"
 
-#: panel-plugin/netload.c:1301
+#: panel-plugin/netload.c:1408
 msgid "Show _cumulative values"
 msgstr "显示累计值(_C)"
 
-#: panel-plugin/netload.c:1316
+#: panel-plugin/netload.c:1423
 msgid "Show values as _bits"
 msgstr "以比特显示值(_B)"
 
-#: panel-plugin/netload.c:1330
+#: panel-plugin/netload.c:1431
+msgid "Use short units"
+msgstr "使用简化单位"
+
+#: panel-plugin/netload.c:1437
+msgid ""
+"Use fixed-width compact panel values, such as 2.1K, 22K and 222K. Tooltips "
+"retain full units and the configured precision."
+msgstr "使用固定宽度的紧凑面板数值，例如 2.1K, 22K 和 222K。工具提示保留完整单位和设置精度。"
+
+#: panel-plugin/netload.c:1446
 msgid "_Automatic maximum"
 msgstr "自动最大值(_A)"
 
-#: panel-plugin/netload.c:1365
+#: panel-plugin/netload.c:1481
 msgid "KiB/s"
 msgstr "KiB/s"
 
-#: panel-plugin/netload.c:1391
+#: panel-plugin/netload.c:1507
 msgid "_Present data as:"
 msgstr "显示方法(_P)："
 
-#: panel-plugin/netload.c:1401
+#: panel-plugin/netload.c:1517
 msgid "Bars"
 msgstr "柱图"
 
-#: panel-plugin/netload.c:1402
+#: panel-plugin/netload.c:1518
 msgid "Values"
 msgstr "文字"
 
-#: panel-plugin/netload.c:1403
+#: panel-plugin/netload.c:1519
 msgid "Bars and values"
 msgstr "柱图和文字"
 
-#: panel-plugin/netload.c:1446
+#: panel-plugin/netload.c:1562
 msgid "_Colorize values"
 msgstr "使用彩色显示文字(_C)"
 
-#: panel-plugin/netload.c:1469
+#: panel-plugin/netload.c:1585
 msgid "_Digits number:"
 msgstr "位数(_D)："
 
@@ -174,82 +184,82 @@ msgstr "位数(_D)："
 msgid "Show network traffic"
 msgstr "显示网络流量"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "B"
 msgstr "B"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "KiB"
 msgstr "KiB"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "MiB"
 msgstr "MiB"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "GiB"
 msgstr "GiB"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "TiB"
 msgstr "TiB"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "b"
 msgstr "b"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "Kb"
 msgstr "Kb"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "Mb"
 msgstr "Mb"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "Gb"
 msgstr "Gb"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "Tb"
 msgstr "Tb"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "Bps"
 msgstr "Bps"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "KiBps"
 msgstr "KiBps"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "MiBps"
 msgstr "MiBps"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "GiBps"
 msgstr "GiBps"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "TiBps"
 msgstr "TiBps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "bps"
 msgstr "bps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Kbps"
 msgstr "Kbps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Mbps"
 msgstr "Mbps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Gbps"
 msgstr "Gbps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Tbps"
 msgstr "Tbps"
