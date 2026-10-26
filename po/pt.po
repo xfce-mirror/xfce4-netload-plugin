@@ -6,14 +6,14 @@
 # Hugo Carvalho <hugokarvalho@hotmail.com>, 2023,2025
 # José Vieira <jvieira33@sapo.pt>, 2017
 # Nuno Miguel <nunis@netcabo.pt>, 2007
-# Nuno Miguel <nunomgue@gmail.com>, 2014
+# Nuno Miguel <nunomgue@gmail.com>, 2014,2026
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:07+0200\n"
+"POT-Creation-Date: 2026-10-24 13:02+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
-"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>, 2023,2025\n"
+"Last-Translator: Nuno Miguel <nunomgue@gmail.com>, 2014,2026\n"
 "Language-Team: Portuguese (http://app.transifex.com/xfce/xfce-panel-plugins/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,12 +42,12 @@ msgstr "Dispositivo proc \"/proc/net/dev\" não encontrado."
 msgid "Interface was not found."
 msgstr "Interface não encontrada."
 
-#: panel-plugin/netload.c:184
+#: panel-plugin/netload.c:275
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Interface desligada)"
 
-#: panel-plugin/netload.c:301
+#: panel-plugin/netload.c:396
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -58,11 +58,11 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nMédia das últimas %d medições\ncom um intervalo de %.2fs:\nRecebidos: %s\nEnviados: %s\nTotal: %s"
 
-#: panel-plugin/netload.c:304
+#: panel-plugin/netload.c:399
 msgid "no IP address"
 msgstr "sem endereço IP"
 
-#: panel-plugin/netload.c:310
+#: panel-plugin/netload.c:405
 #, c-format
 msgid ""
 "%s\n"
@@ -72,98 +72,108 @@ msgid ""
 "Total: %s"
 msgstr "%s\nAcumulado:\nA receber: %s\nA enviar: %s\nTotal: %s"
 
-#: panel-plugin/netload.c:744
+#: panel-plugin/netload.c:823
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: erro ao iniciar:\n%s"
 
-#: panel-plugin/netload.c:1103
+#: panel-plugin/netload.c:1197
 msgid "Display the current load of a network interface in the panel"
 msgstr "Mostrar a carga atual de uma interface de rede no painel"
 
-#: panel-plugin/netload.c:1168
+#: panel-plugin/netload.c:1275
 msgid "Bar color (i_ncoming):"
 msgstr "Cor da barra (rece_bidos) :"
 
-#: panel-plugin/netload.c:1169
+#: panel-plugin/netload.c:1276
 msgid "Bar color (_outgoing):"
 msgstr "Cor da barra (enviad_os) :"
 
-#: panel-plugin/netload.c:1172
+#: panel-plugin/netload.c:1279
 msgid "Maximum (inco_ming):"
 msgstr "Máximo (recebi_dos):"
 
-#: panel-plugin/netload.c:1173
+#: panel-plugin/netload.c:1280
 msgid "Maximum (o_utgoing):"
 msgstr "Máximo (e_nviados):"
 
-#: panel-plugin/netload.c:1181 panel-plugin/netload.desktop.in:5
+#: panel-plugin/netload.c:1288 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
 msgstr "Monitor de rede"
 
-#: panel-plugin/netload.c:1183
+#: panel-plugin/netload.c:1290
 msgid "_Close"
 msgstr "Fe_char"
 
-#: panel-plugin/netload.c:1184
+#: panel-plugin/netload.c:1291
 msgid "_Help"
 msgstr "_Ajuda"
 
-#: panel-plugin/netload.c:1210
+#: panel-plugin/netload.c:1317
 msgid "_Text to display:"
 msgstr "_Texto a exibir:"
 
-#: panel-plugin/netload.c:1241
+#: panel-plugin/netload.c:1348
 msgid "Network _device:"
 msgstr "_Dispositivo de rede:"
 
-#: panel-plugin/netload.c:1272
+#: panel-plugin/netload.c:1379
 msgid "Update _interval:"
 msgstr "_Intervalo de atualização:"
 
-#: panel-plugin/netload.c:1286
+#: panel-plugin/netload.c:1393
 msgid "s"
 msgstr "s"
 
-#: panel-plugin/netload.c:1301
+#: panel-plugin/netload.c:1408
 msgid "Show _cumulative values"
 msgstr "Mostrar valores a_cumulados"
 
-#: panel-plugin/netload.c:1316
+#: panel-plugin/netload.c:1423
 msgid "Show values as _bits"
 msgstr "Mostrar valores como _bits"
 
-#: panel-plugin/netload.c:1330
+#: panel-plugin/netload.c:1431
+msgid "Use short units"
+msgstr "Usar unidades pequenas"
+
+#: panel-plugin/netload.c:1437
+msgid ""
+"Use fixed-width compact panel values, such as 2.1K, 22K and 222K. Tooltips "
+"retain full units and the configured precision."
+msgstr "Usar valores do painel de comprimento fixo compactos, como 2.1K, 22K e 222K. Dicas mantêm unidades inteiras e a precisão configurada."
+
+#: panel-plugin/netload.c:1446
 msgid "_Automatic maximum"
 msgstr "Máximo _automático"
 
-#: panel-plugin/netload.c:1365
+#: panel-plugin/netload.c:1481
 msgid "KiB/s"
 msgstr "KB/s"
 
-#: panel-plugin/netload.c:1391
+#: panel-plugin/netload.c:1507
 msgid "_Present data as:"
 msgstr "A_presentar os dados como:"
 
-#: panel-plugin/netload.c:1401
+#: panel-plugin/netload.c:1517
 msgid "Bars"
 msgstr "Barras"
 
-#: panel-plugin/netload.c:1402
+#: panel-plugin/netload.c:1518
 msgid "Values"
 msgstr "Valores"
 
-#: panel-plugin/netload.c:1403
+#: panel-plugin/netload.c:1519
 msgid "Bars and values"
 msgstr "Barras e valores"
 
-#: panel-plugin/netload.c:1446
+#: panel-plugin/netload.c:1562
 msgid "_Colorize values"
 msgstr "_Colorir valores"
 
-#: panel-plugin/netload.c:1469
+#: panel-plugin/netload.c:1585
 msgid "_Digits number:"
 msgstr "Número de _dígitos:"
 
@@ -171,82 +181,82 @@ msgstr "Número de _dígitos:"
 msgid "Show network traffic"
 msgstr "Mostrar tráfego de rede"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "B"
 msgstr "B"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "KiB"
 msgstr "KB"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "MiB"
 msgstr "MB"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "GiB"
 msgstr "GB"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "TiB"
 msgstr "TiB"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "b"
 msgstr "b"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "Kb"
 msgstr "Kb"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "Mb"
 msgstr "Mb"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "Gb"
 msgstr "Gb"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "Tb"
 msgstr "Tb"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "Bps"
 msgstr "Bps"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "KiBps"
 msgstr "KiBps"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "MiBps"
 msgstr "MiBps"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "GiBps"
 msgstr "GiBps"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "TiBps"
 msgstr "TiBps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "bps"
 msgstr "bps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Kbps"
 msgstr "Kbps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Mbps"
 msgstr "Mbps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Gbps"
 msgstr "Gbps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Tbps"
 msgstr "Tbps"
