@@ -141,7 +141,7 @@ msgstr "Përdor njësi të shkurtra"
 msgid ""
 "Use fixed-width compact panel values, such as 2.1K, 22K and 222K. Tooltips "
 "retain full units and the configured precision."
-msgstr ""
+msgstr "Përdor vlera paneli kompakte, me gjerësi të fiksuar, të tilla si 2.1K, 22K dhe 222K. Ndihmëzat mbajnë njësi të plota dhe saktësinë e formësuar."
 
 #: panel-plugin/netload.c:1446
 msgid "_Automatic maximum"
