@@ -4,15 +4,17 @@
 # 
 # Translators:
 # beriain, 2021
+# beriain, 2021
+# Eder Etxebarria Rojo, 2024
 # Eder Etxebarria Rojo, 2024
 # Piarres Beobide <pi@beobide.net>, 2005,2009
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:07+0200\n"
+"POT-Creation-Date: 2026-10-24 13:02+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
-"Last-Translator: Eder Etxebarria Rojo, 2024\n"
+"Last-Translator: Piarres Beobide <pi@beobide.net>, 2005,2009\n"
 "Language-Team: Basque (http://app.transifex.com/xfce/xfce-panel-plugins/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +29,7 @@ msgstr "Sarea"
 
 #: panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
-msgstr "Xfce4-SareKarga-Plugin-a"
+msgstr "Xfce4-Netload-Plugin"
 
 #: panel-plugin/netload.c:64
 msgid "Unknown error."
@@ -41,12 +43,12 @@ msgstr "Ez da '/proc/net/dev' Linux proc gailua aurkitu."
 msgid "Interface was not found."
 msgstr "Ez da interfazea aurkitu."
 
-#: panel-plugin/netload.c:184
+#: panel-plugin/netload.c:275
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (Interfazea deskonektaturik)"
 
-#: panel-plugin/netload.c:301
+#: panel-plugin/netload.c:396
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -55,13 +57,13 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr "<< %s >> (%s)\nAzken %d neurketen bataz bestekoa\n%.2fs ko tartearekin:\nSartu: %s\nIrten: %s\nGuztira: %s"
+msgstr "<< %s >> (%s)\nAzken %d neurketen batez bestekoa\n%.2f s-ko tartearekin:\nSarrera: %s\nIrteera: %s\nGuztira: %s"
 
-#: panel-plugin/netload.c:304
+#: panel-plugin/netload.c:399
 msgid "no IP address"
 msgstr "ez dago IP helbiderik"
 
-#: panel-plugin/netload.c:310
+#: panel-plugin/netload.c:405
 #, c-format
 msgid ""
 "%s\n"
@@ -69,183 +71,193 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
+msgstr "%s\nMetatua:\nSarrera: %s\nIrteera: %s\nGuztira: %s"
 
-#: panel-plugin/netload.c:744
+#: panel-plugin/netload.c:823
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Errorea abiaraztean:\n%s"
 
-#: panel-plugin/netload.c:1103
+#: panel-plugin/netload.c:1197
 msgid "Display the current load of a network interface in the panel"
 msgstr "Bistaratu sare-interfaze baten uneko karga panelean"
 
-#: panel-plugin/netload.c:1168
+#: panel-plugin/netload.c:1275
 msgid "Bar color (i_ncoming):"
-msgstr "Barra kolorea (s_arrera):"
+msgstr "Barraren kolorea (s_arrera):"
 
-#: panel-plugin/netload.c:1169
+#: panel-plugin/netload.c:1276
 msgid "Bar color (_outgoing):"
-msgstr "Barra kolorea (_irteera):"
+msgstr "Barraren kolorea (_irteera):"
 
-#: panel-plugin/netload.c:1172
+#: panel-plugin/netload.c:1279
 msgid "Maximum (inco_ming):"
 msgstr "Gehienezkoa (_sarrera):"
 
-#: panel-plugin/netload.c:1173
+#: panel-plugin/netload.c:1280
 msgid "Maximum (o_utgoing):"
 msgstr "Gehienezkoa (i_rteera):"
 
-#: panel-plugin/netload.c:1181 panel-plugin/netload.desktop.in:5
+#: panel-plugin/netload.c:1288 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
-msgstr "Sare monitorea"
+msgstr "Sare-monitorea"
 
-#: panel-plugin/netload.c:1183
+#: panel-plugin/netload.c:1290
 msgid "_Close"
 msgstr "_Itxi"
 
-#: panel-plugin/netload.c:1184
+#: panel-plugin/netload.c:1291
 msgid "_Help"
 msgstr "_Laguntza"
 
-#: panel-plugin/netload.c:1210
+#: panel-plugin/netload.c:1317
 msgid "_Text to display:"
 msgstr "Bistaratzeko _testua:"
 
-#: panel-plugin/netload.c:1241
+#: panel-plugin/netload.c:1348
 msgid "Network _device:"
-msgstr "Sare _gailua:"
+msgstr "Sare-_gailua:"
 
-#: panel-plugin/netload.c:1272
+#: panel-plugin/netload.c:1379
 msgid "Update _interval:"
-msgstr "Eguneratze _tartea:"
+msgstr "_Eguneratze-tartea:"
 
-#: panel-plugin/netload.c:1286
+#: panel-plugin/netload.c:1393
 msgid "s"
 msgstr "s"
 
-#: panel-plugin/netload.c:1301
+#: panel-plugin/netload.c:1408
 msgid "Show _cumulative values"
-msgstr ""
+msgstr "Erakutsi balio _metatuak"
 
-#: panel-plugin/netload.c:1316
+#: panel-plugin/netload.c:1423
 msgid "Show values as _bits"
-msgstr "Balioak _bit bezala erakutsi"
+msgstr "Erakutsi balioak _bitetan"
 
-#: panel-plugin/netload.c:1330
+#: panel-plugin/netload.c:1431
+msgid "Use short units"
+msgstr "Erabili unitate laburrak"
+
+#: panel-plugin/netload.c:1437
+msgid ""
+"Use fixed-width compact panel values, such as 2.1K, 22K and 222K. Tooltips "
+"retain full units and the configured precision."
+msgstr "Erabili zabalera finkoko balio trinkoak panelean, adibidez 2.1K, 22K eta 222K. Argibideek unitate osoak eta konfiguratutako zehaztasuna mantentzen dituzte."
+
+#: panel-plugin/netload.c:1446
 msgid "_Automatic maximum"
-msgstr "_Gehienezko automatikoa"
+msgstr "Gehienezko a_utomatikoa"
 
-#: panel-plugin/netload.c:1365
+#: panel-plugin/netload.c:1481
 msgid "KiB/s"
-msgstr "KB/s"
+msgstr "KiB/s"
 
-#: panel-plugin/netload.c:1391
+#: panel-plugin/netload.c:1507
 msgid "_Present data as:"
-msgstr "_Bistarazi datuak:"
+msgstr "Bistaratu datuak _honela:"
 
-#: panel-plugin/netload.c:1401
+#: panel-plugin/netload.c:1517
 msgid "Bars"
 msgstr "Barrak"
 
-#: panel-plugin/netload.c:1402
+#: panel-plugin/netload.c:1518
 msgid "Values"
 msgstr "Balioak"
 
-#: panel-plugin/netload.c:1403
+#: panel-plugin/netload.c:1519
 msgid "Bars and values"
-msgstr "Barra eta balioak"
+msgstr "Barrak eta balioak"
 
-#: panel-plugin/netload.c:1446
+#: panel-plugin/netload.c:1562
 msgid "_Colorize values"
-msgstr "_Koloreztatuko balioak"
+msgstr "_Koloreztatu balioak"
 
-#: panel-plugin/netload.c:1469
+#: panel-plugin/netload.c:1585
 msgid "_Digits number:"
-msgstr "Digitu kopurua:"
+msgstr "_Digitu kopurua:"
 
 #: panel-plugin/netload.desktop.in:6
 msgid "Show network traffic"
-msgstr "Ikusi sare trafikoa"
+msgstr "Erakutsi sare-trafikoa"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "B"
 msgstr "B"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "KiB"
-msgstr "KB"
+msgstr "KiB"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "MiB"
-msgstr "MB"
+msgstr "MiB"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "GiB"
-msgstr "GB"
+msgstr "GiB"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "TiB"
-msgstr ""
-
-#: panel-plugin/utils.c:78
-msgid "b"
-msgstr ""
-
-#: panel-plugin/utils.c:78
-msgid "Kb"
-msgstr ""
-
-#: panel-plugin/utils.c:78
-msgid "Mb"
-msgstr ""
-
-#: panel-plugin/utils.c:78
-msgid "Gb"
-msgstr ""
-
-#: panel-plugin/utils.c:78
-msgid "Tb"
-msgstr ""
+msgstr "TiB"
 
 #: panel-plugin/utils.c:79
+msgid "b"
+msgstr "b"
+
+#: panel-plugin/utils.c:79
+msgid "Kb"
+msgstr "Kb"
+
+#: panel-plugin/utils.c:79
+msgid "Mb"
+msgstr "Mb"
+
+#: panel-plugin/utils.c:79
+msgid "Gb"
+msgstr "Gb"
+
+#: panel-plugin/utils.c:79
+msgid "Tb"
+msgstr "Tb"
+
+#: panel-plugin/utils.c:80
 msgid "Bps"
 msgstr "Bps"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "KiBps"
 msgstr "KiBps"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "MiBps"
 msgstr "MiBps"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "GiBps"
 msgstr "GiBps"
 
-#: panel-plugin/utils.c:79
-msgid "TiBps"
-msgstr ""
-
 #: panel-plugin/utils.c:80
+msgid "TiBps"
+msgstr "TiBps"
+
+#: panel-plugin/utils.c:81
 msgid "bps"
 msgstr "bps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Kbps"
 msgstr "Kbps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Mbps"
 msgstr "Mbps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Gbps"
 msgstr "Gbps"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Tbps"
-msgstr ""
+msgstr "Tbps"
