@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-netload-plugin package.
 # 
 # Translators:
-# Kiril Kirilov <cybercop_montana@abv.bg>, 2014,2017,2023,2025
+# Kiril Kirilov <cybercop_montana@abv.bg>, 2014,2017,2023,2025-2026
 # Любомир Василев, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:07+0200\n"
+"POT-Creation-Date: 2026-10-24 13:02+0200\n"
 "PO-Revision-Date: 2013-07-03 19:08+0000\n"
-"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>, 2014,2017,2023,2025\n"
+"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>, 2014,2017,2023,2025-2026\n"
 "Language-Team: Bulgarian (http://app.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,12 +40,12 @@ msgstr "Не е открито proc устройството на Линукс �
 msgid "Interface was not found."
 msgstr "Интерфейсът не беше открит."
 
-#: panel-plugin/netload.c:184
+#: panel-plugin/netload.c:275
 #, c-format
 msgid "<< %s >> (Interface down)"
 msgstr "<< %s >> (интерфейсът е изключен)"
 
-#: panel-plugin/netload.c:301
+#: panel-plugin/netload.c:396
 #, c-format
 msgid ""
 "<< %s >> (%s)\n"
@@ -56,11 +56,11 @@ msgid ""
 "Total: %s"
 msgstr "<< %s >> (%s)\nОсреднени стойности от последните %d\nзамервания през интервал от %.2fs:\nВходящи: %s\nИзходящи: %s\nОбщо: %s"
 
-#: panel-plugin/netload.c:304
+#: panel-plugin/netload.c:399
 msgid "no IP address"
 msgstr "няма наличен ИП адрес"
 
-#: panel-plugin/netload.c:310
+#: panel-plugin/netload.c:405
 #, c-format
 msgid ""
 "%s\n"
@@ -70,98 +70,108 @@ msgid ""
 "Total: %s"
 msgstr "%s\nКумулативно:\nВходящи: %s\nИзходящи: %s\nОбщо: %s"
 
-#: panel-plugin/netload.c:744
+#: panel-plugin/netload.c:823
 #, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
 msgstr "%s: Грешка при инициализацията:\n%s"
 
-#: panel-plugin/netload.c:1103
+#: panel-plugin/netload.c:1197
 msgid "Display the current load of a network interface in the panel"
 msgstr "Показване на текущото натоварване на мрежовият интерфейс в панела"
 
-#: panel-plugin/netload.c:1168
+#: panel-plugin/netload.c:1275
 msgid "Bar color (i_ncoming):"
 msgstr "Цвят на лента (_входящи):"
 
-#: panel-plugin/netload.c:1169
+#: panel-plugin/netload.c:1276
 msgid "Bar color (_outgoing):"
 msgstr "Цвят на лента (_изходящи):"
 
-#: panel-plugin/netload.c:1172
+#: panel-plugin/netload.c:1279
 msgid "Maximum (inco_ming):"
 msgstr "Максимум (в_ходящи):"
 
-#: panel-plugin/netload.c:1173
+#: panel-plugin/netload.c:1280
 msgid "Maximum (o_utgoing):"
 msgstr "Максимум (и_зходящи):"
 
-#: panel-plugin/netload.c:1181 panel-plugin/netload.desktop.in:5
+#: panel-plugin/netload.c:1288 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
 msgstr "Наблюдение на мрежата"
 
-#: panel-plugin/netload.c:1183
+#: panel-plugin/netload.c:1290
 msgid "_Close"
 msgstr "Затваряне"
 
-#: panel-plugin/netload.c:1184
+#: panel-plugin/netload.c:1291
 msgid "_Help"
 msgstr "_Помощ"
 
-#: panel-plugin/netload.c:1210
+#: panel-plugin/netload.c:1317
 msgid "_Text to display:"
 msgstr "_Текст за етикет:"
 
-#: panel-plugin/netload.c:1241
+#: panel-plugin/netload.c:1348
 msgid "Network _device:"
 msgstr "Мрежово _устройство:"
 
-#: panel-plugin/netload.c:1272
+#: panel-plugin/netload.c:1379
 msgid "Update _interval:"
 msgstr "И_нтервал на актуализиране:"
 
-#: panel-plugin/netload.c:1286
+#: panel-plugin/netload.c:1393
 msgid "s"
 msgstr "с"
 
-#: panel-plugin/netload.c:1301
+#: panel-plugin/netload.c:1408
 msgid "Show _cumulative values"
 msgstr "Показване на _кумулативни стойности"
 
-#: panel-plugin/netload.c:1316
+#: panel-plugin/netload.c:1423
 msgid "Show values as _bits"
 msgstr "Покажи стойност в битове"
 
-#: panel-plugin/netload.c:1330
+#: panel-plugin/netload.c:1431
+msgid "Use short units"
+msgstr "Използване на съкратени мерни единици"
+
+#: panel-plugin/netload.c:1437
+msgid ""
+"Use fixed-width compact panel values, such as 2.1K, 22K and 222K. Tooltips "
+"retain full units and the configured precision."
+msgstr "Използвайте компактни стойности с фиксирана ширина за панела, като например 2.1K, 22K и 222K. Подсказките запазват пълните мерни единици и зададената прецизност."
+
+#: panel-plugin/netload.c:1446
 msgid "_Automatic maximum"
 msgstr "_Автоматичен максимум"
 
-#: panel-plugin/netload.c:1365
+#: panel-plugin/netload.c:1481
 msgid "KiB/s"
 msgstr "КиБ/с"
 
-#: panel-plugin/netload.c:1391
+#: panel-plugin/netload.c:1507
 msgid "_Present data as:"
 msgstr "_Представяне на данните чрез:"
 
-#: panel-plugin/netload.c:1401
+#: panel-plugin/netload.c:1517
 msgid "Bars"
 msgstr "Ленти"
 
-#: panel-plugin/netload.c:1402
+#: panel-plugin/netload.c:1518
 msgid "Values"
 msgstr "Стойности"
 
-#: panel-plugin/netload.c:1403
+#: panel-plugin/netload.c:1519
 msgid "Bars and values"
 msgstr "Ленти и стойности"
 
-#: panel-plugin/netload.c:1446
+#: panel-plugin/netload.c:1562
 msgid "_Colorize values"
 msgstr "_Оцветяване на стойностите"
 
-#: panel-plugin/netload.c:1469
+#: panel-plugin/netload.c:1585
 msgid "_Digits number:"
 msgstr "_Брой цифри:"
 
@@ -169,82 +179,82 @@ msgstr "_Брой цифри:"
 msgid "Show network traffic"
 msgstr "Визуализиране на мрежовия трафик"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "B"
 msgstr "Б"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "KiB"
 msgstr "КиБ"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "MiB"
 msgstr "МиБ"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "GiB"
 msgstr "ГиБ"
 
-#: panel-plugin/utils.c:77
+#: panel-plugin/utils.c:78
 msgid "TiB"
 msgstr "TiB"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "b"
 msgstr "b"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "Kb"
 msgstr "Kb"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "Mb"
 msgstr "Mb"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "Gb"
 msgstr "Gb"
 
-#: panel-plugin/utils.c:78
+#: panel-plugin/utils.c:79
 msgid "Tb"
 msgstr "Tb"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "Bps"
 msgstr "Б/с"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "KiBps"
 msgstr "КБ/с"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "MiBps"
 msgstr "МБ/с"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "GiBps"
 msgstr "ГБ/с"
 
-#: panel-plugin/utils.c:79
+#: panel-plugin/utils.c:80
 msgid "TiBps"
 msgstr "TiB/s"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "bps"
 msgstr "бит/с"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Kbps"
 msgstr "Кб/с"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Mbps"
 msgstr "Мб/с"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Gbps"
 msgstr "Гб/с"
 
-#: panel-plugin/utils.c:80
+#: panel-plugin/utils.c:81
 msgid "Tbps"
 msgstr "Tb/s"
