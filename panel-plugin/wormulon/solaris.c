@@ -72,7 +72,7 @@ int checkinterface(netdata* data)
         memset((char *)&ifr, 0, sizeof(ifr));
         strncpy(ifr.ifr_name, ifrp->ifr_name, sizeof(ifr.ifr_name));
         /* do not check for loopback device as it cannot be monitored */
-        if (!strncmp(ifr.ifr_name, "lo", 2))
+        if (strncmp(ifr.ifr_name, "lo", 2) == 0)
             continue;
         if (ioctl(sockfd, SIOCGIFFLAGS, &ifr) < 0)
         {   
