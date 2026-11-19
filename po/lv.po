@@ -1,48 +1,53 @@
-# Latvian translations for xfce4-netload-plugin package.
-# Copyright (C) 2007 THE xfce4-netload-plugin'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-netload-plugin package.
-#
-# Rihards Prieditis <rprieditis@inbox.lv>, 2007.
-# Rihards Prieditis <rprieditis@gmail.com>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-netload-plugin package.
+# 
+# Translators:
+# Rihards Priedītis <rprieditis@gmail.com>, 2009
+# Rihards Priedītis <rprieditis@gmail.com>, 2007,2009,2026
+# Rihards Prieditis <rprieditis@inbox.lv>, 2007
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-netload-plugin 0.4.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 12:09+0100\n"
-"PO-Revision-Date: 2009-09-18 22:36+0100\n"
-"Last-Translator: Rihards Prieditis <rprieditis@gmail.com>\n"
-"Language-Team: Latvian <translation-team-lv@lists.sourceforge.net>\n"
-"Language: lv\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2026-10-24 13:02+0200\n"
+"PO-Revision-Date: 2013-07-03 19:08+0000\n"
+"Last-Translator: Rihards Priedītis <rprieditis@gmail.com>, 2007,2009,2026\n"
+"Language-Team: Latvian (http://app.transifex.com/xfce/xfce-panel-plugins/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"Language: lv\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
-#: ../panel-plugin/netload.c:62
+#. Defaults
+#: panel-plugin/netload.c:42
+msgid "Net"
+msgstr "Tīkls"
+
+#: panel-plugin/netload.c:61
 msgid "Xfce4-Netload-Plugin"
-msgstr "Xfce4-tīkla-noslodzes-spraudnis"
+msgstr "Xfce4 tīkla noslodzes spraudnis"
 
-#: ../panel-plugin/netload.c:65
+#: panel-plugin/netload.c:64
 msgid "Unknown error."
 msgstr "Nezināma kļūda."
 
-#: ../panel-plugin/netload.c:66
+#: panel-plugin/netload.c:65
 msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "Linux proc ierīce '/proc/net/dev' nav atrasta."
+msgstr "Linux proc ierīce „/proc/net/dev” nav atrasta."
 
-#: ../panel-plugin/netload.c:67
+#: panel-plugin/netload.c:66
 msgid "Interface was not found."
-msgstr "Saskarsne netika atrasta."
+msgstr "Saskarne netika atrasta."
 
-#: ../panel-plugin/netload.c:168
+#: panel-plugin/netload.c:275
 #, c-format
 msgid "<< %s >> (Interface down)"
-msgstr "<< %s >> (Saskarsne lejā)"
+msgstr "<< %s >> (saskarne izslēgta)"
 
-#: ../panel-plugin/netload.c:255
-#, fuzzy, c-format
+#: panel-plugin/netload.c:396
+#, c-format
 msgid ""
 "<< %s >> (%s)\n"
 "Average of last %d measures\n"
@@ -50,141 +55,207 @@ msgid ""
 "Incoming: %s\n"
 "Outgoing: %s\n"
 "Total: %s"
-msgstr ""
-"<< %s >> (%s)\n"
-"Vidējais no pēdējā %d mērījuma:\n"
-"Ienākošais: %s kByte/s\n"
-"Izejošais: %s kByte/s\n"
-"Kopā: %s kByte/s"
+msgstr "<< %s >> (%s)\nPēdējo %d mērījumu vidējais\nar intervālu %.2f s:\nIenākošā: %s\nIzejošā: %s\nKopā: %s"
 
-#: ../panel-plugin/netload.c:258
+#: panel-plugin/netload.c:399
 msgid "no IP address"
 msgstr "nav IP adreses"
 
-#: ../panel-plugin/netload.c:585
-#, fuzzy, c-format
+#: panel-plugin/netload.c:405
+#, c-format
+msgid ""
+"%s\n"
+"Cumulative:\n"
+"Incoming: %s\n"
+"Outgoing: %s\n"
+"Total: %s"
+msgstr "%s\nKumulatīvi:\nIenākošā: %s\nIzejošā: %s\nKopā: %s"
+
+#: panel-plugin/netload.c:823
+#, c-format
 msgid ""
 "%s: Error in initializing:\n"
 "%s"
-msgstr ""
-"%s: Kļūda inicializējot:\n"
-"%s"
+msgstr "%s: inicializēšanas kļūda:\n%s"
 
-#: ../panel-plugin/netload.c:914
-msgid "Select color"
-msgstr "Norādīt krāsu"
+#: panel-plugin/netload.c:1197
+msgid "Display the current load of a network interface in the panel"
+msgstr "Rādīt panelī tīkla saskarnes pašreizējo noslodzi"
 
-#: ../panel-plugin/netload.c:981
-#, fuzzy
+#: panel-plugin/netload.c:1275
 msgid "Bar color (i_ncoming):"
-msgstr "Joslu krāsa (ienākošais):"
+msgstr "Joslas krāsa (ie_nākošā):"
 
-#: ../panel-plugin/netload.c:982
-#, fuzzy
+#: panel-plugin/netload.c:1276
 msgid "Bar color (_outgoing):"
-msgstr "Joslu krāsa (izejošais):"
+msgstr "Joslas krāsa (_izejošā):"
 
-#: ../panel-plugin/netload.c:985
-#, fuzzy
+#: panel-plugin/netload.c:1279
 msgid "Maximum (inco_ming):"
-msgstr "Maksimums (ienākošais):"
+msgstr "Maksimums (ienā_košā):"
 
-#: ../panel-plugin/netload.c:986
-#, fuzzy
+#: panel-plugin/netload.c:1280
 msgid "Maximum (o_utgoing):"
-msgstr "Maksimums (izejošais):"
+msgstr "Maksimums (i_zejošā):"
 
-#: ../panel-plugin/netload.c:991 ../panel-plugin/netload.desktop.in.in.h:1
+#: panel-plugin/netload.c:1288 panel-plugin/netload.desktop.in:5
 msgid "Network Monitor"
 msgstr "Tīkla pārraugs"
 
-#: ../panel-plugin/netload.c:1020
-#, fuzzy
+#: panel-plugin/netload.c:1290
+msgid "_Close"
+msgstr "_Aizvērt"
+
+#: panel-plugin/netload.c:1291
+msgid "_Help"
+msgstr "_Palīdzība"
+
+#: panel-plugin/netload.c:1317
 msgid "_Text to display:"
-msgstr "Attēlojamais teksts:"
+msgstr "Rādāmais _teksts:"
 
-#: ../panel-plugin/netload.c:1049
-#, fuzzy
+#: panel-plugin/netload.c:1348
 msgid "Network _device:"
-msgstr "Tīkla ierīce:"
+msgstr "Tīkla _ierīce:"
 
-#: ../panel-plugin/netload.c:1074
-#, fuzzy
+#: panel-plugin/netload.c:1379
 msgid "Update _interval:"
-msgstr "Atjaunināšanas intervāls:"
+msgstr "Atjaunināšanas _intervāls:"
 
-#: ../panel-plugin/netload.c:1087
+#: panel-plugin/netload.c:1393
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/netload.c:1101
+#: panel-plugin/netload.c:1408
+msgid "Show _cumulative values"
+msgstr "Rādīt _kumulatīvās vērtības"
+
+#: panel-plugin/netload.c:1423
 msgid "Show values as _bits"
-msgstr ""
+msgstr "Rādīt vērtības _bitos"
 
-#: ../panel-plugin/netload.c:1115
-#, fuzzy
+#: panel-plugin/netload.c:1431
+msgid "Use short units"
+msgstr "Izmantot īsas mērvienības"
+
+#: panel-plugin/netload.c:1437
+msgid ""
+"Use fixed-width compact panel values, such as 2.1K, 22K and 222K. Tooltips "
+"retain full units and the configured precision."
+msgstr "Panelī izmantot fiksēta platuma kompaktas vērtības, piemēram, 2.1K, 22K un 222K. Paskaidrēs saglabājas pilnas mērvienības un iestatītā precizitāte."
+
+#: panel-plugin/netload.c:1446
 msgid "_Automatic maximum"
-msgstr "Automātiski maksimumu"
+msgstr "_Automātisks maksimums"
 
-#: ../panel-plugin/netload.c:1149
+#: panel-plugin/netload.c:1481
 msgid "KiB/s"
-msgstr ""
+msgstr "KiB/s"
 
-#: ../panel-plugin/netload.c:1174
+#: panel-plugin/netload.c:1507
 msgid "_Present data as:"
-msgstr ""
+msgstr "_Attēlot datus kā:"
 
-#: ../panel-plugin/netload.c:1183
+#: panel-plugin/netload.c:1517
 msgid "Bars"
-msgstr ""
+msgstr "Joslas"
 
-#: ../panel-plugin/netload.c:1184
+#: panel-plugin/netload.c:1518
 msgid "Values"
-msgstr ""
+msgstr "Vērtības"
 
-#: ../panel-plugin/netload.c:1185
+#: panel-plugin/netload.c:1519
 msgid "Bars and values"
-msgstr ""
+msgstr "Joslas un vērtības"
 
-#: ../panel-plugin/netload.c:1235
+#: panel-plugin/netload.c:1562
 msgid "_Colorize values"
-msgstr ""
+msgstr "_Krāsot vērtības"
 
-#: ../panel-plugin/netload.desktop.in.in.h:2
+#: panel-plugin/netload.c:1585
+msgid "_Digits number:"
+msgstr "_Ciparu skaits:"
+
+#: panel-plugin/netload.desktop.in:6
 msgid "Show network traffic"
-msgstr "Rādīt tīkla satiksmi"
+msgstr "Rādīt tīkla datplūsmu"
 
-#: ../panel-plugin/utils.c:78
+#: panel-plugin/utils.c:78
 msgid "B"
-msgstr ""
+msgstr "B"
 
-#: ../panel-plugin/utils.c:78
+#: panel-plugin/utils.c:78
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
-#: ../panel-plugin/utils.c:78
+#: panel-plugin/utils.c:78
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
-#: ../panel-plugin/utils.c:78
+#: panel-plugin/utils.c:78
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
-#: ../panel-plugin/utils.c:79
+#: panel-plugin/utils.c:78
+msgid "TiB"
+msgstr "TiB"
+
+#: panel-plugin/utils.c:79
+msgid "b"
+msgstr "b"
+
+#: panel-plugin/utils.c:79
+msgid "Kb"
+msgstr "Kb"
+
+#: panel-plugin/utils.c:79
+msgid "Mb"
+msgstr "Mb"
+
+#: panel-plugin/utils.c:79
+msgid "Gb"
+msgstr "Gb"
+
+#: panel-plugin/utils.c:79
+msgid "Tb"
+msgstr "Tb"
+
+#: panel-plugin/utils.c:80
+msgid "Bps"
+msgstr "B/s"
+
+#: panel-plugin/utils.c:80
+msgid "KiBps"
+msgstr "KiB/s"
+
+#: panel-plugin/utils.c:80
+msgid "MiBps"
+msgstr "MiB/s"
+
+#: panel-plugin/utils.c:80
+msgid "GiBps"
+msgstr "GiB/s"
+
+#: panel-plugin/utils.c:80
+msgid "TiBps"
+msgstr "TiB/s"
+
+#: panel-plugin/utils.c:81
 msgid "bps"
-msgstr ""
+msgstr "b/s"
 
-#: ../panel-plugin/utils.c:79
+#: panel-plugin/utils.c:81
 msgid "Kbps"
-msgstr ""
+msgstr "Kb/s"
 
-#: ../panel-plugin/utils.c:79
+#: panel-plugin/utils.c:81
 msgid "Mbps"
-msgstr ""
+msgstr "Mb/s"
 
-#: ../panel-plugin/utils.c:79
+#: panel-plugin/utils.c:81
 msgid "Gbps"
-msgstr ""
+msgstr "Gb/s"
 
-#~ msgid "kByte/s"
-#~ msgstr "kBiti/s"
+#: panel-plugin/utils.c:81
+msgid "Tbps"
+msgstr "Tb/s"
