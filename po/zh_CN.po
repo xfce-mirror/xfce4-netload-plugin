@@ -178,7 +178,7 @@ msgstr "使用彩色显示文字(_C)"
 
 #: panel-plugin/netload.c:1585
 msgid "_Digits number:"
-msgstr "位数(_D)："
+msgstr "小数位数(_D)："
 
 #: panel-plugin/netload.desktop.in:6
 msgid "Show network traffic"
